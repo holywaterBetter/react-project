@@ -1,0 +1,15 @@
+{
+  "home": {
+    "title": "엔터프라이즈 스타터 홈",
+    "subtitle": "MUI, Tailwind, Emotion, Context API, i18n 설정이 함께 동작함을 보여줍니다.",
+    "demoCard": {
+      "title": "UI 스택 통합",
+      "description": "Material UI는 컴포넌트, Tailwind는 유틸리티 레이아웃, Emotion은 컴포넌트 스타일링을 담당합니다.",
+      "actionMessage": "작업이 성공적으로 완료되었습니다."
+    }
+  },
+  "about": {
+    "title": "스타터 소개",
+    "description": "최신 호환 의존성을 사용해 실무형 엔터프라이즈 구조를 반영한 프로젝트입니다."
+  }
+}

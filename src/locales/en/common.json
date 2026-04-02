@@ -1,0 +1,15 @@
+{
+  "home": {
+    "title": "Enterprise Starter Home",
+    "subtitle": "This starter confirms MUI, Tailwind, Emotion, Context API, and i18n are wired.",
+    "demoCard": {
+      "title": "UI Stack Integration",
+      "description": "Material UI handles components, Tailwind handles utility layout, and Emotion powers component-level styling.",
+      "actionMessage": "Action completed successfully."
+    }
+  },
+  "about": {
+    "title": "About This Starter",
+    "description": "This project mirrors a production-ready enterprise structure using modern compatible dependencies."
+  }
+}
