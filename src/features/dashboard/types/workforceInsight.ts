@@ -42,6 +42,14 @@ export type InsightStackedBarItem = {
   target: number;
 };
 
+export type InsightTargetProgress = {
+  currentHeadcount: number;
+  targetHeadcount: number;
+  achievementRate: number;
+  gapHeadcount: number;
+  isAhead: boolean;
+};
+
 export type WorkforceInsightData = {
   availableMonths: string[];
   organizationOptions: Array<{
@@ -55,4 +63,5 @@ export type WorkforceInsightData = {
   divisionComposition: InsightDivisionComposition[];
   categoryDistribution: InsightCategoryDistribution[];
   stackedSeries: InsightStackedBarItem[];
+  targetProgress: InsightTargetProgress;
 };

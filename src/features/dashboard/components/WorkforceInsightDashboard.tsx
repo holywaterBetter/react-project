@@ -50,6 +50,7 @@ const easeCard = {
 const palette = ['#6366F1', '#0EA5E9', '#10B981', '#F59E0B', '#EF4444'];
 
 const formatSigned = (value: number) => `${value >= 0 ? '+' : ''}${value.toLocaleString()}`;
+const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
 
 export const WorkforceInsightDashboard = ({
   data,
@@ -66,6 +67,16 @@ export const WorkforceInsightDashboard = ({
   const maxTrend = Math.max(...trendData.map((item) => Math.max(item.headcount, item.target)), 1);
   const maxDivisionHeadcount = Math.max(...(data?.divisionComposition.map((division) => division.totalHeadcount) ?? [1]), 1);
   const kpiItems = data?.kpis ?? [];
+  const achievementRate = data?.targetProgress.achievementRate ?? 0;
+  const gaugeRate = clamp(achievementRate, 0, 100);
+  const progressStatusColor = data?.targetProgress.isAhead ? '#0F766E' : '#B45309';
+  const progressStatusBg = data?.targetProgress.isAhead ? alpha('#14B8A6', 0.15) : alpha('#F59E0B', 0.16);
+  const progressStatusText = data?.targetProgress.isAhead
+    ? t('insight.progress.statusAhead')
+    : t('insight.progress.statusInProgress');
+  const progressGapLabel = data?.targetProgress.isAhead
+    ? t('insight.progress.overTarget', { value: Math.abs(data.targetProgress.gapHeadcount).toLocaleString() })
+    : t('insight.progress.remaining', { value: Math.max(data?.targetProgress.gapHeadcount ?? 0, 0).toLocaleString() });
 
   return (
     <Stack spacing={3}>
@@ -208,6 +219,95 @@ export const WorkforceInsightDashboard = ({
                 </Stack>
               ))}
             </Box>
+          </CardContent>
+        </Card>
+
+        <Card variant="outlined" sx={{ borderRadius: 3, ...easeCard }}>
+          <CardContent>
+            <Typography variant="h6" fontWeight={800}>
+              {t('insight.progress.title')}
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+              {t('insight.progress.description')}
+            </Typography>
+
+            <Stack
+              direction={{ xs: 'column', sm: 'row' }}
+              alignItems={{ xs: 'flex-start', sm: 'center' }}
+              spacing={3}
+              sx={{ mt: 0.5 }}
+            >
+              <Box sx={{ position: 'relative', width: 172, height: 172, flexShrink: 0 }}>
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    inset: 0,
+                    borderRadius: '50%',
+                    background: `conic-gradient(#6366F1 ${gaugeRate * 3.6}deg, ${alpha('#6366F1', 0.16)} 0deg)`,
+                    transform: 'rotate(-90deg)'
+                  }}
+                />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    inset: 16,
+                    borderRadius: '50%',
+                    bgcolor: 'background.paper',
+                    border: `1px solid ${alpha('#6366F1', 0.2)}`,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <Typography variant="caption" color="text.secondary" fontWeight={700}>
+                    {t('insight.progress.currentRate')}
+                  </Typography>
+                  <Typography variant="h4" fontWeight={800} sx={{ lineHeight: 1.1, mt: 0.2 }}>
+                    {achievementRate.toFixed(1)}%
+                  </Typography>
+                  <Chip
+                    size="small"
+                    label={progressStatusText}
+                    sx={{ mt: 1, fontWeight: 700, color: progressStatusColor, bgcolor: progressStatusBg }}
+                  />
+                </Box>
+              </Box>
+
+              <Stack spacing={1.4} sx={{ width: '100%' }}>
+                <Box>
+                  <Typography variant="caption" color="text.secondary" fontWeight={700}>
+                    {t('insight.progress.currentHeadcount')}
+                  </Typography>
+                  <Typography variant="h6" fontWeight={800}>
+                    {(data?.targetProgress.currentHeadcount ?? 0).toLocaleString()}
+                  </Typography>
+                </Box>
+                <Box>
+                  <Typography variant="caption" color="text.secondary" fontWeight={700}>
+                    {t('insight.progress.targetHeadcount')}
+                  </Typography>
+                  <Typography variant="h6" fontWeight={800}>
+                    {(data?.targetProgress.targetHeadcount ?? 0).toLocaleString()}
+                  </Typography>
+                </Box>
+                <Box sx={{ pt: 0.25 }}>
+                  <Typography variant="body2" fontWeight={700} color={data?.targetProgress.isAhead ? 'success.main' : 'warning.dark'}>
+                    {progressGapLabel}
+                  </Typography>
+                </Box>
+                <LinearProgress
+                  variant="determinate"
+                  value={clamp(achievementRate, 0, 100)}
+                  sx={{
+                    height: 10,
+                    borderRadius: 99,
+                    bgcolor: alpha('#6366F1', 0.16),
+                    '& .MuiLinearProgress-bar': { borderRadius: 99, bgcolor: '#6366F1' }
+                  }}
+                />
+              </Stack>
+            </Stack>
           </CardContent>
         </Card>
 

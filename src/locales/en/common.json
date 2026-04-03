@@ -181,6 +181,17 @@
       "targetAchievement": "Target Achievement",
       "reallocationMovements": "Reallocation Movements"
     },
+    "progress": {
+      "title": "Progress Against Target",
+      "description": "A quick visual of how much of the year-end workforce target is already achieved.",
+      "currentRate": "Achievement",
+      "currentHeadcount": "Current Headcount",
+      "targetHeadcount": "Target Headcount",
+      "remaining": "{{value}} people remaining to target",
+      "overTarget": "{{value}} people above target",
+      "statusAhead": "Target Achieved",
+      "statusInProgress": "In Progress"
+    },
     "sections": {
       "trendTitle": "Headcount Trend vs Target Trajectory",
       "trendDescription": "Recent momentum with projected target path.",
