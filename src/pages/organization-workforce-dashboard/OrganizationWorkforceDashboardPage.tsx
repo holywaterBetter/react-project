@@ -1,8 +1,8 @@
+import { Alert, Button, Stack } from '@mui/material';
 import { OrganizationWorkforceDashboardFilters } from '@pages/organization-workforce-dashboard/components/OrganizationWorkforceDashboardFilters';
 import { OrganizationWorkforceDashboardHeader } from '@pages/organization-workforce-dashboard/components/OrganizationWorkforceDashboardHeader';
 import { OrganizationWorkforceDashboardTable } from '@pages/organization-workforce-dashboard/components/OrganizationWorkforceDashboardTable';
 import { useOrganizationWorkforceDashboard } from '@pages/organization-workforce-dashboard/hooks/useOrganizationWorkforceDashboard';
-import { Alert, Button, Stack } from '@mui/material';
 
 export const OrganizationWorkforceDashboardPage = () => {
   const { filters, viewState, dataState, actions } = useOrganizationWorkforceDashboard();

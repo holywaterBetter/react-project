@@ -1,10 +1,10 @@
 import { organizationWorkforceDashboardApi } from '@api/organizationWorkforceDashboardApi';
-import { buildOrganizationSections } from '@pages/organization-workforce-dashboard/utils/dashboardTableMapper';
 import type {
   DashboardTableSection,
   OrganizationCategoryMappingResponse,
   OrganizationWorkforceDashboardMeta
 } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
+import { buildOrganizationSections } from '@pages/organization-workforce-dashboard/utils/dashboardTableMapper';
 import { startTransition, useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 
 export const useOrganizationWorkforceDashboard = () => {

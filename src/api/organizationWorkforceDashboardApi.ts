@@ -1,6 +1,5 @@
 import { orgMockApi } from '@api/orgMockApi';
 import { organizationCategoryCodes, organizationCategoryMap, type OrganizationCategoryCode } from '@constants/organizationCategoryMap';
-import type { OrganizationTreeNode } from '@shared-types/org';
 import type {
   DashboardApiResponse,
   DashboardCategoryPeriodMap,
@@ -9,6 +8,7 @@ import type {
   OrganizationWorkforceDashboardMeta,
   OrganizationWorkforceDashboardQuery
 } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
+import type { OrganizationTreeNode } from '@shared-types/org';
 
 const MOCK_DELAY_MS = 420;
 

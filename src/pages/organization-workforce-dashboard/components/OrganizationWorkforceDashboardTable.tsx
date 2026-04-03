@@ -1,6 +1,6 @@
+import { Alert, Skeleton, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import { OrganizationWorkforceDashboardSection } from '@pages/organization-workforce-dashboard/components/OrganizationWorkforceDashboardSection';
 import type { DashboardTableSection } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
-import { Alert, Skeleton, Stack, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 
 type OrganizationWorkforceDashboardTableProps = {
   sections: DashboardTableSection[];
@@ -53,13 +53,13 @@ export const OrganizationWorkforceDashboardTable = ({
                 구분
               </TableCell>
               <TableCell colSpan={3} align="center" sx={{ backgroundColor: 'var(--color-bg-raised)' }}>
-                '25년말 실적
+                ’25년말 실적
               </TableCell>
               <TableCell colSpan={4} align="center" sx={{ backgroundColor: 'var(--color-bg-raised)' }}>
-                '26년말 목표
+                ’26년말 목표
               </TableCell>
               <TableCell colSpan={4} align="center" sx={{ backgroundColor: 'var(--color-bg-raised)' }}>
-                '26.4월 현재 실적
+                ’26.4월 현재 실적
               </TableCell>
             </TableRow>
             <TableRow>

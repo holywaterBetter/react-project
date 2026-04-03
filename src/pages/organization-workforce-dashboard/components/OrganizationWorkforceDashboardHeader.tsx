@@ -1,5 +1,5 @@
-import { formatDateLabel } from '@pages/organization-workforce-dashboard/utils/dashboardFormatters';
 import { Button, Chip, Stack, Typography } from '@mui/material';
+import { formatDateLabel } from '@pages/organization-workforce-dashboard/utils/dashboardFormatters';
 
 type OrganizationWorkforceDashboardHeaderProps = {
   baseMonth?: string;
