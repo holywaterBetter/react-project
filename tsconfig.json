@@ -58,6 +58,12 @@
       "@styles/*": [
         "styles/*"
       ],
+      "@theme/*": [
+        "theme/*"
+      ],
+      "@theme": [
+        "theme/index.ts"
+      ],
       "@assets/*": [
         "assets/*"
       ],

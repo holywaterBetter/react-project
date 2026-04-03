@@ -1,25 +1,25 @@
 import { LanguageSwitcher } from '@components/LanguageSwitcher';
 import { useAppTheme } from '@contexts/AppThemeContext';
 import { Brightness4, Brightness7 } from '@mui/icons-material';
-import { AppBar, Box, Container, IconButton, Toolbar, Typography } from '@mui/material';
+import { AppBar, Box, Button, Container, IconButton, Toolbar, Typography } from '@mui/material';
 import { Link as RouterLink, Outlet } from 'react-router-dom';
 
 export const MainLayout = () => {
   const { mode, toggleMode } = useAppTheme();
 
   return (
-    <Box className="min-h-screen bg-slate-50 dark:bg-slate-900">
-      <AppBar position="static">
-        <Toolbar className="flex gap-4">
-          <Typography variant="h6" component="div" className="mr-3 flex-1">
+    <Box className="min-h-screen bg-canvas text-ink">
+      <AppBar position="sticky" color="transparent" elevation={0}>
+        <Toolbar className="mx-auto flex w-full max-w-6xl gap-4 px-0">
+          <Typography variant="h6" component="div" className="mr-3 flex-1 font-semibold text-ink">
             Enterprise React Starter
           </Typography>
-          <RouterLink to="/" className="text-white no-underline hover:underline">
+          <Button component={RouterLink} to="/" color="inherit">
             Home
-          </RouterLink>
-          <RouterLink to="/about" className="text-white no-underline hover:underline">
+          </Button>
+          <Button component={RouterLink} to="/about" color="inherit">
             About
-          </RouterLink>
+          </Button>
           <LanguageSwitcher />
           <IconButton color="inherit" onClick={toggleMode} aria-label="toggle-theme-mode">
             {mode === 'light' ? <Brightness4 /> : <Brightness7 />}
@@ -27,7 +27,7 @@ export const MainLayout = () => {
         </Toolbar>
       </AppBar>
 
-      <Container className="py-8">
+      <Container maxWidth="lg" className="py-8">
         <Outlet />
       </Container>
     </Box>

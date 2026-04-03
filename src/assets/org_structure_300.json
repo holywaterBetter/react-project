@@ -1,0 +1,3002 @@
+[
+  {
+    "org_code": "C100001",
+    "org_name": "MX 사업부",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260228",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100002",
+    "org_name": "커넥티드본부",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100001",
+    "updated_date": "20260204",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100003",
+    "org_name": "엔터프라이즈사업운영실",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100001",
+    "updated_date": "20260101",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100004",
+    "org_name": "차세대사업운영실",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100001",
+    "updated_date": "20260128",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100005",
+    "org_name": "데이터본부",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100001",
+    "updated_date": "20260304",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100006",
+    "org_name": "커넥티드랩",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100001",
+    "updated_date": "20260102",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100007",
+    "org_name": "플랫폼본부",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100001",
+    "updated_date": "20260318",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100008",
+    "org_name": "반도체전략실",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100001",
+    "updated_date": "20260128",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100009",
+    "org_name": "채널본부",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100001",
+    "updated_date": "20260421",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100010",
+    "org_name": "반도체PMO그룹",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100008",
+    "updated_date": "20260207",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100011",
+    "org_name": "인프라운영그룹",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100008",
+    "updated_date": "20260105",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100012",
+    "org_name": "커넥티드혁신그룹",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100004",
+    "updated_date": "20260326",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100013",
+    "org_name": "채널서비스그룹",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100007",
+    "updated_date": "20260325",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100014",
+    "org_name": "커머스운영그룹",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100002",
+    "updated_date": "20260205",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100015",
+    "org_name": "반도체개발그룹",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100006",
+    "updated_date": "20260210",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100016",
+    "org_name": "전략기술그룹",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100003",
+    "updated_date": "20260110",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100017",
+    "org_name": "엔터프라이즈PMO그룹",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100004",
+    "updated_date": "20260110",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100018",
+    "org_name": "통합혁신그룹",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100008",
+    "updated_date": "20260314",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100019",
+    "org_name": "AIPMO그룹",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100003",
+    "updated_date": "20260416",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100020",
+    "org_name": "통합혁신그룹2",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100007",
+    "updated_date": "20260116",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100021",
+    "org_name": "채널품질그룹",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100003",
+    "updated_date": "20260402",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100022",
+    "org_name": "제조솔루션그룹",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100006",
+    "updated_date": "20260221",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100023",
+    "org_name": "디지털서비스그룹",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100008",
+    "updated_date": "20260126",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100024",
+    "org_name": "플랫폼인프라팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100011",
+    "updated_date": "20260202",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100025",
+    "org_name": "모바일아키텍처팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100016",
+    "updated_date": "20260418",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100026",
+    "org_name": "스마트홈보안팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100018",
+    "updated_date": "20260426",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100027",
+    "org_name": "채널클라우드팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100019",
+    "updated_date": "20260214",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100028",
+    "org_name": "반도체품질팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100011",
+    "updated_date": "20260319",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100029",
+    "org_name": "클라우드전략팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100022",
+    "updated_date": "20260212",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100030",
+    "org_name": "고객경험설계팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100011",
+    "updated_date": "20260117",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100031",
+    "org_name": "미디어클라우드팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100017",
+    "updated_date": "20260204",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100032",
+    "org_name": "품질운영팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100017",
+    "updated_date": "20260221",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100033",
+    "org_name": "디지털품질팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100010",
+    "updated_date": "20260204",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100034",
+    "org_name": "글로벌전략팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100013",
+    "updated_date": "20260318",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100035",
+    "org_name": "데이터아키텍처팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100023",
+    "updated_date": "20260405",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100036",
+    "org_name": "품질클라우드팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100019",
+    "updated_date": "20260417",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100037",
+    "org_name": "솔루션기획팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100017",
+    "updated_date": "20260416",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100038",
+    "org_name": "솔루션설계팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100020",
+    "updated_date": "20260218",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100039",
+    "org_name": "차세대품질팀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100019",
+    "updated_date": "20260111",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100040",
+    "org_name": "통합TF",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100034",
+    "updated_date": "20260117",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100041",
+    "org_name": "엔터프라이즈TF",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100028",
+    "updated_date": "20260227",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100042",
+    "org_name": "인프라TF",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100036",
+    "updated_date": "20260403",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100043",
+    "org_name": "UX셀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100026",
+    "updated_date": "20260108",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100044",
+    "org_name": "커머스TF",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100028",
+    "updated_date": "20260125",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100045",
+    "org_name": "제조파트",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100038",
+    "updated_date": "20260228",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100046",
+    "org_name": "반도체스쿼드",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100038",
+    "updated_date": "20260417",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100047",
+    "org_name": "인프라셀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100025",
+    "updated_date": "20260124",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100048",
+    "org_name": "생산기술파트",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100037",
+    "updated_date": "20260318",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100049",
+    "org_name": "통합유닛",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100037",
+    "updated_date": "20260420",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100050",
+    "org_name": "엔터프라이즈셀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100031",
+    "updated_date": "20260124",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100051",
+    "org_name": "스마트홈스쿼드",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100029",
+    "updated_date": "20260311",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100052",
+    "org_name": "전략TF",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100026",
+    "updated_date": "20260325",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100053",
+    "org_name": "품질기획셀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100046",
+    "updated_date": "20260106",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100054",
+    "org_name": "차세대3파트",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100050",
+    "updated_date": "20260210",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100055",
+    "org_name": "통합분석셀",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100051",
+    "updated_date": "20260102",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100056",
+    "org_name": "서비스3파트",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100047",
+    "updated_date": "20260428",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100057",
+    "org_name": "채널2파트",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100049",
+    "updated_date": "20260226",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100058",
+    "org_name": "서비스1파트",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100045",
+    "updated_date": "20260413",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100059",
+    "org_name": "커머스2파트",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100047",
+    "updated_date": "20260425",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100060",
+    "org_name": "모바일1파트",
+    "org_division_code": "C10",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C100042",
+    "updated_date": "20260221",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100061",
+    "org_name": "DS 사업부",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260304",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100062",
+    "org_name": "플랫폼사업운영실",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100061",
+    "updated_date": "20260404",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100063",
+    "org_name": "시스템본부",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100061",
+    "updated_date": "20260420",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100064",
+    "org_name": "응용개발실",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100061",
+    "updated_date": "20260326",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100065",
+    "org_name": "차세대사업운영실",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100061",
+    "updated_date": "20260324",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100066",
+    "org_name": "UX랩",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100061",
+    "updated_date": "20260202",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100067",
+    "org_name": "글로벌센터",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100061",
+    "updated_date": "20260215",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100068",
+    "org_name": "디지털본부",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100061",
+    "updated_date": "20260102",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100069",
+    "org_name": "전략센터",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100061",
+    "updated_date": "20260117",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100070",
+    "org_name": "디바이스서비스그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100065",
+    "updated_date": "20260417",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100071",
+    "org_name": "AI솔루션그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100066",
+    "updated_date": "20260419",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100072",
+    "org_name": "차세대서비스그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100068",
+    "updated_date": "20260114",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100073",
+    "org_name": "AI개발그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100063",
+    "updated_date": "20260224",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100074",
+    "org_name": "디지털품질그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100062",
+    "updated_date": "20260422",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100075",
+    "org_name": "모바일품질그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100068",
+    "updated_date": "20260324",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100076",
+    "org_name": "고객경험혁신그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100066",
+    "updated_date": "20260104",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100077",
+    "org_name": "채널플랫폼그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100067",
+    "updated_date": "20260312",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100078",
+    "org_name": "모바일기술그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100064",
+    "updated_date": "20260303",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100079",
+    "org_name": "플랫폼플랫폼그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100064",
+    "updated_date": "20260222",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100080",
+    "org_name": "파트너플랫폼그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100063",
+    "updated_date": "20260312",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100081",
+    "org_name": "차세대기술그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100062",
+    "updated_date": "20260206",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100082",
+    "org_name": "AI품질그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100069",
+    "updated_date": "20260323",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100083",
+    "org_name": "데이터플랫폼그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100066",
+    "updated_date": "20260212",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100084",
+    "org_name": "전략운영팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100075",
+    "updated_date": "20260318",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100085",
+    "org_name": "제조데이터팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100080",
+    "updated_date": "20260104",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100086",
+    "org_name": "인프라운영팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100078",
+    "updated_date": "20260213",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100087",
+    "org_name": "데이터응용팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100072",
+    "updated_date": "20260211",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100088",
+    "org_name": "디바이스품질팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100078",
+    "updated_date": "20260210",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100089",
+    "org_name": "서비스클라우드팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100075",
+    "updated_date": "20260128",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100090",
+    "org_name": "시스템개발팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100072",
+    "updated_date": "20260403",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100091",
+    "org_name": "고객경험데이터팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100081",
+    "updated_date": "20260410",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100092",
+    "org_name": "서비스인프라팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100078",
+    "updated_date": "20260219",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100093",
+    "org_name": "스마트홈클라우드팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100076",
+    "updated_date": "20260303",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100094",
+    "org_name": "글로벌클라우드팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100073",
+    "updated_date": "20260321",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100095",
+    "org_name": "커머스전략팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100078",
+    "updated_date": "20260401",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100096",
+    "org_name": "파트너기획팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100076",
+    "updated_date": "20260407",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100097",
+    "org_name": "스마트홈보안팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100075",
+    "updated_date": "20260106",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100098",
+    "org_name": "AI운영팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100082",
+    "updated_date": "20260118",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100099",
+    "org_name": "채널데이터팀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100079",
+    "updated_date": "20260413",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100100",
+    "org_name": "미디어유닛",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100089",
+    "updated_date": "20260406",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100101",
+    "org_name": "글로벌TF",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100091",
+    "updated_date": "20260212",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100102",
+    "org_name": "응용셀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100098",
+    "updated_date": "20260425",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100103",
+    "org_name": "스마트홈셀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100090",
+    "updated_date": "20260420",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100104",
+    "org_name": "모바일파트",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100098",
+    "updated_date": "20260304",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100105",
+    "org_name": "보안스쿼드",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100093",
+    "updated_date": "20260214",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100106",
+    "org_name": "고객경험유닛",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100099",
+    "updated_date": "20260218",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100107",
+    "org_name": "커넥티드셀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100096",
+    "updated_date": "20260109",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100108",
+    "org_name": "모바일TF",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100085",
+    "updated_date": "20260417",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100109",
+    "org_name": "글로벌셀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100096",
+    "updated_date": "20260312",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100110",
+    "org_name": "엔터프라이즈파트",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100093",
+    "updated_date": "20260102",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100111",
+    "org_name": "디지털TF",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100086",
+    "updated_date": "20260318",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100112",
+    "org_name": "AI스쿼드",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100094",
+    "updated_date": "20260225",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100113",
+    "org_name": "고객경험기획셀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100102",
+    "updated_date": "20260310",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100114",
+    "org_name": "데이터운영셀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100108",
+    "updated_date": "20260218",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100115",
+    "org_name": "서비스운영셀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100101",
+    "updated_date": "20260424",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100116",
+    "org_name": "생산기술서비스셀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100112",
+    "updated_date": "20260315",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100117",
+    "org_name": "인프라3파트",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100105",
+    "updated_date": "20260204",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100118",
+    "org_name": "AI기획셀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100111",
+    "updated_date": "20260419",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100119",
+    "org_name": "데이터운영셀2",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100107",
+    "updated_date": "20260312",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100120",
+    "org_name": "전략기획셀",
+    "org_division_code": "C10",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C100110",
+    "updated_date": "20260216",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100121",
+    "org_name": "DX 사업부",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260423",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100122",
+    "org_name": "전략본부",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100121",
+    "updated_date": "20260115",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100123",
+    "org_name": "데이터본부",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100121",
+    "updated_date": "20260402",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100124",
+    "org_name": "모바일센터",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100121",
+    "updated_date": "20260413",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100125",
+    "org_name": "엔터프라이즈전략실",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100121",
+    "updated_date": "20260122",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100126",
+    "org_name": "솔루션본부",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100121",
+    "updated_date": "20260401",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100127",
+    "org_name": "커머스개발실",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100121",
+    "updated_date": "20260109",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100128",
+    "org_name": "파트너연구소",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100121",
+    "updated_date": "20260225",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100129",
+    "org_name": "플랫폼개발실",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100121",
+    "updated_date": "20260415",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100130",
+    "org_name": "품질솔루션그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100127",
+    "updated_date": "20260314",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100131",
+    "org_name": "데이터품질그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100128",
+    "updated_date": "20260217",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100132",
+    "org_name": "데이터기술그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100127",
+    "updated_date": "20260215",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100133",
+    "org_name": "디지털개발그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100127",
+    "updated_date": "20260426",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100134",
+    "org_name": "품질기술그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100129",
+    "updated_date": "20260215",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100135",
+    "org_name": "인프라플랫폼그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100125",
+    "updated_date": "20260402",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100136",
+    "org_name": "응용서비스그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100125",
+    "updated_date": "20260212",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100137",
+    "org_name": "파트너솔루션그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100122",
+    "updated_date": "20260220",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100138",
+    "org_name": "시스템서비스그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100126",
+    "updated_date": "20260325",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100139",
+    "org_name": "서비스품질그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100127",
+    "updated_date": "20260121",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100140",
+    "org_name": "인프라품질그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100128",
+    "updated_date": "20260409",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100141",
+    "org_name": "플랫폼혁신그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100129",
+    "updated_date": "20260302",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100142",
+    "org_name": "커머스솔루션그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100122",
+    "updated_date": "20260301",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100143",
+    "org_name": "응용플랫폼그룹",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100126",
+    "updated_date": "20260203",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100144",
+    "org_name": "서비스클라우드팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100142",
+    "updated_date": "20260220",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100145",
+    "org_name": "보안품질팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100136",
+    "updated_date": "20260407",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100146",
+    "org_name": "시스템아키텍처팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100135",
+    "updated_date": "20260126",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100147",
+    "org_name": "제조서비스팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100135",
+    "updated_date": "20260411",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100148",
+    "org_name": "모바일서비스팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100134",
+    "updated_date": "20260107",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100149",
+    "org_name": "고객경험품질팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100135",
+    "updated_date": "20260307",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100150",
+    "org_name": "플랫폼운영팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100143",
+    "updated_date": "20260310",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100151",
+    "org_name": "엔터프라이즈전략팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100138",
+    "updated_date": "20260316",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100152",
+    "org_name": "엔터프라이즈인프라팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100135",
+    "updated_date": "20260202",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100153",
+    "org_name": "차세대서비스팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100134",
+    "updated_date": "20260101",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100154",
+    "org_name": "전략인프라팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100137",
+    "updated_date": "20260402",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100155",
+    "org_name": "서비스보안팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100142",
+    "updated_date": "20260415",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100156",
+    "org_name": "고객경험아키텍처팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100131",
+    "updated_date": "20260204",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100157",
+    "org_name": "미디어데이터팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100143",
+    "updated_date": "20260407",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100158",
+    "org_name": "시스템아키텍처팀2",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100137",
+    "updated_date": "20260418",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100159",
+    "org_name": "생산기술설계팀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100142",
+    "updated_date": "20260402",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100160",
+    "org_name": "디바이스유닛",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100149",
+    "updated_date": "20260205",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100161",
+    "org_name": "차세대TF",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100152",
+    "updated_date": "20260314",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100162",
+    "org_name": "보안TF",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100147",
+    "updated_date": "20260223",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100163",
+    "org_name": "미디어유닛",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100153",
+    "updated_date": "20260418",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100164",
+    "org_name": "커넥티드파트",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100152",
+    "updated_date": "20260104",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100165",
+    "org_name": "클라우드유닛",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100147",
+    "updated_date": "20260207",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100166",
+    "org_name": "생산기술셀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100153",
+    "updated_date": "20260428",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100167",
+    "org_name": "AI유닛",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100145",
+    "updated_date": "20260304",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100168",
+    "org_name": "디바이스스쿼드",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100155",
+    "updated_date": "20260308",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100169",
+    "org_name": "고객경험스쿼드",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100151",
+    "updated_date": "20260322",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100170",
+    "org_name": "디바이스TF",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100154",
+    "updated_date": "20260410",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100171",
+    "org_name": "데이터셀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100149",
+    "updated_date": "20260312",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100172",
+    "org_name": "디지털파트",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100144",
+    "updated_date": "20260405",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100173",
+    "org_name": "UX2파트",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100162",
+    "updated_date": "20260225",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100174",
+    "org_name": "디지털개발셀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100163",
+    "updated_date": "20260208",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100175",
+    "org_name": "데이터플랫폼셀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100171",
+    "updated_date": "20260412",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100176",
+    "org_name": "인프라3파트",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100169",
+    "updated_date": "20260404",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100177",
+    "org_name": "통합1파트",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100169",
+    "updated_date": "20260316",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100178",
+    "org_name": "스마트홈1파트",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100167",
+    "updated_date": "20260218",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100179",
+    "org_name": "클라우드개발셀",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100170",
+    "updated_date": "20260418",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100180",
+    "org_name": "채널2파트",
+    "org_division_code": "C10",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C100165",
+    "updated_date": "20260305",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100181",
+    "org_name": "S/W 플랫폼 사업부",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260423",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100182",
+    "org_name": "통합센터",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100181",
+    "updated_date": "20260313",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100183",
+    "org_name": "플랫폼개발실",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100181",
+    "updated_date": "20260324",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100184",
+    "org_name": "제조랩",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100181",
+    "updated_date": "20260422",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100185",
+    "org_name": "커넥티드센터",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100181",
+    "updated_date": "20260210",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100186",
+    "org_name": "반도체전략실",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100181",
+    "updated_date": "20260124",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100187",
+    "org_name": "반도체개발실",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100181",
+    "updated_date": "20260421",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100188",
+    "org_name": "모바일연구소",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100181",
+    "updated_date": "20260101",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100189",
+    "org_name": "응용센터",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100181",
+    "updated_date": "20260127",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100190",
+    "org_name": "반도체개발그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100182",
+    "updated_date": "20260207",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100191",
+    "org_name": "서비스솔루션그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100189",
+    "updated_date": "20260310",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100192",
+    "org_name": "응용혁신그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100184",
+    "updated_date": "20260413",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100193",
+    "org_name": "서비스운영그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100182",
+    "updated_date": "20260425",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100194",
+    "org_name": "인프라서비스그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100182",
+    "updated_date": "20260413",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100195",
+    "org_name": "모바일PMO그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100184",
+    "updated_date": "20260220",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100196",
+    "org_name": "고객경험혁신그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100184",
+    "updated_date": "20260227",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100197",
+    "org_name": "디바이스플랫폼그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100184",
+    "updated_date": "20260224",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100198",
+    "org_name": "채널서비스그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100184",
+    "updated_date": "20260428",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100199",
+    "org_name": "시스템품질그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100183",
+    "updated_date": "20260220",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100200",
+    "org_name": "커넥티드혁신그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100182",
+    "updated_date": "20260401",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100201",
+    "org_name": "전략서비스그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100182",
+    "updated_date": "20260310",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100202",
+    "org_name": "글로벌기술그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100184",
+    "updated_date": "20260306",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100203",
+    "org_name": "제조운영그룹",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100188",
+    "updated_date": "20260413",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100204",
+    "org_name": "스마트홈서비스팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100190",
+    "updated_date": "20260318",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100205",
+    "org_name": "커머스응용팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100197",
+    "updated_date": "20260322",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100206",
+    "org_name": "글로벌전략팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100190",
+    "updated_date": "20260113",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100207",
+    "org_name": "전략개발팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100195",
+    "updated_date": "20260109",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100208",
+    "org_name": "커머스운영팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100201",
+    "updated_date": "20260322",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100209",
+    "org_name": "플랫폼응용팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100202",
+    "updated_date": "20260313",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100210",
+    "org_name": "커넥티드품질팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100203",
+    "updated_date": "20260119",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100211",
+    "org_name": "디지털품질팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100195",
+    "updated_date": "20260306",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100212",
+    "org_name": "생산기술데이터팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100203",
+    "updated_date": "20260328",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100213",
+    "org_name": "통합개발팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100201",
+    "updated_date": "20260119",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100214",
+    "org_name": "반도체기획팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100192",
+    "updated_date": "20260321",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100215",
+    "org_name": "제조보안팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100194",
+    "updated_date": "20260420",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100216",
+    "org_name": "클라우드개발팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100196",
+    "updated_date": "20260219",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100217",
+    "org_name": "글로벌데이터팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100190",
+    "updated_date": "20260301",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100218",
+    "org_name": "전략클라우드팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100201",
+    "updated_date": "20260324",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100219",
+    "org_name": "플랫폼아키텍처팀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100199",
+    "updated_date": "20260409",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100220",
+    "org_name": "UX파트",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100209",
+    "updated_date": "20260122",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100221",
+    "org_name": "인프라셀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100209",
+    "updated_date": "20260425",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100222",
+    "org_name": "커넥티드TF",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100217",
+    "updated_date": "20260301",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100223",
+    "org_name": "미디어TF",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100217",
+    "updated_date": "20260318",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100224",
+    "org_name": "제조파트",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100214",
+    "updated_date": "20260426",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100225",
+    "org_name": "엔터프라이즈셀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100208",
+    "updated_date": "20260226",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100226",
+    "org_name": "반도체유닛",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100216",
+    "updated_date": "20260118",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100227",
+    "org_name": "응용스쿼드",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100217",
+    "updated_date": "20260201",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100228",
+    "org_name": "UX파트2",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100215",
+    "updated_date": "20260221",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100229",
+    "org_name": "응용유닛",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100215",
+    "updated_date": "20260124",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100230",
+    "org_name": "인프라파트",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100211",
+    "updated_date": "20260306",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100231",
+    "org_name": "고객경험스쿼드",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100217",
+    "updated_date": "20260408",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100232",
+    "org_name": "엔터프라이즈스쿼드",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100218",
+    "updated_date": "20260107",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100233",
+    "org_name": "글로벌2파트",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100222",
+    "updated_date": "20260421",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100234",
+    "org_name": "커넥티드서비스셀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100226",
+    "updated_date": "20260425",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100235",
+    "org_name": "반도체분석셀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100232",
+    "updated_date": "20260110",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100236",
+    "org_name": "전략1파트",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100220",
+    "updated_date": "20260307",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100237",
+    "org_name": "품질기획셀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100232",
+    "updated_date": "20260425",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100238",
+    "org_name": "응용기획셀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100230",
+    "updated_date": "20260119",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100239",
+    "org_name": "반도체3파트",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100227",
+    "updated_date": "20260311",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100240",
+    "org_name": "품질개발셀",
+    "org_division_code": "C10",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C100220",
+    "updated_date": "20260202",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100241",
+    "org_name": "Global 운영 사업부",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260119",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100242",
+    "org_name": "반도체개발실",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100241",
+    "updated_date": "20260107",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100243",
+    "org_name": "솔루션전략실",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100241",
+    "updated_date": "20260402",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100244",
+    "org_name": "차세대랩",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100241",
+    "updated_date": "20260111",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100245",
+    "org_name": "생산기술연구소",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100241",
+    "updated_date": "20260314",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100246",
+    "org_name": "시스템연구소",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100241",
+    "updated_date": "20260428",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100247",
+    "org_name": "UX개발실",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100241",
+    "updated_date": "20260205",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100248",
+    "org_name": "차세대사업운영실",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100241",
+    "updated_date": "20260124",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100249",
+    "org_name": "통합전략실",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100241",
+    "updated_date": "20260406",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100250",
+    "org_name": "디지털서비스그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100247",
+    "updated_date": "20260118",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100251",
+    "org_name": "통합운영그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100244",
+    "updated_date": "20260226",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100252",
+    "org_name": "제조운영그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100246",
+    "updated_date": "20260317",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100253",
+    "org_name": "차세대솔루션그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100249",
+    "updated_date": "20260418",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100254",
+    "org_name": "커머스솔루션그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100244",
+    "updated_date": "20260125",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100255",
+    "org_name": "통합서비스그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100247",
+    "updated_date": "20260221",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100256",
+    "org_name": "시스템기술그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100249",
+    "updated_date": "20260417",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100257",
+    "org_name": "채널혁신그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100244",
+    "updated_date": "20260216",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100258",
+    "org_name": "보안서비스그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100242",
+    "updated_date": "20260301",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100259",
+    "org_name": "AI개발그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100243",
+    "updated_date": "20260319",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100260",
+    "org_name": "제조개발그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100249",
+    "updated_date": "20260327",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100261",
+    "org_name": "데이터혁신그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100243",
+    "updated_date": "20260106",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100262",
+    "org_name": "모바일혁신그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100244",
+    "updated_date": "20260202",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100263",
+    "org_name": "응용플랫폼그룹",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100248",
+    "updated_date": "20260326",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100264",
+    "org_name": "차세대개발팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100256",
+    "updated_date": "20260212",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100265",
+    "org_name": "차세대아키텍처팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100263",
+    "updated_date": "20260402",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100266",
+    "org_name": "반도체AI팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100257",
+    "updated_date": "20260322",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100267",
+    "org_name": "인프라설계팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100254",
+    "updated_date": "20260414",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100268",
+    "org_name": "모바일보안팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100252",
+    "updated_date": "20260307",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100269",
+    "org_name": "고객경험기획팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100256",
+    "updated_date": "20260104",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100270",
+    "org_name": "반도체개발팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100250",
+    "updated_date": "20260213",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100271",
+    "org_name": "채널클라우드팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100259",
+    "updated_date": "20260111",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100272",
+    "org_name": "디지털서비스팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100257",
+    "updated_date": "20260416",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100273",
+    "org_name": "엔터프라이즈개발팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100251",
+    "updated_date": "20260426",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100274",
+    "org_name": "엔터프라이즈운영팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100262",
+    "updated_date": "20260121",
+    "org_category_code": "B3",
+    "org_category_name": "B (신사업)"
+  },
+  {
+    "org_code": "C100275",
+    "org_name": "AI설계팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100258",
+    "updated_date": "20260111",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100276",
+    "org_name": "AI보안팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100255",
+    "updated_date": "20260105",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100277",
+    "org_name": "응용응용팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100258",
+    "updated_date": "20260302",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100278",
+    "org_name": "품질기획팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100250",
+    "updated_date": "20260218",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100279",
+    "org_name": "데이터데이터팀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100261",
+    "updated_date": "20260225",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100280",
+    "org_name": "응용파트",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100269",
+    "updated_date": "20260301",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100281",
+    "org_name": "생산기술유닛",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100279",
+    "updated_date": "20260108",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100282",
+    "org_name": "응용TF",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100271",
+    "updated_date": "20260306",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100283",
+    "org_name": "반도체파트",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100271",
+    "updated_date": "20260214",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100284",
+    "org_name": "반도체스쿼드",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100278",
+    "updated_date": "20260213",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100285",
+    "org_name": "클라우드스쿼드",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100264",
+    "updated_date": "20260122",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100286",
+    "org_name": "채널파트",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100276",
+    "updated_date": "20260201",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100287",
+    "org_name": "통합TF",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100264",
+    "updated_date": "20260102",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100288",
+    "org_name": "미디어셀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100265",
+    "updated_date": "20260225",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100289",
+    "org_name": "솔루션유닛",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100268",
+    "updated_date": "20260114",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100290",
+    "org_name": "인프라TF",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100277",
+    "updated_date": "20260205",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100291",
+    "org_name": "UX파트",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100275",
+    "updated_date": "20260403",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  },
+  {
+    "org_code": "C100292",
+    "org_name": "서비스스쿼드",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100268",
+    "updated_date": "20260304",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100293",
+    "org_name": "생산기술기획셀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100286",
+    "updated_date": "20260216",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100294",
+    "org_name": "디바이스기획셀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100286",
+    "updated_date": "20260221",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100295",
+    "org_name": "품질2파트",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100287",
+    "updated_date": "20260309",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100296",
+    "org_name": "반도체운영셀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100288",
+    "updated_date": "20260120",
+    "org_category_code": "C1",
+    "org_category_name": "C (주력_고강도)"
+  },
+  {
+    "org_code": "C100297",
+    "org_name": "미디어개발셀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100289",
+    "updated_date": "20260209",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100298",
+    "org_name": "시스템분석셀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100280",
+    "updated_date": "20260421",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)"
+  },
+  {
+    "org_code": "C100299",
+    "org_name": "보안1파트",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100281",
+    "updated_date": "20260223",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)"
+  },
+  {
+    "org_code": "C100300",
+    "org_name": "모바일기획셀",
+    "org_division_code": "C10",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C100286",
+    "updated_date": "20260414",
+    "org_category_code": "B1",
+    "org_category_name": "B (AX)"
+  }
+]
