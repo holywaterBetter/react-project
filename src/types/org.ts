@@ -34,3 +34,56 @@ export type OrganizationCategorySummary = {
   categoryName: string;
   count: number;
 };
+
+export type OrganizationDivisionSummary = {
+  divisionCode: string;
+  divisionName: string;
+  count: number;
+};
+
+export type OrganizationSortField = 'updated_date' | 'org_division_name';
+
+export type OrganizationSortDirection = 'asc' | 'desc';
+
+export type OrganizationSortModel = {
+  field: OrganizationSortField;
+  direction: OrganizationSortDirection;
+};
+
+export type OrganizationTableFilters = {
+  search: string;
+  divisionCode: string;
+  categoryCode: string;
+};
+
+export type OrganizationTablePagination = {
+  page: number;
+  pageSize: number;
+};
+
+export type OrganizationQueryState = {
+  filters: OrganizationTableFilters;
+  pagination: OrganizationTablePagination;
+  sort: OrganizationSortModel;
+};
+
+export type OrganizationUploadRow = {
+  기준년월: string;
+  사업부: string;
+  현부서: string;
+  현부서코드: string;
+  조직분류: string;
+};
+
+export type OrganizationUploadValidationError = {
+  rowNumber: number;
+  column: string;
+  message: string;
+  value?: string;
+};
+
+export type OrganizationUploadResult = {
+  validRows: OrganizationRecord[];
+  errors: OrganizationUploadValidationError[];
+  totalRows: number;
+};
