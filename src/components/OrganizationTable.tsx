@@ -3,8 +3,8 @@ import { Box, Chip, Stack, Typography } from '@mui/material';
 import { DataGrid, type GridColDef, type GridPaginationModel, type GridRowSelectionModel, type GridSortModel } from '@mui/x-data-grid';
 import type { OrganizationRecord, OrganizationSortDirection, OrganizationSortField } from '@shared-types/org';
 import { useAppTheme } from '@theme';
-import { useMemo } from 'react';
 import { getLocalizedOrgCategoryName, getLocalizedOrgDepartmentName, getLocalizedOrgDivisionName } from '@utils/localization';
+import { useMemo } from 'react';
 
 type OrganizationTableProps = {
   rows: OrganizationRecord[];
@@ -30,7 +30,7 @@ const formatYearMonth = (value: string) => {
 };
 
 const EmptyOverlay = () => {
-  const { t, i18n } = useAppTranslation();
+  const { t } = useAppTranslation();
 
   return (
     <div className="flex h-full min-h-56 items-center justify-center">
