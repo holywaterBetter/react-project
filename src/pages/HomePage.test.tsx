@@ -1,16 +1,19 @@
 import '@app/i18n';
 import { AppThemeProvider } from '@contexts/AppThemeContext';
+import { DevUserModeProvider } from '@features/auth/context/DevUserModeContext';
 import { HomePage } from '@pages/HomePage';
 import { render, screen } from '@testing-library/react';
 
 describe('HomePage', () => {
-  it('renders localized heading', () => {
+  it('renders workforce insight dashboard content on home', () => {
     render(
       <AppThemeProvider>
-        <HomePage />
+        <DevUserModeProvider>
+          <HomePage />
+        </DevUserModeProvider>
       </AppThemeProvider>
     );
 
-    expect(screen.getByText('Enterprise Starter Home')).toBeInTheDocument();
+    expect(screen.getByText('Workforce Insight Hub')).toBeInTheDocument();
   });
 });

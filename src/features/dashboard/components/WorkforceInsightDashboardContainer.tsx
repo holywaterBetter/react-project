@@ -1,7 +1,7 @@
 import { WorkforceInsightDashboard } from '@features/dashboard/components/WorkforceInsightDashboard';
 import { useWorkforceInsightDashboard } from '@features/dashboard/hooks/useWorkforceInsightDashboard';
 
-export const OrganizationWorkforceInsightPage = () => {
+export const WorkforceInsightDashboardContainer = () => {
   const {
     error,
     filteredTrend,

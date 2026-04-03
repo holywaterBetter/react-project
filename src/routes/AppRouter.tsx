@@ -4,7 +4,6 @@ import { NotFoundPage } from '@pages/NotFoundPage';
 import { OrganizationApprovalDetailPage } from '@pages/organization-approval/OrganizationApprovalDetailPage';
 import { OrganizationApprovalListPage } from '@pages/organization-approval/OrganizationApprovalListPage';
 import { OrganizationWorkforceDashboardPage } from '@pages/organization-workforce-dashboard/OrganizationWorkforceDashboardPage';
-import { OrganizationWorkforceInsightPage } from '@pages/organization-workforce-insight/OrganizationWorkforceInsightPage';
 import { OrganizationSelectionPage } from '@pages/OrganizationSelectionPage';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 
@@ -24,10 +23,6 @@ const router = createHashRouter([
       {
         path: 'organization/workforce-dashboard',
         element: <OrganizationWorkforceDashboardPage />
-      },
-      {
-        path: 'organization/workforce-insight',
-        element: <OrganizationWorkforceInsightPage />
       },
       {
         path: 'organization/approval',
