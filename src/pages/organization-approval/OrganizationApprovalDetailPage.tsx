@@ -77,7 +77,7 @@ export const OrganizationApprovalDetailPage = () => {
   }, [hideUnchanged, request]);
 
   if (!request) {
-    return <Alert severity="warning">Approval request was not found or is not visible for the current user.</Alert>;
+    return <Alert severity="warning">{t('approval.detail.notFound')}</Alert>;
   }
 
   const handleDecision = async (decision: 'approve' | 'reject') => {
@@ -92,7 +92,9 @@ export const OrganizationApprovalDetailPage = () => {
 
       navigate('/organization/approval');
     } catch (decisionError) {
-      setError(decisionError instanceof Error ? decisionError.message : 'Failed to apply approval decision.');
+      setError(
+        decisionError instanceof Error ? decisionError.message : t('approval.detail.decisionErrorFallback')
+      );
     }
   };
 
@@ -111,15 +113,22 @@ export const OrganizationApprovalDetailPage = () => {
             {request.divisionName} {t('approval.detail.requestSuffix')}
           </Typography>
           <Stack direction="row" spacing={1} flexWrap="wrap">
-            <Chip label={request.status.toUpperCase()} color={request.status === 'approved' ? 'success' : request.status === 'rejected' ? 'error' : 'warning'} />
+            <Chip
+              label={t(`common.status.${request.status}`)}
+              color={request.status === 'approved' ? 'success' : request.status === 'rejected' ? 'error' : 'warning'}
+            />
             <Chip variant="outlined" label={`${t('approval.requester')}: ${request.submittedByLabel}`} />
-            <Chip variant="outlined" label={`Rows: ${request.totalChangedRows}`} />
+            <Chip variant="outlined" label={t('approval.detail.rowsChip', { count: request.totalChangedRows })} />
           </Stack>
           <Typography color="text.secondary">
-            Submitted {new Date(request.submittedAt).toLocaleString()}
-            {request.decision ? ` · Decided ${new Date(request.decision.decidedAt).toLocaleString()}` : ''}
+            {t('common.labels.submitted', { value: new Date(request.submittedAt).toLocaleString() })}
+            {request.decision
+              ? ` · ${t('common.labels.decided', { value: new Date(request.decision.decidedAt).toLocaleString() })}`
+              : ''}
           </Typography>
-          {request.decision?.note ? <Alert severity="info">Decision note: {request.decision.note}</Alert> : null}
+          {request.decision?.note ? (
+            <Alert severity="info">{t('approval.detail.decisionNotePrefix', { note: request.decision.note })}</Alert>
+          ) : null}
         </Stack>
       </Paper>
 

@@ -1,4 +1,5 @@
 import { useDevUserMode } from '@features/auth/context/DevUserModeContext';
+import { useAppTranslation } from '@hooks/useAppTranslation';
 import {
   Alert,
   Button,
@@ -22,6 +23,7 @@ import { Link as RouterLink } from 'react-router-dom';
 
 export const OrganizationApprovalListPage = () => {
   const { activeUser } = useDevUserMode();
+  const { t } = useAppTranslation();
   useWorkforceRepositoryVersion();
   const [statusFilter, setStatusFilter] = useState<'all' | 'pending' | 'approved' | 'rejected'>('all');
   const [keyword, setKeyword] = useState('');
@@ -63,17 +65,23 @@ export const OrganizationApprovalListPage = () => {
       <Paper variant="outlined" className="rounded-[var(--radius-xl)] border border-line bg-surface p-6 shadow-sm">
         <Stack spacing={1.5}>
           <Typography variant="overline" color="text.secondary" fontWeight={700}>
-            Approval Workflow
+            {t('approval.list.overline')}
           </Typography>
           <Typography variant="h4" fontWeight={800}>
-            Pending Changes
+            {t('approval.list.title')}
           </Typography>
           <Typography color="text.secondary">
-            Review uploaded workforce changes, compare diffs, and approve or reject requests.
+            {t('approval.list.description')}
           </Typography>
           <Stack direction="row" spacing={1} flexWrap="wrap">
-            <Chip size="small" label={`Active user: ${activeUser.name} (${activeUser.role})`} />
-            <Chip size="small" variant="outlined" label={`${requests.filter((request) => request.status === 'pending').length} pending`} />
+            <Chip size="small" label={t('approval.list.activeUser', { name: activeUser.name, role: activeUser.role })} />
+            <Chip
+              size="small"
+              variant="outlined"
+              label={t('approval.list.pendingCount', {
+                count: requests.filter((request) => request.status === 'pending').length.toLocaleString()
+              })}
+            />
           </Stack>
         </Stack>
       </Paper>
@@ -82,41 +90,41 @@ export const OrganizationApprovalListPage = () => {
         <TextField
           fullWidth
           value={keyword}
-          label="Search requests"
-          placeholder="Search by division, requester, or request id"
+          label={t('approval.list.searchLabel')}
+          placeholder={t('approval.list.searchPlaceholder')}
           onChange={(event) => {
             setKeyword(event.target.value);
           }}
         />
         <TextField
           select
-          label="Status"
+          label={t('approval.list.statusLabel')}
           value={statusFilter}
           sx={{ minWidth: 180 }}
           onChange={(event) => {
             setStatusFilter(event.target.value as typeof statusFilter);
           }}
         >
-          <MenuItem value="all">All statuses</MenuItem>
-          <MenuItem value="pending">Pending</MenuItem>
-          <MenuItem value="approved">Approved</MenuItem>
-          <MenuItem value="rejected">Rejected</MenuItem>
+          <MenuItem value="all">{t('approval.list.allStatuses')}</MenuItem>
+          <MenuItem value="pending">{t('common.status.pending')}</MenuItem>
+          <MenuItem value="approved">{t('common.status.approved')}</MenuItem>
+          <MenuItem value="rejected">{t('common.status.rejected')}</MenuItem>
         </TextField>
       </Stack>
 
       {filteredRequests.length === 0 ? (
-        <Alert severity="info">No approval requests match the current filters.</Alert>
+        <Alert severity="info">{t('approval.list.empty')}</Alert>
       ) : (
         <TableContainer component={Paper} variant="outlined">
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>Status</TableCell>
-                <TableCell>Division</TableCell>
-                <TableCell>Requester</TableCell>
-                <TableCell>Changed Rows</TableCell>
-                <TableCell>Submitted At</TableCell>
-                <TableCell align="right">Action</TableCell>
+                <TableCell>{t('approval.list.table.status')}</TableCell>
+                <TableCell>{t('approval.list.table.division')}</TableCell>
+                <TableCell>{t('approval.list.table.requester')}</TableCell>
+                <TableCell>{t('approval.list.table.changedRows')}</TableCell>
+                <TableCell>{t('approval.list.table.submittedAt')}</TableCell>
+                <TableCell align="right">{t('approval.list.table.action')}</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -132,7 +140,7 @@ export const OrganizationApprovalListPage = () => {
                             ? 'error'
                             : 'warning'
                       }
-                      label={request.status.toUpperCase()}
+                      label={t(`common.status.${request.status}`)}
                     />
                   </TableCell>
                   <TableCell>{request.divisionName}</TableCell>
@@ -141,7 +149,7 @@ export const OrganizationApprovalListPage = () => {
                   <TableCell>{new Date(request.submittedAt).toLocaleString()}</TableCell>
                   <TableCell align="right">
                     <Button component={RouterLink} to={`/organization/approval/${request.id}`} size="small" variant="outlined">
-                      View Detail
+                      {t('common.actions.viewDetail')}
                     </Button>
                   </TableCell>
                 </TableRow>

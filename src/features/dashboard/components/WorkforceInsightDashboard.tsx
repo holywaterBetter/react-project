@@ -1,4 +1,5 @@
 import type { WorkforceInsightData } from '@features/dashboard/types/workforceInsight';
+import { useAppTranslation } from '@hooks/useAppTranslation';
 import { RefreshRounded } from '@mui/icons-material';
 import {
   Alert,
@@ -61,6 +62,7 @@ export const WorkforceInsightDashboard = ({
   onMonthChange,
   onRefresh
 }: WorkforceInsightDashboardProps) => {
+  const { t } = useAppTranslation();
   const maxTrend = Math.max(...trendData.map((item) => Math.max(item.headcount, item.target)), 1);
   const maxDivisionHeadcount = Math.max(...(data?.divisionComposition.map((division) => division.totalHeadcount) ?? [1]), 1);
   const kpiItems = data?.kpis ?? [];
@@ -80,18 +82,18 @@ export const WorkforceInsightDashboard = ({
           <Stack direction={{ xs: 'column', md: 'row' }} alignItems={{ xs: 'stretch', md: 'center' }} justifyContent="space-between" gap={2}>
             <Box>
               <Typography variant="overline" sx={{ letterSpacing: '0.16em', color: 'text.secondary', fontWeight: 700 }}>
-                Workforce Insight Hub
+                {t('insight.hero.overline')}
               </Typography>
               <Typography variant="h4" fontWeight={800} sx={{ mt: 0.5 }}>
-                Executive Workforce Overview
+                {t('insight.hero.title')}
               </Typography>
               <Typography color="text.secondary" sx={{ mt: 1 }}>
-                Strategic headcount posture, division mix, and target readiness.
+                {t('insight.hero.description')}
               </Typography>
               {data ? (
                 <Chip
                   size="small"
-                  label={`Last Updated ${data.lastUpdated}`}
+                  label={t('insight.hero.lastUpdated', { value: data.lastUpdated })}
                   sx={{ mt: 1.5, fontWeight: 600, bgcolor: alpha('#3B82F6', 0.12), color: '#1D4ED8' }}
                 />
               ) : null}
@@ -99,8 +101,13 @@ export const WorkforceInsightDashboard = ({
 
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5}>
               <FormControl size="small" sx={{ minWidth: 190 }}>
-                <InputLabel id="insight-org">Division</InputLabel>
-                <Select labelId="insight-org" value={selectedOrgCode} label="Division" onChange={(event) => onOrgChange(event.target.value)}>
+                <InputLabel id="insight-org">{t('insight.filters.division')}</InputLabel>
+                <Select
+                  labelId="insight-org"
+                  value={selectedOrgCode}
+                  label={t('insight.filters.division')}
+                  onChange={(event) => onOrgChange(event.target.value)}
+                >
                   {data?.organizationOptions.map((option) => (
                     <MenuItem key={option.orgCode} value={option.orgCode}>
                       {option.orgDisplayName}
@@ -109,8 +116,13 @@ export const WorkforceInsightDashboard = ({
                 </Select>
               </FormControl>
               <FormControl size="small" sx={{ minWidth: 140 }}>
-                <InputLabel id="insight-month">Month</InputLabel>
-                <Select labelId="insight-month" value={selectedMonth} label="Month" onChange={(event) => onMonthChange(event.target.value)}>
+                <InputLabel id="insight-month">{t('insight.filters.month')}</InputLabel>
+                <Select
+                  labelId="insight-month"
+                  value={selectedMonth}
+                  label={t('insight.filters.month')}
+                  onChange={(event) => onMonthChange(event.target.value)}
+                >
                   {data?.availableMonths.map((month) => (
                     <MenuItem key={month} value={month}>
                       {month}
@@ -119,7 +131,7 @@ export const WorkforceInsightDashboard = ({
                 </Select>
               </FormControl>
               <Button startIcon={<RefreshRounded />} variant="contained" onClick={onRefresh}>
-                Refresh
+                {t('insight.filters.refresh')}
               </Button>
             </Stack>
           </Stack>
@@ -146,7 +158,9 @@ export const WorkforceInsightDashboard = ({
                     variant="body2"
                     sx={{ mt: 1, color: kpi.delta && kpi.delta < 0 ? 'error.main' : 'success.main', fontWeight: 700 }}
                   >
-                    {kpi.delta ? `${formatSigned(Number(kpi.delta.toFixed(1)))} vs baseline` : 'No delta'}
+                    {kpi.delta
+                      ? t('insight.kpi.vsBaseline', { value: formatSigned(Number(kpi.delta.toFixed(1))) })
+                      : t('insight.kpi.noDelta')}
                   </Typography>
                 </CardContent>
               </Card>
@@ -157,10 +171,10 @@ export const WorkforceInsightDashboard = ({
         <Card variant="outlined" sx={{ borderRadius: 3, ...easeCard }}>
           <CardContent>
             <Typography variant="h6" fontWeight={800}>
-              Headcount Trend vs Target Trajectory
+              {t('insight.sections.trendTitle')}
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-              Recent momentum with projected target path.
+              {t('insight.sections.trendDescription')}
             </Typography>
             <Box sx={{ display: 'grid', gridTemplateColumns: `repeat(${trendData.length}, minmax(0, 1fr))`, gap: 1.2, alignItems: 'end', minHeight: 210 }}>
               {trendData.map((point, index) => (
@@ -200,10 +214,12 @@ export const WorkforceInsightDashboard = ({
         <Card variant="outlined" sx={{ borderRadius: 3, ...easeCard }}>
           <CardContent>
             <Typography variant="h6" fontWeight={800}>
-              Talent Mix by Capability Stream
+              {t('insight.sections.mixTitle')}
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-              Category distribution for {data?.selectedOrgLabel ?? 'selected scope'}.
+              {t('insight.sections.mixDescription', {
+                scope: data?.selectedOrgLabel ?? t('insight.sections.mixScopeFallback')
+              })}
             </Typography>
             <Stack spacing={1.3}>
               {data?.categoryDistribution.map((item, index) => (
@@ -238,7 +254,7 @@ export const WorkforceInsightDashboard = ({
         <Card variant="outlined" sx={{ borderRadius: 3, ...easeCard }}>
           <CardContent>
             <Typography variant="h6" fontWeight={800}>
-              Division Benchmark (Current)
+              {t('insight.sections.divisionBenchmarkTitle')}
             </Typography>
             <Stack spacing={1.3} sx={{ mt: 2 }}>
               {data?.divisionComposition.map((division, index) => (
@@ -271,10 +287,10 @@ export const WorkforceInsightDashboard = ({
         <Card variant="outlined" sx={{ borderRadius: 3, ...easeCard }}>
           <CardContent>
             <Typography variant="h6" fontWeight={800}>
-              Period Stacked Comparison
+              {t('insight.sections.stackedTitle')}
             </Typography>
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-              Actual, current, and target composition by stream.
+              {t('insight.sections.stackedDescription')}
             </Typography>
             <Stack spacing={1.5}>
               {data?.stackedSeries.map((row, rowIndex) => {
@@ -289,7 +305,7 @@ export const WorkforceInsightDashboard = ({
                         {row.label}
                       </Typography>
                       <Typography variant="caption" color="text.secondary">
-                        {row.current.toLocaleString()} current
+                        {t('insight.sections.currentSuffix', { value: row.current.toLocaleString() })}
                       </Typography>
                     </Stack>
                     <Box sx={{ display: 'flex', height: 12, borderRadius: 99, overflow: 'hidden', bgcolor: 'action.hover' }}>

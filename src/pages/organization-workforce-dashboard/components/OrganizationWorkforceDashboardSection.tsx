@@ -1,3 +1,4 @@
+import { useAppTranslation } from '@hooks/useAppTranslation';
 import { TableCell, TableRow, Typography } from '@mui/material';
 import type { DashboardTableSection } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 import {
@@ -35,46 +36,51 @@ const getDeltaColor = (value?: number | null) => {
   return value > 0 ? 'error.main' : 'success.main';
 };
 
-export const OrganizationWorkforceDashboardSection = ({ section }: OrganizationWorkforceDashboardSectionProps) => (
-  <>
-    {section.rows.map((row, index) => (
-      <TableRow
-        key={row.id}
-        hover={false}
-        sx={{
-          backgroundColor: getRowBackground(row.tone),
-          '& td': {
-            borderBottomColor: 'var(--color-border-default)'
-          },
-          '&:first-of-type td': {
-            borderTop: '2px solid var(--color-border-strong)'
-          }
-        }}
-      >
-        {index === 0 ? (
-          <TableCell
-            rowSpan={section.rows.length}
-            sx={{
-              minWidth: 140,
-              verticalAlign: 'top',
-              backgroundColor: 'var(--color-bg-raised)',
-              borderRight: '1px solid var(--color-border-default)'
-            }}
-          >
-            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-              {section.orgDisplayName}
-            </Typography>
-            <Typography variant="caption" color="text.secondary" display="block">
-              {section.orgCode}
-            </Typography>
-            <Typography variant="caption" color="text.secondary" display="block" sx={{ mt: 1 }}>
-              기준조직 {section.sourceRecordCount.toLocaleString('ko-KR')}개
-            </Typography>
-            <Typography variant="caption" color="text.secondary" display="block">
-              갱신 {formatDateLabel(section.lastUpdated)}
-            </Typography>
-          </TableCell>
-        ) : null}
+export const OrganizationWorkforceDashboardSection = ({ section }: OrganizationWorkforceDashboardSectionProps) => {
+  const { t } = useAppTranslation();
+
+  return (
+    <>
+      {section.rows.map((row, index) => (
+        <TableRow
+          key={row.id}
+          hover={false}
+          sx={{
+            backgroundColor: getRowBackground(row.tone),
+            '& td': {
+              borderBottomColor: 'var(--color-border-default)'
+            },
+            '&:first-of-type td': {
+              borderTop: '2px solid var(--color-border-strong)'
+            }
+          }}
+        >
+          {index === 0 ? (
+            <TableCell
+              rowSpan={section.rows.length}
+              sx={{
+                minWidth: 140,
+                verticalAlign: 'top',
+                backgroundColor: 'var(--color-bg-raised)',
+                borderRight: '1px solid var(--color-border-default)'
+              }}
+            >
+              <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+                {section.orgDisplayName}
+              </Typography>
+              <Typography variant="caption" color="text.secondary" display="block">
+                {section.orgCode}
+              </Typography>
+              <Typography variant="caption" color="text.secondary" display="block" sx={{ mt: 1 }}>
+                {t('workforceDashboard.section.baseOrgCount', {
+                  count: section.sourceRecordCount.toLocaleString()
+                })}
+              </Typography>
+              <Typography variant="caption" color="text.secondary" display="block">
+                {t('workforceDashboard.section.updated', { value: formatDateLabel(section.lastUpdated) })}
+              </Typography>
+            </TableCell>
+          ) : null}
 
         <TableCell
           sx={{
@@ -104,7 +110,8 @@ export const OrganizationWorkforceDashboardSection = ({ section }: OrganizationW
           {formatSignedHeadcount(row.current202604.delta)}
         </TableCell>
         <TableCell align="right">{formatHeadcount(row.current202604.reallocated)}</TableCell>
-      </TableRow>
-    ))}
-  </>
-);
+        </TableRow>
+      ))}
+    </>
+  );
+};

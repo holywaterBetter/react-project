@@ -1,6 +1,7 @@
 import { LanguageSwitcher } from '@components/LanguageSwitcher';
 import { useAppTheme } from '@contexts/AppThemeContext';
 import { DevUserFabSwitcher } from '@features/auth/components/DevUserFabSwitcher';
+import { useAppTranslation } from '@hooks/useAppTranslation';
 import { Brightness4, Brightness7 } from '@mui/icons-material';
 import { AppBar, Box, Button, Container, IconButton, Toolbar, Typography } from '@mui/material';
 import { Link as RouterLink, Outlet } from 'react-router-dom';
@@ -28,6 +29,7 @@ const logoLinkStyles = {
 
 export const MainLayout = () => {
   const { mode, toggleMode } = useAppTheme();
+  const { t } = useAppTranslation();
 
   return (
     <Box className="min-h-screen bg-canvas text-ink">
@@ -37,20 +39,20 @@ export const MainLayout = () => {
             variant="h6"
             component={RouterLink}
             to="/"
-            aria-label="John's Park home"
+            aria-label={t('layout.homeAriaLabel')}
             className="mr-3 flex-1 cursor-pointer font-semibold text-ink"
             sx={logoLinkStyles}
           >
-            John&apos;s Park
+            {t('layout.brand')}
           </Typography>
           <Button component={RouterLink} to="/organizations" color="inherit">
-            Organizations
+            {t('layout.nav.organizations')}
           </Button>
           <Button component={RouterLink} to="/organization/workforce-dashboard" color="inherit">
-            Workforce Dashboard
+            {t('layout.nav.workforceDashboard')}
           </Button>
           <Button component={RouterLink} to="/organization/approval" color="inherit">
-            Approval
+            {t('layout.nav.approval')}
           </Button>
           <LanguageSwitcher />
           <IconButton color="inherit" onClick={toggleMode} aria-label="toggle-theme-mode">
