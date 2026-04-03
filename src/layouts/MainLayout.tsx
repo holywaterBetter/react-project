@@ -12,12 +12,15 @@ export const MainLayout = () => {
     <Box className="min-h-screen bg-canvas text-ink">
       <AppBar position="sticky" color="transparent" elevation={0}>
         <Toolbar className="mx-auto flex w-full max-w-6xl gap-4 px-0">
-          <Typography variant="h6" component="div" className="mr-3 flex-1 font-semibold text-ink">
-            Enterprise React Starter
+          <Typography
+            component={RouterLink}
+            to="/"
+            variant="h6"
+            className="mr-3 flex-1 cursor-pointer font-semibold text-ink no-underline transition hover:text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary active:opacity-80"
+            aria-label="Go to home page"
+          >
+            John&apos;s Park
           </Typography>
-          <Button component={RouterLink} to="/" color="inherit">
-            Home
-          </Button>
           <Button component={RouterLink} to="/about" color="inherit">
             About
           </Button>
