@@ -11,5 +11,48 @@
   "about": {
     "title": "About This Starter",
     "description": "This project mirrors a production-ready enterprise structure using modern compatible dependencies."
+  },
+  "organization": {
+    "summary": {
+      "currentCount": "Current result count",
+      "selectedCount": "Selected organizations",
+      "dataSource": "Data source",
+      "uploadPreview": "Upload preview",
+      "organizationApi": "Organization API"
+    },
+    "search": {
+      "title": "Organization selection",
+      "description": "Search organization name, filter by division/category, and upload or download Excel on one screen.",
+      "searchLabel": "Search organizations",
+      "searchPlaceholder": "Search by organization name, code, or division",
+      "divisionLabel": "Division",
+      "categoryLabel": "Category",
+      "allOption": "All"
+    },
+    "actions": {
+      "download": "Download Excel",
+      "upload": "Upload Excel",
+      "clearUpload": "Clear upload"
+    },
+    "table": {
+      "title": "Organization list",
+      "total": "Total {{count}}",
+      "emptyTitle": "No organizations found.",
+      "emptyDescription": "Adjust search/filter conditions or upload an Excel file to build the organization selection list.",
+      "headers": {
+        "updatedDate": "Year-Month",
+        "division": "Division",
+        "department": "Department",
+        "category": "Category"
+      }
+    },
+    "upload": {
+      "dialogTitle": "Excel validation errors",
+      "dialogMessage": "Upload failed. Found {{count}} error(s).",
+      "errorRow": "Row",
+      "errorColumn": "Column",
+      "errorMessage": "Error",
+      "errorValue": "Input value"
+    }
   }
 }

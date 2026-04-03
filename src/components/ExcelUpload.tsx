@@ -1,3 +1,4 @@
+import { useAppTranslation } from '@hooks/useAppTranslation';
 import { UploadFileOutlined } from '@mui/icons-material';
 import { Button, CircularProgress } from '@mui/material';
 import { useRef, type ChangeEvent } from 'react';
@@ -9,6 +10,7 @@ type ExcelUploadProps = {
 };
 
 export const ExcelUpload = ({ disabled = false, isLoading = false, onUpload }: ExcelUploadProps) => {
+  const { t } = useAppTranslation();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleChange = async (event: ChangeEvent<HTMLInputElement>) => {
@@ -48,7 +50,7 @@ export const ExcelUpload = ({ disabled = false, isLoading = false, onUpload }: E
           }
         }}
       >
-        엑셀 업로드
+        {t('organization.actions.upload')}
       </Button>
     </>
   );

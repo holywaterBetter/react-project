@@ -14,6 +14,22 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent } f
 const DEFAULT_PAGE_SIZE = 10;
 const SEARCH_DEBOUNCE_MS = 400;
 
+const FULL_DATA_QUERY: OrganizationQueryState = {
+  filters: {
+    search: '',
+    divisionCode: '',
+    categoryCode: ''
+  },
+  pagination: {
+    page: 0,
+    pageSize: 5000
+  },
+  sort: {
+    field: 'updated_date',
+    direction: 'desc'
+  }
+};
+
 const filterUploadedRows = (rows: OrganizationRecord[], query: OrganizationQueryState) =>
   rows.filter((row) => {
     if (query.filters.divisionCode && row.org_division_name !== query.filters.divisionCode) {
@@ -237,24 +253,24 @@ export const useOrganizations = () => {
       setUploadErrors(result.errors);
       setIsUploadDialogOpen(result.errors.length > 0);
 
-      if (result.validRows.length > 0) {
-        setUploadedRows(result.validRows);
-        setUploadSummary(
-          `${result.totalRows}건 중 ${result.validRows.length}건을 반영했습니다${
-            result.errors.length > 0 ? `, ${result.errors.length}건은 검증 오류가 있습니다.` : '.'
-          }`
-        );
-        setPage(0);
-      } else {
-        setUploadedRows(null);
-        setUploadSummary(`업로드한 ${result.totalRows}건 모두 검증에 실패했습니다.`);
+      if (result.errors.length > 0) {
+        setUploadSummary(`업로드에 실패했습니다. 총 ${result.errors.length}건의 오류를 확인해 주세요.`);
+        return;
       }
+
+      const baseRows = uploadedRows ?? (await organizationService.getOrganizationsForExport(FULL_DATA_QUERY));
+      const updatesByCode = new Map(result.validRows.map((row) => [row.org_code, row]));
+      const mergedRows = baseRows.map((row) => updatesByCode.get(row.org_code) ?? row);
+
+      setUploadedRows(mergedRows);
+      setUploadSummary(`${baseRows.length.toLocaleString()}건 중 ${result.validRows.length}건이 업데이트되었습니다.`);
+      setPage(0);
     } catch (uploadError) {
       setError(uploadError instanceof Error ? uploadError.message : '엑셀 업로드 처리 중 오류가 발생했습니다.');
     } finally {
       setIsUploading(false);
     }
-  }, []);
+  }, [uploadedRows]);
 
   const handleExport = useCallback(async () => {
     setIsExporting(true);
