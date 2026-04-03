@@ -64,7 +64,129 @@
     "noChangedRows": "No changed rows to display.",
     "detail": {
       "title": "Approval Detail",
-      "requestSuffix": "Change Request"
+      "requestSuffix": "Change Request",
+      "notFound": "Approval request was not found or is not visible for the current user.",
+      "rowsChip": "Rows: {{count}}",
+      "decisionNotePrefix": "Decision note: {{note}}",
+      "decisionErrorFallback": "Failed to apply approval decision."
+    },
+    "list": {
+      "overline": "Approval Workflow",
+      "title": "Pending Changes",
+      "description": "Review uploaded workforce changes, compare diffs, and approve or reject requests.",
+      "activeUser": "Active user: {{name}} ({{role}})",
+      "pendingCount": "{{count}} pending",
+      "searchLabel": "Search requests",
+      "searchPlaceholder": "Search by division, requester, or request id",
+      "statusLabel": "Status",
+      "allStatuses": "All statuses",
+      "empty": "No approval requests match the current filters.",
+      "table": {
+        "status": "Status",
+        "division": "Division",
+        "requester": "Requester",
+        "changedRows": "Changed Rows",
+        "submittedAt": "Submitted At",
+        "action": "Action"
+      }
+    }
+  },
+  "layout": {
+    "homeAriaLabel": "John's Park home",
+    "brand": "John's Park",
+    "nav": {
+      "organizations": "Organizations",
+      "workforceDashboard": "Workforce Dashboard",
+      "approval": "Approval"
+    }
+  },
+  "notFound": {
+    "message": "Page not found.",
+    "goHome": "Go Home"
+  },
+  "common": {
+    "status": {
+      "all": "All",
+      "pending": "Pending",
+      "approved": "Approved",
+      "rejected": "Rejected"
+    },
+    "labels": {
+      "rows": "Rows",
+      "submitted": "Submitted {{value}}",
+      "decided": "Decided {{value}}"
+    },
+    "actions": {
+      "viewDetail": "View Detail",
+      "retry": "Retry"
+    }
+  },
+  "workforceDashboard": {
+    "header": {
+      "title": "Workforce Status and Redeployment Performance Dashboard (Draft)",
+      "description": "A report-style HR dashboard that shows workforce composition, redeployment flow, and current progress against year-end targets in one view.",
+      "baseMonth": "Base month {{value}}",
+      "lastUpdated": "Last updated {{value}}",
+      "refresh": "Refresh",
+      "download": "Download Excel"
+    },
+    "filters": {
+      "division": "Division",
+      "allDivisions": "All divisions",
+      "baseMonth": "Base month",
+      "keyword": "Keyword search",
+      "keywordPlaceholder": "Search by division name or code"
+    },
+    "table": {
+      "emptyTitle": "No organizations match the conditions.",
+      "emptyDescription": "Adjust organization filters or keywords and try again.",
+      "headers": {
+        "organization": "Organization",
+        "classification": "Classification",
+        "actual2025": "2025 Year-end Actual",
+        "target2026": "2026 Year-end Target",
+        "current202604": "2026.4 Current Actual",
+        "headcount": "Headcount",
+        "ratio": "Ratio",
+        "reallocated": "Redeployment",
+        "delta": "Headcount Δ"
+      },
+      "info": "Each metric is derived from async mock API responses based on existing organization mock data, and row structure is transformed into a report-style table based on A/B/C category mapping."
+    },
+    "section": {
+      "baseOrgCount": "Base organizations: {{count}}",
+      "updated": "Updated {{value}}"
+    },
+    "errors": {
+      "exportFallback": "Failed to generate the Excel file."
+    }
+  },
+  "insight": {
+    "hero": {
+      "overline": "Workforce Insight Hub",
+      "title": "Executive Workforce Overview",
+      "description": "Strategic headcount posture, division mix, and target readiness.",
+      "lastUpdated": "Last Updated {{value}}"
+    },
+    "filters": {
+      "division": "Division",
+      "month": "Month",
+      "refresh": "Refresh"
+    },
+    "kpi": {
+      "vsBaseline": "{{value}} vs baseline",
+      "noDelta": "No delta"
+    },
+    "sections": {
+      "trendTitle": "Headcount Trend vs Target Trajectory",
+      "trendDescription": "Recent momentum with projected target path.",
+      "mixTitle": "Talent Mix by Capability Stream",
+      "mixDescription": "Category distribution for {{scope}}.",
+      "mixScopeFallback": "selected scope",
+      "divisionBenchmarkTitle": "Division Benchmark (Current)",
+      "stackedTitle": "Period Stacked Comparison",
+      "stackedDescription": "Actual, current, and target composition by stream.",
+      "currentSuffix": "{{value}} current"
     }
   }
 }

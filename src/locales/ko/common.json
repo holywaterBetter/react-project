@@ -64,7 +64,129 @@
     "noChangedRows": "표시할 변경 행이 없습니다.",
     "detail": {
       "title": "결재 상세",
-      "requestSuffix": "변경 요청"
+      "requestSuffix": "변경 요청",
+      "notFound": "결재 요청을 찾을 수 없거나 현재 사용자에게 표시되지 않습니다.",
+      "rowsChip": "행: {{count}}",
+      "decisionNotePrefix": "결재 의견: {{note}}",
+      "decisionErrorFallback": "결재 처리를 완료하지 못했습니다."
+    },
+    "list": {
+      "overline": "결재 워크플로우",
+      "title": "대기 중 변경사항",
+      "description": "업로드된 인력 변경 사항을 검토하고 diff를 비교한 뒤 승인 또는 반려를 진행하세요.",
+      "activeUser": "현재 사용자: {{name}} ({{role}})",
+      "pendingCount": "{{count}}건 대기",
+      "searchLabel": "요청 검색",
+      "searchPlaceholder": "사업부, 요청자, 요청 ID로 검색",
+      "statusLabel": "상태",
+      "allStatuses": "모든 상태",
+      "empty": "현재 필터에 맞는 결재 요청이 없습니다.",
+      "table": {
+        "status": "상태",
+        "division": "사업부",
+        "requester": "요청자",
+        "changedRows": "변경 행",
+        "submittedAt": "요청 일시",
+        "action": "액션"
+      }
+    }
+  },
+  "layout": {
+    "homeAriaLabel": "John's Park 홈",
+    "brand": "John's Park",
+    "nav": {
+      "organizations": "조직",
+      "workforceDashboard": "인력 대시보드",
+      "approval": "결재"
+    }
+  },
+  "notFound": {
+    "message": "페이지를 찾을 수 없습니다.",
+    "goHome": "홈으로 이동"
+  },
+  "common": {
+    "status": {
+      "all": "전체",
+      "pending": "대기",
+      "approved": "승인",
+      "rejected": "반려"
+    },
+    "labels": {
+      "rows": "행",
+      "submitted": "{{value}} 제출",
+      "decided": "{{value}} 처리"
+    },
+    "actions": {
+      "viewDetail": "상세 보기",
+      "retry": "다시 시도"
+    }
+  },
+  "workforceDashboard": {
+    "header": {
+      "title": "조직별 인력현황 및 재배치 실적 대시보드(안)",
+      "description": "조직별 인력 구성, 재배치 흐름, 연말 목표 대비 현재 실적을 한 화면에서 확인하는 HR 보고서형 대시보드입니다.",
+      "baseMonth": "기준월 {{value}}",
+      "lastUpdated": "최종 갱신 {{value}}",
+      "refresh": "새로고침",
+      "download": "엑셀 다운로드"
+    },
+    "filters": {
+      "division": "사업부",
+      "allDivisions": "전체 사업부",
+      "baseMonth": "기준년월",
+      "keyword": "키워드 검색",
+      "keywordPlaceholder": "사업부명 또는 코드 검색"
+    },
+    "table": {
+      "emptyTitle": "조건에 맞는 조직이 없습니다.",
+      "emptyDescription": "조직 필터나 키워드를 조정해 다시 조회해 주세요.",
+      "headers": {
+        "organization": "조직",
+        "classification": "구분",
+        "actual2025": "’25년말 실적",
+        "target2026": "’26년말 목표",
+        "current202604": "’26.4월 현재 실적",
+        "headcount": "인력",
+        "ratio": "비중",
+        "reallocated": "재배치",
+        "delta": "인력증감"
+      },
+      "info": "각 수치는 기존 조직 mock 데이터를 기반으로 산출한 비동기 mock API 응답이며, 행 구조는 A/B/C 카테고리 매핑을 기준으로 보고서형 표에 맞게 변환되었습니다."
+    },
+    "section": {
+      "baseOrgCount": "기준조직 {{count}}개",
+      "updated": "갱신 {{value}}"
+    },
+    "errors": {
+      "exportFallback": "엑셀 파일을 생성하지 못했습니다."
+    }
+  },
+  "insight": {
+    "hero": {
+      "overline": "인력 인사이트 허브",
+      "title": "경영진 인력 개요",
+      "description": "전략적 인력 포지션, 사업부 구성, 목표 달성 준비도를 제공합니다.",
+      "lastUpdated": "최종 갱신 {{value}}"
+    },
+    "filters": {
+      "division": "사업부",
+      "month": "월",
+      "refresh": "새로고침"
+    },
+    "kpi": {
+      "vsBaseline": "기준 대비 {{value}}",
+      "noDelta": "증감 없음"
+    },
+    "sections": {
+      "trendTitle": "인력 추이 vs 목표 경로",
+      "trendDescription": "최근 흐름과 목표 도달 경로를 함께 확인합니다.",
+      "mixTitle": "역량 스트림별 인재 구성",
+      "mixDescription": "{{scope}} 기준 카테고리 분포입니다.",
+      "mixScopeFallback": "선택 조직",
+      "divisionBenchmarkTitle": "사업부 벤치마크 (현재)",
+      "stackedTitle": "기간별 누적 비교",
+      "stackedDescription": "스트림별 실적/현재/목표 구성을 비교합니다.",
+      "currentSuffix": "현재 {{value}}"
     }
   }
 }

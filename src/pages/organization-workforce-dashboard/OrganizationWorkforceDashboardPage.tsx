@@ -1,4 +1,5 @@
 import { canSeeAllDivisions } from '@features/auth/types/devUserMode';
+import { useAppTranslation } from '@hooks/useAppTranslation';
 import { Alert, Button, Stack } from '@mui/material';
 import { OrganizationWorkforceDashboardFilters } from '@pages/organization-workforce-dashboard/components/OrganizationWorkforceDashboardFilters';
 import { OrganizationWorkforceDashboardHeader } from '@pages/organization-workforce-dashboard/components/OrganizationWorkforceDashboardHeader';
@@ -8,6 +9,7 @@ import { exportOrganizationWorkforceDashboardExcel } from '@utils/exportOrganiza
 import { useCallback, useMemo, useState } from 'react';
 
 export const OrganizationWorkforceDashboardPage = () => {
+  const { t } = useAppTranslation();
   const { activeUser, filters, viewState, dataState, actions } = useOrganizationWorkforceDashboard();
   const [exportError, setExportError] = useState<string | null>(null);
   const [isExporting, setIsExporting] = useState(false);
@@ -48,7 +50,7 @@ export const OrganizationWorkforceDashboardPage = () => {
       });
     } catch (error) {
       console.error(error);
-      setExportError(error instanceof Error ? error.message : '엑셀 파일을 생성하지 못했습니다.');
+      setExportError(error instanceof Error ? error.message : t('workforceDashboard.errors.exportFallback'));
     } finally {
       setIsExporting(false);
     }
@@ -58,6 +60,7 @@ export const OrganizationWorkforceDashboardPage = () => {
     filters.keyword,
     filters.snapshotMonth,
     selectedOrgName,
+    t,
     viewState.isLoading
   ]);
 
@@ -91,7 +94,7 @@ export const OrganizationWorkforceDashboardPage = () => {
           severity="error"
           action={
             <Button color="inherit" size="small" onClick={actions.refresh}>
-              다시 시도
+              {t('common.actions.retry')}
             </Button>
           }
         >

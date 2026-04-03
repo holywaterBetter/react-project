@@ -1,3 +1,4 @@
+import { useAppTranslation } from '@hooks/useAppTranslation';
 import { FormControl, InputLabel, MenuItem, Select, Stack, TextField } from '@mui/material';
 
 type OrganizationOption = {
@@ -27,55 +28,59 @@ export const OrganizationWorkforceDashboardFilters = ({
   onOrganizationChange,
   onSnapshotMonthChange,
   onKeywordChange
-}: OrganizationWorkforceDashboardFiltersProps) => (
-  <div className="rounded-[var(--radius-xl)] border border-line bg-surface px-5 py-4 shadow-sm">
-    <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
-      <FormControl fullWidth>
-        <InputLabel id="organization-workforce-dashboard-org-label">사업부</InputLabel>
-        <Select
-          labelId="organization-workforce-dashboard-org-label"
-          value={selectedOrgCode}
-          label="사업부"
-          onChange={(event) => {
-            onOrganizationChange(event.target.value);
-          }}
-        >
-          {showAllOption ? <MenuItem value="">전체 사업부</MenuItem> : null}
-          {organizationOptions.map((option) => (
-            <MenuItem key={option.orgCode} value={option.orgCode}>
-              {option.orgDisplayName}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+}: OrganizationWorkforceDashboardFiltersProps) => {
+  const { t } = useAppTranslation();
 
-      <FormControl fullWidth>
-        <InputLabel id="organization-workforce-dashboard-snapshot-label">기준년월</InputLabel>
-        <Select
-          labelId="organization-workforce-dashboard-snapshot-label"
-          value={snapshotMonth}
-          label="기준년월"
-          onChange={(event) => {
-            onSnapshotMonthChange(event.target.value);
-          }}
-        >
-          {snapshotOptions.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+  return (
+    <div className="rounded-[var(--radius-xl)] border border-line bg-surface px-5 py-4 shadow-sm">
+      <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
+        <FormControl fullWidth>
+          <InputLabel id="organization-workforce-dashboard-org-label">{t('workforceDashboard.filters.division')}</InputLabel>
+          <Select
+            labelId="organization-workforce-dashboard-org-label"
+            value={selectedOrgCode}
+            label={t('workforceDashboard.filters.division')}
+            onChange={(event) => {
+              onOrganizationChange(event.target.value);
+            }}
+          >
+            {showAllOption ? <MenuItem value="">{t('workforceDashboard.filters.allDivisions')}</MenuItem> : null}
+            {organizationOptions.map((option) => (
+              <MenuItem key={option.orgCode} value={option.orgCode}>
+                {option.orgDisplayName}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
 
-      <TextField
-        fullWidth
-        label="키워드 검색"
-        value={keyword}
-        onChange={(event) => {
-          onKeywordChange(event.target.value);
-        }}
-        placeholder="사업부명 또는 코드 검색"
-      />
-    </Stack>
-  </div>
-);
+        <FormControl fullWidth>
+          <InputLabel id="organization-workforce-dashboard-snapshot-label">{t('workforceDashboard.filters.baseMonth')}</InputLabel>
+          <Select
+            labelId="organization-workforce-dashboard-snapshot-label"
+            value={snapshotMonth}
+            label={t('workforceDashboard.filters.baseMonth')}
+            onChange={(event) => {
+              onSnapshotMonthChange(event.target.value);
+            }}
+          >
+            {snapshotOptions.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+
+        <TextField
+          fullWidth
+          label={t('workforceDashboard.filters.keyword')}
+          value={keyword}
+          onChange={(event) => {
+            onKeywordChange(event.target.value);
+          }}
+          placeholder={t('workforceDashboard.filters.keywordPlaceholder')}
+        />
+      </Stack>
+    </div>
+  );
+};
