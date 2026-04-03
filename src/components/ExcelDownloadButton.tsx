@@ -5,21 +5,29 @@ import { Button, CircularProgress } from '@mui/material';
 type ExcelDownloadButtonProps = {
   disabled?: boolean;
   isLoading?: boolean;
-  onDownload: () => void;
+  label?: string;
+  onDownload: () => void | Promise<void>;
 };
 
-export const ExcelDownloadButton = ({ disabled = false, isLoading = false, onDownload }: ExcelDownloadButtonProps) => {
+export const ExcelDownloadButton = ({
+  disabled = false,
+  isLoading = false,
+  label,
+  onDownload
+}: ExcelDownloadButtonProps) => {
   const { t } = useAppTranslation();
 
   return (
     <Button
       variant="outlined"
       color="primary"
-      onClick={onDownload}
+      onClick={() => {
+        void onDownload();
+      }}
       disabled={disabled || isLoading}
       startIcon={isLoading ? <CircularProgress size={16} color="inherit" /> : <DownloadOutlined />}
     >
-      {t('organization.actions.download')}
+      {label ?? t('organization.actions.download')}
     </Button>
   );
 };

@@ -1,15 +1,22 @@
+import { ExcelDownloadButton } from '@components/ExcelDownloadButton';
 import { Button, Chip, Stack, Typography } from '@mui/material';
 import { formatDateLabel } from '@pages/organization-workforce-dashboard/utils/dashboardFormatters';
 
 type OrganizationWorkforceDashboardHeaderProps = {
   baseMonth?: string;
+  isExportDisabled: boolean;
+  isExporting: boolean;
   lastUpdated?: string;
+  onExport: () => void | Promise<void>;
   onRefresh: () => void;
 };
 
 export const OrganizationWorkforceDashboardHeader = ({
   baseMonth,
+  isExportDisabled,
+  isExporting,
   lastUpdated,
+  onExport,
   onRefresh
 }: OrganizationWorkforceDashboardHeaderProps) => (
   <div className="rounded-[var(--radius-xl)] border border-line bg-surface px-6 py-5 shadow-sm">
@@ -17,7 +24,7 @@ export const OrganizationWorkforceDashboardHeader = ({
       <Stack spacing={1.25}>
         <Typography variant="h4">조직별 인력현황 및 재배치 실적 대시보드(안)</Typography>
         <Typography variant="body2" className="max-w-3xl text-ink-muted">
-          조직별 인력 구성, 재배치 흐름, 연말 목표 대비 현재 실적을 한 화면에서 점검하는 내부 HR 보고서형 대시보드입니다.
+          조직별 인력 구성, 재배치 흐름, 연말 목표 대비 현재 실적을 한 화면에서 확인하는 HR 보고서형 대시보드입니다.
         </Typography>
         <div className="flex flex-wrap gap-2">
           <Chip size="small" variant="outlined" label={`기준월 ${baseMonth ?? '-'}`} />
@@ -29,9 +36,12 @@ export const OrganizationWorkforceDashboardHeader = ({
         <Button variant="outlined" onClick={onRefresh}>
           새로고침
         </Button>
-        <Button variant="outlined" disabled>
-          Export 준비중
-        </Button>
+        <ExcelDownloadButton
+          disabled={isExportDisabled}
+          isLoading={isExporting}
+          label="엑셀 다운로드"
+          onDownload={onExport}
+        />
       </div>
     </div>
   </div>
