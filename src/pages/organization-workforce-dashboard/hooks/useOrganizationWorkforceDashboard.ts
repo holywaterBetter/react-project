@@ -7,12 +7,10 @@ import {
   type OrganizationWorkforceDashboardMeta
 } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 import { buildOrganizationSections } from '@pages/organization-workforce-dashboard/utils/dashboardTableMapper';
-import { useWorkforceRepositoryVersion } from '@services/workforceRepository';
 import { startTransition, useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 
 export const useOrganizationWorkforceDashboard = () => {
   const { activeUser } = useDevUserMode();
-  const repositoryVersion = useWorkforceRepositoryVersion();
   const [selectedOrgCode, setSelectedOrgCode] = useState('');
   const [snapshotMonth, setSnapshotMonth] = useState('2026.04');
   const [keyword, setKeyword] = useState('');
@@ -39,11 +37,21 @@ export const useOrganizationWorkforceDashboard = () => {
 
     try {
       const [metaResponse, mappingResponse, listResponse] = await Promise.all([
-        organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardMeta(activeUser),
+        organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardMeta(activeUser, {
+          snapshotMonth
+        }),
         organizationWorkforceDashboardApi.getOrganizationCategoryMappings(),
         selectedOrgCode
-          ? organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardByOrg(activeUser, selectedOrgCode)
-          : organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardList(activeUser)
+          ? organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardByOrg(
+              activeUser,
+              selectedOrgCode,
+              {
+                snapshotMonth
+              }
+            )
+          : organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardList(activeUser, {
+              snapshotMonth
+            })
       ]);
 
       if (!metaResponse.success) {
@@ -82,11 +90,11 @@ export const useOrganizationWorkforceDashboard = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [activeUser, selectedOrgCode]);
+  }, [activeUser, selectedOrgCode, snapshotMonth]);
 
   useEffect(() => {
     void loadDashboard();
-  }, [loadDashboard, refreshToken, repositoryVersion]);
+  }, [loadDashboard, refreshToken]);
 
   const filteredSections = useMemo(() => {
     if (!deferredKeyword) {

@@ -1,6 +1,5 @@
 import { organizationWorkforceDashboardApi } from '@api/organizationWorkforceDashboardApi';
 import { getDivisionNameByCode, SMALL_DIVISION_GROUP, type DevUserMode } from '@features/auth/types/devUserMode';
-import { workforceRepository } from '@services/workforceRepository';
 
 const globalUser: DevUserMode = {
   empNo: 17100208,
@@ -19,10 +18,6 @@ const aeroUser: DevUserMode = {
 };
 
 describe('organizationWorkforceDashboardApi', () => {
-  beforeEach(() => {
-    workforceRepository.resetForTests();
-  });
-
   it('returns division-only options for global users and groups small divisions into 기타 사업부', async () => {
     const metaResponse = await organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardMeta(globalUser);
 

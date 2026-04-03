@@ -5,8 +5,6 @@ import {
 } from '@constants/organizationCategoryMap';
 import {
   canSeeAllDivisions,
-  DIVISION_INFOS,
-  getDivisionNameByCode,
   SMALL_DIVISION_CODES,
   SMALL_DIVISION_GROUP,
   type DevUserMode
@@ -19,52 +17,13 @@ import type {
   OrganizationWorkforceDashboardMeta,
   OrganizationWorkforceDashboardQuery
 } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
-import { workforceRepository } from '@services/workforceRepository';
-import type { OrganizationRecord } from '@shared-types/org';
+import {
+  organizationWorkforceDataService,
+  type OrganizationDivisionCountRecord
+} from '@services/organizationWorkforceDataService';
 
-const MOCK_DELAY_MS = 220;
-const PERIOD_KEYS = ['actual2025', 'target2026', 'current202604'] as const;
-const divisionCodeSet = new Set(DIVISION_INFOS.map((division) => division.code));
-const divisionCodeByName = new Map(
-  DIVISION_INFOS.map((division) => [division.name, division.code])
-);
-
-const periodMeta = {
-  actual2025: { label: "'25 Actual" },
-  target2026: { label: "'26 Target" },
-  current202604: { label: '2026.04 Current' }
-} as const;
-
-const categoryMultipliers: Record<
-  OrganizationCategoryCode,
-  Record<(typeof PERIOD_KEYS)[number], number>
-> = {
-  A1: { actual2025: 1.04, current202604: 0.97, target2026: 0.92 },
-  B1: { actual2025: 0.94, current202604: 1.08, target2026: 1.18 },
-  B2: { actual2025: 0.95, current202604: 1.1, target2026: 1.22 },
-  B3: { actual2025: 0.9, current202604: 1.14, target2026: 1.28 },
-  C1: { actual2025: 0.92, current202604: 1.06, target2026: 1.12 }
-};
-
-const categoryReallocationFactors: Record<
-  OrganizationCategoryCode,
-  Record<(typeof PERIOD_KEYS)[number], number>
-> = {
-  A1: { actual2025: 0.05, current202604: 0.08, target2026: 0.11 },
-  B1: { actual2025: 0.03, current202604: 0.05, target2026: 0.07 },
-  B2: { actual2025: 0.04, current202604: 0.06, target2026: 0.08 },
-  B3: { actual2025: 0.05, current202604: 0.07, target2026: 0.09 },
-  C1: { actual2025: 0.03, current202604: 0.04, target2026: 0.06 }
-};
-
-const delay = async (ms = MOCK_DELAY_MS) =>
-  new Promise((resolve) => globalThis.setTimeout(resolve, ms));
-
-const hashString = (value: string) =>
-  [...value].reduce(
-    (accumulator, character, index) => accumulator + character.charCodeAt(0) * (index + 17),
-    0
-  );
+const ROOT_ORG_CODE = 'C10';
+const DEFAULT_BASE_MONTH = '2026.04';
 
 const createEmptyCategoryMetrics = (): Record<
   OrganizationCategoryCode,
@@ -82,303 +41,292 @@ const createEmptyCategoryMetrics = (): Record<
     {} as Record<OrganizationCategoryCode, DashboardCategoryPeriodMap>
   );
 
-const addRecordMetrics = (
-  metrics: Record<OrganizationCategoryCode, DashboardCategoryPeriodMap>,
-  record: Pick<OrganizationRecord, 'org_category_code' | 'org_code' | 'updated_date'>
-) => {
-  const categoryCode = record.org_category_code as OrganizationCategoryCode;
+const sumCategoryValue = (
+  values: Partial<Record<OrganizationCategoryCode, number>> | undefined,
+  categoryCode: OrganizationCategoryCode
+) => Number(values?.[categoryCode] ?? 0);
 
-  if (!organizationCategoryCodes.includes(categoryCode)) {
-    return;
+const formatBaseMonth = (updatedDate: string) => {
+  if (!/^\d{8}$/.test(updatedDate)) {
+    return DEFAULT_BASE_MONTH;
   }
 
-  const baseHeadcount = 10 + (hashString(record.org_code) % 24);
-  const baseReallocation = 1 + (hashString(record.updated_date) % 5);
-
-  PERIOD_KEYS.forEach((periodKey) => {
-    const multiplier = categoryMultipliers[categoryCode][periodKey];
-    const reallocationFactor = categoryReallocationFactors[categoryCode][periodKey];
-
-    metrics[categoryCode][periodKey].headcount += Math.max(
-      1,
-      Math.round(baseHeadcount * multiplier)
-    );
-    metrics[categoryCode][periodKey].reallocated += Math.max(
-      0,
-      Math.round(baseReallocation + baseHeadcount * reallocationFactor * 0.1)
-    );
-  });
+  return `${updatedDate.slice(0, 4)}.${updatedDate.slice(4, 6)}`;
 };
 
-const getCanonicalDivisionCode = (
-  record: Pick<OrganizationRecord, 'org_division_code' | 'org_division_name'>
-) => {
-  if (divisionCodeSet.has(record.org_division_code)) {
-    return record.org_division_code;
-  }
-
-  return divisionCodeByName.get(record.org_division_name) ?? record.org_division_code;
-};
-
-const toDashboardEntry = (
-  divisionCode: string,
-  divisionName: string,
-  records: OrganizationRecord[]
-): OrganizationWorkforceDashboardEntry => {
-  const categoryMetrics = createEmptyCategoryMetrics();
-
-  records.forEach((record) => {
-    addRecordMetrics(categoryMetrics, record);
-  });
-
-  const lastUpdated = records.reduce(
-    (latest, current) => (current.updated_date > latest ? current.updated_date : latest),
-    records[0]?.updated_date ?? ''
-  );
-
-  return {
-    orgCode: divisionCode,
-    orgName: divisionName,
-    orgDisplayName: divisionName,
-    sourceRecordCount: records.length,
-    lastUpdated,
-    categoryMetrics
-  };
-};
-
-const sortSections = (sections: OrganizationWorkforceDashboardEntry[]) =>
-  [...sections].sort((left, right) =>
+const sortEntries = (entries: OrganizationWorkforceDashboardEntry[]) =>
+  [...entries].sort((left, right) =>
     left.orgDisplayName.localeCompare(right.orgDisplayName, 'ko')
   );
 
-const aggregateSmallDivisionSections = (sections: OrganizationWorkforceDashboardEntry[]) => {
-  const smallCodeSet = new Set<string>(SMALL_DIVISION_CODES);
-  const smallSections = sections.filter((section) => smallCodeSet.has(section.orgCode));
+const mergeCategoryMetrics = (
+  accumulator: Record<OrganizationCategoryCode, DashboardCategoryPeriodMap>,
+  source: Record<OrganizationCategoryCode, DashboardCategoryPeriodMap>
+) => {
+  organizationCategoryCodes.forEach((categoryCode) => {
+    accumulator[categoryCode].actual2025.headcount += source[categoryCode].actual2025.headcount;
+    accumulator[categoryCode].actual2025.reallocated +=
+      source[categoryCode].actual2025.reallocated;
+    accumulator[categoryCode].target2026.headcount += source[categoryCode].target2026.headcount;
+    accumulator[categoryCode].target2026.reallocated +=
+      source[categoryCode].target2026.reallocated;
+    accumulator[categoryCode].current202604.headcount +=
+      source[categoryCode].current202604.headcount;
+    accumulator[categoryCode].current202604.reallocated +=
+      source[categoryCode].current202604.reallocated;
+  });
+};
 
-  if (smallSections.length === 0) {
+const aggregateEntries = (
+  entries: OrganizationWorkforceDashboardEntry[],
+  {
+    orgCode,
+    orgName,
+    orgDisplayName
+  }: Pick<OrganizationWorkforceDashboardEntry, 'orgCode' | 'orgName' | 'orgDisplayName'>
+): OrganizationWorkforceDashboardEntry => {
+  const aggregatedEntry: OrganizationWorkforceDashboardEntry = {
+    orgCode,
+    orgName,
+    orgDisplayName,
+    sourceRecordCount: 0,
+    lastUpdated: '',
+    categoryMetrics: createEmptyCategoryMetrics()
+  };
+
+  entries.forEach((entry) => {
+    aggregatedEntry.sourceRecordCount += entry.sourceRecordCount;
+    aggregatedEntry.lastUpdated =
+      entry.lastUpdated > aggregatedEntry.lastUpdated ? entry.lastUpdated : aggregatedEntry.lastUpdated;
+    mergeCategoryMetrics(aggregatedEntry.categoryMetrics, entry.categoryMetrics);
+  });
+
+  return aggregatedEntry;
+};
+
+const aggregateSmallDivisionSections = (sections: OrganizationWorkforceDashboardEntry[]) => {
+  const smallDivisionCodeSet = new Set<string>(SMALL_DIVISION_CODES);
+  const groupedSections = sections.filter((section) => smallDivisionCodeSet.has(section.orgCode));
+
+  if (groupedSections.length === 0) {
     return sections;
   }
 
-  const groupedSection = smallSections.reduce<OrganizationWorkforceDashboardEntry>(
-    (accumulator, current) => {
-      organizationCategoryCodes.forEach((categoryCode) => {
-        PERIOD_KEYS.forEach((periodKey) => {
-          accumulator.categoryMetrics[categoryCode][periodKey].headcount +=
-            current.categoryMetrics[categoryCode][periodKey].headcount;
-          accumulator.categoryMetrics[categoryCode][periodKey].reallocated +=
-            current.categoryMetrics[categoryCode][periodKey].reallocated;
-        });
-      });
-
-      accumulator.sourceRecordCount += current.sourceRecordCount;
-      accumulator.lastUpdated =
-        current.lastUpdated > accumulator.lastUpdated
-          ? current.lastUpdated
-          : accumulator.lastUpdated;
-
-      return accumulator;
-    },
-    {
+  return sortEntries([
+    ...sections.filter((section) => !smallDivisionCodeSet.has(section.orgCode)),
+    aggregateEntries(groupedSections, {
       orgCode: SMALL_DIVISION_GROUP.code,
       orgName: SMALL_DIVISION_GROUP.name,
-      orgDisplayName: SMALL_DIVISION_GROUP.name,
-      sourceRecordCount: 0,
-      lastUpdated: '',
-      categoryMetrics: createEmptyCategoryMetrics()
-    }
-  );
-
-  return sortSections([
-    ...sections.filter((section) => !smallCodeSet.has(section.orgCode)),
-    groupedSection
+      orgDisplayName: SMALL_DIVISION_GROUP.name
+    })
   ]);
 };
 
-const buildDashboardEntries = async (user: DevUserMode) => {
-  const scopedOrganizations = workforceRepository.getScopedOrganizations(user);
-  const divisionRecords = scopedOrganizations.reduce<Map<string, OrganizationRecord[]>>(
-    (map, record) => {
-      const divisionCode = getCanonicalDivisionCode(record);
-      const current = map.get(divisionCode) ?? [];
-      current.push(record);
-      map.set(divisionCode, current);
-      return map;
-    },
-    new Map()
-  );
+const toDashboardEntry = (
+  record: OrganizationDivisionCountRecord,
+  overrides?: Partial<
+    Pick<OrganizationWorkforceDashboardEntry, 'orgCode' | 'orgName' | 'orgDisplayName'>
+  >
+): OrganizationWorkforceDashboardEntry => ({
+  orgCode: overrides?.orgCode ?? record.org_code,
+  orgName: overrides?.orgName ?? record.org_name,
+  orgDisplayName: overrides?.orgDisplayName ?? record.org_division_name ?? record.org_name,
+  sourceRecordCount: 1,
+  lastUpdated: record.updated_date,
+  categoryMetrics: organizationCategoryCodes.reduce(
+    (accumulator, categoryCode) => ({
+      ...accumulator,
+      [categoryCode]: {
+        actual2025: {
+          headcount: sumCategoryValue(record.headcount_20251231_by_category, categoryCode),
+          reallocated: 0
+        },
+        target2026: {
+          headcount: sumCategoryValue(record.headcount_20261231_target_by_category, categoryCode),
+          reallocated: sumCategoryValue(
+            record.reallocation_target_20261231_by_category,
+            categoryCode
+          )
+        },
+        current202604: {
+          headcount: sumCategoryValue(record.headcount_current_by_category, categoryCode),
+          reallocated: sumCategoryValue(
+            record.reallocation_current_cumulative_by_category,
+            categoryCode
+          )
+        }
+      }
+    }),
+    {} as Record<OrganizationCategoryCode, DashboardCategoryPeriodMap>
+  )
+});
 
-  const rawSections = sortSections(
-    [...divisionRecords.entries()].map(([divisionCode, records]) => {
-      const divisionRoot = records.find((record) => record.org_code === divisionCode);
-      const divisionName =
-        divisionRoot?.org_name ??
-        getDivisionNameByCode(divisionCode) ??
-        records[0]?.org_division_name ??
-        divisionCode;
+const buildPeriodMeta = (
+  records: OrganizationDivisionCountRecord[]
+): Pick<
+  OrganizationWorkforceDashboardMeta,
+  'baseMonth' | 'compareLabel' | 'targetLabel' | 'currentLabel'
+> => {
+  const latestRecord = [...records].sort((left, right) =>
+    right.updated_date.localeCompare(left.updated_date)
+  )[0];
+  const baseMonth = formatBaseMonth(latestRecord?.updated_date ?? '');
 
-      return toDashboardEntry(divisionCode, divisionName, records);
-    })
+  return {
+    baseMonth,
+    compareLabel: "'25 Actual",
+    targetLabel: "'26 Target",
+    currentLabel: `${baseMonth} Current`
+  };
+};
+
+const buildScopedEntries = async (
+  user: DevUserMode,
+  query?: Pick<OrganizationWorkforceDashboardQuery, 'snapshotMonth'>
+) => {
+  const records = await organizationWorkforceDataService.getDivisionCountRecords({
+    snapshotMonth: query?.snapshotMonth
+  });
+  const periodMeta = buildPeriodMeta(records);
+  const overallRecord = records.find((record) => record.org_code === ROOT_ORG_CODE) ?? null;
+  const divisionRecords = records.filter(
+    (record) => record.org_code !== ROOT_ORG_CODE && Boolean(record.org_division_code)
   );
+  const scopedDivisionRecords = canSeeAllDivisions(user)
+    ? divisionRecords
+    : divisionRecords.filter((record) => record.org_code === user.divisionCode);
+  const rawSections = sortEntries(scopedDivisionRecords.map((record) => toDashboardEntry(record)));
   const sections = canSeeAllDivisions(user)
     ? aggregateSmallDivisionSections(rawSections)
     : rawSections;
+  const overallEntry = canSeeAllDivisions(user)
+    ? overallRecord
+      ? toDashboardEntry(overallRecord, {
+          orgCode: 'ALL',
+          orgName: overallRecord.org_name,
+          orgDisplayName: 'All'
+        })
+      : aggregateEntries(rawSections, {
+          orgCode: 'ALL',
+          orgName: 'All Divisions',
+          orgDisplayName: 'All'
+        })
+    : null;
 
-  if (!canSeeAllDivisions(user)) {
-    return { sections, overallEntry: null };
-  }
-
-  const overallEntry = sections.reduce<OrganizationWorkforceDashboardEntry>(
-    (accumulator, current) => {
-      organizationCategoryCodes.forEach((categoryCode) => {
-        PERIOD_KEYS.forEach((periodKey) => {
-          accumulator.categoryMetrics[categoryCode][periodKey].headcount +=
-            current.categoryMetrics[categoryCode][periodKey].headcount;
-          accumulator.categoryMetrics[categoryCode][periodKey].reallocated +=
-            current.categoryMetrics[categoryCode][periodKey].reallocated;
-        });
-      });
-
-      accumulator.sourceRecordCount += current.sourceRecordCount;
-      accumulator.lastUpdated =
-        current.lastUpdated > accumulator.lastUpdated
-          ? current.lastUpdated
-          : accumulator.lastUpdated;
-
-      return accumulator;
-    },
-    {
-      orgCode: 'ALL',
-      orgName: '전사',
-      orgDisplayName: 'All',
-      sourceRecordCount: 0,
-      lastUpdated: '',
-      categoryMetrics: createEmptyCategoryMetrics()
-    }
-  );
-
-  return { sections, overallEntry };
+  return { periodMeta, sections, overallEntry };
 };
 
-const simulateResponse = async <T, TMeta>(
-  resolver: () => Promise<{ data: T; meta: TMeta; message: string }>,
-  simulateError?: boolean
-): Promise<DashboardApiResponse<T, TMeta>> => {
-  await delay();
-
-  if (simulateError) {
-    return {
-      success: false,
-      data: [] as unknown as T,
-      message: 'Mock API error has been simulated.',
-      meta: {} as unknown as TMeta
-    };
-  }
-
-  const result = await resolver();
-
-  return {
-    success: true,
-    data: result.data,
-    message: result.message,
-    meta: result.meta
-  };
-};
+const buildFailureResponse = <T, TMeta>(message: string): DashboardApiResponse<T, TMeta> => ({
+  success: false,
+  data: [] as unknown as T,
+  message,
+  meta: {} as TMeta
+});
 
 export const organizationWorkforceDashboardApi = {
   async getOrganizationWorkforceDashboardList(
     user: DevUserMode,
     query?: OrganizationWorkforceDashboardQuery
   ): Promise<DashboardApiResponse<OrganizationWorkforceDashboardEntry[], { totalCount: number }>> {
-    return simulateResponse(async () => {
-      const { sections, overallEntry } = await buildDashboardEntries(user);
-      const baseItems = overallEntry ? [overallEntry, ...sections] : sections;
-      const items = query?.orgCode
-        ? baseItems.filter((section) => section.orgCode === query.orgCode)
-        : baseItems;
+    if (query?.simulateError) {
+      return buildFailureResponse('Mock API error has been simulated.');
+    }
 
-      return {
-        data: items,
-        message: 'Organization workforce dashboard list fetched successfully.',
-        meta: {
-          totalCount: items.length
-        }
-      };
-    }, query?.simulateError);
+    const { sections, overallEntry } = await buildScopedEntries(user, query);
+    const baseItems = overallEntry ? [overallEntry, ...sections] : sections;
+    const items = query?.orgCode
+      ? baseItems.filter((section) => section.orgCode === query.orgCode)
+      : baseItems;
+
+    return {
+      success: true,
+      data: items,
+      message: 'Organization workforce dashboard list fetched successfully.',
+      meta: {
+        totalCount: items.length
+      }
+    };
   },
 
   async getOrganizationWorkforceDashboardByOrg(
     user: DevUserMode,
     orgCode: string,
-    query?: Pick<OrganizationWorkforceDashboardQuery, 'simulateError'>
+    query?: OrganizationWorkforceDashboardQuery
   ): Promise<
     DashboardApiResponse<OrganizationWorkforceDashboardEntry | null, { requestedOrgCode: string }>
   > {
-    return simulateResponse(async () => {
-      const { sections, overallEntry } = await buildDashboardEntries(user);
-      const baseItems = overallEntry ? [overallEntry, ...sections] : sections;
-      const target = baseItems.find((section) => section.orgCode === orgCode) ?? null;
+    if (query?.simulateError) {
+      return buildFailureResponse('Mock API error has been simulated.');
+    }
 
-      return {
-        data: target,
-        message: target
-          ? 'Organization workforce dashboard detail fetched successfully.'
-          : 'Organization dashboard entry not found.',
-        meta: {
-          requestedOrgCode: orgCode
-        }
-      };
-    }, query?.simulateError);
+    const { sections, overallEntry } = await buildScopedEntries(user, query);
+    const baseItems = overallEntry ? [overallEntry, ...sections] : sections;
+    const target = baseItems.find((section) => section.orgCode === orgCode) ?? null;
+
+    return {
+      success: true,
+      data: target,
+      message: target
+        ? 'Organization workforce dashboard detail fetched successfully.'
+        : 'Organization dashboard entry not found.',
+      meta: {
+        requestedOrgCode: orgCode
+      }
+    };
   },
 
   async getOrganizationWorkforceDashboardMeta(
     user: DevUserMode,
-    query?: Pick<OrganizationWorkforceDashboardQuery, 'simulateError'>
+    query?: OrganizationWorkforceDashboardQuery
   ): Promise<
     DashboardApiResponse<OrganizationWorkforceDashboardMeta, { totalOrganizations: number }>
   > {
-    return simulateResponse(async () => {
-      const { sections, overallEntry } = await buildDashboardEntries(user);
+    if (query?.simulateError) {
+      return buildFailureResponse('Mock API error has been simulated.');
+    }
 
-      return {
-        data: {
-          baseMonth: '2026.04',
-          compareLabel: periodMeta.actual2025.label,
-          currentLabel: periodMeta.current202604.label,
-          targetLabel: periodMeta.target2026.label,
-          lastUpdated: overallEntry?.lastUpdated ?? sections[0]?.lastUpdated ?? '',
-          availableSnapshotMonths: ['2026.04'],
-          organizationOptions: sections.map((section) => ({
-            orgCode: section.orgCode,
-            orgName: section.orgName,
-            orgDisplayName: section.orgDisplayName
-          }))
-        },
-        message: 'Organization workforce dashboard meta fetched successfully.',
-        meta: {
-          totalOrganizations: sections.length
-        }
-      };
-    }, query?.simulateError);
+    const { periodMeta, sections, overallEntry } = await buildScopedEntries(user, query);
+
+    return {
+      success: true,
+      data: {
+        ...periodMeta,
+        lastUpdated: overallEntry?.lastUpdated ?? sections[0]?.lastUpdated ?? '',
+        availableSnapshotMonths: [periodMeta.baseMonth],
+        organizationOptions: sections.map((section) => ({
+          orgCode: section.orgCode,
+          orgName: section.orgName,
+          orgDisplayName: section.orgDisplayName
+        }))
+      },
+      message: 'Organization workforce dashboard meta fetched successfully.',
+      meta: {
+        totalOrganizations: sections.length
+      }
+    };
   },
 
   async getOrganizationCategoryMappings(
     query?: Pick<OrganizationWorkforceDashboardQuery, 'simulateError'>
   ): Promise<DashboardApiResponse<OrganizationCategoryMappingResponse, { totalMappings: number }>> {
-    return simulateResponse(async () => {
-      const mappings = organizationCategoryCodes.map((categoryCode) => ({
-        code: categoryCode,
-        groupLabel: organizationCategoryMap[categoryCode].groupLabel,
-        displayLabel: organizationCategoryMap[categoryCode].displayLabel,
-        dashboardLabel: organizationCategoryMap[categoryCode].dashboardLabel
-      }));
+    if (query?.simulateError) {
+      return buildFailureResponse('Mock API error has been simulated.');
+    }
 
-      return {
-        data: mappings,
-        message: 'Organization category mappings fetched successfully.',
-        meta: {
-          totalMappings: mappings.length
-        }
-      };
-    }, query?.simulateError);
+    const mappings = organizationCategoryCodes.map((categoryCode) => ({
+      code: categoryCode,
+      groupLabel: organizationCategoryMap[categoryCode].groupLabel,
+      displayLabel: organizationCategoryMap[categoryCode].displayLabel,
+      dashboardLabel: organizationCategoryMap[categoryCode].dashboardLabel
+    }));
+
+    return {
+      success: true,
+      data: mappings,
+      message: 'Organization category mappings fetched successfully.',
+      meta: {
+        totalMappings: mappings.length
+      }
+    };
   }
 };

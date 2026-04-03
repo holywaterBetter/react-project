@@ -78,5 +78,6 @@ export type OrganizationWorkforceDashboardListResponse = OrganizationWorkforceDa
 
 export type OrganizationWorkforceDashboardQuery = {
   orgCode?: string;
+  snapshotMonth?: string;
   simulateError?: boolean;
 };

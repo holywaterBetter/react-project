@@ -106,6 +106,11 @@ export const OrganizationWorkforceDashboardPage = () => {
         sections={dataState.sections}
         isLoading={viewState.isLoading}
         isEmpty={viewState.isEmpty}
+        periodLabels={{
+          actual2025: dataState.meta?.compareLabel,
+          target2026: dataState.meta?.targetLabel,
+          current202604: dataState.meta?.currentLabel
+        }}
       />
     </Stack>
   );

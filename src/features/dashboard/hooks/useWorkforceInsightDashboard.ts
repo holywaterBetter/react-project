@@ -1,18 +1,15 @@
-import { organizationWorkforceDashboardApi } from '@api/organizationWorkforceDashboardApi';
+import { workforceInsightDashboardApi } from '@api/workforceInsightDashboardApi';
 import { useDevUserMode } from '@features/auth/context/DevUserModeContext';
 import { canSeeAllDivisions } from '@features/auth/types/devUserMode';
 import type { WorkforceInsightData } from '@features/dashboard/types/workforceInsight';
-import { mapToWorkforceInsightData } from '@features/dashboard/utils/workforceInsightMapper';
 import { useAppTranslation } from '@hooks/useAppTranslation';
-import { useWorkforceRepositoryVersion } from '@services/workforceRepository';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 export const useWorkforceInsightDashboard = () => {
   const { activeUser } = useDevUserMode();
   const { i18n } = useAppTranslation();
-  const repositoryVersion = useWorkforceRepositoryVersion();
   const [selectedOrgCode, setSelectedOrgCode] = useState('ALL');
-  const [selectedMonth, setSelectedMonth] = useState('2026.04');
+  const [selectedMonth, setSelectedMonth] = useState('');
   const [insightData, setInsightData] = useState<WorkforceInsightData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -22,69 +19,50 @@ export const useWorkforceInsightDashboard = () => {
     setError(null);
 
     try {
-      const [metaResponse, listResponse] = await Promise.all([
-        organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardMeta(activeUser),
-        organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardList(activeUser)
-      ]);
+      const response = await workforceInsightDashboardApi.getWorkforceInsightDashboard(activeUser, {
+        language: i18n.language,
+        orgCode: selectedOrgCode || undefined,
+        month: selectedMonth || undefined
+      });
 
-      if (!metaResponse.success || !listResponse.success) {
-        throw new Error(metaResponse.message || listResponse.message);
+      if (!response.success) {
+        throw new Error(response.message);
       }
 
-      const nextSelectedOrgCode =
-        canSeeAllDivisions(activeUser) || metaResponse.data.organizationOptions.length === 0
-          ? selectedOrgCode
-          : metaResponse.data.organizationOptions[0]?.orgCode ?? '';
-
-      setSelectedOrgCode(nextSelectedOrgCode || (canSeeAllDivisions(activeUser) ? 'ALL' : ''));
-      setSelectedMonth(metaResponse.data.baseMonth);
-      setInsightData(
-        mapToWorkforceInsightData(
-          listResponse.data,
-          metaResponse.data,
-          nextSelectedOrgCode || (canSeeAllDivisions(activeUser) ? 'ALL' : '')
-        ,
-          i18n.language
-        )
+      setSelectedOrgCode((current) =>
+        current === response.meta.selectedOrgCode ? current : response.meta.selectedOrgCode
       );
+      setSelectedMonth((current) =>
+        current === response.meta.selectedMonth ? current : response.meta.selectedMonth
+      );
+      setInsightData(response.data);
     } catch (loadError) {
       setError(loadError instanceof Error ? loadError.message : 'Failed to load workforce insights.');
       setInsightData(null);
     } finally {
       setIsLoading(false);
     }
-  }, [activeUser, i18n.language, selectedOrgCode]);
+  }, [activeUser, i18n.language, selectedMonth, selectedOrgCode]);
 
   useEffect(() => {
     if (canSeeAllDivisions(activeUser)) {
       setSelectedOrgCode('ALL');
-      return;
+    } else {
+      setSelectedOrgCode('');
     }
-
-    setSelectedOrgCode('');
+    setSelectedMonth('');
   }, [activeUser]);
 
   useEffect(() => {
     void loadInsightData();
-  }, [loadInsightData, repositoryVersion]);
-
-  const filteredTrend = useMemo(() => {
-    if (!insightData) {
-      return [];
-    }
-
-    return insightData.trends.map((point) => ({
-      ...point,
-      headcount: selectedMonth === point.month ? Math.round(point.headcount * 1.02) : point.headcount
-    }));
-  }, [insightData, selectedMonth]);
+  }, [loadInsightData]);
 
   return {
     activeUser,
     isLoading,
     error,
     insightData,
-    filteredTrend,
+    trendData: insightData?.trends ?? [],
     selectedOrgCode,
     selectedMonth,
     setSelectedOrgCode,

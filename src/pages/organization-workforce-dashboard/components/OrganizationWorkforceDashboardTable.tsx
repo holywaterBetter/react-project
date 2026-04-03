@@ -7,6 +7,11 @@ type OrganizationWorkforceDashboardTableProps = {
   sections: DashboardTableSection[];
   isLoading: boolean;
   isEmpty: boolean;
+  periodLabels?: {
+    actual2025?: string;
+    target2026?: string;
+    current202604?: string;
+  };
 };
 
 const LoadingRows = () => (
@@ -26,7 +31,8 @@ const LoadingRows = () => (
 export const OrganizationWorkforceDashboardTable = ({
   sections,
   isLoading,
-  isEmpty
+  isEmpty,
+  periodLabels
 }: OrganizationWorkforceDashboardTableProps) => {
   const { t } = useAppTranslation();
 
@@ -56,13 +62,13 @@ export const OrganizationWorkforceDashboardTable = ({
                 {t('workforceDashboard.table.headers.classification')}
               </TableCell>
               <TableCell colSpan={3} align="center" sx={{ backgroundColor: 'var(--color-bg-raised)' }}>
-                {t('workforceDashboard.table.headers.actual2025')}
+                {periodLabels?.actual2025 ?? t('workforceDashboard.table.headers.actual2025')}
               </TableCell>
               <TableCell colSpan={4} align="center" sx={{ backgroundColor: 'var(--color-bg-raised)' }}>
-                {t('workforceDashboard.table.headers.target2026')}
+                {periodLabels?.target2026 ?? t('workforceDashboard.table.headers.target2026')}
               </TableCell>
               <TableCell colSpan={4} align="center" sx={{ backgroundColor: 'var(--color-bg-raised)' }}>
-                {t('workforceDashboard.table.headers.current202604')}
+                {periodLabels?.current202604 ?? t('workforceDashboard.table.headers.current202604')}
               </TableCell>
             </TableRow>
             <TableRow>
