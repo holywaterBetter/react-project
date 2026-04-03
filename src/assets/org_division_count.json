@@ -33,7 +33,9 @@
     "reallocation_current_cumulative_by_category": {
       "B1": 3150,
       "C1": 690
-    }
+    },
+    "org_division_name_en": "",
+    "org_category_name_en": ""
   },
   {
     "org_code": "C100001",
@@ -69,7 +71,9 @@
     "reallocation_current_cumulative_by_category": {
       "B1": 700,
       "C1": 150
-    }
+    },
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)"
   },
   {
     "org_code": "C100061",
@@ -105,7 +109,9 @@
     "reallocation_current_cumulative_by_category": {
       "B1": 1200,
       "C1": 220
-    }
+    },
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)"
   },
   {
     "org_code": "C100121",
@@ -141,7 +147,9 @@
     "reallocation_current_cumulative_by_category": {
       "B1": 650,
       "C1": 180
-    }
+    },
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B2 (New Business)"
   },
   {
     "org_code": "C100181",
@@ -177,7 +185,9 @@
     "reallocation_current_cumulative_by_category": {
       "B1": 360,
       "C1": 80
-    }
+    },
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)"
   },
   {
     "org_code": "C100241",
@@ -213,6 +223,198 @@
     "reallocation_current_cumulative_by_category": {
       "B1": 240,
       "C1": 60
+    },
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)"
+  },
+  {
+    "org_code": "C100301",
+    "org_name": "Bio 사업부",
+    "org_division_code": "C100301",
+    "org_division_name": "Bio 사업부",
+    "org_division_name_en": "Bio Division",
+    "upper_org_code": "C10",
+    "updated_date": "20260331",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_category_name_en": "A (Core)",
+    "headcount_20251231_total": 2200,
+    "headcount_20251231_by_category": {
+      "A1": 1364,
+      "B1": 528,
+      "C1": 308
+    },
+    "headcount_20261231_target_total": 2500,
+    "headcount_20261231_target_by_category": {
+      "A1": 1424,
+      "B1": 725,
+      "C1": 351
+    },
+    "headcount_current_total": 2320,
+    "headcount_current_by_category": {
+      "A1": 1368,
+      "B1": 603,
+      "C1": 349
+    },
+    "reallocation_target_20261231_by_category": {
+      "B1": 145,
+      "C1": 42
+    },
+    "reallocation_current_cumulative_by_category": {
+      "B1": 60,
+      "C1": 24
+    }
+  },
+  {
+    "org_code": "C100401",
+    "org_name": "Aero 사업부",
+    "org_division_code": "C100401",
+    "org_division_name": "Aero 사업부",
+    "org_division_name_en": "Aero Division",
+    "upper_org_code": "C10",
+    "updated_date": "20260331",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_category_name_en": "A (Core)",
+    "headcount_20251231_total": 2600,
+    "headcount_20251231_by_category": {
+      "A1": 1612,
+      "B1": 624,
+      "C1": 364
+    },
+    "headcount_20261231_target_total": 2900,
+    "headcount_20261231_target_by_category": {
+      "A1": 1652,
+      "B1": 840,
+      "C1": 408
+    },
+    "headcount_current_total": 2720,
+    "headcount_current_by_category": {
+      "A1": 1604,
+      "B1": 707,
+      "C1": 409
+    },
+    "reallocation_target_20261231_by_category": {
+      "B1": 168,
+      "C1": 49
+    },
+    "reallocation_current_cumulative_by_category": {
+      "B1": 71,
+      "C1": 29
+    }
+  },
+  {
+    "org_code": "C100501",
+    "org_name": "Energy 사업부",
+    "org_division_code": "C100501",
+    "org_division_name": "Energy 사업부",
+    "org_division_name_en": "Energy Division",
+    "upper_org_code": "C10",
+    "updated_date": "20260331",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_category_name_en": "A (Core)",
+    "headcount_20251231_total": 2900,
+    "headcount_20251231_by_category": {
+      "A1": 1798,
+      "B1": 696,
+      "C1": 406
+    },
+    "headcount_20261231_target_total": 3200,
+    "headcount_20261231_target_by_category": {
+      "A1": 1823,
+      "B1": 927,
+      "C1": 450
+    },
+    "headcount_current_total": 3020,
+    "headcount_current_by_category": {
+      "A1": 1781,
+      "B1": 785,
+      "C1": 454
+    },
+    "reallocation_target_20261231_by_category": {
+      "B1": 185,
+      "C1": 54
+    },
+    "reallocation_current_cumulative_by_category": {
+      "B1": 78,
+      "C1": 32
+    }
+  },
+  {
+    "org_code": "C100601",
+    "org_name": "RetailTech 사업부",
+    "org_division_code": "C100601",
+    "org_division_name": "RetailTech 사업부",
+    "org_division_name_en": "RetailTech Division",
+    "upper_org_code": "C10",
+    "updated_date": "20260331",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_category_name_en": "A (Core)",
+    "headcount_20251231_total": 3200,
+    "headcount_20251231_by_category": {
+      "A1": 1984,
+      "B1": 768,
+      "C1": 448
+    },
+    "headcount_20261231_target_total": 3500,
+    "headcount_20261231_target_by_category": {
+      "A1": 1994,
+      "B1": 1014,
+      "C1": 492
+    },
+    "headcount_current_total": 3320,
+    "headcount_current_by_category": {
+      "A1": 1958,
+      "B1": 863,
+      "C1": 499
+    },
+    "reallocation_target_20261231_by_category": {
+      "B1": 203,
+      "C1": 59
+    },
+    "reallocation_current_cumulative_by_category": {
+      "B1": 86,
+      "C1": 35
+    }
+  },
+  {
+    "org_code": "C100701",
+    "org_name": "Mobility 서비스 사업부",
+    "org_division_code": "C100701",
+    "org_division_name": "Mobility 서비스 사업부",
+    "org_division_name_en": "Mobility Service Division",
+    "upper_org_code": "C10",
+    "updated_date": "20260331",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_category_name_en": "A (Core)",
+    "headcount_20251231_total": 3600,
+    "headcount_20251231_by_category": {
+      "A1": 2232,
+      "B1": 864,
+      "C1": 504
+    },
+    "headcount_20261231_target_total": 3900,
+    "headcount_20261231_target_by_category": {
+      "A1": 2223,
+      "B1": 1131,
+      "C1": 546
+    },
+    "headcount_current_total": 3720,
+    "headcount_current_by_category": {
+      "A1": 2194,
+      "B1": 967,
+      "C1": 559
+    },
+    "reallocation_target_20261231_by_category": {
+      "B1": 226,
+      "C1": 66
+    },
+    "reallocation_current_cumulative_by_category": {
+      "B1": 97,
+      "C1": 39
     }
   }
 ]

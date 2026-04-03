@@ -1,6 +1,4 @@
-
 import { MainLayout } from '@layouts/MainLayout';
-import { AboutPage } from '@pages/AboutPage';
 import { HomePage } from '@pages/HomePage';
 import { NotFoundPage } from '@pages/NotFoundPage';
 import { OrganizationApprovalDetailPage } from '@pages/organization-approval/OrganizationApprovalDetailPage';
@@ -18,10 +16,6 @@ const router = createHashRouter([
       {
         index: true,
         element: <HomePage />
-      },
-      {
-        path: 'about',
-        element: <AboutPage />
       },
       {
         path: 'organizations',

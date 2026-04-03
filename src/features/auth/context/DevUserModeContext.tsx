@@ -1,59 +1,69 @@
-import {
-  DEFAULT_DEV_USER_MODE_ID,
-  DEV_USER_MODES,
-  getDevUserModeById,
-  type DevUserMode
-} from '@features/auth/types/devUserMode';
-import {
-  createContext,
-  startTransition,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-  type PropsWithChildren
-} from 'react';
-
-const STORAGE_KEY = 'enterprise-react-starter/dev-user-mode';
+import { mockUserApi } from '@api/mockUserApi';
+import type { DevUserMode } from '@features/auth/types/devUserMode';
+import { createContext, useContext, useEffect, useMemo, useState, type PropsWithChildren } from 'react';
 
 type DevUserModeContextValue = {
   activeUser: DevUserMode;
   availableModes: DevUserMode[];
-  setActiveModeId: (id: string) => void;
+  isLoadingUsers: boolean;
+  setActiveModeEmpNo: (empNo: number) => Promise<void>;
 };
 
 const DevUserModeContext = createContext<DevUserModeContextValue | undefined>(undefined);
 
-const readStoredModeId = () => {
-  if (typeof window === 'undefined') {
-    return DEFAULT_DEV_USER_MODE_ID;
-  }
-
-  return window.localStorage.getItem(STORAGE_KEY) ?? DEFAULT_DEV_USER_MODE_ID;
+const FALLBACK_USER: DevUserMode = {
+  empNo: 17100208,
+  name: '김삼성',
+  nameEn: 'Holywater',
+  role: 'GLOBAL_HR',
+  divisionCode: 'C100001'
 };
 
 export const DevUserModeProvider = ({ children }: PropsWithChildren) => {
-  const [activeModeId, setActiveModeId] = useState(() => readStoredModeId());
+  const [activeUser, setActiveUser] = useState<DevUserMode>(FALLBACK_USER);
+  const [availableModes, setAvailableModes] = useState<DevUserMode[]>([FALLBACK_USER]);
+  const [isLoadingUsers, setIsLoadingUsers] = useState(true);
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
+    let mounted = true;
 
-    window.localStorage.setItem(STORAGE_KEY, activeModeId);
-  }, [activeModeId]);
+    const loadUsers = async () => {
+      setIsLoadingUsers(true);
+
+      try {
+        const [users, current] = await Promise.all([mockUserApi.getUsers(), mockUserApi.getActiveUser()]);
+
+        if (!mounted) {
+          return;
+        }
+
+        setAvailableModes(users);
+        setActiveUser(current);
+      } finally {
+        if (mounted) {
+          setIsLoadingUsers(false);
+        }
+      }
+    };
+
+    void loadUsers();
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   const value = useMemo<DevUserModeContextValue>(
     () => ({
-      activeUser: getDevUserModeById(activeModeId),
-      availableModes: DEV_USER_MODES,
-      setActiveModeId: (id: string) => {
-        startTransition(() => {
-          setActiveModeId(id);
-        });
+      activeUser,
+      availableModes,
+      isLoadingUsers,
+      setActiveModeEmpNo: async (empNo: number) => {
+        const nextUser = await mockUserApi.setActiveUser(empNo);
+        setActiveUser(nextUser);
       }
     }),
-    [activeModeId]
+    [activeUser, availableModes, isLoadingUsers]
   );
 
   return <DevUserModeContext.Provider value={value}>{children}</DevUserModeContext.Provider>;

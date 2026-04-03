@@ -8,10 +8,6 @@
       "actionMessage": "Action completed successfully."
     }
   },
-  "about": {
-    "title": "About This Starter",
-    "description": "This project mirrors a production-ready enterprise structure using modern compatible dependencies."
-  },
   "organization": {
     "summary": {
       "currentCount": "Current result count",
@@ -53,6 +49,22 @@
       "errorColumn": "Column",
       "errorMessage": "Error",
       "errorValue": "Input value"
+    }
+  },
+  "userSelector": {
+    "loading": "Loading users..."
+  },
+  "approval": {
+    "back": "Back to approvals",
+    "requester": "Requester",
+    "hideUnchanged": "Hide unchanged rows",
+    "decisionNote": "Decision note",
+    "approve": "Approve",
+    "reject": "Reject",
+    "noChangedRows": "No changed rows to display.",
+    "detail": {
+      "title": "Approval Detail",
+      "requestSuffix": "Change Request"
     }
   }
 }

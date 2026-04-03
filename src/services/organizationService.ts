@@ -1,5 +1,5 @@
 import { organizationCategoryCodes } from '@constants/organizationCategoryMap';
-import { canSeeAllDivisions, type DevUserMode } from '@features/auth/types/devUserMode';
+import { canSeeAllDivisions, getDivisionNameByCode, type DevUserMode } from '@features/auth/types/devUserMode';
 import { workforceRepository } from '@services/workforceRepository';
 import type {
   OrganizationCategorySummary,
@@ -124,7 +124,9 @@ export const organizationService = {
       return divisions;
     }
 
-    return divisions.filter((division) => division.divisionName === user.divisionName);
+    const divisionName = getDivisionNameByCode(user.divisionCode);
+
+    return divisions.filter((division) => division.divisionName === divisionName);
   },
 
   async applyOrganizationUpdates(user: DevUserMode, rows: OrganizationRecord[]) {

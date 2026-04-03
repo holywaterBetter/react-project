@@ -3,11 +3,13 @@ import { useDevUserMode } from '@features/auth/context/DevUserModeContext';
 import { canSeeAllDivisions } from '@features/auth/types/devUserMode';
 import type { WorkforceInsightData } from '@features/dashboard/types/workforceInsight';
 import { mapToWorkforceInsightData } from '@features/dashboard/utils/workforceInsightMapper';
+import { useAppTranslation } from '@hooks/useAppTranslation';
 import { useWorkforceRepositoryVersion } from '@services/workforceRepository';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 
 export const useWorkforceInsightDashboard = () => {
   const { activeUser } = useDevUserMode();
+  const { i18n } = useAppTranslation();
   const repositoryVersion = useWorkforceRepositoryVersion();
   const [selectedOrgCode, setSelectedOrgCode] = useState('ALL');
   const [selectedMonth, setSelectedMonth] = useState('2026.04');
@@ -41,6 +43,8 @@ export const useWorkforceInsightDashboard = () => {
           listResponse.data,
           metaResponse.data,
           nextSelectedOrgCode || (canSeeAllDivisions(activeUser) ? 'ALL' : '')
+        ,
+          i18n.language
         )
       );
     } catch (loadError) {
@@ -49,7 +53,7 @@ export const useWorkforceInsightDashboard = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [activeUser, selectedOrgCode]);
+  }, [activeUser, i18n.language, selectedOrgCode]);
 
   useEffect(() => {
     if (canSeeAllDivisions(activeUser)) {

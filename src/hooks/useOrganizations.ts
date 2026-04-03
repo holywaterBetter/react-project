@@ -1,5 +1,5 @@
 import { useDevUserMode } from '@features/auth/context/DevUserModeContext';
-import { canSeeAllDivisions } from '@features/auth/types/devUserMode';
+import { canSeeAllDivisions, getDivisionNameByCode } from '@features/auth/types/devUserMode';
 import { approvalService } from '@services/approvalService';
 import { excelService } from '@services/excelService';
 import { organizationService } from '@services/organizationService';
@@ -23,7 +23,7 @@ export const useOrganizations = () => {
   const repositoryVersion = useWorkforceRepositoryVersion();
   const [searchInput, setSearchInput] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState('');
-  const [divisionCode, setDivisionCode] = useState(activeUser.divisionName ?? '');
+  const [divisionCode, setDivisionCode] = useState(getDivisionNameByCode(activeUser.divisionCode) ?? '');
   const [categoryCode, setCategoryCode] = useState('');
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
@@ -65,7 +65,7 @@ export const useOrganizations = () => {
       return;
     }
 
-    setDivisionCode(activeUser.divisionName ?? '');
+    setDivisionCode(getDivisionNameByCode(activeUser.divisionCode) ?? '');
   }, [activeUser]);
 
   useEffect(() => {
@@ -120,7 +120,7 @@ export const useOrganizations = () => {
     () => ({
       filters: {
         search: debouncedSearch,
-        divisionCode: canSeeAllDivisions(activeUser) ? divisionCode : activeUser.divisionName ?? '',
+        divisionCode: canSeeAllDivisions(activeUser) ? divisionCode : '',
         categoryCode
       },
       pagination: {
@@ -312,7 +312,7 @@ export const useOrganizations = () => {
     activeUser,
     uiState: {
       searchInput,
-      divisionCode: canSeeAllDivisions(activeUser) ? divisionCode : activeUser.divisionName ?? '',
+      divisionCode: canSeeAllDivisions(activeUser) ? divisionCode : getDivisionNameByCode(activeUser.divisionCode) ?? '',
       categoryCode,
       error,
       isUploadDialogOpen,

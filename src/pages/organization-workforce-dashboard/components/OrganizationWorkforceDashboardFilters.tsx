@@ -8,6 +8,7 @@ type OrganizationOption = {
 type OrganizationWorkforceDashboardFiltersProps = {
   organizationOptions: OrganizationOption[];
   selectedOrgCode: string;
+  showAllOption: boolean;
   snapshotMonth: string;
   snapshotOptions: string[];
   keyword: string;
@@ -19,6 +20,7 @@ type OrganizationWorkforceDashboardFiltersProps = {
 export const OrganizationWorkforceDashboardFilters = ({
   organizationOptions,
   selectedOrgCode,
+  showAllOption,
   snapshotMonth,
   snapshotOptions,
   keyword,
@@ -29,16 +31,16 @@ export const OrganizationWorkforceDashboardFilters = ({
   <div className="rounded-[var(--radius-xl)] border border-line bg-surface px-5 py-4 shadow-sm">
     <Stack direction={{ xs: 'column', md: 'row' }} spacing={2}>
       <FormControl fullWidth>
-        <InputLabel id="organization-workforce-dashboard-org-label">조직</InputLabel>
+        <InputLabel id="organization-workforce-dashboard-org-label">사업부</InputLabel>
         <Select
           labelId="organization-workforce-dashboard-org-label"
           value={selectedOrgCode}
-          label="조직"
+          label="사업부"
           onChange={(event) => {
             onOrganizationChange(event.target.value);
           }}
         >
-          <MenuItem value="">전체 조직</MenuItem>
+          {showAllOption ? <MenuItem value="">전체 사업부</MenuItem> : null}
           {organizationOptions.map((option) => (
             <MenuItem key={option.orgCode} value={option.orgCode}>
               {option.orgDisplayName}
@@ -48,11 +50,11 @@ export const OrganizationWorkforceDashboardFilters = ({
       </FormControl>
 
       <FormControl fullWidth>
-        <InputLabel id="organization-workforce-dashboard-snapshot-label">기준월</InputLabel>
+        <InputLabel id="organization-workforce-dashboard-snapshot-label">기준년월</InputLabel>
         <Select
           labelId="organization-workforce-dashboard-snapshot-label"
           value={snapshotMonth}
-          label="기준월"
+          label="기준년월"
           onChange={(event) => {
             onSnapshotMonthChange(event.target.value);
           }}
@@ -72,7 +74,7 @@ export const OrganizationWorkforceDashboardFilters = ({
         onChange={(event) => {
           onKeywordChange(event.target.value);
         }}
-        placeholder="조직명 또는 코드 검색"
+        placeholder="사업부명 또는 코드 검색"
       />
     </Stack>
   </div>

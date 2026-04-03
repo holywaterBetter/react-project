@@ -4,6 +4,7 @@ import { DataGrid, type GridColDef, type GridPaginationModel, type GridRowSelect
 import type { OrganizationRecord, OrganizationSortDirection, OrganizationSortField } from '@shared-types/org';
 import { useAppTheme } from '@theme';
 import { useMemo } from 'react';
+import { getLocalizedOrgCategoryName, getLocalizedOrgDepartmentName, getLocalizedOrgDivisionName } from '@utils/localization';
 
 type OrganizationTableProps = {
   rows: OrganizationRecord[];
@@ -29,7 +30,7 @@ const formatYearMonth = (value: string) => {
 };
 
 const EmptyOverlay = () => {
-  const { t } = useAppTranslation();
+  const { t, i18n } = useAppTranslation();
 
   return (
     <div className="flex h-full min-h-56 items-center justify-center">
@@ -58,7 +59,7 @@ export const OrganizationTable = ({
   onSelectionChange
 }: OrganizationTableProps) => {
   const { mode } = useAppTheme();
-  const { t } = useAppTranslation();
+  const { t, i18n } = useAppTranslation();
   const columns = useMemo<GridColDef<OrganizationRecord>[]>(
     () => [
       {
@@ -74,7 +75,8 @@ export const OrganizationTable = ({
         headerName: t('organization.table.headers.division'),
         minWidth: 220,
         flex: 1.1,
-        sortable: true
+        sortable: true,
+        valueGetter: (_value, row) => getLocalizedOrgDivisionName(row, i18n.language)
       },
       {
         field: 'org_name',
@@ -85,10 +87,10 @@ export const OrganizationTable = ({
         renderCell: (params) => (
           <div className="flex min-w-0 flex-col py-2">
             <Typography variant="body2" className="truncate font-medium text-ink">
-              {params.row.org_name}
+              {getLocalizedOrgDepartmentName(params.row, i18n.language)}
             </Typography>
             <Typography variant="caption" className="text-ink-muted">
-              {departmentHierarchyByCode[params.row.org_code] ?? params.row.org_name}
+              {departmentHierarchyByCode[params.row.org_code] ?? getLocalizedOrgDepartmentName(params.row, i18n.language)}
             </Typography>
           </div>
         )
@@ -102,7 +104,7 @@ export const OrganizationTable = ({
         renderCell: (params) => (
           <Chip
             size="small"
-            label={params.row.org_category_name}
+            label={getLocalizedOrgCategoryName(params.row, i18n.language)}
             variant="outlined"
             sx={{
               color: 'var(--color-fg-default)',
@@ -116,7 +118,7 @@ export const OrganizationTable = ({
         )
       }
     ],
-    [departmentHierarchyByCode, t]
+    [departmentHierarchyByCode, i18n.language, t]
   );
 
   const paginationModel = useMemo<GridPaginationModel>(

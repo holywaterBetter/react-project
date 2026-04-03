@@ -1,3 +1,4 @@
+import { canSeeAllDivisions } from '@features/auth/types/devUserMode';
 import { Alert, Button, Stack } from '@mui/material';
 import { OrganizationWorkforceDashboardFilters } from '@pages/organization-workforce-dashboard/components/OrganizationWorkforceDashboardFilters';
 import { OrganizationWorkforceDashboardHeader } from '@pages/organization-workforce-dashboard/components/OrganizationWorkforceDashboardHeader';
@@ -7,7 +8,7 @@ import { exportOrganizationWorkforceDashboardExcel } from '@utils/exportOrganiza
 import { useCallback, useMemo, useState } from 'react';
 
 export const OrganizationWorkforceDashboardPage = () => {
-  const { filters, viewState, dataState, actions } = useOrganizationWorkforceDashboard();
+  const { activeUser, filters, viewState, dataState, actions } = useOrganizationWorkforceDashboard();
   const [exportError, setExportError] = useState<string | null>(null);
   const [isExporting, setIsExporting] = useState(false);
   const selectedOrgName = useMemo(() => {
@@ -74,6 +75,7 @@ export const OrganizationWorkforceDashboardPage = () => {
       <OrganizationWorkforceDashboardFilters
         organizationOptions={dataState.meta?.organizationOptions ?? []}
         selectedOrgCode={filters.selectedOrgCode}
+        showAllOption={canSeeAllDivisions(activeUser)}
         snapshotMonth={filters.snapshotMonth}
         snapshotOptions={dataState.meta?.availableSnapshotMonths ?? ['2026.04']}
         keyword={filters.keyword}

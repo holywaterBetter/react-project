@@ -1,5 +1,12 @@
 import { organizationCategoryCodes, organizationCategoryMap, type OrganizationCategoryCode } from '@constants/organizationCategoryMap';
-import { canSeeAllDivisions, type DevUserMode } from '@features/auth/types/devUserMode';
+import {
+  canSeeAllDivisions,
+  DIVISION_INFOS,
+  getDivisionNameByCode,
+  SMALL_DIVISION_CODES,
+  SMALL_DIVISION_GROUP,
+  type DevUserMode
+} from '@features/auth/types/devUserMode';
 import type {
   DashboardApiResponse,
   DashboardCategoryPeriodMap,
@@ -9,10 +16,12 @@ import type {
   OrganizationWorkforceDashboardQuery
 } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 import { workforceRepository } from '@services/workforceRepository';
-import type { OrganizationTreeNode } from '@shared-types/org';
+import type { OrganizationRecord } from '@shared-types/org';
 
 const MOCK_DELAY_MS = 220;
 const PERIOD_KEYS = ['actual2025', 'target2026', 'current202604'] as const;
+const divisionCodeSet = new Set(DIVISION_INFOS.map((division) => division.code));
+const divisionCodeByName = new Map(DIVISION_INFOS.map((division) => [division.name, division.code]));
 
 const periodMeta = {
   actual2025: { label: "'25 Actual" },
@@ -41,8 +50,6 @@ const delay = async (ms = MOCK_DELAY_MS) => new Promise((resolve) => globalThis.
 const hashString = (value: string) =>
   [...value].reduce((accumulator, character, index) => accumulator + character.charCodeAt(0) * (index + 17), 0);
 
-const flattenTree = (node: OrganizationTreeNode): OrganizationTreeNode[] => [node, ...node.children.flatMap(flattenTree)];
-
 const createEmptyCategoryMetrics = (): Record<OrganizationCategoryCode, DashboardCategoryPeriodMap> =>
   organizationCategoryCodes.reduce(
     (accumulator, categoryCode) => ({
@@ -58,7 +65,7 @@ const createEmptyCategoryMetrics = (): Record<OrganizationCategoryCode, Dashboar
 
 const addRecordMetrics = (
   metrics: Record<OrganizationCategoryCode, DashboardCategoryPeriodMap>,
-  record: OrganizationTreeNode
+  record: Pick<OrganizationRecord, 'org_category_code' | 'org_code' | 'updated_date'>
 ) => {
   const categoryCode = record.org_category_code as OrganizationCategoryCode;
 
@@ -81,32 +88,104 @@ const addRecordMetrics = (
   });
 };
 
-const toDashboardEntry = (node: OrganizationTreeNode): OrganizationWorkforceDashboardEntry => {
-  const allNodes = flattenTree(node);
+const getCanonicalDivisionCode = (record: Pick<OrganizationRecord, 'org_division_code' | 'org_division_name'>) => {
+  if (divisionCodeSet.has(record.org_division_code)) {
+    return record.org_division_code;
+  }
+
+  return divisionCodeByName.get(record.org_division_name) ?? record.org_division_code;
+};
+
+const toDashboardEntry = (
+  divisionCode: string,
+  divisionName: string,
+  records: OrganizationRecord[]
+): OrganizationWorkforceDashboardEntry => {
   const categoryMetrics = createEmptyCategoryMetrics();
 
-  allNodes.forEach((record) => {
+  records.forEach((record) => {
     addRecordMetrics(categoryMetrics, record);
   });
 
-  const lastUpdated = allNodes.reduce(
+  const lastUpdated = records.reduce(
     (latest, current) => (current.updated_date > latest ? current.updated_date : latest),
-    node.updated_date
+    records[0]?.updated_date ?? ''
   );
 
   return {
-    orgCode: node.org_code,
-    orgName: node.org_name,
-    orgDisplayName: node.org_name,
-    sourceRecordCount: allNodes.length,
+    orgCode: divisionCode,
+    orgName: divisionName,
+    orgDisplayName: divisionName,
+    sourceRecordCount: records.length,
     lastUpdated,
     categoryMetrics
   };
 };
 
+const sortSections = (sections: OrganizationWorkforceDashboardEntry[]) =>
+  [...sections].sort((left, right) => left.orgDisplayName.localeCompare(right.orgDisplayName, 'ko'));
+
+const aggregateSmallDivisionSections = (sections: OrganizationWorkforceDashboardEntry[]) => {
+  const smallCodeSet = new Set<string>(SMALL_DIVISION_CODES);
+  const smallSections = sections.filter((section) => smallCodeSet.has(section.orgCode));
+
+  if (smallSections.length === 0) {
+    return sections;
+  }
+
+  const groupedSection = smallSections.reduce<OrganizationWorkforceDashboardEntry>(
+    (accumulator, current) => {
+      organizationCategoryCodes.forEach((categoryCode) => {
+        PERIOD_KEYS.forEach((periodKey) => {
+          accumulator.categoryMetrics[categoryCode][periodKey].headcount +=
+            current.categoryMetrics[categoryCode][periodKey].headcount;
+          accumulator.categoryMetrics[categoryCode][periodKey].reallocated +=
+            current.categoryMetrics[categoryCode][periodKey].reallocated;
+        });
+      });
+
+      accumulator.sourceRecordCount += current.sourceRecordCount;
+      accumulator.lastUpdated =
+        current.lastUpdated > accumulator.lastUpdated ? current.lastUpdated : accumulator.lastUpdated;
+
+      return accumulator;
+    },
+    {
+      orgCode: SMALL_DIVISION_GROUP.code,
+      orgName: SMALL_DIVISION_GROUP.name,
+      orgDisplayName: SMALL_DIVISION_GROUP.name,
+      sourceRecordCount: 0,
+      lastUpdated: '',
+      categoryMetrics: createEmptyCategoryMetrics()
+    }
+  );
+
+  return sortSections([
+    ...sections.filter((section) => !smallCodeSet.has(section.orgCode)),
+    groupedSection
+  ]);
+};
+
 const buildDashboardEntries = async (user: DevUserMode) => {
-  const tree = workforceRepository.getOrganizationTree(user);
-  const sections = tree.map(toDashboardEntry);
+  const scopedOrganizations = workforceRepository.getScopedOrganizations(user);
+  const divisionRecords = scopedOrganizations.reduce<Map<string, OrganizationRecord[]>>((map, record) => {
+    const divisionCode = getCanonicalDivisionCode(record);
+    const current = map.get(divisionCode) ?? [];
+    current.push(record);
+    map.set(divisionCode, current);
+    return map;
+  }, new Map());
+
+  const rawSections = sortSections(
+    [...divisionRecords.entries()].map(([divisionCode, records]) => {
+      const divisionRoot = records.find((record) => record.org_code === divisionCode);
+      const divisionName =
+        divisionRoot?.org_name ?? getDivisionNameByCode(divisionCode) ?? records[0]?.org_division_name ?? divisionCode;
+
+      return toDashboardEntry(divisionCode, divisionName, records);
+    })
+  );
+  const sections = canSeeAllDivisions(user) ? aggregateSmallDivisionSections(rawSections) : rawSections;
 
   if (!canSeeAllDivisions(user)) {
     return { sections, overallEntry: null };
