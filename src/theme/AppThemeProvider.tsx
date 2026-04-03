@@ -1,9 +1,8 @@
-import { createContext, useContext, useEffect, useMemo, useState, type PropsWithChildren } from 'react';
 import { CssBaseline, ThemeProvider, type Theme } from '@mui/material';
-
 import { createAppTheme } from '@theme/createAppTheme';
 import { applyThemeMode, getPreferredThemeMode, persistThemeMode } from '@theme/themeMode';
 import { type ThemeMode } from '@theme/tokens';
+import { createContext, useContext, useEffect, useMemo, useState, type PropsWithChildren } from 'react';
 
 type AppThemeContextValue = {
   mode: ThemeMode;

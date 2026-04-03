@@ -1,5 +1,5 @@
-import { AppThemeProvider } from '@theme/AppThemeProvider';
 import { AppRouter } from '@routes/AppRouter';
+import { AppThemeProvider } from '@theme/AppThemeProvider';
 
 export const App = () => (
   <AppThemeProvider>

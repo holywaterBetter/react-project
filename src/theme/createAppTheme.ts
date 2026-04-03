@@ -1,5 +1,4 @@
-import { createTheme, type PaletteMode, type Shadows, type ThemeOptions } from '@mui/material/styles';
-
+import { createTheme, type PaletteMode, type Shadows } from '@mui/material/styles';
 import { cssVar, tokenVars, type ThemeMode } from '@theme/tokens';
 
 const readCssColor = (tokenName: string, fallback: string) => {
