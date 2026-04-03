@@ -7,6 +7,7 @@ import { useMemo } from 'react';
 
 type OrganizationTableProps = {
   rows: OrganizationRecord[];
+  departmentHierarchyByCode: Record<string, string>;
   total: number;
   page: number;
   pageSize: number;
@@ -44,6 +45,7 @@ const EmptyOverlay = () => {
 
 export const OrganizationTable = ({
   rows,
+  departmentHierarchyByCode,
   total,
   page,
   pageSize,
@@ -86,7 +88,7 @@ export const OrganizationTable = ({
               {params.row.org_name}
             </Typography>
             <Typography variant="caption" className="text-ink-muted">
-              {params.row.org_code}
+              {departmentHierarchyByCode[params.row.org_code] ?? params.row.org_name}
             </Typography>
           </div>
         )
@@ -114,7 +116,7 @@ export const OrganizationTable = ({
         )
       }
     ],
-    [t]
+    [departmentHierarchyByCode, t]
   );
 
   const paginationModel = useMemo<GridPaginationModel>(

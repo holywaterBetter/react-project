@@ -51,6 +51,36 @@ const filterUploadedRows = (rows: OrganizationRecord[], query: OrganizationQuery
     );
   });
 
+const buildHierarchyByCode = (rows: OrganizationRecord[]) => {
+  const organizationByCode = new Map(rows.map((row) => [row.org_code, row]));
+
+  return rows.reduce<Record<string, string>>((accumulator, row) => {
+    const lineageNames: string[] = [];
+    const visitedCodes = new Set<string>();
+    let currentCode = row.org_code;
+
+    while (currentCode && !visitedCodes.has(currentCode)) {
+      visitedCodes.add(currentCode);
+
+      const currentOrganization = organizationByCode.get(currentCode);
+
+      if (!currentOrganization) {
+        break;
+      }
+
+      if (currentOrganization.org_code === row.org_division_code) {
+        break;
+      }
+
+      lineageNames.push(currentOrganization.org_name);
+      currentCode = currentOrganization.upper_org_code;
+    }
+
+    accumulator[row.org_code] = lineageNames.reverse().join(' > ');
+    return accumulator;
+  }, {});
+};
+
 export const useOrganizations = () => {
   const [searchInput, setSearchInput] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState('');
@@ -73,6 +103,7 @@ export const useOrganizations = () => {
   const [uploadSummary, setUploadSummary] = useState<string | null>(null);
   const [categories, setCategories] = useState<OrganizationCategorySummary[]>([]);
   const [divisions, setDivisions] = useState<OrganizationDivisionSummary[]>([]);
+  const [allOrganizations, setAllOrganizations] = useState<OrganizationRecord[]>([]);
   const requestIdRef = useRef(0);
 
   useEffect(() => {
@@ -90,9 +121,10 @@ export const useOrganizations = () => {
 
     const loadOptions = async () => {
       try {
-        const [categoryOptions, divisionOptions] = await Promise.all([
+        const [categoryOptions, divisionOptions, organizations] = await Promise.all([
           organizationService.getOrganizationCategories(),
-          organizationService.getOrganizationDivisions()
+          organizationService.getOrganizationDivisions(),
+          organizationService.getOrganizationsForExport(FULL_DATA_QUERY)
         ]);
 
         if (!isMounted) {
@@ -101,6 +133,7 @@ export const useOrganizations = () => {
 
         setCategories(categoryOptions);
         setDivisions(divisionOptions);
+        setAllOrganizations(organizations);
       } catch (loadError) {
         if (!isMounted) {
           return;
@@ -150,6 +183,11 @@ export const useOrganizations = () => {
       total: sortedRows.length
     };
   }, [page, pageSize, queryState, uploadedRows]);
+
+  const departmentHierarchyByCode = useMemo(
+    () => buildHierarchyByCode(uploadedRows ?? allOrganizations),
+    [allOrganizations, uploadedRows]
+  );
 
   useEffect(() => {
     if (uploadedResult) {
@@ -263,6 +301,7 @@ export const useOrganizations = () => {
       const mergedRows = baseRows.map((row) => updatesByCode.get(row.org_code) ?? row);
 
       setUploadedRows(mergedRows);
+      setAllOrganizations(mergedRows);
       setUploadSummary(`${baseRows.length.toLocaleString()}건 중 ${result.validRows.length}건이 업데이트되었습니다.`);
       setPage(0);
     } catch (uploadError) {
@@ -314,7 +353,8 @@ export const useOrganizations = () => {
       pageSize,
       sortField,
       sortDirection,
-      selectedRowIds
+      selectedRowIds,
+      departmentHierarchyByCode
     },
     actions: {
       setIsUploadDialogOpen,

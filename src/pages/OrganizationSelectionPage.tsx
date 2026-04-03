@@ -73,6 +73,7 @@ const OrganizationSelectionContent = () => {
 
       <OrganizationTable
         rows={tableState.rows}
+        departmentHierarchyByCode={tableState.departmentHierarchyByCode}
         total={tableState.total}
         page={tableState.page}
         pageSize={tableState.pageSize}
