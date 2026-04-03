@@ -1,15 +1,30 @@
 import { createTheme, type PaletteMode, type Shadows } from '@mui/material/styles';
 import { cssVar, tokenVars, type ThemeMode } from '@theme/tokens';
 
-const readCssColor = (tokenName: string, fallback: string) => {
-  if (typeof window === 'undefined') {
-    return fallback;
+const paletteValues = {
+  light: {
+    primary: { light: '#60a5fa', main: '#2563eb', dark: '#1d4ed8', contrastText: '#f8fafc' },
+    secondary: { light: '#cbd5e1', main: '#64748b', dark: '#334155', contrastText: '#f8fafc' },
+    success: '#15803d',
+    warning: '#b45309',
+    error: '#b91c1c',
+    info: '#2563eb',
+    background: { default: '#f8fafc', paper: '#ffffff' },
+    text: { primary: '#0f172a', secondary: '#475569' },
+    divider: '#e2e8f0'
+  },
+  dark: {
+    primary: { light: '#24579c', main: '#5b9aff', dark: '#81b1ff', contrastText: '#0f172a' },
+    secondary: { light: '#31425e', main: '#7d8da5', dark: '#cbd5e1', contrastText: '#0f172a' },
+    success: '#4ade80',
+    warning: '#fbbf24',
+    error: '#f87171',
+    info: '#60a5fa',
+    background: { default: '#0f172a', paper: '#111827' },
+    text: { primary: '#e5edf7', secondary: '#b4c0d3' },
+    divider: '#22304a'
   }
-
-  const value = getComputedStyle(document.documentElement).getPropertyValue(tokenName).trim();
-
-  return value || fallback;
-};
+} as const;
 
 const readCssNumber = (tokenName: string, fallback: number) => {
   if (typeof window === 'undefined') {
@@ -54,8 +69,10 @@ const getMuiShadows = (): Shadows => {
   ];
 };
 
-export const createAppTheme = (mode: ThemeMode) =>
-  createTheme({
+export const createAppTheme = (mode: ThemeMode) => {
+  const palette = paletteValues[mode];
+
+  return createTheme({
     shape: {
       borderRadius: readCssNumber(tokenVars.radius.lg, 14)
     },
@@ -133,38 +150,38 @@ export const createAppTheme = (mode: ThemeMode) =>
     palette: {
       mode: mode as PaletteMode,
       primary: {
-        light: readCssColor(tokenVars.color.brand[400], mode === 'dark' ? '#24579c' : '#60a5fa'),
-        main: readCssColor(tokenVars.color.brand[600], mode === 'dark' ? '#5b9aff' : '#2563eb'),
-        dark: readCssColor(tokenVars.color.brand[700], mode === 'dark' ? '#81b1ff' : '#1d4ed8'),
-        contrastText: readCssColor(tokenVars.color.foreground.inverse, mode === 'dark' ? '#0f172a' : '#f8fafc')
+        light: palette.primary.light,
+        main: palette.primary.main,
+        dark: palette.primary.dark,
+        contrastText: palette.primary.contrastText
       },
       secondary: {
-        light: readCssColor(tokenVars.color.gray[300], mode === 'dark' ? '#31425e' : '#cbd5e1'),
-        main: readCssColor(tokenVars.color.gray[500], mode === 'dark' ? '#7d8da5' : '#64748b'),
-        dark: readCssColor(tokenVars.color.gray[700], mode === 'dark' ? '#cbd5e1' : '#334155'),
-        contrastText: readCssColor(tokenVars.color.foreground.inverse, mode === 'dark' ? '#0f172a' : '#f8fafc')
+        light: palette.secondary.light,
+        main: palette.secondary.main,
+        dark: palette.secondary.dark,
+        contrastText: palette.secondary.contrastText
       },
       success: {
-        main: readCssColor(tokenVars.color.status.success, mode === 'dark' ? '#4ade80' : '#15803d')
+        main: palette.success
       },
       warning: {
-        main: readCssColor(tokenVars.color.status.warning, mode === 'dark' ? '#fbbf24' : '#b45309')
+        main: palette.warning
       },
       error: {
-        main: readCssColor(tokenVars.color.status.error, mode === 'dark' ? '#f87171' : '#b91c1c')
+        main: palette.error
       },
       info: {
-        main: readCssColor(tokenVars.color.status.info, mode === 'dark' ? '#60a5fa' : '#2563eb')
+        main: palette.info
       },
       background: {
-        default: readCssColor(tokenVars.color.background.canvas, mode === 'dark' ? '#0f172a' : '#f8fafc'),
-        paper: readCssColor(tokenVars.color.background.surface, mode === 'dark' ? '#111827' : '#ffffff')
+        default: palette.background.default,
+        paper: palette.background.paper
       },
       text: {
-        primary: readCssColor(tokenVars.color.foreground.default, mode === 'dark' ? '#e5edf7' : '#0f172a'),
-        secondary: readCssColor(tokenVars.color.foreground.muted, mode === 'dark' ? '#b4c0d3' : '#475569')
+        primary: palette.text.primary,
+        secondary: palette.text.secondary
       },
-      divider: readCssColor(tokenVars.color.border.default, mode === 'dark' ? '#22304a' : '#e2e8f0')
+      divider: palette.divider
     },
     components: {
       MuiCssBaseline: {
@@ -297,3 +314,4 @@ export const createAppTheme = (mode: ThemeMode) =>
       }
     }
   });
+};

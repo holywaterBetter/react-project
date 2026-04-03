@@ -108,7 +108,7 @@ export const OrganizationTable = ({
         )
       }
     ],
-    [mode]
+    []
   );
 
   const paginationModel = useMemo<GridPaginationModel>(
@@ -182,12 +182,12 @@ export const OrganizationTable = ({
           color: 'var(--color-fg-default)',
           border: 'none',
           minHeight: 580,
-          backgroundColor: 'transparent',
-          '--DataGrid-t-header-background-base': 'transparent',
-          '--DataGrid-containerBackground': 'transparent',
-          '--DataGrid-rowBorderColor': 'var(--color-border-line)',
+          backgroundColor: 'var(--color-bg-surface)',
+          '--DataGrid-t-header-background-base': 'var(--color-bg-surface)',
+          '--DataGrid-containerBackground': 'var(--color-bg-surface)',
+          '--DataGrid-rowBorderColor': 'var(--color-border-default)',
           '& .MuiDataGrid-main, & .MuiDataGrid-virtualScroller': {
-            backgroundColor: 'transparent',
+            backgroundColor: 'var(--color-bg-surface)',
             color: 'var(--color-fg-default)'
           },
           '& .MuiDataGrid-columnHeaders': {
@@ -195,11 +195,11 @@ export const OrganizationTable = ({
             top: 0,
             zIndex: 1,
             color: 'var(--color-fg-default)',
-            backgroundColor: 'transparent',
+            backgroundColor: 'var(--color-bg-surface)',
             borderBottom: '1px solid var(--color-border-default)'
           },
-          '& .MuiDataGrid-topContainer, & .MuiDataGrid-columnHeadersInner, & .MuiDataGrid-filler, & .MuiDataGrid-scrollbarFiller': {
-            backgroundColor: 'transparent'
+          '& .MuiDataGrid-topContainer, & .MuiDataGrid-columnHeadersInner, & .MuiDataGrid-filler, & .MuiDataGrid-scrollbarFiller, & .MuiDataGrid-columnHeaderRow': {
+            backgroundColor: 'var(--color-bg-surface)'
           },
           '& .MuiDataGrid-columnHeader, & .MuiDataGrid-columnHeaderTitle': {
             color: 'var(--color-fg-muted)',
@@ -216,16 +216,16 @@ export const OrganizationTable = ({
             borderColor: 'var(--color-border-default)'
           },
           '& .MuiDataGrid-row': {
-            backgroundColor: 'transparent'
+            backgroundColor: 'var(--color-bg-surface)'
           },
           '& .MuiDataGrid-footerContainer': {
             color: 'var(--color-fg-default)',
-            backgroundColor: 'transparent',
+            backgroundColor: 'var(--color-bg-surface)',
             borderTop: '1px solid var(--color-border-default)'
           },
           '& .MuiDataGrid-toolbarContainer, & .MuiDataGrid-overlay': {
             color: 'var(--color-fg-muted)',
-            backgroundColor: 'transparent'
+            backgroundColor: 'var(--color-bg-surface)'
           },
           '& .MuiTablePagination-root, & .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows': {
             color: 'var(--color-fg-default)'
