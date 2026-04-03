@@ -8,6 +8,7 @@ import type {
   InsightCategoryDistribution,
   InsightDivisionComposition,
   InsightKpi,
+  InsightTargetProgress,
   InsightStackedBarItem,
   InsightTrendPoint,
   WorkforceInsightData
@@ -168,6 +169,21 @@ const buildStackedSeries = (
     target: entry.categoryMetrics[code].target2026.headcount
   }));
 
+const buildTargetProgress = (entry: OrganizationWorkforceDashboardEntry): InsightTargetProgress => {
+  const currentHeadcount = sumForPeriod(entry, 'current202604').headcount;
+  const targetHeadcount = sumForPeriod(entry, 'target2026').headcount;
+  const achievementRate = targetHeadcount > 0 ? (currentHeadcount / targetHeadcount) * 100 : 0;
+  const gapHeadcount = targetHeadcount - currentHeadcount;
+
+  return {
+    currentHeadcount,
+    targetHeadcount,
+    achievementRate,
+    gapHeadcount,
+    isAhead: gapHeadcount <= 0
+  };
+};
+
 export const mapToWorkforceInsightData = (
   entries: OrganizationWorkforceDashboardEntry[],
   meta: OrganizationWorkforceDashboardMeta,
@@ -205,6 +221,7 @@ export const mapToWorkforceInsightData = (
     trends: buildTrend(selectedEntry, meta.baseMonth),
     divisionComposition: buildDivisionComposition(entries, language),
     categoryDistribution: buildCategoryDistribution(selectedEntry, language),
-    stackedSeries: buildStackedSeries(selectedEntry, language)
+    stackedSeries: buildStackedSeries(selectedEntry, language),
+    targetProgress: buildTargetProgress(selectedEntry)
   };
 };
