@@ -12,12 +12,31 @@ export const MainLayout = () => {
     <Box className="min-h-screen bg-canvas text-ink">
       <AppBar position="sticky" color="transparent" elevation={0}>
         <Toolbar className="mx-auto flex w-full max-w-6xl gap-4 px-0">
-          <Typography variant="h6" component="div" className="mr-3 flex-1 font-semibold text-ink">
-            Enterprise React Starter
+          <Typography
+            variant="h6"
+            component={RouterLink}
+            to="/"
+            aria-label="John's Park home"
+            className="mr-3 flex-1 font-semibold text-ink no-underline"
+            sx={{
+              width: 'fit-content',
+              cursor: 'pointer',
+              transition: 'opacity 160ms ease, transform 160ms ease',
+              '&:hover': {
+                opacity: 0.85
+              },
+              '&:active': {
+                transform: 'translateY(1px)'
+              },
+              '&:focus-visible': {
+                outline: (theme) => `2px solid ${theme.palette.primary.main}`,
+                outlineOffset: '4px',
+                borderRadius: 1
+              }
+            }}
+          >
+            {"John's Park"}
           </Typography>
-          <Button component={RouterLink} to="/" color="inherit">
-            Home
-          </Button>
           <Button component={RouterLink} to="/about" color="inherit">
             About
           </Button>
@@ -26,9 +45,6 @@ export const MainLayout = () => {
           </Button>
           <Button component={RouterLink} to="/organization/workforce-dashboard" color="inherit">
             Workforce Dashboard
-          </Button>
-          <Button component={RouterLink} to="/organization/workforce-insight" color="inherit">
-            Workforce Insight
           </Button>
           <Button component={RouterLink} to="/organization/approval" color="inherit">
             Approval
