@@ -6,9 +6,9 @@ import type { OrganizationRecord } from '@shared-types/org';
 const APPROVAL_FIELDS: Array<
   keyof Pick<
     OrganizationRecord,
-    'updated_date' | 'org_division_name' | 'org_name' | 'org_category_code' | 'org_category_name'
+    'updated_date' | 'org_division_name' | 'org_department_name' | 'org_category_name'
   >
-> = ['updated_date', 'org_division_name', 'org_name', 'org_category_code', 'org_category_name'];
+> = ['updated_date', 'org_division_name', 'org_department_name', 'org_category_name'];
 
 export const approvalService = {
   listRequests(user: DevUserMode) {

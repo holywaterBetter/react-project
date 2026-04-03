@@ -72,7 +72,7 @@ export const OrganizationApprovalListPage = () => {
             Review uploaded workforce changes, compare diffs, and approve or reject requests.
           </Typography>
           <Stack direction="row" spacing={1} flexWrap="wrap">
-            <Chip size="small" label={`Active user: ${activeUser.label}`} />
+            <Chip size="small" label={`Active user: ${activeUser.name} (${activeUser.role})`} />
             <Chip size="small" variant="outlined" label={`${requests.filter((request) => request.status === 'pending').length} pending`} />
           </Stack>
         </Stack>

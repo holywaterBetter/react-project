@@ -6,7 +6,7 @@ export type ApprovalStatus = 'pending' | 'approved' | 'rejected';
 export type ApprovalFieldChange = {
   field: keyof Pick<
     OrganizationRecord,
-    'updated_date' | 'org_division_name' | 'org_name' | 'org_category_code' | 'org_category_name'
+    'updated_date' | 'org_division_name' | 'org_department_name' | 'org_category_name'
   >;
   before: string;
   after: string;

@@ -63,11 +63,19 @@ export const useOrganizationWorkforceDashboard = () => {
         : listResponse.data
           ? [listResponse.data]
           : [];
+      const nextSelectedOrgCode =
+        canSeeAllDivisions(activeUser) || metaResponse.data.organizationOptions.length === 0
+          ? selectedOrgCode
+          : metaResponse.data.organizationOptions[0]?.orgCode ?? '';
 
       setMeta(metaResponse.data);
       setCategoryMappings(mappingResponse.data);
       setSections(buildOrganizationSections(entries));
       setSnapshotMonth(metaResponse.data.baseMonth);
+
+      if (!canSeeAllDivisions(activeUser) && nextSelectedOrgCode && selectedOrgCode !== nextSelectedOrgCode) {
+        setSelectedOrgCode(nextSelectedOrgCode);
+      }
     } catch (loadError) {
       setSections([]);
       setError(loadError instanceof Error ? loadError.message : 'Failed to load workforce dashboard data.');

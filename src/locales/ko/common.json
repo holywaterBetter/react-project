@@ -8,10 +8,6 @@
       "actionMessage": "설정이 성공적으로 저장되었습니다."
     }
   },
-  "about": {
-    "title": "스타터 소개",
-    "description": "이 프로젝트는 현대적인 프런트엔드 도구와 보수적인 엔터프라이즈 UI 테마 구조를 함께 보여줍니다."
-  },
   "organization": {
     "summary": {
       "currentCount": "현재 조회 건수",
@@ -53,6 +49,22 @@
       "errorColumn": "컬럼",
       "errorMessage": "오류 내용",
       "errorValue": "입력 값"
+    }
+  },
+  "userSelector": {
+    "loading": "사용자 정보를 불러오는 중..."
+  },
+  "approval": {
+    "back": "결재 목록으로 돌아가기",
+    "requester": "요청자",
+    "hideUnchanged": "변경 없는 행 숨기기",
+    "decisionNote": "결재 의견",
+    "approve": "승인",
+    "reject": "반려",
+    "noChangedRows": "표시할 변경 행이 없습니다.",
+    "detail": {
+      "title": "결재 상세",
+      "requestSuffix": "변경 요청"
     }
   }
 }

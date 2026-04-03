@@ -7,7 +7,11 @@
     "upper_org_code": "C10",
     "updated_date": "20260228",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "MX 사업부",
+    "org_department_name_en": "MX 사업부"
   },
   {
     "org_code": "C100002",
@@ -17,7 +21,11 @@
     "upper_org_code": "C100001",
     "updated_date": "20260204",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커넥티드본부",
+    "org_department_name_en": "커넥티드본부"
   },
   {
     "org_code": "C100003",
@@ -27,7 +35,11 @@
     "upper_org_code": "C100001",
     "updated_date": "20260101",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "엔터프라이즈사업운영실",
+    "org_department_name_en": "엔터프라이즈사업운영실"
   },
   {
     "org_code": "C100004",
@@ -37,7 +49,11 @@
     "upper_org_code": "C100001",
     "updated_date": "20260128",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "차세대사업운영실",
+    "org_department_name_en": "차세대사업운영실"
   },
   {
     "org_code": "C100005",
@@ -47,7 +63,11 @@
     "upper_org_code": "C100001",
     "updated_date": "20260304",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "데이터본부",
+    "org_department_name_en": "데이터본부"
   },
   {
     "org_code": "C100006",
@@ -57,7 +77,11 @@
     "upper_org_code": "C100001",
     "updated_date": "20260102",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커넥티드랩",
+    "org_department_name_en": "커넥티드랩"
   },
   {
     "org_code": "C100007",
@@ -67,7 +91,11 @@
     "upper_org_code": "C100001",
     "updated_date": "20260318",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "플랫폼본부",
+    "org_department_name_en": "플랫폼본부"
   },
   {
     "org_code": "C100008",
@@ -77,7 +105,11 @@
     "upper_org_code": "C100001",
     "updated_date": "20260128",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "반도체전략실",
+    "org_department_name_en": "반도체전략실"
   },
   {
     "org_code": "C100009",
@@ -87,7 +119,11 @@
     "upper_org_code": "C100001",
     "updated_date": "20260421",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "채널본부",
+    "org_department_name_en": "채널본부"
   },
   {
     "org_code": "C100010",
@@ -97,7 +133,11 @@
     "upper_org_code": "C100008",
     "updated_date": "20260207",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "반도체PMO그룹",
+    "org_department_name_en": "반도체PMO그룹"
   },
   {
     "org_code": "C100011",
@@ -107,7 +147,11 @@
     "upper_org_code": "C100008",
     "updated_date": "20260105",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "인프라운영그룹",
+    "org_department_name_en": "인프라운영그룹"
   },
   {
     "org_code": "C100012",
@@ -117,7 +161,11 @@
     "upper_org_code": "C100004",
     "updated_date": "20260326",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커넥티드혁신그룹",
+    "org_department_name_en": "커넥티드혁신그룹"
   },
   {
     "org_code": "C100013",
@@ -127,7 +175,11 @@
     "upper_org_code": "C100007",
     "updated_date": "20260325",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "채널서비스그룹",
+    "org_department_name_en": "채널서비스그룹"
   },
   {
     "org_code": "C100014",
@@ -137,7 +189,11 @@
     "upper_org_code": "C100002",
     "updated_date": "20260205",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "커머스운영그룹",
+    "org_department_name_en": "커머스운영그룹"
   },
   {
     "org_code": "C100015",
@@ -147,7 +203,11 @@
     "upper_org_code": "C100006",
     "updated_date": "20260210",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "반도체개발그룹",
+    "org_department_name_en": "반도체개발그룹"
   },
   {
     "org_code": "C100016",
@@ -157,7 +217,11 @@
     "upper_org_code": "C100003",
     "updated_date": "20260110",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "전략기술그룹",
+    "org_department_name_en": "전략기술그룹"
   },
   {
     "org_code": "C100017",
@@ -167,7 +231,11 @@
     "upper_org_code": "C100004",
     "updated_date": "20260110",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "엔터프라이즈PMO그룹",
+    "org_department_name_en": "엔터프라이즈PMO그룹"
   },
   {
     "org_code": "C100018",
@@ -177,7 +245,11 @@
     "upper_org_code": "C100008",
     "updated_date": "20260314",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "통합혁신그룹",
+    "org_department_name_en": "통합혁신그룹"
   },
   {
     "org_code": "C100019",
@@ -187,7 +259,11 @@
     "upper_org_code": "C100003",
     "updated_date": "20260416",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "AIPMO그룹",
+    "org_department_name_en": "AIPMO그룹"
   },
   {
     "org_code": "C100020",
@@ -197,7 +273,11 @@
     "upper_org_code": "C100007",
     "updated_date": "20260116",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "통합혁신그룹2",
+    "org_department_name_en": "통합혁신그룹2"
   },
   {
     "org_code": "C100021",
@@ -207,7 +287,11 @@
     "upper_org_code": "C100003",
     "updated_date": "20260402",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "채널품질그룹",
+    "org_department_name_en": "채널품질그룹"
   },
   {
     "org_code": "C100022",
@@ -217,7 +301,11 @@
     "upper_org_code": "C100006",
     "updated_date": "20260221",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "제조솔루션그룹",
+    "org_department_name_en": "제조솔루션그룹"
   },
   {
     "org_code": "C100023",
@@ -227,7 +315,11 @@
     "upper_org_code": "C100008",
     "updated_date": "20260126",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "디지털서비스그룹",
+    "org_department_name_en": "디지털서비스그룹"
   },
   {
     "org_code": "C100024",
@@ -237,7 +329,11 @@
     "upper_org_code": "C100011",
     "updated_date": "20260202",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "플랫폼인프라팀",
+    "org_department_name_en": "플랫폼인프라팀"
   },
   {
     "org_code": "C100025",
@@ -247,7 +343,11 @@
     "upper_org_code": "C100016",
     "updated_date": "20260418",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "모바일아키텍처팀",
+    "org_department_name_en": "모바일아키텍처팀"
   },
   {
     "org_code": "C100026",
@@ -257,7 +357,11 @@
     "upper_org_code": "C100018",
     "updated_date": "20260426",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "스마트홈보안팀",
+    "org_department_name_en": "스마트홈보안팀"
   },
   {
     "org_code": "C100027",
@@ -267,7 +371,11 @@
     "upper_org_code": "C100019",
     "updated_date": "20260214",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "채널클라우드팀",
+    "org_department_name_en": "채널클라우드팀"
   },
   {
     "org_code": "C100028",
@@ -277,7 +385,11 @@
     "upper_org_code": "C100011",
     "updated_date": "20260319",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "반도체품질팀",
+    "org_department_name_en": "반도체품질팀"
   },
   {
     "org_code": "C100029",
@@ -287,7 +399,11 @@
     "upper_org_code": "C100022",
     "updated_date": "20260212",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "클라우드전략팀",
+    "org_department_name_en": "클라우드전략팀"
   },
   {
     "org_code": "C100030",
@@ -297,7 +413,11 @@
     "upper_org_code": "C100011",
     "updated_date": "20260117",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "고객경험설계팀",
+    "org_department_name_en": "고객경험설계팀"
   },
   {
     "org_code": "C100031",
@@ -307,7 +427,11 @@
     "upper_org_code": "C100017",
     "updated_date": "20260204",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "미디어클라우드팀",
+    "org_department_name_en": "미디어클라우드팀"
   },
   {
     "org_code": "C100032",
@@ -317,7 +441,11 @@
     "upper_org_code": "C100017",
     "updated_date": "20260221",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "품질운영팀",
+    "org_department_name_en": "품질운영팀"
   },
   {
     "org_code": "C100033",
@@ -327,7 +455,11 @@
     "upper_org_code": "C100010",
     "updated_date": "20260204",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "디지털품질팀",
+    "org_department_name_en": "디지털품질팀"
   },
   {
     "org_code": "C100034",
@@ -337,7 +469,11 @@
     "upper_org_code": "C100013",
     "updated_date": "20260318",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "글로벌전략팀",
+    "org_department_name_en": "글로벌전략팀"
   },
   {
     "org_code": "C100035",
@@ -347,7 +483,11 @@
     "upper_org_code": "C100023",
     "updated_date": "20260405",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "데이터아키텍처팀",
+    "org_department_name_en": "데이터아키텍처팀"
   },
   {
     "org_code": "C100036",
@@ -357,7 +497,11 @@
     "upper_org_code": "C100019",
     "updated_date": "20260417",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "품질클라우드팀",
+    "org_department_name_en": "품질클라우드팀"
   },
   {
     "org_code": "C100037",
@@ -367,7 +511,11 @@
     "upper_org_code": "C100017",
     "updated_date": "20260416",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "솔루션기획팀",
+    "org_department_name_en": "솔루션기획팀"
   },
   {
     "org_code": "C100038",
@@ -377,7 +525,11 @@
     "upper_org_code": "C100020",
     "updated_date": "20260218",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "솔루션설계팀",
+    "org_department_name_en": "솔루션설계팀"
   },
   {
     "org_code": "C100039",
@@ -387,7 +539,11 @@
     "upper_org_code": "C100019",
     "updated_date": "20260111",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "차세대품질팀",
+    "org_department_name_en": "차세대품질팀"
   },
   {
     "org_code": "C100040",
@@ -397,7 +553,11 @@
     "upper_org_code": "C100034",
     "updated_date": "20260117",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "통합TF",
+    "org_department_name_en": "통합TF"
   },
   {
     "org_code": "C100041",
@@ -407,7 +567,11 @@
     "upper_org_code": "C100028",
     "updated_date": "20260227",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "엔터프라이즈TF",
+    "org_department_name_en": "엔터프라이즈TF"
   },
   {
     "org_code": "C100042",
@@ -417,7 +581,11 @@
     "upper_org_code": "C100036",
     "updated_date": "20260403",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "인프라TF",
+    "org_department_name_en": "인프라TF"
   },
   {
     "org_code": "C100043",
@@ -427,7 +595,11 @@
     "upper_org_code": "C100026",
     "updated_date": "20260108",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "UX셀",
+    "org_department_name_en": "UX셀"
   },
   {
     "org_code": "C100044",
@@ -437,7 +609,11 @@
     "upper_org_code": "C100028",
     "updated_date": "20260125",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커머스TF",
+    "org_department_name_en": "커머스TF"
   },
   {
     "org_code": "C100045",
@@ -447,7 +623,11 @@
     "upper_org_code": "C100038",
     "updated_date": "20260228",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "제조파트",
+    "org_department_name_en": "제조파트"
   },
   {
     "org_code": "C100046",
@@ -457,7 +637,11 @@
     "upper_org_code": "C100038",
     "updated_date": "20260417",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "반도체스쿼드",
+    "org_department_name_en": "반도체스쿼드"
   },
   {
     "org_code": "C100047",
@@ -467,7 +651,11 @@
     "upper_org_code": "C100025",
     "updated_date": "20260124",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "인프라셀",
+    "org_department_name_en": "인프라셀"
   },
   {
     "org_code": "C100048",
@@ -477,7 +665,11 @@
     "upper_org_code": "C100037",
     "updated_date": "20260318",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "생산기술파트",
+    "org_department_name_en": "생산기술파트"
   },
   {
     "org_code": "C100049",
@@ -487,7 +679,11 @@
     "upper_org_code": "C100037",
     "updated_date": "20260420",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "통합유닛",
+    "org_department_name_en": "통합유닛"
   },
   {
     "org_code": "C100050",
@@ -497,7 +693,11 @@
     "upper_org_code": "C100031",
     "updated_date": "20260124",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "엔터프라이즈셀",
+    "org_department_name_en": "엔터프라이즈셀"
   },
   {
     "org_code": "C100051",
@@ -507,7 +707,11 @@
     "upper_org_code": "C100029",
     "updated_date": "20260311",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "스마트홈스쿼드",
+    "org_department_name_en": "스마트홈스쿼드"
   },
   {
     "org_code": "C100052",
@@ -517,7 +721,11 @@
     "upper_org_code": "C100026",
     "updated_date": "20260325",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "전략TF",
+    "org_department_name_en": "전략TF"
   },
   {
     "org_code": "C100053",
@@ -527,7 +735,11 @@
     "upper_org_code": "C100046",
     "updated_date": "20260106",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "품질기획셀",
+    "org_department_name_en": "품질기획셀"
   },
   {
     "org_code": "C100054",
@@ -537,7 +749,11 @@
     "upper_org_code": "C100050",
     "updated_date": "20260210",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "차세대3파트",
+    "org_department_name_en": "차세대3파트"
   },
   {
     "org_code": "C100055",
@@ -547,7 +763,11 @@
     "upper_org_code": "C100051",
     "updated_date": "20260102",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "통합분석셀",
+    "org_department_name_en": "통합분석셀"
   },
   {
     "org_code": "C100056",
@@ -557,7 +777,11 @@
     "upper_org_code": "C100047",
     "updated_date": "20260428",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "서비스3파트",
+    "org_department_name_en": "서비스3파트"
   },
   {
     "org_code": "C100057",
@@ -567,7 +791,11 @@
     "upper_org_code": "C100049",
     "updated_date": "20260226",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "채널2파트",
+    "org_department_name_en": "채널2파트"
   },
   {
     "org_code": "C100058",
@@ -577,7 +805,11 @@
     "upper_org_code": "C100045",
     "updated_date": "20260413",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "서비스1파트",
+    "org_department_name_en": "서비스1파트"
   },
   {
     "org_code": "C100059",
@@ -587,7 +819,11 @@
     "upper_org_code": "C100047",
     "updated_date": "20260425",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커머스2파트",
+    "org_department_name_en": "커머스2파트"
   },
   {
     "org_code": "C100060",
@@ -597,7 +833,11 @@
     "upper_org_code": "C100042",
     "updated_date": "20260221",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "MX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "모바일1파트",
+    "org_department_name_en": "모바일1파트"
   },
   {
     "org_code": "C100061",
@@ -607,7 +847,11 @@
     "upper_org_code": "C10",
     "updated_date": "20260304",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "DS 사업부",
+    "org_department_name_en": "DS 사업부"
   },
   {
     "org_code": "C100062",
@@ -617,7 +861,11 @@
     "upper_org_code": "C100061",
     "updated_date": "20260404",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "플랫폼사업운영실",
+    "org_department_name_en": "플랫폼사업운영실"
   },
   {
     "org_code": "C100063",
@@ -627,7 +875,11 @@
     "upper_org_code": "C100061",
     "updated_date": "20260420",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "시스템본부",
+    "org_department_name_en": "시스템본부"
   },
   {
     "org_code": "C100064",
@@ -637,7 +889,11 @@
     "upper_org_code": "C100061",
     "updated_date": "20260326",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "응용개발실",
+    "org_department_name_en": "응용개발실"
   },
   {
     "org_code": "C100065",
@@ -647,7 +903,11 @@
     "upper_org_code": "C100061",
     "updated_date": "20260324",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "차세대사업운영실",
+    "org_department_name_en": "차세대사업운영실"
   },
   {
     "org_code": "C100066",
@@ -657,7 +917,11 @@
     "upper_org_code": "C100061",
     "updated_date": "20260202",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "UX랩",
+    "org_department_name_en": "UX랩"
   },
   {
     "org_code": "C100067",
@@ -667,7 +931,11 @@
     "upper_org_code": "C100061",
     "updated_date": "20260215",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "글로벌센터",
+    "org_department_name_en": "글로벌센터"
   },
   {
     "org_code": "C100068",
@@ -677,7 +945,11 @@
     "upper_org_code": "C100061",
     "updated_date": "20260102",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "디지털본부",
+    "org_department_name_en": "디지털본부"
   },
   {
     "org_code": "C100069",
@@ -687,7 +959,11 @@
     "upper_org_code": "C100061",
     "updated_date": "20260117",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "전략센터",
+    "org_department_name_en": "전략센터"
   },
   {
     "org_code": "C100070",
@@ -697,7 +973,11 @@
     "upper_org_code": "C100065",
     "updated_date": "20260417",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "디바이스서비스그룹",
+    "org_department_name_en": "디바이스서비스그룹"
   },
   {
     "org_code": "C100071",
@@ -707,7 +987,11 @@
     "upper_org_code": "C100066",
     "updated_date": "20260419",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "AI솔루션그룹",
+    "org_department_name_en": "AI솔루션그룹"
   },
   {
     "org_code": "C100072",
@@ -717,7 +1001,11 @@
     "upper_org_code": "C100068",
     "updated_date": "20260114",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "차세대서비스그룹",
+    "org_department_name_en": "차세대서비스그룹"
   },
   {
     "org_code": "C100073",
@@ -727,7 +1015,11 @@
     "upper_org_code": "C100063",
     "updated_date": "20260224",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "AI개발그룹",
+    "org_department_name_en": "AI개발그룹"
   },
   {
     "org_code": "C100074",
@@ -737,7 +1029,11 @@
     "upper_org_code": "C100062",
     "updated_date": "20260422",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "디지털품질그룹",
+    "org_department_name_en": "디지털품질그룹"
   },
   {
     "org_code": "C100075",
@@ -747,7 +1043,11 @@
     "upper_org_code": "C100068",
     "updated_date": "20260324",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "모바일품질그룹",
+    "org_department_name_en": "모바일품질그룹"
   },
   {
     "org_code": "C100076",
@@ -757,7 +1057,11 @@
     "upper_org_code": "C100066",
     "updated_date": "20260104",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "고객경험혁신그룹",
+    "org_department_name_en": "고객경험혁신그룹"
   },
   {
     "org_code": "C100077",
@@ -767,7 +1071,11 @@
     "upper_org_code": "C100067",
     "updated_date": "20260312",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "채널플랫폼그룹",
+    "org_department_name_en": "채널플랫폼그룹"
   },
   {
     "org_code": "C100078",
@@ -777,7 +1085,11 @@
     "upper_org_code": "C100064",
     "updated_date": "20260303",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "모바일기술그룹",
+    "org_department_name_en": "모바일기술그룹"
   },
   {
     "org_code": "C100079",
@@ -787,7 +1099,11 @@
     "upper_org_code": "C100064",
     "updated_date": "20260222",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "플랫폼플랫폼그룹",
+    "org_department_name_en": "플랫폼플랫폼그룹"
   },
   {
     "org_code": "C100080",
@@ -797,7 +1113,11 @@
     "upper_org_code": "C100063",
     "updated_date": "20260312",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "파트너플랫폼그룹",
+    "org_department_name_en": "파트너플랫폼그룹"
   },
   {
     "org_code": "C100081",
@@ -807,7 +1127,11 @@
     "upper_org_code": "C100062",
     "updated_date": "20260206",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "차세대기술그룹",
+    "org_department_name_en": "차세대기술그룹"
   },
   {
     "org_code": "C100082",
@@ -817,7 +1141,11 @@
     "upper_org_code": "C100069",
     "updated_date": "20260323",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "AI품질그룹",
+    "org_department_name_en": "AI품질그룹"
   },
   {
     "org_code": "C100083",
@@ -827,7 +1155,11 @@
     "upper_org_code": "C100066",
     "updated_date": "20260212",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "데이터플랫폼그룹",
+    "org_department_name_en": "데이터플랫폼그룹"
   },
   {
     "org_code": "C100084",
@@ -837,7 +1169,11 @@
     "upper_org_code": "C100075",
     "updated_date": "20260318",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "전략운영팀",
+    "org_department_name_en": "전략운영팀"
   },
   {
     "org_code": "C100085",
@@ -847,7 +1183,11 @@
     "upper_org_code": "C100080",
     "updated_date": "20260104",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "제조데이터팀",
+    "org_department_name_en": "제조데이터팀"
   },
   {
     "org_code": "C100086",
@@ -857,7 +1197,11 @@
     "upper_org_code": "C100078",
     "updated_date": "20260213",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "인프라운영팀",
+    "org_department_name_en": "인프라운영팀"
   },
   {
     "org_code": "C100087",
@@ -867,7 +1211,11 @@
     "upper_org_code": "C100072",
     "updated_date": "20260211",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "데이터응용팀",
+    "org_department_name_en": "데이터응용팀"
   },
   {
     "org_code": "C100088",
@@ -877,7 +1225,11 @@
     "upper_org_code": "C100078",
     "updated_date": "20260210",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "디바이스품질팀",
+    "org_department_name_en": "디바이스품질팀"
   },
   {
     "org_code": "C100089",
@@ -887,7 +1239,11 @@
     "upper_org_code": "C100075",
     "updated_date": "20260128",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "서비스클라우드팀",
+    "org_department_name_en": "서비스클라우드팀"
   },
   {
     "org_code": "C100090",
@@ -897,7 +1253,11 @@
     "upper_org_code": "C100072",
     "updated_date": "20260403",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "시스템개발팀",
+    "org_department_name_en": "시스템개발팀"
   },
   {
     "org_code": "C100091",
@@ -907,7 +1267,11 @@
     "upper_org_code": "C100081",
     "updated_date": "20260410",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "고객경험데이터팀",
+    "org_department_name_en": "고객경험데이터팀"
   },
   {
     "org_code": "C100092",
@@ -917,7 +1281,11 @@
     "upper_org_code": "C100078",
     "updated_date": "20260219",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "서비스인프라팀",
+    "org_department_name_en": "서비스인프라팀"
   },
   {
     "org_code": "C100093",
@@ -927,7 +1295,11 @@
     "upper_org_code": "C100076",
     "updated_date": "20260303",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "스마트홈클라우드팀",
+    "org_department_name_en": "스마트홈클라우드팀"
   },
   {
     "org_code": "C100094",
@@ -937,7 +1309,11 @@
     "upper_org_code": "C100073",
     "updated_date": "20260321",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "글로벌클라우드팀",
+    "org_department_name_en": "글로벌클라우드팀"
   },
   {
     "org_code": "C100095",
@@ -947,7 +1323,11 @@
     "upper_org_code": "C100078",
     "updated_date": "20260401",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커머스전략팀",
+    "org_department_name_en": "커머스전략팀"
   },
   {
     "org_code": "C100096",
@@ -957,7 +1337,11 @@
     "upper_org_code": "C100076",
     "updated_date": "20260407",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "파트너기획팀",
+    "org_department_name_en": "파트너기획팀"
   },
   {
     "org_code": "C100097",
@@ -967,7 +1351,11 @@
     "upper_org_code": "C100075",
     "updated_date": "20260106",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "스마트홈보안팀",
+    "org_department_name_en": "스마트홈보안팀"
   },
   {
     "org_code": "C100098",
@@ -977,7 +1365,11 @@
     "upper_org_code": "C100082",
     "updated_date": "20260118",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "AI운영팀",
+    "org_department_name_en": "AI운영팀"
   },
   {
     "org_code": "C100099",
@@ -987,7 +1379,11 @@
     "upper_org_code": "C100079",
     "updated_date": "20260413",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "채널데이터팀",
+    "org_department_name_en": "채널데이터팀"
   },
   {
     "org_code": "C100100",
@@ -997,7 +1393,11 @@
     "upper_org_code": "C100089",
     "updated_date": "20260406",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "미디어유닛",
+    "org_department_name_en": "미디어유닛"
   },
   {
     "org_code": "C100101",
@@ -1007,7 +1407,11 @@
     "upper_org_code": "C100091",
     "updated_date": "20260212",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "글로벌TF",
+    "org_department_name_en": "글로벌TF"
   },
   {
     "org_code": "C100102",
@@ -1017,7 +1421,11 @@
     "upper_org_code": "C100098",
     "updated_date": "20260425",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "응용셀",
+    "org_department_name_en": "응용셀"
   },
   {
     "org_code": "C100103",
@@ -1027,7 +1435,11 @@
     "upper_org_code": "C100090",
     "updated_date": "20260420",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "스마트홈셀",
+    "org_department_name_en": "스마트홈셀"
   },
   {
     "org_code": "C100104",
@@ -1037,7 +1449,11 @@
     "upper_org_code": "C100098",
     "updated_date": "20260304",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "모바일파트",
+    "org_department_name_en": "모바일파트"
   },
   {
     "org_code": "C100105",
@@ -1047,7 +1463,11 @@
     "upper_org_code": "C100093",
     "updated_date": "20260214",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "보안스쿼드",
+    "org_department_name_en": "보안스쿼드"
   },
   {
     "org_code": "C100106",
@@ -1057,7 +1477,11 @@
     "upper_org_code": "C100099",
     "updated_date": "20260218",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "고객경험유닛",
+    "org_department_name_en": "고객경험유닛"
   },
   {
     "org_code": "C100107",
@@ -1067,7 +1491,11 @@
     "upper_org_code": "C100096",
     "updated_date": "20260109",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커넥티드셀",
+    "org_department_name_en": "커넥티드셀"
   },
   {
     "org_code": "C100108",
@@ -1077,7 +1505,11 @@
     "upper_org_code": "C100085",
     "updated_date": "20260417",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "모바일TF",
+    "org_department_name_en": "모바일TF"
   },
   {
     "org_code": "C100109",
@@ -1087,7 +1519,11 @@
     "upper_org_code": "C100096",
     "updated_date": "20260312",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "글로벌셀",
+    "org_department_name_en": "글로벌셀"
   },
   {
     "org_code": "C100110",
@@ -1097,7 +1533,11 @@
     "upper_org_code": "C100093",
     "updated_date": "20260102",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "엔터프라이즈파트",
+    "org_department_name_en": "엔터프라이즈파트"
   },
   {
     "org_code": "C100111",
@@ -1107,7 +1547,11 @@
     "upper_org_code": "C100086",
     "updated_date": "20260318",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "디지털TF",
+    "org_department_name_en": "디지털TF"
   },
   {
     "org_code": "C100112",
@@ -1117,7 +1561,11 @@
     "upper_org_code": "C100094",
     "updated_date": "20260225",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "AI스쿼드",
+    "org_department_name_en": "AI스쿼드"
   },
   {
     "org_code": "C100113",
@@ -1127,7 +1575,11 @@
     "upper_org_code": "C100102",
     "updated_date": "20260310",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "고객경험기획셀",
+    "org_department_name_en": "고객경험기획셀"
   },
   {
     "org_code": "C100114",
@@ -1137,7 +1589,11 @@
     "upper_org_code": "C100108",
     "updated_date": "20260218",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "데이터운영셀",
+    "org_department_name_en": "데이터운영셀"
   },
   {
     "org_code": "C100115",
@@ -1147,7 +1603,11 @@
     "upper_org_code": "C100101",
     "updated_date": "20260424",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "서비스운영셀",
+    "org_department_name_en": "서비스운영셀"
   },
   {
     "org_code": "C100116",
@@ -1157,7 +1617,11 @@
     "upper_org_code": "C100112",
     "updated_date": "20260315",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "생산기술서비스셀",
+    "org_department_name_en": "생산기술서비스셀"
   },
   {
     "org_code": "C100117",
@@ -1167,7 +1631,11 @@
     "upper_org_code": "C100105",
     "updated_date": "20260204",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "인프라3파트",
+    "org_department_name_en": "인프라3파트"
   },
   {
     "org_code": "C100118",
@@ -1177,7 +1645,11 @@
     "upper_org_code": "C100111",
     "updated_date": "20260419",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "AI기획셀",
+    "org_department_name_en": "AI기획셀"
   },
   {
     "org_code": "C100119",
@@ -1187,7 +1659,11 @@
     "upper_org_code": "C100107",
     "updated_date": "20260312",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "데이터운영셀2",
+    "org_department_name_en": "데이터운영셀2"
   },
   {
     "org_code": "C100120",
@@ -1197,7 +1673,11 @@
     "upper_org_code": "C100110",
     "updated_date": "20260216",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DS 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "전략기획셀",
+    "org_department_name_en": "전략기획셀"
   },
   {
     "org_code": "C100121",
@@ -1207,7 +1687,11 @@
     "upper_org_code": "C10",
     "updated_date": "20260423",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "DX 사업부",
+    "org_department_name_en": "DX 사업부"
   },
   {
     "org_code": "C100122",
@@ -1217,7 +1701,11 @@
     "upper_org_code": "C100121",
     "updated_date": "20260115",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "전략본부",
+    "org_department_name_en": "전략본부"
   },
   {
     "org_code": "C100123",
@@ -1227,7 +1715,11 @@
     "upper_org_code": "C100121",
     "updated_date": "20260402",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "데이터본부",
+    "org_department_name_en": "데이터본부"
   },
   {
     "org_code": "C100124",
@@ -1237,7 +1729,11 @@
     "upper_org_code": "C100121",
     "updated_date": "20260413",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "모바일센터",
+    "org_department_name_en": "모바일센터"
   },
   {
     "org_code": "C100125",
@@ -1247,7 +1743,11 @@
     "upper_org_code": "C100121",
     "updated_date": "20260122",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "엔터프라이즈전략실",
+    "org_department_name_en": "엔터프라이즈전략실"
   },
   {
     "org_code": "C100126",
@@ -1257,7 +1757,11 @@
     "upper_org_code": "C100121",
     "updated_date": "20260401",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "솔루션본부",
+    "org_department_name_en": "솔루션본부"
   },
   {
     "org_code": "C100127",
@@ -1267,7 +1771,11 @@
     "upper_org_code": "C100121",
     "updated_date": "20260109",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커머스개발실",
+    "org_department_name_en": "커머스개발실"
   },
   {
     "org_code": "C100128",
@@ -1277,7 +1785,11 @@
     "upper_org_code": "C100121",
     "updated_date": "20260225",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "파트너연구소",
+    "org_department_name_en": "파트너연구소"
   },
   {
     "org_code": "C100129",
@@ -1287,7 +1799,11 @@
     "upper_org_code": "C100121",
     "updated_date": "20260415",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "플랫폼개발실",
+    "org_department_name_en": "플랫폼개발실"
   },
   {
     "org_code": "C100130",
@@ -1297,7 +1813,11 @@
     "upper_org_code": "C100127",
     "updated_date": "20260314",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "품질솔루션그룹",
+    "org_department_name_en": "품질솔루션그룹"
   },
   {
     "org_code": "C100131",
@@ -1307,7 +1827,11 @@
     "upper_org_code": "C100128",
     "updated_date": "20260217",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "데이터품질그룹",
+    "org_department_name_en": "데이터품질그룹"
   },
   {
     "org_code": "C100132",
@@ -1317,7 +1841,11 @@
     "upper_org_code": "C100127",
     "updated_date": "20260215",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "데이터기술그룹",
+    "org_department_name_en": "데이터기술그룹"
   },
   {
     "org_code": "C100133",
@@ -1327,7 +1855,11 @@
     "upper_org_code": "C100127",
     "updated_date": "20260426",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "디지털개발그룹",
+    "org_department_name_en": "디지털개발그룹"
   },
   {
     "org_code": "C100134",
@@ -1337,7 +1869,11 @@
     "upper_org_code": "C100129",
     "updated_date": "20260215",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "품질기술그룹",
+    "org_department_name_en": "품질기술그룹"
   },
   {
     "org_code": "C100135",
@@ -1347,7 +1883,11 @@
     "upper_org_code": "C100125",
     "updated_date": "20260402",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "인프라플랫폼그룹",
+    "org_department_name_en": "인프라플랫폼그룹"
   },
   {
     "org_code": "C100136",
@@ -1357,7 +1897,11 @@
     "upper_org_code": "C100125",
     "updated_date": "20260212",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "응용서비스그룹",
+    "org_department_name_en": "응용서비스그룹"
   },
   {
     "org_code": "C100137",
@@ -1367,7 +1911,11 @@
     "upper_org_code": "C100122",
     "updated_date": "20260220",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "파트너솔루션그룹",
+    "org_department_name_en": "파트너솔루션그룹"
   },
   {
     "org_code": "C100138",
@@ -1377,7 +1925,11 @@
     "upper_org_code": "C100126",
     "updated_date": "20260325",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "시스템서비스그룹",
+    "org_department_name_en": "시스템서비스그룹"
   },
   {
     "org_code": "C100139",
@@ -1387,7 +1939,11 @@
     "upper_org_code": "C100127",
     "updated_date": "20260121",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "서비스품질그룹",
+    "org_department_name_en": "서비스품질그룹"
   },
   {
     "org_code": "C100140",
@@ -1397,7 +1953,11 @@
     "upper_org_code": "C100128",
     "updated_date": "20260409",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "인프라품질그룹",
+    "org_department_name_en": "인프라품질그룹"
   },
   {
     "org_code": "C100141",
@@ -1407,7 +1967,11 @@
     "upper_org_code": "C100129",
     "updated_date": "20260302",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "플랫폼혁신그룹",
+    "org_department_name_en": "플랫폼혁신그룹"
   },
   {
     "org_code": "C100142",
@@ -1417,7 +1981,11 @@
     "upper_org_code": "C100122",
     "updated_date": "20260301",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커머스솔루션그룹",
+    "org_department_name_en": "커머스솔루션그룹"
   },
   {
     "org_code": "C100143",
@@ -1427,7 +1995,11 @@
     "upper_org_code": "C100126",
     "updated_date": "20260203",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "응용플랫폼그룹",
+    "org_department_name_en": "응용플랫폼그룹"
   },
   {
     "org_code": "C100144",
@@ -1437,7 +2009,11 @@
     "upper_org_code": "C100142",
     "updated_date": "20260220",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "서비스클라우드팀",
+    "org_department_name_en": "서비스클라우드팀"
   },
   {
     "org_code": "C100145",
@@ -1447,7 +2023,11 @@
     "upper_org_code": "C100136",
     "updated_date": "20260407",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "보안품질팀",
+    "org_department_name_en": "보안품질팀"
   },
   {
     "org_code": "C100146",
@@ -1457,7 +2037,11 @@
     "upper_org_code": "C100135",
     "updated_date": "20260126",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "시스템아키텍처팀",
+    "org_department_name_en": "시스템아키텍처팀"
   },
   {
     "org_code": "C100147",
@@ -1467,7 +2051,11 @@
     "upper_org_code": "C100135",
     "updated_date": "20260411",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "제조서비스팀",
+    "org_department_name_en": "제조서비스팀"
   },
   {
     "org_code": "C100148",
@@ -1477,7 +2065,11 @@
     "upper_org_code": "C100134",
     "updated_date": "20260107",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "모바일서비스팀",
+    "org_department_name_en": "모바일서비스팀"
   },
   {
     "org_code": "C100149",
@@ -1487,7 +2079,11 @@
     "upper_org_code": "C100135",
     "updated_date": "20260307",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "고객경험품질팀",
+    "org_department_name_en": "고객경험품질팀"
   },
   {
     "org_code": "C100150",
@@ -1497,7 +2093,11 @@
     "upper_org_code": "C100143",
     "updated_date": "20260310",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "플랫폼운영팀",
+    "org_department_name_en": "플랫폼운영팀"
   },
   {
     "org_code": "C100151",
@@ -1507,7 +2107,11 @@
     "upper_org_code": "C100138",
     "updated_date": "20260316",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "엔터프라이즈전략팀",
+    "org_department_name_en": "엔터프라이즈전략팀"
   },
   {
     "org_code": "C100152",
@@ -1517,7 +2121,11 @@
     "upper_org_code": "C100135",
     "updated_date": "20260202",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "엔터프라이즈인프라팀",
+    "org_department_name_en": "엔터프라이즈인프라팀"
   },
   {
     "org_code": "C100153",
@@ -1527,7 +2135,11 @@
     "upper_org_code": "C100134",
     "updated_date": "20260101",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "차세대서비스팀",
+    "org_department_name_en": "차세대서비스팀"
   },
   {
     "org_code": "C100154",
@@ -1537,7 +2149,11 @@
     "upper_org_code": "C100137",
     "updated_date": "20260402",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "전략인프라팀",
+    "org_department_name_en": "전략인프라팀"
   },
   {
     "org_code": "C100155",
@@ -1547,7 +2163,11 @@
     "upper_org_code": "C100142",
     "updated_date": "20260415",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "서비스보안팀",
+    "org_department_name_en": "서비스보안팀"
   },
   {
     "org_code": "C100156",
@@ -1557,7 +2177,11 @@
     "upper_org_code": "C100131",
     "updated_date": "20260204",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "고객경험아키텍처팀",
+    "org_department_name_en": "고객경험아키텍처팀"
   },
   {
     "org_code": "C100157",
@@ -1567,7 +2191,11 @@
     "upper_org_code": "C100143",
     "updated_date": "20260407",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "미디어데이터팀",
+    "org_department_name_en": "미디어데이터팀"
   },
   {
     "org_code": "C100158",
@@ -1577,7 +2205,11 @@
     "upper_org_code": "C100137",
     "updated_date": "20260418",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "시스템아키텍처팀2",
+    "org_department_name_en": "시스템아키텍처팀2"
   },
   {
     "org_code": "C100159",
@@ -1587,7 +2219,11 @@
     "upper_org_code": "C100142",
     "updated_date": "20260402",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "생산기술설계팀",
+    "org_department_name_en": "생산기술설계팀"
   },
   {
     "org_code": "C100160",
@@ -1597,7 +2233,11 @@
     "upper_org_code": "C100149",
     "updated_date": "20260205",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "디바이스유닛",
+    "org_department_name_en": "디바이스유닛"
   },
   {
     "org_code": "C100161",
@@ -1607,7 +2247,11 @@
     "upper_org_code": "C100152",
     "updated_date": "20260314",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "차세대TF",
+    "org_department_name_en": "차세대TF"
   },
   {
     "org_code": "C100162",
@@ -1617,7 +2261,11 @@
     "upper_org_code": "C100147",
     "updated_date": "20260223",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "보안TF",
+    "org_department_name_en": "보안TF"
   },
   {
     "org_code": "C100163",
@@ -1627,7 +2275,11 @@
     "upper_org_code": "C100153",
     "updated_date": "20260418",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "미디어유닛",
+    "org_department_name_en": "미디어유닛"
   },
   {
     "org_code": "C100164",
@@ -1637,7 +2289,11 @@
     "upper_org_code": "C100152",
     "updated_date": "20260104",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커넥티드파트",
+    "org_department_name_en": "커넥티드파트"
   },
   {
     "org_code": "C100165",
@@ -1647,7 +2303,11 @@
     "upper_org_code": "C100147",
     "updated_date": "20260207",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "클라우드유닛",
+    "org_department_name_en": "클라우드유닛"
   },
   {
     "org_code": "C100166",
@@ -1657,7 +2317,11 @@
     "upper_org_code": "C100153",
     "updated_date": "20260428",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "생산기술셀",
+    "org_department_name_en": "생산기술셀"
   },
   {
     "org_code": "C100167",
@@ -1667,7 +2331,11 @@
     "upper_org_code": "C100145",
     "updated_date": "20260304",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "AI유닛",
+    "org_department_name_en": "AI유닛"
   },
   {
     "org_code": "C100168",
@@ -1677,7 +2345,11 @@
     "upper_org_code": "C100155",
     "updated_date": "20260308",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "디바이스스쿼드",
+    "org_department_name_en": "디바이스스쿼드"
   },
   {
     "org_code": "C100169",
@@ -1687,7 +2359,11 @@
     "upper_org_code": "C100151",
     "updated_date": "20260322",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "고객경험스쿼드",
+    "org_department_name_en": "고객경험스쿼드"
   },
   {
     "org_code": "C100170",
@@ -1697,7 +2373,11 @@
     "upper_org_code": "C100154",
     "updated_date": "20260410",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "디바이스TF",
+    "org_department_name_en": "디바이스TF"
   },
   {
     "org_code": "C100171",
@@ -1707,7 +2387,11 @@
     "upper_org_code": "C100149",
     "updated_date": "20260312",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "데이터셀",
+    "org_department_name_en": "데이터셀"
   },
   {
     "org_code": "C100172",
@@ -1717,7 +2401,11 @@
     "upper_org_code": "C100144",
     "updated_date": "20260405",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "디지털파트",
+    "org_department_name_en": "디지털파트"
   },
   {
     "org_code": "C100173",
@@ -1727,7 +2415,11 @@
     "upper_org_code": "C100162",
     "updated_date": "20260225",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "UX2파트",
+    "org_department_name_en": "UX2파트"
   },
   {
     "org_code": "C100174",
@@ -1737,7 +2429,11 @@
     "upper_org_code": "C100163",
     "updated_date": "20260208",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "디지털개발셀",
+    "org_department_name_en": "디지털개발셀"
   },
   {
     "org_code": "C100175",
@@ -1747,7 +2443,11 @@
     "upper_org_code": "C100171",
     "updated_date": "20260412",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "데이터플랫폼셀",
+    "org_department_name_en": "데이터플랫폼셀"
   },
   {
     "org_code": "C100176",
@@ -1757,7 +2457,11 @@
     "upper_org_code": "C100169",
     "updated_date": "20260404",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "인프라3파트",
+    "org_department_name_en": "인프라3파트"
   },
   {
     "org_code": "C100177",
@@ -1767,7 +2471,11 @@
     "upper_org_code": "C100169",
     "updated_date": "20260316",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "통합1파트",
+    "org_department_name_en": "통합1파트"
   },
   {
     "org_code": "C100178",
@@ -1777,7 +2485,11 @@
     "upper_org_code": "C100167",
     "updated_date": "20260218",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "스마트홈1파트",
+    "org_department_name_en": "스마트홈1파트"
   },
   {
     "org_code": "C100179",
@@ -1787,7 +2499,11 @@
     "upper_org_code": "C100170",
     "updated_date": "20260418",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "클라우드개발셀",
+    "org_department_name_en": "클라우드개발셀"
   },
   {
     "org_code": "C100180",
@@ -1797,7 +2513,11 @@
     "upper_org_code": "C100165",
     "updated_date": "20260305",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "DX 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "채널2파트",
+    "org_department_name_en": "채널2파트"
   },
   {
     "org_code": "C100181",
@@ -1807,7 +2527,11 @@
     "upper_org_code": "C10",
     "updated_date": "20260423",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "S/W 플랫폼 사업부",
+    "org_department_name_en": "S/W 플랫폼 사업부"
   },
   {
     "org_code": "C100182",
@@ -1817,7 +2541,11 @@
     "upper_org_code": "C100181",
     "updated_date": "20260313",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "통합센터",
+    "org_department_name_en": "통합센터"
   },
   {
     "org_code": "C100183",
@@ -1827,7 +2555,11 @@
     "upper_org_code": "C100181",
     "updated_date": "20260324",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "플랫폼개발실",
+    "org_department_name_en": "플랫폼개발실"
   },
   {
     "org_code": "C100184",
@@ -1837,7 +2569,11 @@
     "upper_org_code": "C100181",
     "updated_date": "20260422",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "제조랩",
+    "org_department_name_en": "제조랩"
   },
   {
     "org_code": "C100185",
@@ -1847,7 +2583,11 @@
     "upper_org_code": "C100181",
     "updated_date": "20260210",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "커넥티드센터",
+    "org_department_name_en": "커넥티드센터"
   },
   {
     "org_code": "C100186",
@@ -1857,7 +2597,11 @@
     "upper_org_code": "C100181",
     "updated_date": "20260124",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "반도체전략실",
+    "org_department_name_en": "반도체전략실"
   },
   {
     "org_code": "C100187",
@@ -1867,7 +2611,11 @@
     "upper_org_code": "C100181",
     "updated_date": "20260421",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "반도체개발실",
+    "org_department_name_en": "반도체개발실"
   },
   {
     "org_code": "C100188",
@@ -1877,7 +2625,11 @@
     "upper_org_code": "C100181",
     "updated_date": "20260101",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "모바일연구소",
+    "org_department_name_en": "모바일연구소"
   },
   {
     "org_code": "C100189",
@@ -1887,7 +2639,11 @@
     "upper_org_code": "C100181",
     "updated_date": "20260127",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "응용센터",
+    "org_department_name_en": "응용센터"
   },
   {
     "org_code": "C100190",
@@ -1897,7 +2653,11 @@
     "upper_org_code": "C100182",
     "updated_date": "20260207",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "반도체개발그룹",
+    "org_department_name_en": "반도체개발그룹"
   },
   {
     "org_code": "C100191",
@@ -1907,7 +2667,11 @@
     "upper_org_code": "C100189",
     "updated_date": "20260310",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "서비스솔루션그룹",
+    "org_department_name_en": "서비스솔루션그룹"
   },
   {
     "org_code": "C100192",
@@ -1917,7 +2681,11 @@
     "upper_org_code": "C100184",
     "updated_date": "20260413",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "응용혁신그룹",
+    "org_department_name_en": "응용혁신그룹"
   },
   {
     "org_code": "C100193",
@@ -1927,7 +2695,11 @@
     "upper_org_code": "C100182",
     "updated_date": "20260425",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "서비스운영그룹",
+    "org_department_name_en": "서비스운영그룹"
   },
   {
     "org_code": "C100194",
@@ -1937,7 +2709,11 @@
     "upper_org_code": "C100182",
     "updated_date": "20260413",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "인프라서비스그룹",
+    "org_department_name_en": "인프라서비스그룹"
   },
   {
     "org_code": "C100195",
@@ -1947,7 +2723,11 @@
     "upper_org_code": "C100184",
     "updated_date": "20260220",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "모바일PMO그룹",
+    "org_department_name_en": "모바일PMO그룹"
   },
   {
     "org_code": "C100196",
@@ -1957,7 +2737,11 @@
     "upper_org_code": "C100184",
     "updated_date": "20260227",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "고객경험혁신그룹",
+    "org_department_name_en": "고객경험혁신그룹"
   },
   {
     "org_code": "C100197",
@@ -1967,7 +2751,11 @@
     "upper_org_code": "C100184",
     "updated_date": "20260224",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "디바이스플랫폼그룹",
+    "org_department_name_en": "디바이스플랫폼그룹"
   },
   {
     "org_code": "C100198",
@@ -1977,7 +2765,11 @@
     "upper_org_code": "C100184",
     "updated_date": "20260428",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "채널서비스그룹",
+    "org_department_name_en": "채널서비스그룹"
   },
   {
     "org_code": "C100199",
@@ -1987,7 +2779,11 @@
     "upper_org_code": "C100183",
     "updated_date": "20260220",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "시스템품질그룹",
+    "org_department_name_en": "시스템품질그룹"
   },
   {
     "org_code": "C100200",
@@ -1997,7 +2793,11 @@
     "upper_org_code": "C100182",
     "updated_date": "20260401",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "커넥티드혁신그룹",
+    "org_department_name_en": "커넥티드혁신그룹"
   },
   {
     "org_code": "C100201",
@@ -2007,7 +2807,11 @@
     "upper_org_code": "C100182",
     "updated_date": "20260310",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "전략서비스그룹",
+    "org_department_name_en": "전략서비스그룹"
   },
   {
     "org_code": "C100202",
@@ -2017,7 +2821,11 @@
     "upper_org_code": "C100184",
     "updated_date": "20260306",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "글로벌기술그룹",
+    "org_department_name_en": "글로벌기술그룹"
   },
   {
     "org_code": "C100203",
@@ -2027,7 +2835,11 @@
     "upper_org_code": "C100188",
     "updated_date": "20260413",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "제조운영그룹",
+    "org_department_name_en": "제조운영그룹"
   },
   {
     "org_code": "C100204",
@@ -2037,7 +2849,11 @@
     "upper_org_code": "C100190",
     "updated_date": "20260318",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "스마트홈서비스팀",
+    "org_department_name_en": "스마트홈서비스팀"
   },
   {
     "org_code": "C100205",
@@ -2047,7 +2863,11 @@
     "upper_org_code": "C100197",
     "updated_date": "20260322",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커머스응용팀",
+    "org_department_name_en": "커머스응용팀"
   },
   {
     "org_code": "C100206",
@@ -2057,7 +2877,11 @@
     "upper_org_code": "C100190",
     "updated_date": "20260113",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "글로벌전략팀",
+    "org_department_name_en": "글로벌전략팀"
   },
   {
     "org_code": "C100207",
@@ -2067,7 +2891,11 @@
     "upper_org_code": "C100195",
     "updated_date": "20260109",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "전략개발팀",
+    "org_department_name_en": "전략개발팀"
   },
   {
     "org_code": "C100208",
@@ -2077,7 +2905,11 @@
     "upper_org_code": "C100201",
     "updated_date": "20260322",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커머스운영팀",
+    "org_department_name_en": "커머스운영팀"
   },
   {
     "org_code": "C100209",
@@ -2087,7 +2919,11 @@
     "upper_org_code": "C100202",
     "updated_date": "20260313",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "플랫폼응용팀",
+    "org_department_name_en": "플랫폼응용팀"
   },
   {
     "org_code": "C100210",
@@ -2097,7 +2933,11 @@
     "upper_org_code": "C100203",
     "updated_date": "20260119",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커넥티드품질팀",
+    "org_department_name_en": "커넥티드품질팀"
   },
   {
     "org_code": "C100211",
@@ -2107,7 +2947,11 @@
     "upper_org_code": "C100195",
     "updated_date": "20260306",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "디지털품질팀",
+    "org_department_name_en": "디지털품질팀"
   },
   {
     "org_code": "C100212",
@@ -2117,7 +2961,11 @@
     "upper_org_code": "C100203",
     "updated_date": "20260328",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "생산기술데이터팀",
+    "org_department_name_en": "생산기술데이터팀"
   },
   {
     "org_code": "C100213",
@@ -2127,7 +2975,11 @@
     "upper_org_code": "C100201",
     "updated_date": "20260119",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "통합개발팀",
+    "org_department_name_en": "통합개발팀"
   },
   {
     "org_code": "C100214",
@@ -2137,7 +2989,11 @@
     "upper_org_code": "C100192",
     "updated_date": "20260321",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "반도체기획팀",
+    "org_department_name_en": "반도체기획팀"
   },
   {
     "org_code": "C100215",
@@ -2147,7 +3003,11 @@
     "upper_org_code": "C100194",
     "updated_date": "20260420",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "제조보안팀",
+    "org_department_name_en": "제조보안팀"
   },
   {
     "org_code": "C100216",
@@ -2157,7 +3017,11 @@
     "upper_org_code": "C100196",
     "updated_date": "20260219",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "클라우드개발팀",
+    "org_department_name_en": "클라우드개발팀"
   },
   {
     "org_code": "C100217",
@@ -2167,7 +3031,11 @@
     "upper_org_code": "C100190",
     "updated_date": "20260301",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "글로벌데이터팀",
+    "org_department_name_en": "글로벌데이터팀"
   },
   {
     "org_code": "C100218",
@@ -2177,7 +3045,11 @@
     "upper_org_code": "C100201",
     "updated_date": "20260324",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "전략클라우드팀",
+    "org_department_name_en": "전략클라우드팀"
   },
   {
     "org_code": "C100219",
@@ -2187,7 +3059,11 @@
     "upper_org_code": "C100199",
     "updated_date": "20260409",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "플랫폼아키텍처팀",
+    "org_department_name_en": "플랫폼아키텍처팀"
   },
   {
     "org_code": "C100220",
@@ -2197,7 +3073,11 @@
     "upper_org_code": "C100209",
     "updated_date": "20260122",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "UX파트",
+    "org_department_name_en": "UX파트"
   },
   {
     "org_code": "C100221",
@@ -2207,7 +3087,11 @@
     "upper_org_code": "C100209",
     "updated_date": "20260425",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "인프라셀",
+    "org_department_name_en": "인프라셀"
   },
   {
     "org_code": "C100222",
@@ -2217,7 +3101,11 @@
     "upper_org_code": "C100217",
     "updated_date": "20260301",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "커넥티드TF",
+    "org_department_name_en": "커넥티드TF"
   },
   {
     "org_code": "C100223",
@@ -2227,7 +3115,11 @@
     "upper_org_code": "C100217",
     "updated_date": "20260318",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "미디어TF",
+    "org_department_name_en": "미디어TF"
   },
   {
     "org_code": "C100224",
@@ -2237,7 +3129,11 @@
     "upper_org_code": "C100214",
     "updated_date": "20260426",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "제조파트",
+    "org_department_name_en": "제조파트"
   },
   {
     "org_code": "C100225",
@@ -2247,7 +3143,11 @@
     "upper_org_code": "C100208",
     "updated_date": "20260226",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "엔터프라이즈셀",
+    "org_department_name_en": "엔터프라이즈셀"
   },
   {
     "org_code": "C100226",
@@ -2257,7 +3157,11 @@
     "upper_org_code": "C100216",
     "updated_date": "20260118",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "반도체유닛",
+    "org_department_name_en": "반도체유닛"
   },
   {
     "org_code": "C100227",
@@ -2267,7 +3171,11 @@
     "upper_org_code": "C100217",
     "updated_date": "20260201",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "응용스쿼드",
+    "org_department_name_en": "응용스쿼드"
   },
   {
     "org_code": "C100228",
@@ -2277,7 +3185,11 @@
     "upper_org_code": "C100215",
     "updated_date": "20260221",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "UX파트2",
+    "org_department_name_en": "UX파트2"
   },
   {
     "org_code": "C100229",
@@ -2287,7 +3199,11 @@
     "upper_org_code": "C100215",
     "updated_date": "20260124",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "응용유닛",
+    "org_department_name_en": "응용유닛"
   },
   {
     "org_code": "C100230",
@@ -2297,7 +3213,11 @@
     "upper_org_code": "C100211",
     "updated_date": "20260306",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "인프라파트",
+    "org_department_name_en": "인프라파트"
   },
   {
     "org_code": "C100231",
@@ -2307,7 +3227,11 @@
     "upper_org_code": "C100217",
     "updated_date": "20260408",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "고객경험스쿼드",
+    "org_department_name_en": "고객경험스쿼드"
   },
   {
     "org_code": "C100232",
@@ -2317,7 +3241,11 @@
     "upper_org_code": "C100218",
     "updated_date": "20260107",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "엔터프라이즈스쿼드",
+    "org_department_name_en": "엔터프라이즈스쿼드"
   },
   {
     "org_code": "C100233",
@@ -2327,7 +3255,11 @@
     "upper_org_code": "C100222",
     "updated_date": "20260421",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "글로벌2파트",
+    "org_department_name_en": "글로벌2파트"
   },
   {
     "org_code": "C100234",
@@ -2337,7 +3269,11 @@
     "upper_org_code": "C100226",
     "updated_date": "20260425",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "커넥티드서비스셀",
+    "org_department_name_en": "커넥티드서비스셀"
   },
   {
     "org_code": "C100235",
@@ -2347,7 +3283,11 @@
     "upper_org_code": "C100232",
     "updated_date": "20260110",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "반도체분석셀",
+    "org_department_name_en": "반도체분석셀"
   },
   {
     "org_code": "C100236",
@@ -2357,7 +3297,11 @@
     "upper_org_code": "C100220",
     "updated_date": "20260307",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "전략1파트",
+    "org_department_name_en": "전략1파트"
   },
   {
     "org_code": "C100237",
@@ -2367,7 +3311,11 @@
     "upper_org_code": "C100232",
     "updated_date": "20260425",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "품질기획셀",
+    "org_department_name_en": "품질기획셀"
   },
   {
     "org_code": "C100238",
@@ -2377,7 +3325,11 @@
     "upper_org_code": "C100230",
     "updated_date": "20260119",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "응용기획셀",
+    "org_department_name_en": "응용기획셀"
   },
   {
     "org_code": "C100239",
@@ -2387,7 +3339,11 @@
     "upper_org_code": "C100227",
     "updated_date": "20260311",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "반도체3파트",
+    "org_department_name_en": "반도체3파트"
   },
   {
     "org_code": "C100240",
@@ -2397,7 +3353,11 @@
     "upper_org_code": "C100220",
     "updated_date": "20260202",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "S/W 플랫폼 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "품질개발셀",
+    "org_department_name_en": "품질개발셀"
   },
   {
     "org_code": "C100241",
@@ -2407,7 +3367,11 @@
     "upper_org_code": "C10",
     "updated_date": "20260119",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Global 운영 사업부",
+    "org_department_name_en": "Global 운영 사업부"
   },
   {
     "org_code": "C100242",
@@ -2417,7 +3381,11 @@
     "upper_org_code": "C100241",
     "updated_date": "20260107",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "반도체개발실",
+    "org_department_name_en": "반도체개발실"
   },
   {
     "org_code": "C100243",
@@ -2427,7 +3395,11 @@
     "upper_org_code": "C100241",
     "updated_date": "20260402",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "솔루션전략실",
+    "org_department_name_en": "솔루션전략실"
   },
   {
     "org_code": "C100244",
@@ -2437,7 +3409,11 @@
     "upper_org_code": "C100241",
     "updated_date": "20260111",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "차세대랩",
+    "org_department_name_en": "차세대랩"
   },
   {
     "org_code": "C100245",
@@ -2447,7 +3423,11 @@
     "upper_org_code": "C100241",
     "updated_date": "20260314",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "생산기술연구소",
+    "org_department_name_en": "생산기술연구소"
   },
   {
     "org_code": "C100246",
@@ -2457,7 +3437,11 @@
     "upper_org_code": "C100241",
     "updated_date": "20260428",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "시스템연구소",
+    "org_department_name_en": "시스템연구소"
   },
   {
     "org_code": "C100247",
@@ -2467,7 +3451,11 @@
     "upper_org_code": "C100241",
     "updated_date": "20260205",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "UX개발실",
+    "org_department_name_en": "UX개발실"
   },
   {
     "org_code": "C100248",
@@ -2477,7 +3465,11 @@
     "upper_org_code": "C100241",
     "updated_date": "20260124",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "차세대사업운영실",
+    "org_department_name_en": "차세대사업운영실"
   },
   {
     "org_code": "C100249",
@@ -2487,7 +3479,11 @@
     "upper_org_code": "C100241",
     "updated_date": "20260406",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "통합전략실",
+    "org_department_name_en": "통합전략실"
   },
   {
     "org_code": "C100250",
@@ -2497,7 +3493,11 @@
     "upper_org_code": "C100247",
     "updated_date": "20260118",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "디지털서비스그룹",
+    "org_department_name_en": "디지털서비스그룹"
   },
   {
     "org_code": "C100251",
@@ -2507,7 +3507,11 @@
     "upper_org_code": "C100244",
     "updated_date": "20260226",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "통합운영그룹",
+    "org_department_name_en": "통합운영그룹"
   },
   {
     "org_code": "C100252",
@@ -2517,7 +3521,11 @@
     "upper_org_code": "C100246",
     "updated_date": "20260317",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "제조운영그룹",
+    "org_department_name_en": "제조운영그룹"
   },
   {
     "org_code": "C100253",
@@ -2527,7 +3535,11 @@
     "upper_org_code": "C100249",
     "updated_date": "20260418",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "차세대솔루션그룹",
+    "org_department_name_en": "차세대솔루션그룹"
   },
   {
     "org_code": "C100254",
@@ -2537,7 +3549,11 @@
     "upper_org_code": "C100244",
     "updated_date": "20260125",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "커머스솔루션그룹",
+    "org_department_name_en": "커머스솔루션그룹"
   },
   {
     "org_code": "C100255",
@@ -2547,7 +3563,11 @@
     "upper_org_code": "C100247",
     "updated_date": "20260221",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "통합서비스그룹",
+    "org_department_name_en": "통합서비스그룹"
   },
   {
     "org_code": "C100256",
@@ -2557,7 +3577,11 @@
     "upper_org_code": "C100249",
     "updated_date": "20260417",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "시스템기술그룹",
+    "org_department_name_en": "시스템기술그룹"
   },
   {
     "org_code": "C100257",
@@ -2567,7 +3591,11 @@
     "upper_org_code": "C100244",
     "updated_date": "20260216",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "채널혁신그룹",
+    "org_department_name_en": "채널혁신그룹"
   },
   {
     "org_code": "C100258",
@@ -2577,7 +3605,11 @@
     "upper_org_code": "C100242",
     "updated_date": "20260301",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "보안서비스그룹",
+    "org_department_name_en": "보안서비스그룹"
   },
   {
     "org_code": "C100259",
@@ -2587,7 +3619,11 @@
     "upper_org_code": "C100243",
     "updated_date": "20260319",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "AI개발그룹",
+    "org_department_name_en": "AI개발그룹"
   },
   {
     "org_code": "C100260",
@@ -2597,7 +3633,11 @@
     "upper_org_code": "C100249",
     "updated_date": "20260327",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "제조개발그룹",
+    "org_department_name_en": "제조개발그룹"
   },
   {
     "org_code": "C100261",
@@ -2607,7 +3647,11 @@
     "upper_org_code": "C100243",
     "updated_date": "20260106",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "데이터혁신그룹",
+    "org_department_name_en": "데이터혁신그룹"
   },
   {
     "org_code": "C100262",
@@ -2617,7 +3661,11 @@
     "upper_org_code": "C100244",
     "updated_date": "20260202",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "모바일혁신그룹",
+    "org_department_name_en": "모바일혁신그룹"
   },
   {
     "org_code": "C100263",
@@ -2627,7 +3675,11 @@
     "upper_org_code": "C100248",
     "updated_date": "20260326",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "응용플랫폼그룹",
+    "org_department_name_en": "응용플랫폼그룹"
   },
   {
     "org_code": "C100264",
@@ -2637,7 +3689,11 @@
     "upper_org_code": "C100256",
     "updated_date": "20260212",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "차세대개발팀",
+    "org_department_name_en": "차세대개발팀"
   },
   {
     "org_code": "C100265",
@@ -2647,7 +3703,11 @@
     "upper_org_code": "C100263",
     "updated_date": "20260402",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "차세대아키텍처팀",
+    "org_department_name_en": "차세대아키텍처팀"
   },
   {
     "org_code": "C100266",
@@ -2657,7 +3717,11 @@
     "upper_org_code": "C100257",
     "updated_date": "20260322",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "반도체AI팀",
+    "org_department_name_en": "반도체AI팀"
   },
   {
     "org_code": "C100267",
@@ -2667,7 +3731,11 @@
     "upper_org_code": "C100254",
     "updated_date": "20260414",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "인프라설계팀",
+    "org_department_name_en": "인프라설계팀"
   },
   {
     "org_code": "C100268",
@@ -2677,7 +3745,11 @@
     "upper_org_code": "C100252",
     "updated_date": "20260307",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "모바일보안팀",
+    "org_department_name_en": "모바일보안팀"
   },
   {
     "org_code": "C100269",
@@ -2687,7 +3759,11 @@
     "upper_org_code": "C100256",
     "updated_date": "20260104",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "고객경험기획팀",
+    "org_department_name_en": "고객경험기획팀"
   },
   {
     "org_code": "C100270",
@@ -2697,7 +3773,11 @@
     "upper_org_code": "C100250",
     "updated_date": "20260213",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "반도체개발팀",
+    "org_department_name_en": "반도체개발팀"
   },
   {
     "org_code": "C100271",
@@ -2707,7 +3787,11 @@
     "upper_org_code": "C100259",
     "updated_date": "20260111",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "채널클라우드팀",
+    "org_department_name_en": "채널클라우드팀"
   },
   {
     "org_code": "C100272",
@@ -2717,7 +3801,11 @@
     "upper_org_code": "C100257",
     "updated_date": "20260416",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "디지털서비스팀",
+    "org_department_name_en": "디지털서비스팀"
   },
   {
     "org_code": "C100273",
@@ -2727,7 +3815,11 @@
     "upper_org_code": "C100251",
     "updated_date": "20260426",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "엔터프라이즈개발팀",
+    "org_department_name_en": "엔터프라이즈개발팀"
   },
   {
     "org_code": "C100274",
@@ -2737,7 +3829,11 @@
     "upper_org_code": "C100262",
     "updated_date": "20260121",
     "org_category_code": "B3",
-    "org_category_name": "B (신사업)"
+    "org_category_name": "B (신사업)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "엔터프라이즈운영팀",
+    "org_department_name_en": "엔터프라이즈운영팀"
   },
   {
     "org_code": "C100275",
@@ -2747,7 +3843,11 @@
     "upper_org_code": "C100258",
     "updated_date": "20260111",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "AI설계팀",
+    "org_department_name_en": "AI설계팀"
   },
   {
     "org_code": "C100276",
@@ -2757,7 +3857,11 @@
     "upper_org_code": "C100255",
     "updated_date": "20260105",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "AI보안팀",
+    "org_department_name_en": "AI보안팀"
   },
   {
     "org_code": "C100277",
@@ -2767,7 +3871,11 @@
     "upper_org_code": "C100258",
     "updated_date": "20260302",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "응용응용팀",
+    "org_department_name_en": "응용응용팀"
   },
   {
     "org_code": "C100278",
@@ -2777,7 +3885,11 @@
     "upper_org_code": "C100250",
     "updated_date": "20260218",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "품질기획팀",
+    "org_department_name_en": "품질기획팀"
   },
   {
     "org_code": "C100279",
@@ -2787,7 +3899,11 @@
     "upper_org_code": "C100261",
     "updated_date": "20260225",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "데이터데이터팀",
+    "org_department_name_en": "데이터데이터팀"
   },
   {
     "org_code": "C100280",
@@ -2797,7 +3913,11 @@
     "upper_org_code": "C100269",
     "updated_date": "20260301",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "응용파트",
+    "org_department_name_en": "응용파트"
   },
   {
     "org_code": "C100281",
@@ -2807,7 +3927,11 @@
     "upper_org_code": "C100279",
     "updated_date": "20260108",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "생산기술유닛",
+    "org_department_name_en": "생산기술유닛"
   },
   {
     "org_code": "C100282",
@@ -2817,7 +3941,11 @@
     "upper_org_code": "C100271",
     "updated_date": "20260306",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "응용TF",
+    "org_department_name_en": "응용TF"
   },
   {
     "org_code": "C100283",
@@ -2827,7 +3955,11 @@
     "upper_org_code": "C100271",
     "updated_date": "20260214",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "반도체파트",
+    "org_department_name_en": "반도체파트"
   },
   {
     "org_code": "C100284",
@@ -2837,7 +3969,11 @@
     "upper_org_code": "C100278",
     "updated_date": "20260213",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "반도체스쿼드",
+    "org_department_name_en": "반도체스쿼드"
   },
   {
     "org_code": "C100285",
@@ -2847,7 +3983,11 @@
     "upper_org_code": "C100264",
     "updated_date": "20260122",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "클라우드스쿼드",
+    "org_department_name_en": "클라우드스쿼드"
   },
   {
     "org_code": "C100286",
@@ -2857,7 +3997,11 @@
     "upper_org_code": "C100276",
     "updated_date": "20260201",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "채널파트",
+    "org_department_name_en": "채널파트"
   },
   {
     "org_code": "C100287",
@@ -2867,7 +4011,11 @@
     "upper_org_code": "C100264",
     "updated_date": "20260102",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "통합TF",
+    "org_department_name_en": "통합TF"
   },
   {
     "org_code": "C100288",
@@ -2877,7 +4025,11 @@
     "upper_org_code": "C100265",
     "updated_date": "20260225",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "미디어셀",
+    "org_department_name_en": "미디어셀"
   },
   {
     "org_code": "C100289",
@@ -2887,7 +4039,11 @@
     "upper_org_code": "C100268",
     "updated_date": "20260114",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "솔루션유닛",
+    "org_department_name_en": "솔루션유닛"
   },
   {
     "org_code": "C100290",
@@ -2897,7 +4053,11 @@
     "upper_org_code": "C100277",
     "updated_date": "20260205",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "인프라TF",
+    "org_department_name_en": "인프라TF"
   },
   {
     "org_code": "C100291",
@@ -2907,7 +4067,11 @@
     "upper_org_code": "C100275",
     "updated_date": "20260403",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "UX파트",
+    "org_department_name_en": "UX파트"
   },
   {
     "org_code": "C100292",
@@ -2917,7 +4081,11 @@
     "upper_org_code": "C100268",
     "updated_date": "20260304",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "서비스스쿼드",
+    "org_department_name_en": "서비스스쿼드"
   },
   {
     "org_code": "C100293",
@@ -2927,7 +4095,11 @@
     "upper_org_code": "C100286",
     "updated_date": "20260216",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "생산기술기획셀",
+    "org_department_name_en": "생산기술기획셀"
   },
   {
     "org_code": "C100294",
@@ -2937,7 +4109,11 @@
     "upper_org_code": "C100286",
     "updated_date": "20260221",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "디바이스기획셀",
+    "org_department_name_en": "디바이스기획셀"
   },
   {
     "org_code": "C100295",
@@ -2947,7 +4123,11 @@
     "upper_org_code": "C100287",
     "updated_date": "20260309",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "품질2파트",
+    "org_department_name_en": "품질2파트"
   },
   {
     "org_code": "C100296",
@@ -2957,7 +4137,11 @@
     "upper_org_code": "C100288",
     "updated_date": "20260120",
     "org_category_code": "C1",
-    "org_category_name": "C (주력_고강도)"
+    "org_category_name": "C (주력_고강도)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "반도체운영셀",
+    "org_department_name_en": "반도체운영셀"
   },
   {
     "org_code": "C100297",
@@ -2967,7 +4151,11 @@
     "upper_org_code": "C100289",
     "updated_date": "20260209",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "미디어개발셀",
+    "org_department_name_en": "미디어개발셀"
   },
   {
     "org_code": "C100298",
@@ -2977,7 +4165,11 @@
     "upper_org_code": "C100280",
     "updated_date": "20260421",
     "org_category_code": "A1",
-    "org_category_name": "A (주력)"
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "시스템분석셀",
+    "org_department_name_en": "시스템분석셀"
   },
   {
     "org_code": "C100299",
@@ -2987,7 +4179,11 @@
     "upper_org_code": "C100281",
     "updated_date": "20260223",
     "org_category_code": "B2",
-    "org_category_name": "B (성장사업)"
+    "org_category_name": "B (성장사업)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "보안1파트",
+    "org_department_name_en": "보안1파트"
   },
   {
     "org_code": "C100300",
@@ -2997,6 +4193,1074 @@
     "upper_org_code": "C100286",
     "updated_date": "20260414",
     "org_category_code": "B1",
-    "org_category_name": "B (AX)"
+    "org_category_name": "B (AX)",
+    "org_division_name_en": "Global 운영 사업부",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "모바일기획셀",
+    "org_department_name_en": "모바일기획셀"
+  },
+  {
+    "org_code": "C100301",
+    "org_name": "Bio 사업부",
+    "org_division_code": "C100301",
+    "org_division_name": "Bio 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260331",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Bio Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Bio 사업부",
+    "org_department_name_en": "Bio Division"
+  },
+  {
+    "org_code": "C100302",
+    "org_name": "Bio 조직1",
+    "org_division_code": "C100301",
+    "org_division_name": "Bio 사업부",
+    "upper_org_code": "C100301",
+    "updated_date": "20260222",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Bio Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Bio 조직1",
+    "org_department_name_en": "Bio Org 1"
+  },
+  {
+    "org_code": "C100303",
+    "org_name": "Bio 조직2",
+    "org_division_code": "C100301",
+    "org_division_name": "Bio 사업부",
+    "upper_org_code": "C100301",
+    "updated_date": "20260323",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "Bio Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "Bio 조직2",
+    "org_department_name_en": "Bio Org 2"
+  },
+  {
+    "org_code": "C100304",
+    "org_name": "Bio 조직3",
+    "org_division_code": "C100301",
+    "org_division_name": "Bio 사업부",
+    "upper_org_code": "C100301",
+    "updated_date": "20260424",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "Bio Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "Bio 조직3",
+    "org_department_name_en": "Bio Org 3"
+  },
+  {
+    "org_code": "C100305",
+    "org_name": "Bio 조직4",
+    "org_division_code": "C100301",
+    "org_division_name": "Bio 사업부",
+    "upper_org_code": "C100301",
+    "updated_date": "20260125",
+    "org_category_code": "C1",
+    "org_category_name": "C (지원)",
+    "org_division_name_en": "Bio Division",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "Bio 조직4",
+    "org_department_name_en": "Bio Org 4"
+  },
+  {
+    "org_code": "C100306",
+    "org_name": "Bio 조직5",
+    "org_division_code": "C100301",
+    "org_division_name": "Bio 사업부",
+    "upper_org_code": "C100301",
+    "updated_date": "20260226",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Bio Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Bio 조직5",
+    "org_department_name_en": "Bio Org 5"
+  },
+  {
+    "org_code": "C100307",
+    "org_name": "Bio 조직6",
+    "org_division_code": "C100301",
+    "org_division_name": "Bio 사업부",
+    "upper_org_code": "C100301",
+    "updated_date": "20260327",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Bio Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Bio 조직6",
+    "org_department_name_en": "Bio Org 6"
+  },
+  {
+    "org_code": "C100308",
+    "org_name": "Aero 조직1",
+    "org_division_code": "C100307",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C100307",
+    "updated_date": "20260222",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Aero 조직1",
+    "org_department_name_en": "Aero Org 1"
+  },
+  {
+    "org_code": "C100309",
+    "org_name": "Aero 조직2",
+    "org_division_code": "C100307",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C100307",
+    "updated_date": "20260323",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "Aero 조직2",
+    "org_department_name_en": "Aero Org 2"
+  },
+  {
+    "org_code": "C100310",
+    "org_name": "Aero 조직3",
+    "org_division_code": "C100307",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C100307",
+    "updated_date": "20260424",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "Aero 조직3",
+    "org_department_name_en": "Aero Org 3"
+  },
+  {
+    "org_code": "C100311",
+    "org_name": "Aero 조직4",
+    "org_division_code": "C100307",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C100307",
+    "updated_date": "20260125",
+    "org_category_code": "C1",
+    "org_category_name": "C (지원)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "Aero 조직4",
+    "org_department_name_en": "Aero Org 4"
+  },
+  {
+    "org_code": "C100312",
+    "org_name": "Aero 조직5",
+    "org_division_code": "C100307",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C100307",
+    "updated_date": "20260226",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Aero 조직5",
+    "org_department_name_en": "Aero Org 5"
+  },
+  {
+    "org_code": "C100313",
+    "org_name": "Aero 조직6",
+    "org_division_code": "C100307",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C100307",
+    "updated_date": "20260327",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Aero 조직6",
+    "org_department_name_en": "Aero Org 6"
+  },
+  {
+    "org_code": "C100315",
+    "org_name": "Energy 조직1",
+    "org_division_code": "C100314",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100314",
+    "updated_date": "20260222",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Energy 조직1",
+    "org_department_name_en": "Energy Org 1"
+  },
+  {
+    "org_code": "C100316",
+    "org_name": "Energy 조직2",
+    "org_division_code": "C100314",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100314",
+    "updated_date": "20260323",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "Energy 조직2",
+    "org_department_name_en": "Energy Org 2"
+  },
+  {
+    "org_code": "C100317",
+    "org_name": "Energy 조직3",
+    "org_division_code": "C100314",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100314",
+    "updated_date": "20260424",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "Energy 조직3",
+    "org_department_name_en": "Energy Org 3"
+  },
+  {
+    "org_code": "C100318",
+    "org_name": "Energy 조직4",
+    "org_division_code": "C100314",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100314",
+    "updated_date": "20260125",
+    "org_category_code": "C1",
+    "org_category_name": "C (지원)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "Energy 조직4",
+    "org_department_name_en": "Energy Org 4"
+  },
+  {
+    "org_code": "C100319",
+    "org_name": "Energy 조직5",
+    "org_division_code": "C100314",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100314",
+    "updated_date": "20260226",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Energy 조직5",
+    "org_department_name_en": "Energy Org 5"
+  },
+  {
+    "org_code": "C100320",
+    "org_name": "Energy 조직6",
+    "org_division_code": "C100314",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100314",
+    "updated_date": "20260327",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Energy 조직6",
+    "org_department_name_en": "Energy Org 6"
+  },
+  {
+    "org_code": "C100321",
+    "org_name": "Energy 조직7",
+    "org_division_code": "C100314",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100314",
+    "updated_date": "20260428",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "Energy 조직7",
+    "org_department_name_en": "Energy Org 7"
+  },
+  {
+    "org_code": "C100323",
+    "org_name": "RetailTech 조직1",
+    "org_division_code": "C100322",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100322",
+    "updated_date": "20260222",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "RetailTech 조직1",
+    "org_department_name_en": "RetailTech Org 1"
+  },
+  {
+    "org_code": "C100324",
+    "org_name": "RetailTech 조직2",
+    "org_division_code": "C100322",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100322",
+    "updated_date": "20260323",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "RetailTech 조직2",
+    "org_department_name_en": "RetailTech Org 2"
+  },
+  {
+    "org_code": "C100325",
+    "org_name": "RetailTech 조직3",
+    "org_division_code": "C100322",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100322",
+    "updated_date": "20260424",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "RetailTech 조직3",
+    "org_department_name_en": "RetailTech Org 3"
+  },
+  {
+    "org_code": "C100326",
+    "org_name": "RetailTech 조직4",
+    "org_division_code": "C100322",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100322",
+    "updated_date": "20260125",
+    "org_category_code": "C1",
+    "org_category_name": "C (지원)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "RetailTech 조직4",
+    "org_department_name_en": "RetailTech Org 4"
+  },
+  {
+    "org_code": "C100327",
+    "org_name": "RetailTech 조직5",
+    "org_division_code": "C100322",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100322",
+    "updated_date": "20260226",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "RetailTech 조직5",
+    "org_department_name_en": "RetailTech Org 5"
+  },
+  {
+    "org_code": "C100328",
+    "org_name": "RetailTech 조직6",
+    "org_division_code": "C100322",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100322",
+    "updated_date": "20260327",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "RetailTech 조직6",
+    "org_department_name_en": "RetailTech Org 6"
+  },
+  {
+    "org_code": "C100329",
+    "org_name": "RetailTech 조직7",
+    "org_division_code": "C100322",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100322",
+    "updated_date": "20260428",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "RetailTech 조직7",
+    "org_department_name_en": "RetailTech Org 7"
+  },
+  {
+    "org_code": "C100330",
+    "org_name": "RetailTech 조직8",
+    "org_division_code": "C100322",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100322",
+    "updated_date": "20260121",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "RetailTech 조직8",
+    "org_department_name_en": "RetailTech Org 8"
+  },
+  {
+    "org_code": "C100332",
+    "org_name": "Mobility 서비스 조직1",
+    "org_division_code": "C100331",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100331",
+    "updated_date": "20260222",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Mobility 서비스 조직1",
+    "org_department_name_en": "Mobility Service Org 1"
+  },
+  {
+    "org_code": "C100333",
+    "org_name": "Mobility 서비스 조직2",
+    "org_division_code": "C100331",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100331",
+    "updated_date": "20260323",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "Mobility 서비스 조직2",
+    "org_department_name_en": "Mobility Service Org 2"
+  },
+  {
+    "org_code": "C100334",
+    "org_name": "Mobility 서비스 조직3",
+    "org_division_code": "C100331",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100331",
+    "updated_date": "20260424",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "Mobility 서비스 조직3",
+    "org_department_name_en": "Mobility Service Org 3"
+  },
+  {
+    "org_code": "C100335",
+    "org_name": "Mobility 서비스 조직4",
+    "org_division_code": "C100331",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100331",
+    "updated_date": "20260125",
+    "org_category_code": "C1",
+    "org_category_name": "C (지원)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "Mobility 서비스 조직4",
+    "org_department_name_en": "Mobility Service Org 4"
+  },
+  {
+    "org_code": "C100336",
+    "org_name": "Mobility 서비스 조직5",
+    "org_division_code": "C100331",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100331",
+    "updated_date": "20260226",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Mobility 서비스 조직5",
+    "org_department_name_en": "Mobility Service Org 5"
+  },
+  {
+    "org_code": "C100337",
+    "org_name": "Mobility 서비스 조직6",
+    "org_division_code": "C100331",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100331",
+    "updated_date": "20260327",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Mobility 서비스 조직6",
+    "org_department_name_en": "Mobility Service Org 6"
+  },
+  {
+    "org_code": "C100338",
+    "org_name": "Mobility 서비스 조직7",
+    "org_division_code": "C100331",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100331",
+    "updated_date": "20260428",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "Mobility 서비스 조직7",
+    "org_department_name_en": "Mobility Service Org 7"
+  },
+  {
+    "org_code": "C100339",
+    "org_name": "Mobility 서비스 조직8",
+    "org_division_code": "C100331",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100331",
+    "updated_date": "20260121",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "Mobility 서비스 조직8",
+    "org_department_name_en": "Mobility Service Org 8"
+  },
+  {
+    "org_code": "C100340",
+    "org_name": "Mobility 서비스 조직9",
+    "org_division_code": "C100331",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100331",
+    "updated_date": "20260222",
+    "org_category_code": "C1",
+    "org_category_name": "C (지원)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "Mobility 서비스 조직9",
+    "org_department_name_en": "Mobility Service Org 9"
+  },
+  {
+    "org_code": "C100341",
+    "org_name": "Mobility 서비스 조직10",
+    "org_division_code": "C100331",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100331",
+    "updated_date": "20260323",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Mobility 서비스 조직10",
+    "org_department_name_en": "Mobility Service Org 10"
+  },
+  {
+    "org_code": "C100401",
+    "org_name": "Aero 사업부",
+    "org_division_code": "C100401",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260331",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Aero 사업부",
+    "org_department_name_en": "Aero Division"
+  },
+  {
+    "org_code": "C100402",
+    "org_name": "Aero 조직1",
+    "org_division_code": "C100401",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C100401",
+    "updated_date": "20260222",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Aero 조직1",
+    "org_department_name_en": "Aero Org 1"
+  },
+  {
+    "org_code": "C100403",
+    "org_name": "Aero 조직2",
+    "org_division_code": "C100401",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C100401",
+    "updated_date": "20260323",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "Aero 조직2",
+    "org_department_name_en": "Aero Org 2"
+  },
+  {
+    "org_code": "C100404",
+    "org_name": "Aero 조직3",
+    "org_division_code": "C100401",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C100401",
+    "updated_date": "20260424",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "Aero 조직3",
+    "org_department_name_en": "Aero Org 3"
+  },
+  {
+    "org_code": "C100405",
+    "org_name": "Aero 조직4",
+    "org_division_code": "C100401",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C100401",
+    "updated_date": "20260125",
+    "org_category_code": "C1",
+    "org_category_name": "C (지원)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "Aero 조직4",
+    "org_department_name_en": "Aero Org 4"
+  },
+  {
+    "org_code": "C100406",
+    "org_name": "Aero 조직5",
+    "org_division_code": "C100401",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C100401",
+    "updated_date": "20260226",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Aero 조직5",
+    "org_department_name_en": "Aero Org 5"
+  },
+  {
+    "org_code": "C100407",
+    "org_name": "Aero 조직6",
+    "org_division_code": "C100401",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C100401",
+    "updated_date": "20260327",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Aero 조직6",
+    "org_department_name_en": "Aero Org 6"
+  },
+  {
+    "org_code": "C100408",
+    "org_name": "Aero 조직7",
+    "org_division_code": "C100401",
+    "org_division_name": "Aero 사업부",
+    "upper_org_code": "C100401",
+    "updated_date": "20260428",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "Aero Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "Aero 조직7",
+    "org_department_name_en": "Aero Org 7"
+  },
+  {
+    "org_code": "C100501",
+    "org_name": "Energy 사업부",
+    "org_division_code": "C100501",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260331",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Energy 사업부",
+    "org_department_name_en": "Energy Division"
+  },
+  {
+    "org_code": "C100502",
+    "org_name": "Energy 조직1",
+    "org_division_code": "C100501",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100501",
+    "updated_date": "20260222",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Energy 조직1",
+    "org_department_name_en": "Energy Org 1"
+  },
+  {
+    "org_code": "C100503",
+    "org_name": "Energy 조직2",
+    "org_division_code": "C100501",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100501",
+    "updated_date": "20260323",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "Energy 조직2",
+    "org_department_name_en": "Energy Org 2"
+  },
+  {
+    "org_code": "C100504",
+    "org_name": "Energy 조직3",
+    "org_division_code": "C100501",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100501",
+    "updated_date": "20260424",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "Energy 조직3",
+    "org_department_name_en": "Energy Org 3"
+  },
+  {
+    "org_code": "C100505",
+    "org_name": "Energy 조직4",
+    "org_division_code": "C100501",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100501",
+    "updated_date": "20260125",
+    "org_category_code": "C1",
+    "org_category_name": "C (지원)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "Energy 조직4",
+    "org_department_name_en": "Energy Org 4"
+  },
+  {
+    "org_code": "C100506",
+    "org_name": "Energy 조직5",
+    "org_division_code": "C100501",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100501",
+    "updated_date": "20260226",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Energy 조직5",
+    "org_department_name_en": "Energy Org 5"
+  },
+  {
+    "org_code": "C100507",
+    "org_name": "Energy 조직6",
+    "org_division_code": "C100501",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100501",
+    "updated_date": "20260327",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Energy 조직6",
+    "org_department_name_en": "Energy Org 6"
+  },
+  {
+    "org_code": "C100508",
+    "org_name": "Energy 조직7",
+    "org_division_code": "C100501",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100501",
+    "updated_date": "20260428",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "Energy 조직7",
+    "org_department_name_en": "Energy Org 7"
+  },
+  {
+    "org_code": "C100509",
+    "org_name": "Energy 조직8",
+    "org_division_code": "C100501",
+    "org_division_name": "Energy 사업부",
+    "upper_org_code": "C100501",
+    "updated_date": "20260121",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "Energy Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "Energy 조직8",
+    "org_department_name_en": "Energy Org 8"
+  },
+  {
+    "org_code": "C100601",
+    "org_name": "RetailTech 사업부",
+    "org_division_code": "C100601",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260331",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "RetailTech 사업부",
+    "org_department_name_en": "RetailTech Division"
+  },
+  {
+    "org_code": "C100602",
+    "org_name": "RetailTech 조직1",
+    "org_division_code": "C100601",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100601",
+    "updated_date": "20260222",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "RetailTech 조직1",
+    "org_department_name_en": "RetailTech Org 1"
+  },
+  {
+    "org_code": "C100603",
+    "org_name": "RetailTech 조직2",
+    "org_division_code": "C100601",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100601",
+    "updated_date": "20260323",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "RetailTech 조직2",
+    "org_department_name_en": "RetailTech Org 2"
+  },
+  {
+    "org_code": "C100604",
+    "org_name": "RetailTech 조직3",
+    "org_division_code": "C100601",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100601",
+    "updated_date": "20260424",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "RetailTech 조직3",
+    "org_department_name_en": "RetailTech Org 3"
+  },
+  {
+    "org_code": "C100605",
+    "org_name": "RetailTech 조직4",
+    "org_division_code": "C100601",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100601",
+    "updated_date": "20260125",
+    "org_category_code": "C1",
+    "org_category_name": "C (지원)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "RetailTech 조직4",
+    "org_department_name_en": "RetailTech Org 4"
+  },
+  {
+    "org_code": "C100606",
+    "org_name": "RetailTech 조직5",
+    "org_division_code": "C100601",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100601",
+    "updated_date": "20260226",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "RetailTech 조직5",
+    "org_department_name_en": "RetailTech Org 5"
+  },
+  {
+    "org_code": "C100607",
+    "org_name": "RetailTech 조직6",
+    "org_division_code": "C100601",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100601",
+    "updated_date": "20260327",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "RetailTech 조직6",
+    "org_department_name_en": "RetailTech Org 6"
+  },
+  {
+    "org_code": "C100608",
+    "org_name": "RetailTech 조직7",
+    "org_division_code": "C100601",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100601",
+    "updated_date": "20260428",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "RetailTech 조직7",
+    "org_department_name_en": "RetailTech Org 7"
+  },
+  {
+    "org_code": "C100609",
+    "org_name": "RetailTech 조직8",
+    "org_division_code": "C100601",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100601",
+    "updated_date": "20260121",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "RetailTech 조직8",
+    "org_department_name_en": "RetailTech Org 8"
+  },
+  {
+    "org_code": "C100610",
+    "org_name": "RetailTech 조직9",
+    "org_division_code": "C100601",
+    "org_division_name": "RetailTech 사업부",
+    "upper_org_code": "C100601",
+    "updated_date": "20260222",
+    "org_category_code": "C1",
+    "org_category_name": "C (지원)",
+    "org_division_name_en": "RetailTech Division",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "RetailTech 조직9",
+    "org_department_name_en": "RetailTech Org 9"
+  },
+  {
+    "org_code": "C100701",
+    "org_name": "Mobility 서비스 사업부",
+    "org_division_code": "C100701",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260331",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Mobility 서비스 사업부",
+    "org_department_name_en": "Mobility Service Division"
+  },
+  {
+    "org_code": "C100702",
+    "org_name": "Mobility 서비스 조직1",
+    "org_division_code": "C100701",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100701",
+    "updated_date": "20260222",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Mobility 서비스 조직1",
+    "org_department_name_en": "Mobility Service Org 1"
+  },
+  {
+    "org_code": "C100703",
+    "org_name": "Mobility 서비스 조직2",
+    "org_division_code": "C100701",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100701",
+    "updated_date": "20260323",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "Mobility 서비스 조직2",
+    "org_department_name_en": "Mobility Service Org 2"
+  },
+  {
+    "org_code": "C100704",
+    "org_name": "Mobility 서비스 조직3",
+    "org_division_code": "C100701",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100701",
+    "updated_date": "20260424",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "Mobility 서비스 조직3",
+    "org_department_name_en": "Mobility Service Org 3"
+  },
+  {
+    "org_code": "C100705",
+    "org_name": "Mobility 서비스 조직4",
+    "org_division_code": "C100701",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100701",
+    "updated_date": "20260125",
+    "org_category_code": "C1",
+    "org_category_name": "C (지원)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "Mobility 서비스 조직4",
+    "org_department_name_en": "Mobility Service Org 4"
+  },
+  {
+    "org_code": "C100706",
+    "org_name": "Mobility 서비스 조직5",
+    "org_division_code": "C100701",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100701",
+    "updated_date": "20260226",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Mobility 서비스 조직5",
+    "org_department_name_en": "Mobility Service Org 5"
+  },
+  {
+    "org_code": "C100707",
+    "org_name": "Mobility 서비스 조직6",
+    "org_division_code": "C100701",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100701",
+    "updated_date": "20260327",
+    "org_category_code": "B1",
+    "org_category_name": "B1 (핵심)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "B1 (Growth)",
+    "org_department_name": "Mobility 서비스 조직6",
+    "org_department_name_en": "Mobility Service Org 6"
+  },
+  {
+    "org_code": "C100708",
+    "org_name": "Mobility 서비스 조직7",
+    "org_division_code": "C100701",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100701",
+    "updated_date": "20260428",
+    "org_category_code": "B2",
+    "org_category_name": "B2 (신사업)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "B2 (New Business)",
+    "org_department_name": "Mobility 서비스 조직7",
+    "org_department_name_en": "Mobility Service Org 7"
+  },
+  {
+    "org_code": "C100709",
+    "org_name": "Mobility 서비스 조직8",
+    "org_division_code": "C100701",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100701",
+    "updated_date": "20260121",
+    "org_category_code": "B3",
+    "org_category_name": "B3 (확장)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "B3 (Scale-up)",
+    "org_department_name": "Mobility 서비스 조직8",
+    "org_department_name_en": "Mobility Service Org 8"
+  },
+  {
+    "org_code": "C100710",
+    "org_name": "Mobility 서비스 조직9",
+    "org_division_code": "C100701",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100701",
+    "updated_date": "20260222",
+    "org_category_code": "C1",
+    "org_category_name": "C (지원)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "C (Support)",
+    "org_department_name": "Mobility 서비스 조직9",
+    "org_department_name_en": "Mobility Service Org 9"
+  },
+  {
+    "org_code": "C100711",
+    "org_name": "Mobility 서비스 조직10",
+    "org_division_code": "C100701",
+    "org_division_name": "Mobility 서비스 사업부",
+    "upper_org_code": "C100701",
+    "updated_date": "20260323",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "org_division_name_en": "Mobility Service Division",
+    "org_category_name_en": "A (Core)",
+    "org_department_name": "Mobility 서비스 조직10",
+    "org_department_name_en": "Mobility Service Org 10"
   }
 ]

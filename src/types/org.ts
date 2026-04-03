@@ -7,6 +7,10 @@ export type OrganizationRecord = {
   updated_date: string;
   org_category_code: string;
   org_category_name: string;
+  org_division_name_en: string;
+  org_category_name_en: string;
+  org_department_name: string;
+  org_department_name_en: string;
 };
 
 export type OrganizationListParams = {

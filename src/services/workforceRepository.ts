@@ -4,7 +4,12 @@ import type {
   ApprovalChangeRow,
   CreateApprovalRequestPayload
 } from '@features/approval/types/approval';
-import { canApproveChanges, canSeeAllDivisions, type DevUserMode } from '@features/auth/types/devUserMode';
+import {
+  canApproveChanges,
+  canSeeAllDivisions,
+  getDivisionNameByCode,
+  type DevUserMode
+} from '@features/auth/types/devUserMode';
 import type { OrganizationCategorySummary, OrganizationDivisionSummary, OrganizationRecord, OrganizationTreeNode } from '@shared-types/org';
 import { useSyncExternalStore } from 'react';
 
@@ -18,6 +23,7 @@ const STORAGE_KEY = 'enterprise-react-starter/workforce-repository/v1';
 const seedOrganizations = [...(orgStructureJson as OrganizationRecord[])].sort((left, right) =>
   left.org_code.localeCompare(right.org_code)
 );
+const seedOrganizationByCode = new Map(seedOrganizations.map((record) => [record.org_code, record]));
 
 const listeners = new Set<() => void>();
 let cachedState: WorkforceRepositoryState | null = null;
@@ -43,6 +49,31 @@ const cloneState = (state: WorkforceRepositoryState): WorkforceRepositoryState =
   approvals: state.approvals.map(cloneApprovalRequest)
 });
 
+const reconcileOrganizationRecord = (record: OrganizationRecord): OrganizationRecord => {
+  const seedRecord = seedOrganizationByCode.get(record.org_code);
+  return seedRecord ? { ...seedRecord, ...record } : cloneRecord(record);
+};
+
+const reconcileOrganizations = (organizations: OrganizationRecord[]) => {
+  const storedByCode = new Map(organizations.map((record) => [record.org_code, record]));
+
+  return seedOrganizations.map((seedRecord) => {
+    const storedRecord = storedByCode.get(seedRecord.org_code);
+    return storedRecord ? { ...seedRecord, ...storedRecord } : cloneRecord(seedRecord);
+  });
+};
+
+const reconcileApprovalRequest = (request: ApprovalChangeRequest): ApprovalChangeRequest => ({
+  ...request,
+  changedRows: request.changedRows.map((row) => ({
+    ...row,
+    before: reconcileOrganizationRecord(row.before),
+    after: reconcileOrganizationRecord(row.after),
+    changedFields: row.changedFields.map((field) => ({ ...field }))
+  })),
+  decision: request.decision ? { ...request.decision } : null
+});
+
 const readStoredState = (): WorkforceRepositoryState | null => {
   if (typeof window === 'undefined') {
     return null;
@@ -61,7 +92,10 @@ const readStoredState = (): WorkforceRepositoryState | null => {
       return null;
     }
 
-    return cloneState(parsed);
+    return {
+      organizations: reconcileOrganizations(parsed.organizations as OrganizationRecord[]),
+      approvals: (parsed.approvals as ApprovalChangeRequest[]).map(reconcileApprovalRequest)
+    };
   } catch {
     return null;
   }
@@ -92,11 +126,23 @@ const persistState = (nextState: WorkforceRepositoryState) => {
 };
 
 const scopeOrganizations = (organizations: OrganizationRecord[], user: DevUserMode) => {
-  if (canSeeAllDivisions(user) || !user.divisionName) {
+  if (canSeeAllDivisions(user)) {
     return organizations.map(cloneRecord);
   }
 
-  return organizations.filter((record) => record.org_division_name === user.divisionName).map(cloneRecord);
+  const divisionCode = user.divisionCode;
+  const divisionName = getDivisionNameByCode(user.divisionCode);
+
+  if (!divisionCode && !divisionName) {
+    return [];
+  }
+
+  return organizations
+    .filter(
+      (record) =>
+        record.org_division_code === divisionCode || record.org_code === divisionCode || record.org_division_name === divisionName
+    )
+    .map(cloneRecord);
 };
 
 const buildOrganizationTree = (organizations: OrganizationRecord[], rootOrgCode?: string): OrganizationTreeNode[] => {
@@ -221,8 +267,8 @@ export const workforceRepository = {
       id: createRequestId(),
       status: 'pending',
       submittedAt: nowIso(),
-      submittedByUserId: submittedBy.id,
-      submittedByLabel: submittedBy.label,
+      submittedByUserId: String(submittedBy.empNo),
+      submittedByLabel: `${submittedBy.role} · ${submittedBy.name}`,
       divisionName: rows[0].divisionName,
       changedRows: rows.map(cloneChangeRow),
       totalChangedRows: rows.length,
@@ -245,7 +291,7 @@ export const workforceRepository = {
     }
 
     return requests
-      .filter((request) => request.submittedByUserId === user.id)
+      .filter((request) => request.submittedByUserId === String(user.empNo))
       .map(cloneApprovalRequest);
   },
 
@@ -269,8 +315,8 @@ export const workforceRepository = {
             decision: {
               note,
               decidedAt: nowIso(),
-              decidedByUserId: decidedBy.id,
-              decidedByLabel: decidedBy.label
+              decidedByUserId: String(decidedBy.empNo),
+              decidedByLabel: `${decidedBy.role} · ${decidedBy.name}`
             }
           }
         : item
@@ -303,8 +349,8 @@ export const workforceRepository = {
             decision: {
               note,
               decidedAt: nowIso(),
-              decidedByUserId: decidedBy.id,
-              decidedByLabel: decidedBy.label
+              decidedByUserId: String(decidedBy.empNo),
+              decidedByLabel: `${decidedBy.role} · ${decidedBy.name}`
             }
           }
         : item
