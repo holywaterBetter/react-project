@@ -1,8 +1,8 @@
+import type { DashboardTableSection } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 import {
   buildOrganizationWorkforceDashboardExportModel,
   type OrganizationWorkforceDashboardExportFilters
 } from '@pages/organization-workforce-dashboard/utils/exportMappers';
-import type { DashboardTableSection } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 
 const filters: OrganizationWorkforceDashboardExportFilters = {
   baseMonth: '2026.04',

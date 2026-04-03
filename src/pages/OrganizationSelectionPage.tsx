@@ -63,6 +63,7 @@ const OrganizationSelectionContent = () => {
         isExporting={apiState.isExporting}
         uploadSummary={uiState.uploadSummary}
         hasUploadedPreview={uiState.hasUploadedPreview}
+        isDivisionLocked={uiState.isDivisionLocked}
         onSearchChange={actions.handleSearchChange}
         onDivisionChange={actions.handleDivisionChange}
         onCategoryChange={actions.handleCategoryChange}

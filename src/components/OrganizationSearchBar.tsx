@@ -24,6 +24,7 @@ type OrganizationSearchBarProps = {
   isExporting: boolean;
   uploadSummary: string | null;
   hasUploadedPreview: boolean;
+  isDivisionLocked?: boolean;
   onSearchChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onDivisionChange: (value: string) => void;
   onCategoryChange: (value: string) => void;
@@ -56,6 +57,7 @@ export const OrganizationSearchBar = ({
   isExporting,
   uploadSummary,
   hasUploadedPreview,
+  isDivisionLocked = false,
   onSearchChange,
   onDivisionChange,
   onCategoryChange,
@@ -96,11 +98,12 @@ export const OrganizationSearchBar = ({
           label={t('organization.search.divisionLabel')}
           value={divisionCode}
           sx={filterFieldSx}
+          disabled={isDivisionLocked}
           onChange={(event) => {
             onDivisionChange(event.target.value);
           }}
         >
-          <MenuItem value="">{t('organization.search.allOption')}</MenuItem>
+          {!isDivisionLocked ? <MenuItem value="">{t('organization.search.allOption')}</MenuItem> : null}
           {divisions.map((division) => (
             <MenuItem key={division.divisionCode} value={division.divisionCode}>
               {division.divisionName}

@@ -1,5 +1,6 @@
 import { LanguageSwitcher } from '@components/LanguageSwitcher';
 import { useAppTheme } from '@contexts/AppThemeContext';
+import { DevUserModeSwitcher } from '@features/auth/components/DevUserModeSwitcher';
 import { Brightness4, Brightness7 } from '@mui/icons-material';
 import { AppBar, Box, Button, Container, IconButton, Toolbar, Typography } from '@mui/material';
 import { Link as RouterLink, Outlet } from 'react-router-dom';
@@ -26,6 +27,13 @@ export const MainLayout = () => {
           <Button component={RouterLink} to="/organization/workforce-dashboard" color="inherit">
             Workforce Dashboard
           </Button>
+          <Button component={RouterLink} to="/organization/workforce-insight" color="inherit">
+            Workforce Insight
+          </Button>
+          <Button component={RouterLink} to="/organization/approval" color="inherit">
+            Approval
+          </Button>
+          <DevUserModeSwitcher />
           <LanguageSwitcher />
           <IconButton color="inherit" onClick={toggleMode} aria-label="toggle-theme-mode">
             {mode === 'light' ? <Brightness4 /> : <Brightness7 />}

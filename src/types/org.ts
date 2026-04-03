@@ -68,11 +68,11 @@ export type OrganizationQueryState = {
 };
 
 export type OrganizationUploadRow = {
-  기준년월: string;
-  사업부: string;
-  현부서: string;
-  현부서코드: string;
-  조직분류: string;
+  baseMonth: string;
+  divisionName: string;
+  organizationName: string;
+  organizationCode: string;
+  categoryName: string;
 };
 
 export type OrganizationUploadValidationError = {

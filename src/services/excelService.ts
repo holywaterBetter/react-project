@@ -1,6 +1,6 @@
+import { getAllowedDivisionNames, type DevUserMode } from '@features/auth/types/devUserMode';
 import { organizationService } from '@services/organizationService';
 import type {
-  OrganizationCategorySummary,
   OrganizationRecord,
   OrganizationUploadResult,
   OrganizationUploadRow,
@@ -8,24 +8,17 @@ import type {
 } from '@shared-types/org';
 import * as XLSX from 'xlsx';
 
-const EXPORT_HEADERS = ['기준년월', '사업부', '현부서', '현부서코드', '조직분류'] as const;
-const REQUIRED_HEADERS = ['기준년월', '사업부', '현부서', '조직분류'] as const;
-const CODE_HEADER_CANDIDATES = ['현부서코드', 'org_code'] as const;
+const EXPORT_HEADERS = ['Base Month', 'Division', 'Organization Name', 'Organization Code', 'Category'] as const;
 
-const normalizeHeader = (value: unknown) => String(value ?? '').trim();
+const HEADER_LABELS = {
+  baseMonth: 'Base Month',
+  divisionName: 'Division',
+  organizationName: 'Organization Name',
+  organizationCode: 'Organization Code',
+  categoryName: 'Category'
+} as const;
+
 const normalizeCell = (value: unknown) => String(value ?? '').trim();
-
-const toUploadRow = (row: Record<string, unknown>): OrganizationUploadRow => {
-  const codeHeader = CODE_HEADER_CANDIDATES.find((candidate) => candidate in row) ?? '현부서코드';
-
-  return {
-    기준년월: normalizeCell(row['기준년월']),
-    사업부: normalizeCell(row['사업부']),
-    현부서: normalizeCell(row['현부서']),
-    현부서코드: normalizeCell(row[codeHeader]),
-    조직분류: normalizeCell(row['조직분류'])
-  };
-};
 
 const readWorkbook = async (file: File) => {
   const arrayBuffer = await file.arrayBuffer();
@@ -43,22 +36,39 @@ const downloadBlob = (blob: Blob, fileName: string) => {
   URL.revokeObjectURL(objectUrl);
 };
 
-const buildCategoryLookup = (categories: OrganizationCategorySummary[]) =>
-  categories.reduce<Map<string, string>>((accumulator, category) => {
-    accumulator.set(category.categoryName, category.categoryCode);
-    return accumulator;
-  }, new Map());
+const toUploadRow = (row: Record<string, unknown>): OrganizationUploadRow => ({
+  baseMonth: normalizeCell(row[HEADER_LABELS.baseMonth]),
+  divisionName: normalizeCell(row[HEADER_LABELS.divisionName]),
+  organizationName: normalizeCell(row[HEADER_LABELS.organizationName]),
+  organizationCode: normalizeCell(row[HEADER_LABELS.organizationCode]),
+  categoryName: normalizeCell(row[HEADER_LABELS.categoryName])
+});
+
+const pushRequiredError = (
+  errors: OrganizationUploadValidationError[],
+  rowNumber: number,
+  column: string,
+  value: string
+) => {
+  if (!value) {
+    errors.push({
+      rowNumber,
+      column,
+      message: `${column} is required.`
+    });
+  }
+};
 
 export const excelService = {
   exportHeaders: [...EXPORT_HEADERS],
 
   exportOrganizations(records: OrganizationRecord[], fileName = 'organization-selection.xlsx') {
     const rows = records.map((record) => ({
-      기준년월: record.updated_date,
-      사업부: record.org_division_name,
-      현부서: record.org_name,
-      현부서코드: record.org_code,
-      조직분류: record.org_category_name
+      [HEADER_LABELS.baseMonth]: record.updated_date,
+      [HEADER_LABELS.divisionName]: record.org_division_name,
+      [HEADER_LABELS.organizationName]: record.org_name,
+      [HEADER_LABELS.organizationCode]: record.org_code,
+      [HEADER_LABELS.categoryName]: record.org_category_name
     }));
 
     const worksheet = XLSX.utils.json_to_sheet(rows, {
@@ -66,10 +76,10 @@ export const excelService = {
     });
 
     worksheet['!cols'] = [
-      { wch: 12 },
+      { wch: 14 },
       { wch: 24 },
       { wch: 28 },
-      { wch: 18 },
+      { wch: 20 },
       { wch: 20 }
     ];
     worksheet['!autofilter'] = {
@@ -92,12 +102,12 @@ export const excelService = {
     );
   },
 
-  async validateUpload(file: File): Promise<OrganizationUploadResult> {
+  async validateUpload(file: File, user: DevUserMode): Promise<OrganizationUploadResult> {
     const workbook = await readWorkbook(file);
     const [sheetName] = workbook.SheetNames;
 
     if (!sheetName) {
-      throw new Error('업로드할 시트를 찾을 수 없습니다.');
+      throw new Error('The uploaded workbook does not contain a sheet.');
     }
 
     const worksheet = workbook.Sheets[sheetName];
@@ -110,28 +120,21 @@ export const excelService = {
       range: 0,
       blankrows: false
     })[0] ?? [];
-    const normalizedHeaders = headerRow.map(normalizeHeader);
-    const missingHeaders = [
-      ...REQUIRED_HEADERS.filter((header) => !normalizedHeaders.includes(header)),
-      ...(CODE_HEADER_CANDIDATES.some((header) => normalizedHeaders.includes(header)) ? [] : ['현부서코드'])
-    ];
+    const normalizedHeaders = headerRow.map((header) => normalizeCell(header));
+    const missingHeaders = EXPORT_HEADERS.filter((header) => !normalizedHeaders.includes(header));
 
     if (missingHeaders.length > 0) {
-      throw new Error(`잘못된 엑셀 양식입니다. 필수 컬럼이 누락되었습니다: ${missingHeaders.join(', ')}`);
+      throw new Error(`The uploaded file is missing required columns: ${missingHeaders.join(', ')}`);
     }
 
     if (rows.length === 0) {
-      throw new Error('잘못된 엑셀 양식입니다. 헤더 아래에 데이터 행이 없습니다.');
+      throw new Error('The uploaded file does not contain any data rows.');
     }
 
-    const categories = await organizationService.getOrganizationCategories();
-    const categoryLookup = buildCategoryLookup(categories);
-
-    const uniqueCodes = [...new Set(rows.map((row) => toUploadRow(row).현부서코드).filter(Boolean))];
-    const organizationResults = await Promise.all(
-      uniqueCodes.map(async (orgCode) => [orgCode, await organizationService.getOrganizationByCode(orgCode)] as const)
-    );
-    const organizationLookup = new Map(organizationResults);
+    const allOrganizations = await organizationService.getEffectiveOrganizations();
+    const organizationByCode = new Map(allOrganizations.map((record) => [record.org_code, record]));
+    const categoryByName = new Map(allOrganizations.map((record) => [record.org_category_name, record.org_category_code]));
+    const allowedDivisions = new Set(getAllowedDivisionNames(user));
 
     const validRows: OrganizationRecord[] = [];
     const errors: OrganizationUploadValidationError[] = [];
@@ -140,81 +143,72 @@ export const excelService = {
       const rowNumber = index + 2;
       const row = toUploadRow(rawRow);
 
-      if (!row.기준년월) {
-        errors.push({
-          rowNumber,
-          column: '기준년월',
-          message: '기준년월 값이 비어 있습니다.'
-        });
-      }
+      pushRequiredError(errors, rowNumber, HEADER_LABELS.baseMonth, row.baseMonth);
+      pushRequiredError(errors, rowNumber, HEADER_LABELS.divisionName, row.divisionName);
+      pushRequiredError(errors, rowNumber, HEADER_LABELS.organizationName, row.organizationName);
+      pushRequiredError(errors, rowNumber, HEADER_LABELS.organizationCode, row.organizationCode);
+      pushRequiredError(errors, rowNumber, HEADER_LABELS.categoryName, row.categoryName);
 
-      if (!row.사업부) {
-        errors.push({
-          rowNumber,
-          column: '사업부',
-          message: '사업부 값이 비어 있습니다.'
-        });
-      }
-
-      if (!row.현부서) {
-        errors.push({
-          rowNumber,
-          column: '현부서',
-          message: '현부서 값이 비어 있습니다.'
-        });
-      }
-
-      if (!row.현부서코드) {
-        errors.push({
-          rowNumber,
-          column: '현부서코드',
-          message: '현부서코드 값이 비어 있습니다.'
-        });
-      }
-
-      if (!row.조직분류) {
-        errors.push({
-          rowNumber,
-          column: '조직분류',
-          message: '조직분류 값이 비어 있습니다.'
-        });
-      }
-
-      if (!row.현부서코드 || !row.조직분류 || !row.기준년월 || !row.사업부 || !row.현부서) {
+      if (
+        !row.baseMonth ||
+        !row.divisionName ||
+        !row.organizationName ||
+        !row.organizationCode ||
+        !row.categoryName
+      ) {
         return;
       }
 
-      const organization = organizationLookup.get(row.현부서코드) ?? null;
+      const organization = organizationByCode.get(row.organizationCode);
 
       if (!organization) {
         errors.push({
           rowNumber,
-          column: '현부서코드',
-          message: '유효하지 않은 조직코드입니다.',
-          value: row.현부서코드
+          column: HEADER_LABELS.organizationCode,
+          message: 'Organization code was not found in the mock dataset.',
+          value: row.organizationCode
         });
         return;
       }
 
-      const categoryCode = categoryLookup.get(row.조직분류);
+      if (!allowedDivisions.has(row.divisionName)) {
+        errors.push({
+          rowNumber,
+          column: HEADER_LABELS.divisionName,
+          message: 'This division is outside the current user scope.',
+          value: row.divisionName
+        });
+        return;
+      }
+
+      if (organization.org_division_name !== row.divisionName) {
+        errors.push({
+          rowNumber,
+          column: HEADER_LABELS.divisionName,
+          message: 'Division does not match the organization code.',
+          value: row.divisionName
+        });
+        return;
+      }
+
+      const categoryCode = categoryByName.get(row.categoryName);
 
       if (!categoryCode) {
         errors.push({
           rowNumber,
-          column: '조직분류',
-          message: '허용되지 않은 조직분류입니다.',
-          value: row.조직분류
+          column: HEADER_LABELS.categoryName,
+          message: 'Category is not recognized.',
+          value: row.categoryName
         });
         return;
       }
 
       validRows.push({
         ...organization,
-        updated_date: row.기준년월,
-        org_division_name: row.사업부,
-        org_name: row.현부서,
+        updated_date: row.baseMonth,
+        org_name: row.organizationName,
         org_category_code: categoryCode,
-        org_category_name: row.조직분류
+        org_category_name: row.categoryName
       });
     });
 

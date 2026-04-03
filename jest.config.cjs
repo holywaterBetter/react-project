@@ -17,6 +17,8 @@ module.exports = {
     '^@api/(.*)$': '<rootDir>/src/api/$1',
     '^@utils/(.*)$': '<rootDir>/src/utils/$1',
     '^@constants/(.*)$': '<rootDir>/src/constants/$1',
+    '^@assets/(.*)$': '<rootDir>/src/assets/$1',
+    '^@features/(.*)$': '<rootDir>/src/features/$1',
     '^@shared-types/(.*)$': '<rootDir>/src/types/$1',
     '^@locales/(.*)$': '<rootDir>/src/locales/$1',
     '^@styles/(.*)$': '<rootDir>/src/styles/$1',

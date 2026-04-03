@@ -1,13 +1,18 @@
 import { organizationWorkforceDashboardApi } from '@api/organizationWorkforceDashboardApi';
-import type {
-  DashboardTableSection,
-  OrganizationCategoryMappingResponse,
-  OrganizationWorkforceDashboardMeta
+import { useDevUserMode } from '@features/auth/context/DevUserModeContext';
+import { canSeeAllDivisions } from '@features/auth/types/devUserMode';
+import {
+  type DashboardTableSection,
+  type OrganizationCategoryMappingResponse,
+  type OrganizationWorkforceDashboardMeta
 } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 import { buildOrganizationSections } from '@pages/organization-workforce-dashboard/utils/dashboardTableMapper';
+import { useWorkforceRepositoryVersion } from '@services/workforceRepository';
 import { startTransition, useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 
 export const useOrganizationWorkforceDashboard = () => {
+  const { activeUser } = useDevUserMode();
+  const repositoryVersion = useWorkforceRepositoryVersion();
   const [selectedOrgCode, setSelectedOrgCode] = useState('');
   const [snapshotMonth, setSnapshotMonth] = useState('2026.04');
   const [keyword, setKeyword] = useState('');
@@ -19,17 +24,26 @@ export const useOrganizationWorkforceDashboard = () => {
   const [refreshToken, setRefreshToken] = useState(0);
   const deferredKeyword = useDeferredValue(keyword.trim().toLowerCase());
 
+  useEffect(() => {
+    if (canSeeAllDivisions(activeUser)) {
+      setSelectedOrgCode('');
+      return;
+    }
+
+    setSelectedOrgCode('');
+  }, [activeUser]);
+
   const loadDashboard = useCallback(async () => {
     setIsLoading(true);
     setError(null);
 
     try {
       const [metaResponse, mappingResponse, listResponse] = await Promise.all([
-        organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardMeta(),
+        organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardMeta(activeUser),
         organizationWorkforceDashboardApi.getOrganizationCategoryMappings(),
         selectedOrgCode
-          ? organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardByOrg(selectedOrgCode)
-          : organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardList()
+          ? organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardByOrg(activeUser, selectedOrgCode)
+          : organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardList(activeUser)
       ]);
 
       if (!metaResponse.success) {
@@ -56,15 +70,15 @@ export const useOrganizationWorkforceDashboard = () => {
       setSnapshotMonth(metaResponse.data.baseMonth);
     } catch (loadError) {
       setSections([]);
-      setError(loadError instanceof Error ? loadError.message : '조직별 대시보드 데이터를 불러오지 못했습니다.');
+      setError(loadError instanceof Error ? loadError.message : 'Failed to load workforce dashboard data.');
     } finally {
       setIsLoading(false);
     }
-  }, [selectedOrgCode]);
+  }, [activeUser, selectedOrgCode]);
 
   useEffect(() => {
     void loadDashboard();
-  }, [loadDashboard, refreshToken]);
+  }, [loadDashboard, refreshToken, repositoryVersion]);
 
   const filteredSections = useMemo(() => {
     if (!deferredKeyword) {
@@ -94,6 +108,7 @@ export const useOrganizationWorkforceDashboard = () => {
   }, []);
 
   return {
+    activeUser,
     filters: {
       selectedOrgCode,
       snapshotMonth,
