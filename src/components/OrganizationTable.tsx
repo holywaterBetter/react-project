@@ -1,3 +1,4 @@
+import { useAppTranslation } from '@hooks/useAppTranslation';
 import { Box, Chip, Stack, Typography } from '@mui/material';
 import { DataGrid, type GridColDef, type GridPaginationModel, type GridRowSelectionModel, type GridSortModel } from '@mui/x-data-grid';
 import type { OrganizationRecord, OrganizationSortDirection, OrganizationSortField } from '@shared-types/org';
@@ -6,6 +7,7 @@ import { useMemo } from 'react';
 
 type OrganizationTableProps = {
   rows: OrganizationRecord[];
+  departmentHierarchyByCode: Record<string, string>;
   total: number;
   page: number;
   pageSize: number;
@@ -26,19 +28,24 @@ const formatYearMonth = (value: string) => {
   return `${value.slice(0, 4)}.${value.slice(4, 6)}`;
 };
 
-const EmptyOverlay = () => (
-  <div className="flex h-full min-h-56 items-center justify-center">
-    <Stack spacing={1} className="items-center text-center">
-      <Typography variant="h6">조회된 조직이 없습니다.</Typography>
-      <Typography variant="body2" className="max-w-md text-ink-muted">
-        검색어 또는 필터 조건을 조정하거나 엑셀 파일을 업로드해 조직 선택 목록을 구성해 보세요.
-      </Typography>
-    </Stack>
-  </div>
-);
+const EmptyOverlay = () => {
+  const { t } = useAppTranslation();
+
+  return (
+    <div className="flex h-full min-h-56 items-center justify-center">
+      <Stack spacing={1} className="items-center text-center">
+        <Typography variant="h6">{t('organization.table.emptyTitle')}</Typography>
+        <Typography variant="body2" className="max-w-md text-ink-muted">
+          {t('organization.table.emptyDescription')}
+        </Typography>
+      </Stack>
+    </div>
+  );
+};
 
 export const OrganizationTable = ({
   rows,
+  departmentHierarchyByCode,
   total,
   page,
   pageSize,
@@ -51,11 +58,12 @@ export const OrganizationTable = ({
   onSelectionChange
 }: OrganizationTableProps) => {
   const { mode } = useAppTheme();
+  const { t } = useAppTranslation();
   const columns = useMemo<GridColDef<OrganizationRecord>[]>(
     () => [
       {
         field: 'updated_date',
-        headerName: '기준년월',
+        headerName: t('organization.table.headers.updatedDate'),
         minWidth: 130,
         flex: 0.8,
         sortable: true,
@@ -63,14 +71,14 @@ export const OrganizationTable = ({
       },
       {
         field: 'org_division_name',
-        headerName: '사업부',
+        headerName: t('organization.table.headers.division'),
         minWidth: 220,
         flex: 1.1,
         sortable: true
       },
       {
         field: 'org_name',
-        headerName: '현부서',
+        headerName: t('organization.table.headers.department'),
         minWidth: 260,
         flex: 1.4,
         sortable: false,
@@ -80,14 +88,14 @@ export const OrganizationTable = ({
               {params.row.org_name}
             </Typography>
             <Typography variant="caption" className="text-ink-muted">
-              {params.row.org_code}
+              {departmentHierarchyByCode[params.row.org_code] ?? params.row.org_name}
             </Typography>
           </div>
         )
       },
       {
         field: 'org_category_name',
-        headerName: '조직분류',
+        headerName: t('organization.table.headers.category'),
         minWidth: 180,
         flex: 0.9,
         sortable: false,
@@ -108,7 +116,7 @@ export const OrganizationTable = ({
         )
       }
     ],
-    []
+    [departmentHierarchyByCode, t]
   );
 
   const paginationModel = useMemo<GridPaginationModel>(
@@ -133,9 +141,9 @@ export const OrganizationTable = ({
     <Box className="rounded-[var(--radius-xl)] border border-line bg-surface shadow-sm">
       <div className="flex items-center justify-between border-b border-line px-5 py-4">
         <div>
-          <Typography variant="h6">조직 목록</Typography>
+          <Typography variant="h6">{t('organization.table.title')}</Typography>
           <Typography variant="body2" className="text-ink-muted">
-            총 {total.toLocaleString()}건
+            {t('organization.table.total', { count: total.toLocaleString() })}
           </Typography>
         </div>
       </div>

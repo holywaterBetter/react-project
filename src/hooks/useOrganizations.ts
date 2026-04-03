@@ -14,6 +14,22 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent } f
 const DEFAULT_PAGE_SIZE = 10;
 const SEARCH_DEBOUNCE_MS = 400;
 
+const FULL_DATA_QUERY: OrganizationQueryState = {
+  filters: {
+    search: '',
+    divisionCode: '',
+    categoryCode: ''
+  },
+  pagination: {
+    page: 0,
+    pageSize: 5000
+  },
+  sort: {
+    field: 'updated_date',
+    direction: 'desc'
+  }
+};
+
 const filterUploadedRows = (rows: OrganizationRecord[], query: OrganizationQueryState) =>
   rows.filter((row) => {
     if (query.filters.divisionCode && row.org_division_name !== query.filters.divisionCode) {
@@ -34,6 +50,36 @@ const filterUploadedRows = (rows: OrganizationRecord[], query: OrganizationQuery
       value.toLowerCase().includes(keyword)
     );
   });
+
+const buildHierarchyByCode = (rows: OrganizationRecord[]) => {
+  const organizationByCode = new Map(rows.map((row) => [row.org_code, row]));
+
+  return rows.reduce<Record<string, string>>((accumulator, row) => {
+    const lineageNames: string[] = [];
+    const visitedCodes = new Set<string>();
+    let currentCode = row.org_code;
+
+    while (currentCode && !visitedCodes.has(currentCode)) {
+      visitedCodes.add(currentCode);
+
+      const currentOrganization = organizationByCode.get(currentCode);
+
+      if (!currentOrganization) {
+        break;
+      }
+
+      if (currentOrganization.org_code === row.org_division_code) {
+        break;
+      }
+
+      lineageNames.push(currentOrganization.org_name);
+      currentCode = currentOrganization.upper_org_code;
+    }
+
+    accumulator[row.org_code] = lineageNames.reverse().join(' > ');
+    return accumulator;
+  }, {});
+};
 
 export const useOrganizations = () => {
   const [searchInput, setSearchInput] = useState('');
@@ -57,6 +103,7 @@ export const useOrganizations = () => {
   const [uploadSummary, setUploadSummary] = useState<string | null>(null);
   const [categories, setCategories] = useState<OrganizationCategorySummary[]>([]);
   const [divisions, setDivisions] = useState<OrganizationDivisionSummary[]>([]);
+  const [allOrganizations, setAllOrganizations] = useState<OrganizationRecord[]>([]);
   const requestIdRef = useRef(0);
 
   useEffect(() => {
@@ -74,9 +121,10 @@ export const useOrganizations = () => {
 
     const loadOptions = async () => {
       try {
-        const [categoryOptions, divisionOptions] = await Promise.all([
+        const [categoryOptions, divisionOptions, organizations] = await Promise.all([
           organizationService.getOrganizationCategories(),
-          organizationService.getOrganizationDivisions()
+          organizationService.getOrganizationDivisions(),
+          organizationService.getOrganizationsForExport(FULL_DATA_QUERY)
         ]);
 
         if (!isMounted) {
@@ -85,6 +133,7 @@ export const useOrganizations = () => {
 
         setCategories(categoryOptions);
         setDivisions(divisionOptions);
+        setAllOrganizations(organizations);
       } catch (loadError) {
         if (!isMounted) {
           return;
@@ -134,6 +183,11 @@ export const useOrganizations = () => {
       total: sortedRows.length
     };
   }, [page, pageSize, queryState, uploadedRows]);
+
+  const departmentHierarchyByCode = useMemo(
+    () => buildHierarchyByCode(uploadedRows ?? allOrganizations),
+    [allOrganizations, uploadedRows]
+  );
 
   useEffect(() => {
     if (uploadedResult) {
@@ -237,24 +291,25 @@ export const useOrganizations = () => {
       setUploadErrors(result.errors);
       setIsUploadDialogOpen(result.errors.length > 0);
 
-      if (result.validRows.length > 0) {
-        setUploadedRows(result.validRows);
-        setUploadSummary(
-          `${result.totalRows}건 중 ${result.validRows.length}건을 반영했습니다${
-            result.errors.length > 0 ? `, ${result.errors.length}건은 검증 오류가 있습니다.` : '.'
-          }`
-        );
-        setPage(0);
-      } else {
-        setUploadedRows(null);
-        setUploadSummary(`업로드한 ${result.totalRows}건 모두 검증에 실패했습니다.`);
+      if (result.errors.length > 0) {
+        setUploadSummary(`업로드에 실패했습니다. 총 ${result.errors.length}건의 오류를 확인해 주세요.`);
+        return;
       }
+
+      const baseRows = uploadedRows ?? (await organizationService.getOrganizationsForExport(FULL_DATA_QUERY));
+      const updatesByCode = new Map(result.validRows.map((row) => [row.org_code, row]));
+      const mergedRows = baseRows.map((row) => updatesByCode.get(row.org_code) ?? row);
+
+      setUploadedRows(mergedRows);
+      setAllOrganizations(mergedRows);
+      setUploadSummary(`${baseRows.length.toLocaleString()}건 중 ${result.validRows.length}건이 업데이트되었습니다.`);
+      setPage(0);
     } catch (uploadError) {
       setError(uploadError instanceof Error ? uploadError.message : '엑셀 업로드 처리 중 오류가 발생했습니다.');
     } finally {
       setIsUploading(false);
     }
-  }, []);
+  }, [uploadedRows]);
 
   const handleExport = useCallback(async () => {
     setIsExporting(true);
@@ -298,7 +353,8 @@ export const useOrganizations = () => {
       pageSize,
       sortField,
       sortDirection,
-      selectedRowIds
+      selectedRowIds,
+      departmentHierarchyByCode
     },
     actions: {
       setIsUploadDialogOpen,

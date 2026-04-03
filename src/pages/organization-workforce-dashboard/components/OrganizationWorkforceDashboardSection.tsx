@@ -1,3 +1,4 @@
+import { TableCell, TableRow, Typography } from '@mui/material';
 import type { DashboardTableSection } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 import {
   formatDateLabel,
@@ -5,7 +6,6 @@ import {
   formatPercent,
   formatSignedHeadcount
 } from '@pages/organization-workforce-dashboard/utils/dashboardFormatters';
-import { TableCell, TableRow, Typography } from '@mui/material';
 
 type OrganizationWorkforceDashboardSectionProps = {
   section: DashboardTableSection;

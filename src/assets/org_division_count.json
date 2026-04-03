@@ -1,0 +1,218 @@
+[
+  {
+    "org_code": "C10",
+    "org_name": "삼성전자",
+    "org_division_code": "",
+    "org_division_name": "",
+    "upper_org_code": "",
+    "updated_date": "20260228",
+    "org_category_code": "",
+    "org_category_name": "",
+    "headcount_20251231_total": 100000,
+    "headcount_20251231_by_category": {
+      "A1": 72600,
+      "B1": 14900,
+      "C1": 12500
+    },
+    "headcount_20261231_target_total": 104500,
+    "headcount_20261231_target_by_category": {
+      "A1": 68200,
+      "B1": 22200,
+      "C1": 14100
+    },
+    "headcount_current_total": 101900,
+    "headcount_current_by_category": {
+      "A1": 70100,
+      "B1": 18100,
+      "C1": 13700
+    },
+    "reallocation_target_20261231_by_category": {
+      "B1": 7100,
+      "C1": 1700
+    },
+    "reallocation_current_cumulative_by_category": {
+      "B1": 3150,
+      "C1": 690
+    }
+  },
+  {
+    "org_code": "C100001",
+    "org_name": "MX 사업부",
+    "org_division_code": "C100001",
+    "org_division_name": "MX 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260228",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "headcount_20251231_total": 24800,
+    "headcount_20251231_by_category": {
+      "A1": 18100,
+      "B1": 3600,
+      "C1": 3100
+    },
+    "headcount_20261231_target_total": 25500,
+    "headcount_20261231_target_by_category": {
+      "A1": 17000,
+      "B1": 5100,
+      "C1": 3400
+    },
+    "headcount_current_total": 25100,
+    "headcount_current_by_category": {
+      "A1": 17500,
+      "B1": 4300,
+      "C1": 3300
+    },
+    "reallocation_target_20261231_by_category": {
+      "B1": 1500,
+      "C1": 300
+    },
+    "reallocation_current_cumulative_by_category": {
+      "B1": 700,
+      "C1": 150
+    }
+  },
+  {
+    "org_code": "C100061",
+    "org_name": "DS 사업부",
+    "org_division_code": "C100061",
+    "org_division_name": "DS 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260304",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "headcount_20251231_total": 33200,
+    "headcount_20251231_by_category": {
+      "A1": 24900,
+      "B1": 4200,
+      "C1": 4100
+    },
+    "headcount_20261231_target_total": 34500,
+    "headcount_20261231_target_by_category": {
+      "A1": 23400,
+      "B1": 6700,
+      "C1": 4400
+    },
+    "headcount_current_total": 33800,
+    "headcount_current_by_category": {
+      "A1": 24100,
+      "B1": 5400,
+      "C1": 4300
+    },
+    "reallocation_target_20261231_by_category": {
+      "B1": 2500,
+      "C1": 500
+    },
+    "reallocation_current_cumulative_by_category": {
+      "B1": 1200,
+      "C1": 220
+    }
+  },
+  {
+    "org_code": "C100121",
+    "org_name": "DX 사업부",
+    "org_division_code": "C100121",
+    "org_division_name": "DX 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260423",
+    "org_category_code": "B2",
+    "org_category_name": "B (성장사업)",
+    "headcount_20251231_total": 21400,
+    "headcount_20251231_by_category": {
+      "A1": 15100,
+      "B1": 3700,
+      "C1": 2600
+    },
+    "headcount_20261231_target_total": 22600,
+    "headcount_20261231_target_by_category": {
+      "A1": 14200,
+      "B1": 5300,
+      "C1": 3100
+    },
+    "headcount_current_total": 21900,
+    "headcount_current_by_category": {
+      "A1": 14600,
+      "B1": 4300,
+      "C1": 3000
+    },
+    "reallocation_target_20261231_by_category": {
+      "B1": 1500,
+      "C1": 500
+    },
+    "reallocation_current_cumulative_by_category": {
+      "B1": 650,
+      "C1": 180
+    }
+  },
+  {
+    "org_code": "C100181",
+    "org_name": "S/W 플랫폼 사업부",
+    "org_division_code": "C100181",
+    "org_division_name": "S/W 플랫폼 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260423",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "headcount_20251231_total": 12600,
+    "headcount_20251231_by_category": {
+      "A1": 9100,
+      "B1": 1900,
+      "C1": 1600
+    },
+    "headcount_20261231_target_total": 13400,
+    "headcount_20261231_target_by_category": {
+      "A1": 8600,
+      "B1": 2900,
+      "C1": 1900
+    },
+    "headcount_current_total": 12900,
+    "headcount_current_by_category": {
+      "A1": 8800,
+      "B1": 2300,
+      "C1": 1800
+    },
+    "reallocation_target_20261231_by_category": {
+      "B1": 900,
+      "C1": 200
+    },
+    "reallocation_current_cumulative_by_category": {
+      "B1": 360,
+      "C1": 80
+    }
+  },
+  {
+    "org_code": "C100241",
+    "org_name": "Global 운영 사업부",
+    "org_division_code": "C100241",
+    "org_division_name": "Global 운영 사업부",
+    "upper_org_code": "C10",
+    "updated_date": "20260119",
+    "org_category_code": "A1",
+    "org_category_name": "A (주력)",
+    "headcount_20251231_total": 8000,
+    "headcount_20251231_by_category": {
+      "A1": 5400,
+      "B1": 1500,
+      "C1": 1100
+    },
+    "headcount_20261231_target_total": 8500,
+    "headcount_20261231_target_by_category": {
+      "A1": 5000,
+      "B1": 2200,
+      "C1": 1300
+    },
+    "headcount_current_total": 8200,
+    "headcount_current_by_category": {
+      "A1": 5100,
+      "B1": 1800,
+      "C1": 1300
+    },
+    "reallocation_target_20261231_by_category": {
+      "B1": 700,
+      "C1": 200
+    },
+    "reallocation_current_cumulative_by_category": {
+      "B1": 240,
+      "C1": 60
+    }
+  }
+]

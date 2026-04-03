@@ -3,8 +3,8 @@ import { MainLayout } from '@layouts/MainLayout';
 import { AboutPage } from '@pages/AboutPage';
 import { HomePage } from '@pages/HomePage';
 import { NotFoundPage } from '@pages/NotFoundPage';
-import { OrganizationSelectionPage } from '@pages/OrganizationSelectionPage';
 import { OrganizationWorkforceDashboardPage } from '@pages/organization-workforce-dashboard/OrganizationWorkforceDashboardPage';
+import { OrganizationSelectionPage } from '@pages/OrganizationSelectionPage';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 const router = createHashRouter([

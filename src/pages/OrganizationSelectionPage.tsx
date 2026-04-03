@@ -4,6 +4,7 @@ import {
   OrganizationSelectionProvider,
   useOrganizationSelection
 } from '@contexts/OrganizationSelectionContext';
+import { useAppTranslation } from '@hooks/useAppTranslation';
 import {
   Alert,
   Dialog,
@@ -21,27 +22,32 @@ import {
 
 const OrganizationSelectionContent = () => {
   const { uiState, apiState, tableState, actions } = useOrganizationSelection();
+  const { t } = useAppTranslation();
 
   return (
     <Stack spacing={3}>
       <div className="grid gap-3 md:grid-cols-3">
         <div className="rounded-[var(--radius-xl)] border border-line bg-surface p-4 shadow-sm">
           <Typography variant="body2" className="text-ink-muted">
-            현재 조회 건수
+            {t('organization.summary.currentCount')}
           </Typography>
           <Typography variant="h4">{tableState.total.toLocaleString()}</Typography>
         </div>
         <div className="rounded-[var(--radius-xl)] border border-line bg-surface p-4 shadow-sm">
           <Typography variant="body2" className="text-ink-muted">
-            선택된 조직
+            {t('organization.summary.selectedCount')}
           </Typography>
           <Typography variant="h4">{tableState.selectedRowIds.length.toLocaleString()}</Typography>
         </div>
         <div className="rounded-[var(--radius-xl)] border border-line bg-surface p-4 shadow-sm">
           <Typography variant="body2" className="text-ink-muted">
-            데이터 소스
+            {t('organization.summary.dataSource')}
           </Typography>
-          <Typography variant="h4">{uiState.hasUploadedPreview ? '업로드 미리보기' : '조직 API'}</Typography>
+          <Typography variant="h4">
+            {uiState.hasUploadedPreview
+              ? t('organization.summary.uploadPreview')
+              : t('organization.summary.organizationApi')}
+          </Typography>
         </div>
       </div>
 
@@ -67,6 +73,7 @@ const OrganizationSelectionContent = () => {
 
       <OrganizationTable
         rows={tableState.rows}
+        departmentHierarchyByCode={tableState.departmentHierarchyByCode}
         total={tableState.total}
         page={tableState.page}
         pageSize={tableState.pageSize}
@@ -87,21 +94,22 @@ const OrganizationSelectionContent = () => {
         maxWidth="md"
         fullWidth
       >
-        <DialogTitle>엑셀 검증 오류</DialogTitle>
+        <DialogTitle>{t('organization.upload.dialogTitle')}</DialogTitle>
         <DialogContent>
           <Stack spacing={2}>
             <Alert severity="warning">
-              유효한 행만 반영되며, 아래 오류가 있는 행은 제외됩니다. 총 {uiState.uploadErrors.length}건의 오류를
-              확인했습니다.
+              {t('organization.upload.dialogMessage', {
+                count: uiState.uploadErrors.length.toLocaleString()
+              })}
             </Alert>
             <TableContainer className="rounded-lg border border-line">
               <Table size="small" stickyHeader>
                 <TableHead>
                   <TableRow>
-                    <TableCell>행</TableCell>
-                    <TableCell>컬럼</TableCell>
-                    <TableCell>오류 내용</TableCell>
-                    <TableCell>입력 값</TableCell>
+                    <TableCell>{t('organization.upload.errorRow')}</TableCell>
+                    <TableCell>{t('organization.upload.errorColumn')}</TableCell>
+                    <TableCell>{t('organization.upload.errorMessage')}</TableCell>
+                    <TableCell>{t('organization.upload.errorValue')}</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
