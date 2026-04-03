@@ -7,7 +7,10 @@ import type {
   InsightTrendPoint,
   WorkforceInsightData
 } from '@features/dashboard/types/workforceInsight';
-import type { OrganizationWorkforceDashboardEntry, OrganizationWorkforceDashboardMeta } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
+import type {
+  OrganizationWorkforceDashboardEntry,
+  OrganizationWorkforceDashboardMeta
+} from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 
 const sumForPeriod = (entry: OrganizationWorkforceDashboardEntry, period: 'actual2025' | 'current202604' | 'target2026') =>
   organizationCategoryCodes.reduce(
