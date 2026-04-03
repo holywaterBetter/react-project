@@ -8,31 +8,31 @@
     "updated_date": "20260228",
     "org_category_code": "",
     "org_category_name": "",
-    "headcount_20251231_total": 100000,
+    "headcount_20251231_total": 48000,
     "headcount_20251231_by_category": {
-      "A1": 72600,
-      "B1": 14900,
-      "C1": 12500
+      "A1": 33767,
+      "B1": 4773,
+      "C1": 9460
     },
-    "headcount_20261231_target_total": 104500,
+    "headcount_20261231_target_total": 47000,
     "headcount_20261231_target_by_category": {
-      "A1": 68200,
-      "B1": 22200,
-      "C1": 14100
+      "A1": 29357,
+      "B1": 7109,
+      "C1": 10534
     },
-    "headcount_current_total": 101900,
+    "headcount_current_total": 47600,
     "headcount_current_by_category": {
-      "A1": 70100,
-      "B1": 18100,
-      "C1": 13700
+      "A1": 32873,
+      "B1": 5296,
+      "C1": 9431
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 7100,
-      "C1": 1700
+      "B1": 1813,
+      "C1": 1103
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 3150,
-      "C1": 690
+      "B1": 816,
+      "C1": 496
     },
     "org_division_name_en": "",
     "org_category_name_en": ""
@@ -46,31 +46,31 @@
     "updated_date": "20260228",
     "org_category_code": "A1",
     "org_category_name": "A (주력)",
-    "headcount_20251231_total": 24800,
+    "headcount_20251231_total": 10397,
     "headcount_20251231_by_category": {
-      "A1": 18100,
-      "B1": 3600,
-      "C1": 3100
+      "A1": 7486,
+      "B1": 936,
+      "C1": 1975
     },
-    "headcount_20261231_target_total": 25500,
+    "headcount_20261231_target_total": 9946,
     "headcount_20261231_target_by_category": {
-      "A1": 17000,
-      "B1": 5100,
-      "C1": 3400
+      "A1": 6365,
+      "B1": 1492,
+      "C1": 2089
     },
-    "headcount_current_total": 25100,
+    "headcount_current_total": 10212,
     "headcount_current_by_category": {
-      "A1": 17500,
-      "B1": 4300,
-      "C1": 3300
+      "A1": 7148,
+      "B1": 1123,
+      "C1": 1941
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 1500,
-      "C1": 300
+      "B1": 369,
+      "C1": 148
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 700,
-      "C1": 150
+      "B1": 166,
+      "C1": 67
     },
     "org_division_name_en": "MX 사업부",
     "org_category_name_en": "A (Core)"
@@ -84,31 +84,31 @@
     "updated_date": "20260304",
     "org_category_code": "A1",
     "org_category_name": "A (주력)",
-    "headcount_20251231_total": 33200,
+    "headcount_20251231_total": 13918,
     "headcount_20251231_by_category": {
-      "A1": 24900,
-      "B1": 4200,
-      "C1": 4100
+      "A1": 9603,
+      "B1": 1392,
+      "C1": 2923
     },
-    "headcount_20261231_target_total": 34500,
+    "headcount_20261231_target_total": 13457,
     "headcount_20261231_target_by_category": {
-      "A1": 23400,
-      "B1": 6700,
-      "C1": 4400
+      "A1": 8343,
+      "B1": 2153,
+      "C1": 2961
     },
-    "headcount_current_total": 33800,
+    "headcount_current_total": 13751,
     "headcount_current_by_category": {
-      "A1": 24100,
-      "B1": 5400,
-      "C1": 4300
+      "A1": 9351,
+      "B1": 1650,
+      "C1": 2750
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 2500,
-      "C1": 500
+      "B1": 503,
+      "C1": 211
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 1200,
-      "C1": 220
+      "B1": 226,
+      "C1": 95
     },
     "org_division_name_en": "DS 사업부",
     "org_category_name_en": "A (Core)"
@@ -122,31 +122,31 @@
     "updated_date": "20260423",
     "org_category_code": "B2",
     "org_category_name": "B (성장사업)",
-    "headcount_20251231_total": 21400,
+    "headcount_20251231_total": 8971,
     "headcount_20251231_by_category": {
-      "A1": 15100,
-      "B1": 3700,
-      "C1": 2600
+      "A1": 6280,
+      "B1": 987,
+      "C1": 1704
     },
-    "headcount_20261231_target_total": 22600,
+    "headcount_20261231_target_total": 8815,
     "headcount_20261231_target_by_category": {
-      "A1": 14200,
-      "B1": 5300,
-      "C1": 3100
+      "A1": 5553,
+      "B1": 1234,
+      "C1": 2028
     },
-    "headcount_current_total": 21900,
+    "headcount_current_total": 8910,
     "headcount_current_by_category": {
-      "A1": 14600,
-      "B1": 4300,
-      "C1": 3000
+      "A1": 6148,
+      "B1": 891,
+      "C1": 1871
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 1500,
-      "C1": 500
+      "B1": 343,
+      "C1": 157
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 650,
-      "C1": 180
+      "B1": 154,
+      "C1": 71
     },
     "org_division_name_en": "DX 사업부",
     "org_category_name_en": "B2 (New Business)"
@@ -160,31 +160,31 @@
     "updated_date": "20260423",
     "org_category_code": "A1",
     "org_category_name": "A (주력)",
-    "headcount_20251231_total": 12600,
+    "headcount_20251231_total": 5282,
     "headcount_20251231_by_category": {
-      "A1": 9100,
-      "B1": 1900,
-      "C1": 1600
+      "A1": 3750,
+      "B1": 528,
+      "C1": 1004
     },
-    "headcount_20261231_target_total": 13400,
+    "headcount_20261231_target_total": 5227,
     "headcount_20261231_target_by_category": {
-      "A1": 8600,
-      "B1": 2900,
-      "C1": 1900
+      "A1": 3188,
+      "B1": 784,
+      "C1": 1255
     },
-    "headcount_current_total": 12900,
+    "headcount_current_total": 5248,
     "headcount_current_by_category": {
-      "A1": 8800,
-      "B1": 2300,
-      "C1": 1800
+      "A1": 3726,
+      "B1": 577,
+      "C1": 945
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 900,
-      "C1": 200
+      "B1": 207,
+      "C1": 310
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 360,
-      "C1": 80
+      "B1": 93,
+      "C1": 140
     },
     "org_division_name_en": "S/W 플랫폼 사업부",
     "org_category_name_en": "A (Core)"
@@ -198,31 +198,31 @@
     "updated_date": "20260119",
     "org_category_code": "A1",
     "org_category_name": "A (주력)",
-    "headcount_20251231_total": 8000,
+    "headcount_20251231_total": 3354,
     "headcount_20251231_by_category": {
-      "A1": 5400,
-      "B1": 1500,
-      "C1": 1100
+      "A1": 2281,
+      "B1": 302,
+      "C1": 771
     },
-    "headcount_20261231_target_total": 8500,
+    "headcount_20261231_target_total": 3315,
     "headcount_20261231_target_by_category": {
-      "A1": 5000,
-      "B1": 2200,
-      "C1": 1300
+      "A1": 1989,
+      "B1": 530,
+      "C1": 796
     },
-    "headcount_current_total": 8200,
+    "headcount_current_total": 3336,
     "headcount_current_by_category": {
-      "A1": 5100,
-      "B1": 1800,
-      "C1": 1300
+      "A1": 2235,
+      "B1": 400,
+      "C1": 701
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 700,
-      "C1": 200
+      "B1": 130,
+      "C1": 95
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 240,
-      "C1": 60
+      "B1": 58,
+      "C1": 43
     },
     "org_division_name_en": "Global 운영 사업부",
     "org_category_name_en": "A (Core)"
@@ -238,31 +238,31 @@
     "org_category_code": "A1",
     "org_category_name": "A (주력)",
     "org_category_name_en": "A (Core)",
-    "headcount_20251231_total": 2200,
+    "headcount_20251231_total": 922,
     "headcount_20251231_by_category": {
-      "A1": 1364,
-      "B1": 528,
-      "C1": 308
+      "A1": 691,
+      "B1": 111,
+      "C1": 120
     },
-    "headcount_20261231_target_total": 2500,
+    "headcount_20261231_target_total": 975,
     "headcount_20261231_target_by_category": {
-      "A1": 1424,
-      "B1": 725,
-      "C1": 351
+      "A1": 633,
+      "B1": 127,
+      "C1": 215
     },
-    "headcount_current_total": 2320,
+    "headcount_current_total": 944,
     "headcount_current_by_category": {
-      "A1": 1368,
-      "B1": 603,
-      "C1": 349
+      "A1": 680,
+      "B1": 85,
+      "C1": 179
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 145,
-      "C1": 42
+      "B1": 42,
+      "C1": 36
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 60,
-      "C1": 24
+      "B1": 19,
+      "C1": 16
     }
   },
   {
@@ -276,31 +276,31 @@
     "org_category_code": "A1",
     "org_category_name": "A (주력)",
     "org_category_name_en": "A (Core)",
-    "headcount_20251231_total": 2600,
+    "headcount_20251231_total": 1090,
     "headcount_20251231_by_category": {
-      "A1": 1612,
-      "B1": 624,
-      "C1": 364
+      "A1": 807,
+      "B1": 109,
+      "C1": 174
     },
-    "headcount_20261231_target_total": 2900,
+    "headcount_20261231_target_total": 1131,
     "headcount_20261231_target_by_category": {
-      "A1": 1652,
-      "B1": 840,
-      "C1": 408
+      "A1": 724,
+      "B1": 170,
+      "C1": 237
     },
-    "headcount_current_total": 2720,
+    "headcount_current_total": 1106,
     "headcount_current_by_category": {
-      "A1": 1604,
-      "B1": 707,
-      "C1": 409
+      "A1": 774,
+      "B1": 122,
+      "C1": 210
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 168,
-      "C1": 49
+      "B1": 48,
+      "C1": 27
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 71,
-      "C1": 29
+      "B1": 22,
+      "C1": 12
     }
   },
   {
@@ -314,31 +314,31 @@
     "org_category_code": "A1",
     "org_category_name": "A (주력)",
     "org_category_name_en": "A (Core)",
-    "headcount_20251231_total": 2900,
+    "headcount_20251231_total": 1216,
     "headcount_20251231_by_category": {
-      "A1": 1798,
-      "B1": 696,
-      "C1": 406
+      "A1": 888,
+      "B1": 109,
+      "C1": 219
     },
-    "headcount_20261231_target_total": 3200,
+    "headcount_20261231_target_total": 1248,
     "headcount_20261231_target_by_category": {
-      "A1": 1823,
-      "B1": 927,
-      "C1": 450
+      "A1": 786,
+      "B1": 200,
+      "C1": 262
     },
-    "headcount_current_total": 3020,
+    "headcount_current_total": 1229,
     "headcount_current_by_category": {
-      "A1": 1781,
-      "B1": 785,
-      "C1": 454
+      "A1": 848,
+      "B1": 147,
+      "C1": 234
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 185,
-      "C1": 54
+      "B1": 53,
+      "C1": 28
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 78,
-      "C1": 32
+      "B1": 24,
+      "C1": 13
     }
   },
   {
@@ -352,31 +352,31 @@
     "org_category_code": "A1",
     "org_category_name": "A (주력)",
     "org_category_name_en": "A (Core)",
-    "headcount_20251231_total": 3200,
+    "headcount_20251231_total": 1341,
     "headcount_20251231_by_category": {
-      "A1": 1984,
-      "B1": 768,
-      "C1": 448
+      "A1": 925,
+      "B1": 148,
+      "C1": 268
     },
-    "headcount_20261231_target_total": 3500,
+    "headcount_20261231_target_total": 1365,
     "headcount_20261231_target_by_category": {
-      "A1": 1994,
-      "B1": 1014,
-      "C1": 492
+      "A1": 833,
+      "B1": 191,
+      "C1": 341
     },
-    "headcount_current_total": 3320,
+    "headcount_current_total": 1351,
     "headcount_current_by_category": {
-      "A1": 1958,
-      "B1": 863,
-      "C1": 499
+      "A1": 919,
+      "B1": 135,
+      "C1": 297
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 203,
-      "C1": 59
+      "B1": 56,
+      "C1": 44
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 86,
-      "C1": 35
+      "B1": 25,
+      "C1": 20
     }
   },
   {
@@ -390,31 +390,31 @@
     "org_category_code": "A1",
     "org_category_name": "A (주력)",
     "org_category_name_en": "A (Core)",
-    "headcount_20251231_total": 3600,
+    "headcount_20251231_total": 1509,
     "headcount_20251231_by_category": {
-      "A1": 2232,
-      "B1": 864,
-      "C1": 504
+      "A1": 1056,
+      "B1": 151,
+      "C1": 302
     },
-    "headcount_20261231_target_total": 3900,
+    "headcount_20261231_target_total": 1521,
     "headcount_20261231_target_by_category": {
-      "A1": 2223,
-      "B1": 1131,
-      "C1": 546
+      "A1": 943,
+      "B1": 228,
+      "C1": 350
     },
-    "headcount_current_total": 3720,
+    "headcount_current_total": 1513,
     "headcount_current_by_category": {
-      "A1": 2194,
-      "B1": 967,
-      "C1": 559
+      "A1": 1044,
+      "B1": 166,
+      "C1": 303
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 226,
-      "C1": 66
+      "B1": 62,
+      "C1": 47
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 97,
-      "C1": 39
+      "B1": 28,
+      "C1": 21
     }
   }
 ]
