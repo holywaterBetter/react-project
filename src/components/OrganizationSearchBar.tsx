@@ -31,6 +31,20 @@ type OrganizationSearchBarProps = {
   onClearUploadPreview: () => void;
 };
 
+const filterFieldSx = {
+  '& .MuiInputBase-input': {
+    color: 'var(--color-fg-default)',
+    WebkitTextFillColor: 'var(--color-fg-default)'
+  },
+  '& .MuiSelect-select': {
+    color: 'var(--color-fg-default)',
+    WebkitTextFillColor: 'var(--color-fg-default)'
+  },
+  '& .MuiSvgIcon-root': {
+    color: 'var(--color-fg-muted)'
+  }
+} as const;
+
 export const OrganizationSearchBar = ({
   searchValue,
   divisionCode,
@@ -64,6 +78,7 @@ export const OrganizationSearchBar = ({
           placeholder="조직명, 조직코드, 사업부를 검색하세요"
           value={searchValue}
           onChange={onSearchChange}
+          sx={filterFieldSx}
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
@@ -76,6 +91,7 @@ export const OrganizationSearchBar = ({
           select
           label="사업부"
           value={divisionCode}
+          sx={filterFieldSx}
           onChange={(event) => {
             onDivisionChange(event.target.value);
           }}
@@ -91,6 +107,7 @@ export const OrganizationSearchBar = ({
           select
           label="조직분류"
           value={categoryCode}
+          sx={filterFieldSx}
           onChange={(event) => {
             onCategoryChange(event.target.value);
           }}

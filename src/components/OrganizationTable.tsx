@@ -1,6 +1,7 @@
 import { Box, Chip, Stack, Typography } from '@mui/material';
 import { DataGrid, type GridColDef, type GridPaginationModel, type GridRowSelectionModel, type GridSortModel } from '@mui/x-data-grid';
 import type { OrganizationRecord, OrganizationSortDirection, OrganizationSortField } from '@shared-types/org';
+import { useAppTheme } from '@theme';
 import { useMemo } from 'react';
 
 type OrganizationTableProps = {
@@ -49,6 +50,7 @@ export const OrganizationTable = ({
   onSortChange,
   onSelectionChange
 }: OrganizationTableProps) => {
+  const { mode } = useAppTheme();
   const columns = useMemo<GridColDef<OrganizationRecord>[]>(
     () => [
       {
@@ -90,11 +92,23 @@ export const OrganizationTable = ({
         flex: 0.9,
         sortable: false,
         renderCell: (params) => (
-          <Chip size="small" label={params.row.org_category_name} variant="outlined" />
+          <Chip
+            size="small"
+            label={params.row.org_category_name}
+            variant="outlined"
+            sx={{
+              color: 'var(--color-fg-default)',
+              borderColor: 'var(--color-border-strong)',
+              backgroundColor: 'color-mix(in srgb, var(--color-brand-100) 12%, var(--color-bg-surface))',
+              '& .MuiChip-label': {
+                color: 'inherit'
+              }
+            }}
+          />
         )
       }
     ],
-    []
+    [mode]
   );
 
   const paginationModel = useMemo<GridPaginationModel>(
@@ -127,6 +141,7 @@ export const OrganizationTable = ({
       </div>
 
       <DataGrid
+        key={mode}
         autoHeight={false}
         rows={rows}
         columns={columns}
@@ -164,21 +179,71 @@ export const OrganizationTable = ({
           noResultsOverlay: EmptyOverlay
         }}
         sx={{
+          color: 'var(--color-fg-default)',
           border: 'none',
           minHeight: 580,
+          backgroundColor: 'transparent',
+          '--DataGrid-t-header-background-base': 'transparent',
+          '--DataGrid-containerBackground': 'transparent',
+          '--DataGrid-rowBorderColor': 'var(--color-border-line)',
+          '& .MuiDataGrid-main, & .MuiDataGrid-virtualScroller': {
+            backgroundColor: 'transparent',
+            color: 'var(--color-fg-default)'
+          },
           '& .MuiDataGrid-columnHeaders': {
             position: 'sticky',
             top: 0,
             zIndex: 1,
-            backgroundColor: 'background.paper',
-            borderBottom: '1px solid',
-            borderColor: 'divider'
+            color: 'var(--color-fg-default)',
+            backgroundColor: 'transparent',
+            borderBottom: '1px solid var(--color-border-default)'
+          },
+          '& .MuiDataGrid-topContainer, & .MuiDataGrid-columnHeadersInner, & .MuiDataGrid-filler, & .MuiDataGrid-scrollbarFiller': {
+            backgroundColor: 'transparent'
+          },
+          '& .MuiDataGrid-columnHeader, & .MuiDataGrid-columnHeaderTitle': {
+            color: 'var(--color-fg-muted)',
+            fontWeight: 600
+          },
+          '& .MuiDataGrid-columnSeparator': {
+            color: 'var(--color-border-strong)'
+          },
+          '& .MuiDataGrid-sortIcon, & .MuiDataGrid-menuIconButton': {
+            color: 'var(--color-fg-muted)'
+          },
+          '& .MuiDataGrid-cell': {
+            color: 'var(--color-fg-default)',
+            borderColor: 'var(--color-border-default)'
+          },
+          '& .MuiDataGrid-row': {
+            backgroundColor: 'transparent'
+          },
+          '& .MuiDataGrid-footerContainer': {
+            color: 'var(--color-fg-default)',
+            backgroundColor: 'transparent',
+            borderTop: '1px solid var(--color-border-default)'
+          },
+          '& .MuiDataGrid-toolbarContainer, & .MuiDataGrid-overlay': {
+            color: 'var(--color-fg-muted)',
+            backgroundColor: 'transparent'
+          },
+          '& .MuiTablePagination-root, & .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows': {
+            color: 'var(--color-fg-default)'
+          },
+          '& .MuiIconButton-root, & .MuiCheckbox-root': {
+            color: 'var(--color-fg-muted)'
           },
           '& .MuiDataGrid-cell:focus, & .MuiDataGrid-columnHeader:focus': {
             outline: 'none'
           },
           '& .MuiDataGrid-row:hover': {
-            backgroundColor: 'action.hover'
+            backgroundColor: 'color-mix(in srgb, var(--color-brand-100) 20%, var(--color-bg-surface))'
+          },
+          '& .MuiDataGrid-row.Mui-selected': {
+            backgroundColor: 'color-mix(in srgb, var(--color-brand-100) 32%, var(--color-bg-surface))'
+          },
+          '& .MuiDataGrid-row.Mui-selected:hover': {
+            backgroundColor: 'color-mix(in srgb, var(--color-brand-200) 36%, var(--color-bg-surface))'
           }
         }}
       />

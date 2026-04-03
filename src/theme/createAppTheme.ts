@@ -231,7 +231,22 @@ export const createAppTheme = (mode: ThemeMode) =>
         styleOverrides: {
           root: {
             borderRadius: cssVar(tokenVars.radius.full),
-            fontWeight: cssVar(tokenVars.font.weightMedium)
+            fontWeight: cssVar(tokenVars.font.weightMedium),
+            color: cssVar(tokenVars.color.foreground.default)
+          },
+          outlined: {
+            borderColor: cssVar(tokenVars.color.border.strong),
+            backgroundColor: `color-mix(in srgb, ${cssVar(tokenVars.color.brand[100])} 12%, ${cssVar(tokenVars.color.background.surface)})`
+          }
+        }
+      },
+      MuiSelect: {
+        styleOverrides: {
+          select: {
+            color: cssVar(tokenVars.color.foreground.default)
+          },
+          icon: {
+            color: cssVar(tokenVars.color.foreground.muted)
           }
         }
       },
@@ -239,6 +254,7 @@ export const createAppTheme = (mode: ThemeMode) =>
         styleOverrides: {
           root: {
             backgroundColor: cssVar(tokenVars.color.background.surface),
+            color: cssVar(tokenVars.color.foreground.default),
             borderRadius: cssVar(tokenVars.radius.md),
             transition: 'border-color 120ms ease, box-shadow 120ms ease, background-color 120ms ease',
             '& .MuiOutlinedInput-notchedOutline': {
@@ -253,7 +269,9 @@ export const createAppTheme = (mode: ThemeMode) =>
             }
           },
           input: {
-            paddingBlock: cssVar(tokenVars.space[3])
+            paddingBlock: cssVar(tokenVars.space[3]),
+            color: cssVar(tokenVars.color.foreground.default),
+            WebkitTextFillColor: cssVar(tokenVars.color.foreground.default)
           }
         }
       },

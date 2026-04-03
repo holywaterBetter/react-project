@@ -13,7 +13,16 @@ export const LanguageSwitcher = () => {
       onChange={(event) => {
         void i18n.changeLanguage(event.target.value);
       }}
-      sx={{ minWidth: 120 }}
+      sx={{
+        minWidth: 120,
+        '& .MuiSelect-select': {
+          color: 'var(--color-fg-default)',
+          WebkitTextFillColor: 'var(--color-fg-default)'
+        },
+        '& .MuiSvgIcon-root': {
+          color: 'var(--color-fg-muted)'
+        }
+      }}
       aria-label="language-switcher"
     >
       <MenuItem value="en">English</MenuItem>

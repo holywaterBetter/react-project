@@ -46,9 +46,16 @@ export const sortOrganizations = (items: OrganizationRecord[], sort: Organizatio
   });
 };
 
+const filterByDivision = (items: OrganizationRecord[], divisionName?: string) => {
+  if (!divisionName) {
+    return items;
+  }
+
+  return items.filter((organization) => organization.org_division_name === divisionName);
+};
+
 const buildListParams = (query: OrganizationQueryState): OrganizationListParams => ({
   search: query.filters.search || undefined,
-  divisionCode: query.filters.divisionCode || undefined,
   categoryCode: query.filters.categoryCode || undefined,
   offset: query.pagination.page * query.pagination.pageSize,
   limit: query.pagination.pageSize
@@ -57,12 +64,12 @@ const buildListParams = (query: OrganizationQueryState): OrganizationListParams 
 const listWithMockServerSorting = async (query: OrganizationQueryState): Promise<OrganizationListResponse> => {
   const filterParams: OrganizationListParams = {
     search: query.filters.search || undefined,
-    divisionCode: query.filters.divisionCode || undefined,
     categoryCode: query.filters.categoryCode || undefined
   };
 
   const response = await orgMockApi.getOrganizations(filterParams);
-  const sortedItems = sortOrganizations(response.data.items, query.sort);
+  const filteredItems = filterByDivision(response.data.items, query.filters.divisionCode);
+  const sortedItems = sortOrganizations(filteredItems, query.sort);
   const offset = query.pagination.page * query.pagination.pageSize;
   const limit = query.pagination.pageSize;
 
@@ -78,7 +85,7 @@ export const organizationService = {
   allowedCategoryNames: [...ALLOWED_CATEGORY_NAMES],
 
   async getOrganizations(query: OrganizationQueryState): Promise<OrganizationListResponse> {
-    if (query.sort.field === 'updated_date' && query.sort.direction === 'desc') {
+    if (query.sort.field === 'updated_date' && query.sort.direction === 'desc' && !query.filters.divisionCode) {
       const response = await orgMockApi.getOrganizations(buildListParams(query));
       return response.data;
     }
@@ -89,11 +96,10 @@ export const organizationService = {
   async getOrganizationsForExport(query: OrganizationQueryState): Promise<OrganizationRecord[]> {
     const response = await orgMockApi.getOrganizations({
       search: query.filters.search || undefined,
-      divisionCode: query.filters.divisionCode || undefined,
       categoryCode: query.filters.categoryCode || undefined
     });
 
-    return sortOrganizations(response.data.items, query.sort);
+    return sortOrganizations(filterByDivision(response.data.items, query.filters.divisionCode), query.sort);
   },
 
   async getOrganizationByCode(orgCode: string) {
@@ -118,25 +124,13 @@ export const organizationService = {
   },
 
   async getOrganizationDivisions(): Promise<OrganizationDivisionSummary[]> {
-    const response = await orgMockApi.getOrganizations();
+    const response = await orgMockApi.getOrganizationTree();
+    const divisions = response.data.map((organization) => ({
+      divisionCode: organization.org_division_name,
+      divisionName: organization.org_division_name,
+      count: 1
+    }));
 
-    const divisions = response.data.items.reduce<Map<string, OrganizationDivisionSummary>>((accumulator, organization) => {
-      const existing = accumulator.get(organization.org_division_code);
-
-      if (existing) {
-        existing.count += 1;
-        return accumulator;
-      }
-
-      accumulator.set(organization.org_division_code, {
-        divisionCode: organization.org_division_code,
-        divisionName: organization.org_division_name,
-        count: 1
-      });
-
-      return accumulator;
-    }, new Map());
-
-    return [...divisions.values()].sort((left, right) => compareText(left.divisionName, right.divisionName));
+    return divisions.sort((left, right) => compareText(left.divisionName, right.divisionName));
   }
 };

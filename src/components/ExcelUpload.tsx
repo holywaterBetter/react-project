@@ -34,10 +34,19 @@ export const ExcelUpload = ({ disabled = false, isLoading = false, onUpload }: E
         }}
       />
       <Button
-        variant="contained"
+        variant="outlined"
         onClick={() => inputRef.current?.click()}
         disabled={disabled || isLoading}
         startIcon={isLoading ? <CircularProgress size={16} color="inherit" /> : <UploadFileOutlined />}
+        sx={{
+          backgroundColor: 'var(--color-bg-surface)',
+          color: 'var(--color-fg-default)',
+          borderColor: 'var(--color-border-default)',
+          '&:hover': {
+            backgroundColor: 'var(--color-bg-subtle)',
+            borderColor: 'var(--color-border-strong)'
+          }
+        }}
       >
         엑셀 업로드
       </Button>

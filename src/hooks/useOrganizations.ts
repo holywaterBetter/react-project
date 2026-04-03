@@ -9,23 +9,14 @@ import type {
   OrganizationSortField,
   OrganizationUploadValidationError
 } from '@shared-types/org';
-import {
-  startTransition,
-  useCallback,
-  useDeferredValue,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type ChangeEvent
-} from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent } from 'react';
 
 const DEFAULT_PAGE_SIZE = 10;
 const SEARCH_DEBOUNCE_MS = 400;
 
 const filterUploadedRows = (rows: OrganizationRecord[], query: OrganizationQueryState) =>
   rows.filter((row) => {
-    if (query.filters.divisionCode && row.org_division_code !== query.filters.divisionCode) {
+    if (query.filters.divisionCode && row.org_division_name !== query.filters.divisionCode) {
       return false;
     }
 
@@ -46,7 +37,6 @@ const filterUploadedRows = (rows: OrganizationRecord[], query: OrganizationQuery
 
 export const useOrganizations = () => {
   const [searchInput, setSearchInput] = useState('');
-  const deferredSearchInput = useDeferredValue(searchInput);
   const [debouncedSearch, setDebouncedSearch] = useState('');
   const [divisionCode, setDivisionCode] = useState('');
   const [categoryCode, setCategoryCode] = useState('');
@@ -71,13 +61,13 @@ export const useOrganizations = () => {
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
-      setDebouncedSearch(deferredSearchInput.trim());
+      setDebouncedSearch(searchInput.trim());
     }, SEARCH_DEBOUNCE_MS);
 
     return () => {
       window.clearTimeout(timeoutId);
     };
-  }, [deferredSearchInput]);
+  }, [searchInput]);
 
   useEffect(() => {
     let isMounted = true;
@@ -104,7 +94,7 @@ export const useOrganizations = () => {
       }
     };
 
-    loadOptions();
+    void loadOptions();
 
     return () => {
       isMounted = false;
@@ -183,7 +173,7 @@ export const useOrganizations = () => {
       }
     };
 
-    loadOrganizations();
+    void loadOrganizations();
   }, [queryState, uploadedResult]);
 
   const resetPagination = useCallback(() => {
@@ -192,12 +182,8 @@ export const useOrganizations = () => {
 
   const handleSearchChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
-      const nextValue = event.target.value;
-
-      startTransition(() => {
-        setSearchInput(nextValue);
-        resetPagination();
-      });
+      setSearchInput(event.target.value);
+      resetPagination();
     },
     [resetPagination]
   );
@@ -275,7 +261,9 @@ export const useOrganizations = () => {
     setError(null);
 
     try {
-      const exportRows = uploadedRows ? sortOrganizations(filterUploadedRows(uploadedRows, queryState), queryState.sort) : await organizationService.getOrganizationsForExport(queryState);
+      const exportRows = uploadedRows
+        ? sortOrganizations(filterUploadedRows(uploadedRows, queryState), queryState.sort)
+        : await organizationService.getOrganizationsForExport(queryState);
 
       excelService.exportOrganizations(exportRows);
     } catch (exportError) {
