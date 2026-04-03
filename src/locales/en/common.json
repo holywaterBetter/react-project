@@ -175,7 +175,11 @@
     },
     "kpi": {
       "vsBaseline": "{{value}} vs baseline",
-      "noDelta": "No delta"
+      "noDelta": "No delta",
+      "currentHeadcount": "Current Headcount",
+      "targetGap": "Target Gap",
+      "targetAchievement": "Target Achievement",
+      "reallocationMovements": "Reallocation Movements"
     },
     "sections": {
       "trendTitle": "Headcount Trend vs Target Trajectory",

@@ -1,4 +1,8 @@
-import { organizationCategoryCodes, organizationCategoryMap, type OrganizationCategoryCode } from '@constants/organizationCategoryMap';
+import {
+  organizationCategoryCodes,
+  organizationCategoryMap,
+  type OrganizationCategoryCode
+} from '@constants/organizationCategoryMap';
 import {
   canSeeAllDivisions,
   DIVISION_INFOS,
@@ -21,7 +25,9 @@ import type { OrganizationRecord } from '@shared-types/org';
 const MOCK_DELAY_MS = 220;
 const PERIOD_KEYS = ['actual2025', 'target2026', 'current202604'] as const;
 const divisionCodeSet = new Set(DIVISION_INFOS.map((division) => division.code));
-const divisionCodeByName = new Map(DIVISION_INFOS.map((division) => [division.name, division.code]));
+const divisionCodeByName = new Map(
+  DIVISION_INFOS.map((division) => [division.name, division.code])
+);
 
 const periodMeta = {
   actual2025: { label: "'25 Actual" },
@@ -29,7 +35,10 @@ const periodMeta = {
   current202604: { label: '2026.04 Current' }
 } as const;
 
-const categoryMultipliers: Record<OrganizationCategoryCode, Record<(typeof PERIOD_KEYS)[number], number>> = {
+const categoryMultipliers: Record<
+  OrganizationCategoryCode,
+  Record<(typeof PERIOD_KEYS)[number], number>
+> = {
   A1: { actual2025: 1.04, current202604: 0.97, target2026: 0.92 },
   B1: { actual2025: 0.94, current202604: 1.08, target2026: 1.18 },
   B2: { actual2025: 0.95, current202604: 1.1, target2026: 1.22 },
@@ -37,7 +46,10 @@ const categoryMultipliers: Record<OrganizationCategoryCode, Record<(typeof PERIO
   C1: { actual2025: 0.92, current202604: 1.06, target2026: 1.12 }
 };
 
-const categoryReallocationFactors: Record<OrganizationCategoryCode, Record<(typeof PERIOD_KEYS)[number], number>> = {
+const categoryReallocationFactors: Record<
+  OrganizationCategoryCode,
+  Record<(typeof PERIOD_KEYS)[number], number>
+> = {
   A1: { actual2025: 0.05, current202604: 0.08, target2026: 0.11 },
   B1: { actual2025: 0.03, current202604: 0.05, target2026: 0.07 },
   B2: { actual2025: 0.04, current202604: 0.06, target2026: 0.08 },
@@ -45,12 +57,19 @@ const categoryReallocationFactors: Record<OrganizationCategoryCode, Record<(type
   C1: { actual2025: 0.03, current202604: 0.04, target2026: 0.06 }
 };
 
-const delay = async (ms = MOCK_DELAY_MS) => new Promise((resolve) => globalThis.setTimeout(resolve, ms));
+const delay = async (ms = MOCK_DELAY_MS) =>
+  new Promise((resolve) => globalThis.setTimeout(resolve, ms));
 
 const hashString = (value: string) =>
-  [...value].reduce((accumulator, character, index) => accumulator + character.charCodeAt(0) * (index + 17), 0);
+  [...value].reduce(
+    (accumulator, character, index) => accumulator + character.charCodeAt(0) * (index + 17),
+    0
+  );
 
-const createEmptyCategoryMetrics = (): Record<OrganizationCategoryCode, DashboardCategoryPeriodMap> =>
+const createEmptyCategoryMetrics = (): Record<
+  OrganizationCategoryCode,
+  DashboardCategoryPeriodMap
+> =>
   organizationCategoryCodes.reduce(
     (accumulator, categoryCode) => ({
       ...accumulator,
@@ -80,7 +99,10 @@ const addRecordMetrics = (
     const multiplier = categoryMultipliers[categoryCode][periodKey];
     const reallocationFactor = categoryReallocationFactors[categoryCode][periodKey];
 
-    metrics[categoryCode][periodKey].headcount += Math.max(1, Math.round(baseHeadcount * multiplier));
+    metrics[categoryCode][periodKey].headcount += Math.max(
+      1,
+      Math.round(baseHeadcount * multiplier)
+    );
     metrics[categoryCode][periodKey].reallocated += Math.max(
       0,
       Math.round(baseReallocation + baseHeadcount * reallocationFactor * 0.1)
@@ -88,7 +110,9 @@ const addRecordMetrics = (
   });
 };
 
-const getCanonicalDivisionCode = (record: Pick<OrganizationRecord, 'org_division_code' | 'org_division_name'>) => {
+const getCanonicalDivisionCode = (
+  record: Pick<OrganizationRecord, 'org_division_code' | 'org_division_name'>
+) => {
   if (divisionCodeSet.has(record.org_division_code)) {
     return record.org_division_code;
   }
@@ -123,7 +147,9 @@ const toDashboardEntry = (
 };
 
 const sortSections = (sections: OrganizationWorkforceDashboardEntry[]) =>
-  [...sections].sort((left, right) => left.orgDisplayName.localeCompare(right.orgDisplayName, 'ko'));
+  [...sections].sort((left, right) =>
+    left.orgDisplayName.localeCompare(right.orgDisplayName, 'ko')
+  );
 
 const aggregateSmallDivisionSections = (sections: OrganizationWorkforceDashboardEntry[]) => {
   const smallCodeSet = new Set<string>(SMALL_DIVISION_CODES);
@@ -146,7 +172,9 @@ const aggregateSmallDivisionSections = (sections: OrganizationWorkforceDashboard
 
       accumulator.sourceRecordCount += current.sourceRecordCount;
       accumulator.lastUpdated =
-        current.lastUpdated > accumulator.lastUpdated ? current.lastUpdated : accumulator.lastUpdated;
+        current.lastUpdated > accumulator.lastUpdated
+          ? current.lastUpdated
+          : accumulator.lastUpdated;
 
       return accumulator;
     },
@@ -168,24 +196,32 @@ const aggregateSmallDivisionSections = (sections: OrganizationWorkforceDashboard
 
 const buildDashboardEntries = async (user: DevUserMode) => {
   const scopedOrganizations = workforceRepository.getScopedOrganizations(user);
-  const divisionRecords = scopedOrganizations.reduce<Map<string, OrganizationRecord[]>>((map, record) => {
-    const divisionCode = getCanonicalDivisionCode(record);
-    const current = map.get(divisionCode) ?? [];
-    current.push(record);
-    map.set(divisionCode, current);
-    return map;
-  }, new Map());
+  const divisionRecords = scopedOrganizations.reduce<Map<string, OrganizationRecord[]>>(
+    (map, record) => {
+      const divisionCode = getCanonicalDivisionCode(record);
+      const current = map.get(divisionCode) ?? [];
+      current.push(record);
+      map.set(divisionCode, current);
+      return map;
+    },
+    new Map()
+  );
 
   const rawSections = sortSections(
     [...divisionRecords.entries()].map(([divisionCode, records]) => {
       const divisionRoot = records.find((record) => record.org_code === divisionCode);
       const divisionName =
-        divisionRoot?.org_name ?? getDivisionNameByCode(divisionCode) ?? records[0]?.org_division_name ?? divisionCode;
+        divisionRoot?.org_name ??
+        getDivisionNameByCode(divisionCode) ??
+        records[0]?.org_division_name ??
+        divisionCode;
 
       return toDashboardEntry(divisionCode, divisionName, records);
     })
   );
-  const sections = canSeeAllDivisions(user) ? aggregateSmallDivisionSections(rawSections) : rawSections;
+  const sections = canSeeAllDivisions(user)
+    ? aggregateSmallDivisionSections(rawSections)
+    : rawSections;
 
   if (!canSeeAllDivisions(user)) {
     return { sections, overallEntry: null };
@@ -203,14 +239,17 @@ const buildDashboardEntries = async (user: DevUserMode) => {
       });
 
       accumulator.sourceRecordCount += current.sourceRecordCount;
-      accumulator.lastUpdated = current.lastUpdated > accumulator.lastUpdated ? current.lastUpdated : accumulator.lastUpdated;
+      accumulator.lastUpdated =
+        current.lastUpdated > accumulator.lastUpdated
+          ? current.lastUpdated
+          : accumulator.lastUpdated;
 
       return accumulator;
     },
     {
       orgCode: 'ALL',
-      orgName: 'All Divisions',
-      orgDisplayName: 'All Divisions',
+      orgName: '전사',
+      orgDisplayName: 'All',
       sourceRecordCount: 0,
       lastUpdated: '',
       categoryMetrics: createEmptyCategoryMetrics()
@@ -229,9 +268,9 @@ const simulateResponse = async <T, TMeta>(
   if (simulateError) {
     return {
       success: false,
-      data: ([] as unknown) as T,
+      data: [] as unknown as T,
       message: 'Mock API error has been simulated.',
-      meta: ({} as unknown) as TMeta
+      meta: {} as unknown as TMeta
     };
   }
 
@@ -253,7 +292,9 @@ export const organizationWorkforceDashboardApi = {
     return simulateResponse(async () => {
       const { sections, overallEntry } = await buildDashboardEntries(user);
       const baseItems = overallEntry ? [overallEntry, ...sections] : sections;
-      const items = query?.orgCode ? baseItems.filter((section) => section.orgCode === query.orgCode) : baseItems;
+      const items = query?.orgCode
+        ? baseItems.filter((section) => section.orgCode === query.orgCode)
+        : baseItems;
 
       return {
         data: items,
@@ -269,7 +310,9 @@ export const organizationWorkforceDashboardApi = {
     user: DevUserMode,
     orgCode: string,
     query?: Pick<OrganizationWorkforceDashboardQuery, 'simulateError'>
-  ): Promise<DashboardApiResponse<OrganizationWorkforceDashboardEntry | null, { requestedOrgCode: string }>> {
+  ): Promise<
+    DashboardApiResponse<OrganizationWorkforceDashboardEntry | null, { requestedOrgCode: string }>
+  > {
     return simulateResponse(async () => {
       const { sections, overallEntry } = await buildDashboardEntries(user);
       const baseItems = overallEntry ? [overallEntry, ...sections] : sections;
@@ -277,7 +320,9 @@ export const organizationWorkforceDashboardApi = {
 
       return {
         data: target,
-        message: target ? 'Organization workforce dashboard detail fetched successfully.' : 'Organization dashboard entry not found.',
+        message: target
+          ? 'Organization workforce dashboard detail fetched successfully.'
+          : 'Organization dashboard entry not found.',
         meta: {
           requestedOrgCode: orgCode
         }
@@ -288,7 +333,9 @@ export const organizationWorkforceDashboardApi = {
   async getOrganizationWorkforceDashboardMeta(
     user: DevUserMode,
     query?: Pick<OrganizationWorkforceDashboardQuery, 'simulateError'>
-  ): Promise<DashboardApiResponse<OrganizationWorkforceDashboardMeta, { totalOrganizations: number }>> {
+  ): Promise<
+    DashboardApiResponse<OrganizationWorkforceDashboardMeta, { totalOrganizations: number }>
+  > {
     return simulateResponse(async () => {
       const { sections, overallEntry } = await buildDashboardEntries(user);
 

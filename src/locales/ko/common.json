@@ -132,7 +132,7 @@
     },
     "filters": {
       "division": "사업부",
-      "allDivisions": "전체 사업부",
+      "allDivisions": "전사",
       "baseMonth": "기준년월",
       "keyword": "키워드 검색",
       "keywordPlaceholder": "사업부명 또는 코드 검색"
@@ -175,7 +175,11 @@
     },
     "kpi": {
       "vsBaseline": "기준 대비 {{value}}",
-      "noDelta": "증감 없음"
+      "noDelta": "증감 없음",
+      "currentHeadcount": "현재 인원",
+      "targetGap": "목표 격차",
+      "targetAchievement": "목표 달성률",
+      "reallocationMovements": "재배치 이동"
     },
     "sections": {
       "trendTitle": "인력 추이 vs 목표 경로",

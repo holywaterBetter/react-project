@@ -1,4 +1,8 @@
-import { organizationCategoryMap, organizationCategoryCodes } from '@constants/organizationCategoryMap';
+import i18n from '@app/i18n';
+import {
+  organizationCategoryMap,
+  organizationCategoryCodes
+} from '@constants/organizationCategoryMap';
 import { DIVISION_NAME_EN_BY_CODE, SMALL_DIVISION_GROUP } from '@features/auth/types/devUserMode';
 import type {
   InsightCategoryDistribution,
@@ -14,7 +18,12 @@ import type {
 } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 import { isKoreanLanguage } from '@utils/localization';
 
-const sumForPeriod = (entry: OrganizationWorkforceDashboardEntry, period: 'actual2025' | 'current202604' | 'target2026') =>
+const getTranslator = (language: string) => i18n.getFixedT(language, 'common');
+
+const sumForPeriod = (
+  entry: OrganizationWorkforceDashboardEntry,
+  period: 'actual2025' | 'current202604' | 'target2026'
+) =>
   organizationCategoryCodes.reduce(
     (accumulator, categoryCode) => ({
       headcount: accumulator.headcount + entry.categoryMetrics[categoryCode][period].headcount,
@@ -24,12 +33,14 @@ const sumForPeriod = (entry: OrganizationWorkforceDashboardEntry, period: 'actua
   );
 
 const localizeOrgDisplayName = (orgCode: string, orgDisplayName: string, language: string) => {
-  if (isKoreanLanguage(language)) {
-    return orgDisplayName;
-  }
+  const t = getTranslator(language);
 
   if (orgCode === 'ALL') {
-    return 'All Divisions';
+    return t('workforceDashboard.filters.allDivisions');
+  }
+
+  if (isKoreanLanguage(language)) {
+    return orgDisplayName;
   }
 
   if (orgCode === SMALL_DIVISION_GROUP.code) {
@@ -39,17 +50,43 @@ const localizeOrgDisplayName = (orgCode: string, orgDisplayName: string, languag
   return DIVISION_NAME_EN_BY_CODE.get(orgCode) ?? orgDisplayName;
 };
 
-const buildKpis = (entry: OrganizationWorkforceDashboardEntry): InsightKpi[] => {
+const buildKpis = (entry: OrganizationWorkforceDashboardEntry, language: string): InsightKpi[] => {
+  const t = getTranslator(language);
   const actual = sumForPeriod(entry, 'actual2025');
   const current = sumForPeriod(entry, 'current202604');
   const target = sumForPeriod(entry, 'target2026');
   const targetAchievement = target.headcount > 0 ? (current.headcount / target.headcount) * 100 : 0;
 
   return [
-    { id: 'hc-current', label: 'Current Headcount', value: current.headcount, delta: current.headcount - actual.headcount, format: 'number' },
-    { id: 'hc-target-gap', label: 'Target Gap', value: target.headcount - current.headcount, delta: target.headcount - actual.headcount, format: 'number' },
-    { id: 'target-achievement', label: 'Target Achievement', value: targetAchievement, suffix: '%', delta: targetAchievement - 100, format: 'percent' },
-    { id: 'reallocated', label: 'Reallocation Movements', value: current.reallocated, delta: current.reallocated - actual.reallocated, format: 'number' }
+    {
+      id: 'hc-current',
+      label: t('insight.kpi.currentHeadcount'),
+      value: current.headcount,
+      delta: current.headcount - actual.headcount,
+      format: 'number'
+    },
+    {
+      id: 'hc-target-gap',
+      label: t('insight.kpi.targetGap'),
+      value: target.headcount - current.headcount,
+      delta: target.headcount - actual.headcount,
+      format: 'number'
+    },
+    {
+      id: 'target-achievement',
+      label: t('insight.kpi.targetAchievement'),
+      value: targetAchievement,
+      suffix: '%',
+      delta: targetAchievement - 100,
+      format: 'percent'
+    },
+    {
+      id: 'reallocated',
+      label: t('insight.kpi.reallocationMovements'),
+      value: current.reallocated,
+      delta: current.reallocated - actual.reallocated,
+      format: 'number'
+    }
   ];
 };
 
@@ -62,7 +99,10 @@ const monthShift = (baseMonth: string, offset: number) => {
   return `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, '0')}`;
 };
 
-const buildTrend = (entry: OrganizationWorkforceDashboardEntry, baseMonth: string): InsightTrendPoint[] => {
+const buildTrend = (
+  entry: OrganizationWorkforceDashboardEntry,
+  baseMonth: string
+): InsightTrendPoint[] => {
   const actual = sumForPeriod(entry, 'actual2025').headcount;
   const current = sumForPeriod(entry, 'current202604').headcount;
   const target = sumForPeriod(entry, 'target2026').headcount;
@@ -77,7 +117,10 @@ const buildTrend = (entry: OrganizationWorkforceDashboardEntry, baseMonth: strin
   });
 };
 
-const buildDivisionComposition = (entries: OrganizationWorkforceDashboardEntry[], language: string): InsightDivisionComposition[] =>
+const buildDivisionComposition = (
+  entries: OrganizationWorkforceDashboardEntry[],
+  language: string
+): InsightDivisionComposition[] =>
   entries
     .filter((entry) => entry.orgCode !== 'ALL')
     .map((entry) => {
@@ -88,27 +131,38 @@ const buildDivisionComposition = (entries: OrganizationWorkforceDashboardEntry[]
         orgName: localizeOrgDisplayName(entry.orgCode, entry.orgDisplayName, language),
         totalHeadcount: current.headcount,
         growthVsActual: current.headcount - actual.headcount,
-        reallocatedRatio: current.headcount > 0 ? (current.reallocated / current.headcount) * 100 : 0
+        reallocatedRatio:
+          current.headcount > 0 ? (current.reallocated / current.headcount) * 100 : 0
       };
     })
     .sort((left, right) => right.totalHeadcount - left.totalHeadcount);
 
-const buildCategoryDistribution = (entry: OrganizationWorkforceDashboardEntry, language: string): InsightCategoryDistribution[] => {
+const buildCategoryDistribution = (
+  entry: OrganizationWorkforceDashboardEntry,
+  language: string
+): InsightCategoryDistribution[] => {
   const total = sumForPeriod(entry, 'current202604').headcount;
   return organizationCategoryCodes.map((code) => {
     const headcount = entry.categoryMetrics[code].current202604.headcount;
     return {
       code,
-      label: isKoreanLanguage(language) ? organizationCategoryMap[code].dashboardLabel : organizationCategoryMap[code].displayLabel,
+      label: isKoreanLanguage(language)
+        ? organizationCategoryMap[code].dashboardLabel
+        : organizationCategoryMap[code].displayLabel,
       headcount,
       ratio: total > 0 ? (headcount / total) * 100 : 0
     };
   });
 };
 
-const buildStackedSeries = (entry: OrganizationWorkforceDashboardEntry, language: string): InsightStackedBarItem[] =>
+const buildStackedSeries = (
+  entry: OrganizationWorkforceDashboardEntry,
+  language: string
+): InsightStackedBarItem[] =>
   organizationCategoryCodes.map((code) => ({
-    label: isKoreanLanguage(language) ? organizationCategoryMap[code].dashboardLabel : organizationCategoryMap[code].displayLabel,
+    label: isKoreanLanguage(language)
+      ? organizationCategoryMap[code].dashboardLabel
+      : organizationCategoryMap[code].displayLabel,
     actual: entry.categoryMetrics[code].actual2025.headcount,
     current: entry.categoryMetrics[code].current202604.headcount,
     target: entry.categoryMetrics[code].target2026.headcount
@@ -128,7 +182,10 @@ export const mapToWorkforceInsightData = (
     availableMonths: meta.availableSnapshotMonths,
     organizationOptions: hasOverallEntry
       ? [
-          { orgCode: 'ALL', orgDisplayName: localizeOrgDisplayName('ALL', 'All Divisions', language) },
+          {
+            orgCode: 'ALL',
+            orgDisplayName: localizeOrgDisplayName('ALL', 'All Divisions', language)
+          },
           ...meta.organizationOptions.map((option) => ({
             ...option,
             orgDisplayName: localizeOrgDisplayName(option.orgCode, option.orgDisplayName, language)
@@ -138,9 +195,13 @@ export const mapToWorkforceInsightData = (
           ...option,
           orgDisplayName: localizeOrgDisplayName(option.orgCode, option.orgDisplayName, language)
         })),
-    selectedOrgLabel: localizeOrgDisplayName(selectedEntry.orgCode, selectedEntry.orgDisplayName, language),
+    selectedOrgLabel: localizeOrgDisplayName(
+      selectedEntry.orgCode,
+      selectedEntry.orgDisplayName,
+      language
+    ),
     lastUpdated: selectedEntry.lastUpdated,
-    kpis: buildKpis(selectedEntry),
+    kpis: buildKpis(selectedEntry, language),
     trends: buildTrend(selectedEntry, meta.baseMonth),
     divisionComposition: buildDivisionComposition(entries, language),
     categoryDistribution: buildCategoryDistribution(selectedEntry, language),
