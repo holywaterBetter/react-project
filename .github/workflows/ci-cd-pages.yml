@@ -44,14 +44,12 @@ jobs:
         run: npm run build
 
       - name: Upload Pages artifact
-        if: github.event_name == 'push'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
 
   deploy:
     name: Deploy to GitHub Pages
-    if: github.event_name == 'push'
     needs: validate
     environment:
       name: github-pages
