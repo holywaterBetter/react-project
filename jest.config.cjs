@@ -20,6 +20,8 @@ module.exports = {
     '^@shared-types/(.*)$': '<rootDir>/src/types/$1',
     '^@locales/(.*)$': '<rootDir>/src/locales/$1',
     '^@styles/(.*)$': '<rootDir>/src/styles/$1',
+    '^@theme/(.*)$': '<rootDir>/src/theme/$1',
+    '^@theme$': '<rootDir>/src/theme/index.ts',
     '^.+\\.(css|less|sass|scss)$': 'identity-obj-proxy'
   },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],

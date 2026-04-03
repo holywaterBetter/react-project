@@ -108,6 +108,16 @@ Environment files are loaded in this precedence order:
 - **Routing** uses `createHashRouter` to avoid GitHub Pages refresh 404 issues out of the box.
 - **Webpack** is split into common/dev/prod for maintainability and practical enterprise extension.
 
+## Theme Architecture
+
+- **Single source of truth**: all design decisions start in `src/styles/global.css`, where CSS variables define primitives and semantic tokens for light and dark mode.
+- **Typed token contract**: `src/theme/tokens.ts` exposes the token names used by the app so MUI theme creation stays aligned with the CSS variable contract.
+- **MUI integration**: `src/theme/createAppTheme.ts` maps CSS variables into the MUI palette, typography, spacing, radius, shadows, z-index, and component overrides.
+- **Runtime mode control**: `src/theme/AppThemeProvider.tsx` owns light/dark state, persists the user choice, and updates the `data-theme` attribute on `<html>`.
+- **Initialization**: `src/theme/themeMode.ts` applies the preferred mode before the React tree renders to reduce theme flash.
+- **Tailwind integration**: `tailwind.config.cjs` points utility classes such as `bg-surface`, `text-ink-muted`, and `border-line` at the same CSS variables used by MUI.
+- **Example usage**: `src/pages/HomePage.tsx` and `src/components/DemoStatusCard.tsx` show the shared theme working across page layout, cards, buttons, and text fields.
+
 ## GitHub Actions & GitHub Pages
 
 Workflow file: `.github/workflows/ci-cd-pages.yml`

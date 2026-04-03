@@ -1,5 +1,219 @@
 @import 'tailwindcss';
 
+:root {
+  --font-family-sans:
+    'Pretendard', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', system-ui, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+
+  --space-unit: 0.25rem;
+  --space-0: 0;
+  --space-1: calc(var(--space-unit) * 1);
+  --space-2: calc(var(--space-unit) * 2);
+  --space-3: calc(var(--space-unit) * 3);
+  --space-4: calc(var(--space-unit) * 4);
+  --space-5: calc(var(--space-unit) * 5);
+  --space-6: calc(var(--space-unit) * 6);
+  --space-8: calc(var(--space-unit) * 8);
+  --space-10: calc(var(--space-unit) * 10);
+  --space-12: calc(var(--space-unit) * 12);
+  --space-16: calc(var(--space-unit) * 16);
+  --space-20: calc(var(--space-unit) * 20);
+  --space-24: calc(var(--space-unit) * 24);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
+  --radius-full: 9999px;
+
+  --shadow-xs: 0 1px 2px rgb(15 23 42 / 0.06);
+  --shadow-sm: 0 4px 10px rgb(15 23 42 / 0.06);
+  --shadow-md: 0 10px 24px rgb(15 23 42 / 0.08);
+  --shadow-lg: 0 18px 38px rgb(15 23 42 / 0.12);
+  --shadow-xl: 0 28px 60px rgb(15 23 42 / 0.16);
+
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-app-bar: 1100;
+  --z-drawer: 1200;
+  --z-modal: 1300;
+  --z-toast: 1400;
+  --z-tooltip: 1500;
+}
+
+:root,
+:root[data-theme='light'] {
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-800: #1e40af;
+  --color-brand-900: #1e3a8a;
+
+  --color-gray-0: #ffffff;
+  --color-gray-25: #fcfdff;
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #94a3b8;
+  --color-gray-500: #64748b;
+  --color-gray-600: #475569;
+  --color-gray-700: #334155;
+  --color-gray-800: #1e293b;
+  --color-gray-900: #0f172a;
+  --color-gray-950: #020617;
+
+  --color-bg-canvas: #f8fafc;
+  --color-bg-surface: #ffffff;
+  --color-bg-raised: #fcfdff;
+  --color-bg-inverse: #0f172a;
+
+  --color-fg-default: #0f172a;
+  --color-fg-muted: #475569;
+  --color-fg-subtle: #64748b;
+  --color-fg-inverse: #f8fafc;
+
+  --color-border-default: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-border-focus: #2563eb;
+
+  --color-status-success: #15803d;
+  --color-status-warning: #b45309;
+  --color-status-error: #b91c1c;
+  --color-status-info: #2563eb;
+}
+
+:root[data-theme='dark'] {
+  --color-brand-50: #0b1220;
+  --color-brand-100: #11203a;
+  --color-brand-200: #17305a;
+  --color-brand-300: #1c437a;
+  --color-brand-400: #24579c;
+  --color-brand-500: #2d6dc0;
+  --color-brand-600: #5b9aff;
+  --color-brand-700: #81b1ff;
+  --color-brand-800: #a6c8ff;
+  --color-brand-900: #d4e5ff;
+
+  --color-gray-0: #0b1220;
+  --color-gray-25: #0f172a;
+  --color-gray-50: #111827;
+  --color-gray-100: #172033;
+  --color-gray-200: #22304a;
+  --color-gray-300: #31425e;
+  --color-gray-400: #4f6381;
+  --color-gray-500: #7d8da5;
+  --color-gray-600: #94a3b8;
+  --color-gray-700: #cbd5e1;
+  --color-gray-800: #e2e8f0;
+  --color-gray-900: #f1f5f9;
+  --color-gray-950: #f8fafc;
+
+  --color-bg-canvas: #0f172a;
+  --color-bg-surface: #111827;
+  --color-bg-raised: #172033;
+  --color-bg-inverse: #e2e8f0;
+
+  --color-fg-default: #e5edf7;
+  --color-fg-muted: #b4c0d3;
+  --color-fg-subtle: #94a3b8;
+  --color-fg-inverse: #0f172a;
+
+  --color-border-default: #22304a;
+  --color-border-strong: #31425e;
+  --color-border-focus: #5b9aff;
+
+  --color-status-success: #4ade80;
+  --color-status-warning: #fbbf24;
+  --color-status-error: #f87171;
+  --color-status-info: #60a5fa;
+}
+
+@theme inline {
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-200: var(--color-brand-200);
+  --color-brand-300: var(--color-brand-300);
+  --color-brand-400: var(--color-brand-400);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+  --color-brand-800: var(--color-brand-800);
+  --color-brand-900: var(--color-brand-900);
+  --color-canvas: var(--color-bg-canvas);
+  --color-surface: var(--color-bg-surface);
+  --color-surface-raised: var(--color-bg-raised);
+  --color-ink: var(--color-fg-default);
+  --color-ink-muted: var(--color-fg-muted);
+  --color-ink-subtle: var(--color-fg-subtle);
+  --color-line: var(--color-border-default);
+  --color-line-strong: var(--color-border-strong);
+  --font-sans: var(--font-family-sans);
+  --shadow-card: var(--shadow-sm);
+  --radius-card: var(--radius-xl);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  background-color: var(--color-bg-canvas);
+}
+
+html[data-theme='dark'] {
+  color-scheme: dark;
+}
+
 body {
-  font-family: 'Inter', 'Noto Sans KR', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-relaxed);
+  background:
+    radial-gradient(circle at top, rgb(37 99 235 / 0.08), transparent 28%),
+    linear-gradient(180deg, var(--color-bg-canvas) 0%, var(--color-bg-canvas) 100%);
+  color: var(--color-fg-default);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
 }

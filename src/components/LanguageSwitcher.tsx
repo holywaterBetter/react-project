@@ -1,7 +1,6 @@
 import { useAppTranslation } from '@hooks/useAppTranslation';
 import { MenuItem, TextField } from '@mui/material';
 
-
 export const LanguageSwitcher = () => {
   const { i18n } = useAppTranslation();
 
@@ -14,7 +13,7 @@ export const LanguageSwitcher = () => {
       onChange={(event) => {
         void i18n.changeLanguage(event.target.value);
       }}
-      sx={{ minWidth: 110, bgcolor: 'white', borderRadius: 1 }}
+      sx={{ minWidth: 120 }}
       aria-label="language-switcher"
     >
       <MenuItem value="en">English</MenuItem>
