@@ -4,12 +4,12 @@ const dotenv = require('dotenv');
 
 function loadEnv(mode) {
   const root = path.resolve(__dirname, '..');
-  const files = [`.env.${mode}.local`, `.env.${mode}`, '.env.local', '.env'];
+  const files = ['.env', '.env.local', `.env.${mode}`, `.env.${mode}.local`];
 
   files.forEach((file) => {
     const envPath = path.join(root, file);
     if (fs.existsSync(envPath)) {
-      dotenv.config({ path: envPath, override: true });
+      dotenv.config({ path: envPath });
     }
   });
 

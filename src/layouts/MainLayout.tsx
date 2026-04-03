@@ -20,6 +20,9 @@ export const MainLayout = () => {
           <Button component={RouterLink} to="/about" color="inherit">
             About
           </Button>
+          <Button component={RouterLink} to="/organizations" color="inherit">
+            Organizations
+          </Button>
           <LanguageSwitcher />
           <IconButton color="inherit" onClick={toggleMode} aria-label="toggle-theme-mode">
             {mode === 'light' ? <Brightness4 /> : <Brightness7 />}

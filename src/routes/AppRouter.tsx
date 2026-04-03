@@ -3,6 +3,7 @@ import { MainLayout } from '@layouts/MainLayout';
 import { AboutPage } from '@pages/AboutPage';
 import { HomePage } from '@pages/HomePage';
 import { NotFoundPage } from '@pages/NotFoundPage';
+import { OrganizationSelectionPage } from '@pages/OrganizationSelectionPage';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 
 const router = createHashRouter([
@@ -17,6 +18,10 @@ const router = createHashRouter([
       {
         path: 'about',
         element: <AboutPage />
+      },
+      {
+        path: 'organizations',
+        element: <OrganizationSelectionPage />
       },
       {
         path: '*',
