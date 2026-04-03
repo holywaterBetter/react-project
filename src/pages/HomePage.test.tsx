@@ -14,6 +14,6 @@ describe('HomePage', () => {
       </AppThemeProvider>
     );
 
-    expect(screen.getByText('Workforce Insight Hub')).toBeInTheDocument();
+    expect(screen.getByText('인력 인사이트 허브')).toBeInTheDocument();
   });
 });
