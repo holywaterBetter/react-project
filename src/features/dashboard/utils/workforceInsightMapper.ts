@@ -7,7 +7,10 @@ import type {
   InsightTrendPoint,
   WorkforceInsightData
 } from '@features/dashboard/types/workforceInsight';
-import type { OrganizationWorkforceDashboardEntry, OrganizationWorkforceDashboardMeta } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
+import type {
+  OrganizationWorkforceDashboardEntry,
+  OrganizationWorkforceDashboardMeta
+} from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 
 const sumForPeriod = (entry: OrganizationWorkforceDashboardEntry, period: 'actual2025' | 'current202604' | 'target2026') =>
   organizationCategoryCodes.reduce(
@@ -136,10 +139,13 @@ export const mapToWorkforceInsightData = (
 ): WorkforceInsightData => {
   const fallback = entries.find((entry) => entry.orgCode === 'ALL') ?? entries[0];
   const selectedEntry = entries.find((entry) => entry.orgCode === selectedOrgCode) ?? fallback;
+  const hasOverallEntry = entries.some((entry) => entry.orgCode === 'ALL');
 
   return {
     availableMonths: meta.availableSnapshotMonths,
-    organizationOptions: [{ orgCode: 'ALL', orgDisplayName: 'All Divisions' }, ...meta.organizationOptions],
+    organizationOptions: hasOverallEntry
+      ? [{ orgCode: 'ALL', orgDisplayName: 'All Divisions' }, ...meta.organizationOptions]
+      : meta.organizationOptions,
     selectedOrgLabel: selectedEntry.orgDisplayName,
     lastUpdated: selectedEntry.lastUpdated,
     kpis: buildKpis(selectedEntry),

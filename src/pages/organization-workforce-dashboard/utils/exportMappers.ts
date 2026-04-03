@@ -1,13 +1,13 @@
+import type {
+  DashboardTableRow,
+  DashboardTableSection
+} from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 import {
   formatDateLabel,
   formatHeadcount,
   formatPercent,
   formatSignedHeadcount
 } from '@pages/organization-workforce-dashboard/utils/dashboardFormatters';
-import type {
-  DashboardTableRow,
-  DashboardTableSection
-} from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 import type { ColInfo, Range, RowInfo } from 'xlsx';
 
 const REPORT_TITLE = '조직별 인력현황 및 재배치 실적 대시보드(안)';

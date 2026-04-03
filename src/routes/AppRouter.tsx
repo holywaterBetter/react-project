@@ -3,6 +3,8 @@ import { MainLayout } from '@layouts/MainLayout';
 import { AboutPage } from '@pages/AboutPage';
 import { HomePage } from '@pages/HomePage';
 import { NotFoundPage } from '@pages/NotFoundPage';
+import { OrganizationApprovalDetailPage } from '@pages/organization-approval/OrganizationApprovalDetailPage';
+import { OrganizationApprovalListPage } from '@pages/organization-approval/OrganizationApprovalListPage';
 import { OrganizationWorkforceDashboardPage } from '@pages/organization-workforce-dashboard/OrganizationWorkforceDashboardPage';
 import { OrganizationWorkforceInsightPage } from '@pages/organization-workforce-insight/OrganizationWorkforceInsightPage';
 import { OrganizationSelectionPage } from '@pages/OrganizationSelectionPage';
@@ -32,6 +34,14 @@ const router = createHashRouter([
       {
         path: 'organization/workforce-insight',
         element: <OrganizationWorkforceInsightPage />
+      },
+      {
+        path: 'organization/approval',
+        element: <OrganizationApprovalListPage />
+      },
+      {
+        path: 'organization/approval/:id',
+        element: <OrganizationApprovalDetailPage />
       },
       {
         path: '*',

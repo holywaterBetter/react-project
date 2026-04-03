@@ -1,8 +1,8 @@
+import type { DashboardTableRow, DashboardTableSection } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 import {
   buildOrganizationWorkforceDashboardExportModel,
   type OrganizationWorkforceDashboardExportFilters
 } from '@pages/organization-workforce-dashboard/utils/exportMappers';
-import type { DashboardTableRow, DashboardTableSection } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
 import * as XLSX from 'xlsx';
 
 type ExportOrganizationWorkforceDashboardExcelParams = {

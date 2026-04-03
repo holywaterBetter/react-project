@@ -1,5 +1,5 @@
-import { orgMockApi } from '@api/orgMockApi';
 import { organizationCategoryCodes, organizationCategoryMap, type OrganizationCategoryCode } from '@constants/organizationCategoryMap';
+import { canSeeAllDivisions, type DevUserMode } from '@features/auth/types/devUserMode';
 import type {
   DashboardApiResponse,
   DashboardCategoryPeriodMap,
@@ -8,72 +8,32 @@ import type {
   OrganizationWorkforceDashboardMeta,
   OrganizationWorkforceDashboardQuery
 } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
+import { workforceRepository } from '@services/workforceRepository';
 import type { OrganizationTreeNode } from '@shared-types/org';
 
-const MOCK_DELAY_MS = 420;
-
+const MOCK_DELAY_MS = 220;
 const PERIOD_KEYS = ['actual2025', 'target2026', 'current202604'] as const;
 
 const periodMeta = {
-  actual2025: { label: "'25년말 실적" },
-  target2026: { label: "'26년말 목표" },
-  current202604: { label: "'26.4월 현재 실적" }
+  actual2025: { label: "'25 Actual" },
+  target2026: { label: "'26 Target" },
+  current202604: { label: '2026.04 Current' }
 } as const;
 
 const categoryMultipliers: Record<OrganizationCategoryCode, Record<(typeof PERIOD_KEYS)[number], number>> = {
-  A1: {
-    actual2025: 1.04,
-    current202604: 0.97,
-    target2026: 0.92
-  },
-  B1: {
-    actual2025: 0.94,
-    current202604: 1.08,
-    target2026: 1.18
-  },
-  B2: {
-    actual2025: 0.95,
-    current202604: 1.1,
-    target2026: 1.22
-  },
-  B3: {
-    actual2025: 0.9,
-    current202604: 1.14,
-    target2026: 1.28
-  },
-  C1: {
-    actual2025: 0.92,
-    current202604: 1.06,
-    target2026: 1.12
-  }
+  A1: { actual2025: 1.04, current202604: 0.97, target2026: 0.92 },
+  B1: { actual2025: 0.94, current202604: 1.08, target2026: 1.18 },
+  B2: { actual2025: 0.95, current202604: 1.1, target2026: 1.22 },
+  B3: { actual2025: 0.9, current202604: 1.14, target2026: 1.28 },
+  C1: { actual2025: 0.92, current202604: 1.06, target2026: 1.12 }
 };
 
 const categoryReallocationFactors: Record<OrganizationCategoryCode, Record<(typeof PERIOD_KEYS)[number], number>> = {
-  A1: {
-    actual2025: 0.05,
-    current202604: 0.08,
-    target2026: 0.11
-  },
-  B1: {
-    actual2025: 0.03,
-    current202604: 0.05,
-    target2026: 0.07
-  },
-  B2: {
-    actual2025: 0.04,
-    current202604: 0.06,
-    target2026: 0.08
-  },
-  B3: {
-    actual2025: 0.05,
-    current202604: 0.07,
-    target2026: 0.09
-  },
-  C1: {
-    actual2025: 0.03,
-    current202604: 0.04,
-    target2026: 0.06
-  }
+  A1: { actual2025: 0.05, current202604: 0.08, target2026: 0.11 },
+  B1: { actual2025: 0.03, current202604: 0.05, target2026: 0.07 },
+  B2: { actual2025: 0.04, current202604: 0.06, target2026: 0.08 },
+  B3: { actual2025: 0.05, current202604: 0.07, target2026: 0.09 },
+  C1: { actual2025: 0.03, current202604: 0.04, target2026: 0.06 }
 };
 
 const delay = async (ms = MOCK_DELAY_MS) => new Promise((resolve) => globalThis.setTimeout(resolve, ms));
@@ -81,19 +41,7 @@ const delay = async (ms = MOCK_DELAY_MS) => new Promise((resolve) => globalThis.
 const hashString = (value: string) =>
   [...value].reduce((accumulator, character, index) => accumulator + character.charCodeAt(0) * (index + 17), 0);
 
-const toDisplayName = (name: string, fallbackCode: string) => {
-  const asciiMatch = name.match(/[A-Za-z]+(?:\/[A-Za-z]+)?/);
-  if (asciiMatch) {
-    return asciiMatch[0];
-  }
-
-  return fallbackCode;
-};
-
-const flattenTree = (node: OrganizationTreeNode): OrganizationTreeNode[] => [
-  node,
-  ...node.children.flatMap((child) => flattenTree(child))
-];
+const flattenTree = (node: OrganizationTreeNode): OrganizationTreeNode[] => [node, ...node.children.flatMap(flattenTree)];
 
 const createEmptyCategoryMetrics = (): Record<OrganizationCategoryCode, DashboardCategoryPeriodMap> =>
   organizationCategoryCodes.reduce(
@@ -113,6 +61,7 @@ const addRecordMetrics = (
   record: OrganizationTreeNode
 ) => {
   const categoryCode = record.org_category_code as OrganizationCategoryCode;
+
   if (!organizationCategoryCodes.includes(categoryCode)) {
     return;
   }
@@ -140,27 +89,35 @@ const toDashboardEntry = (node: OrganizationTreeNode): OrganizationWorkforceDash
     addRecordMetrics(categoryMetrics, record);
   });
 
-  const lastUpdated = allNodes.reduce((latest, current) => (current.updated_date > latest ? current.updated_date : latest), node.updated_date);
+  const lastUpdated = allNodes.reduce(
+    (latest, current) => (current.updated_date > latest ? current.updated_date : latest),
+    node.updated_date
+  );
 
   return {
     orgCode: node.org_code,
     orgName: node.org_name,
-    orgDisplayName: toDisplayName(node.org_name, node.org_code),
+    orgDisplayName: node.org_name,
     sourceRecordCount: allNodes.length,
     lastUpdated,
     categoryMetrics
   };
 };
 
-const buildDashboardEntries = async () => {
-  const treeResponse = await orgMockApi.getOrganizationTree();
-  const sections = treeResponse.data.map(toDashboardEntry);
+const buildDashboardEntries = async (user: DevUserMode) => {
+  const tree = workforceRepository.getOrganizationTree(user);
+  const sections = tree.map(toDashboardEntry);
+
+  if (!canSeeAllDivisions(user)) {
+    return { sections, overallEntry: null };
+  }
 
   const overallEntry = sections.reduce<OrganizationWorkforceDashboardEntry>(
     (accumulator, current) => {
       organizationCategoryCodes.forEach((categoryCode) => {
         PERIOD_KEYS.forEach((periodKey) => {
-          accumulator.categoryMetrics[categoryCode][periodKey].headcount += current.categoryMetrics[categoryCode][periodKey].headcount;
+          accumulator.categoryMetrics[categoryCode][periodKey].headcount +=
+            current.categoryMetrics[categoryCode][periodKey].headcount;
           accumulator.categoryMetrics[categoryCode][periodKey].reallocated +=
             current.categoryMetrics[categoryCode][periodKey].reallocated;
         });
@@ -173,18 +130,15 @@ const buildDashboardEntries = async () => {
     },
     {
       orgCode: 'ALL',
-      orgName: '전사',
-      orgDisplayName: '전사',
+      orgName: 'All Divisions',
+      orgDisplayName: 'All Divisions',
       sourceRecordCount: 0,
       lastUpdated: '',
       categoryMetrics: createEmptyCategoryMetrics()
     }
   );
 
-  return {
-    sections,
-    overallEntry
-  };
+  return { sections, overallEntry };
 };
 
 const simulateResponse = async <T, TMeta>(
@@ -214,11 +168,13 @@ const simulateResponse = async <T, TMeta>(
 
 export const organizationWorkforceDashboardApi = {
   async getOrganizationWorkforceDashboardList(
+    user: DevUserMode,
     query?: OrganizationWorkforceDashboardQuery
   ): Promise<DashboardApiResponse<OrganizationWorkforceDashboardEntry[], { totalCount: number }>> {
     return simulateResponse(async () => {
-      const { sections, overallEntry } = await buildDashboardEntries();
-      const items = query?.orgCode ? sections.filter((section) => section.orgCode === query.orgCode) : [overallEntry, ...sections];
+      const { sections, overallEntry } = await buildDashboardEntries(user);
+      const baseItems = overallEntry ? [overallEntry, ...sections] : sections;
+      const items = query?.orgCode ? baseItems.filter((section) => section.orgCode === query.orgCode) : baseItems;
 
       return {
         data: items,
@@ -231,12 +187,14 @@ export const organizationWorkforceDashboardApi = {
   },
 
   async getOrganizationWorkforceDashboardByOrg(
+    user: DevUserMode,
     orgCode: string,
     query?: Pick<OrganizationWorkforceDashboardQuery, 'simulateError'>
   ): Promise<DashboardApiResponse<OrganizationWorkforceDashboardEntry | null, { requestedOrgCode: string }>> {
     return simulateResponse(async () => {
-      const { sections, overallEntry } = await buildDashboardEntries();
-      const target = orgCode === 'ALL' ? overallEntry : sections.find((section) => section.orgCode === orgCode) ?? null;
+      const { sections, overallEntry } = await buildDashboardEntries(user);
+      const baseItems = overallEntry ? [overallEntry, ...sections] : sections;
+      const target = baseItems.find((section) => section.orgCode === orgCode) ?? null;
 
       return {
         data: target,
@@ -249,10 +207,11 @@ export const organizationWorkforceDashboardApi = {
   },
 
   async getOrganizationWorkforceDashboardMeta(
+    user: DevUserMode,
     query?: Pick<OrganizationWorkforceDashboardQuery, 'simulateError'>
   ): Promise<DashboardApiResponse<OrganizationWorkforceDashboardMeta, { totalOrganizations: number }>> {
     return simulateResponse(async () => {
-      const { sections, overallEntry } = await buildDashboardEntries();
+      const { sections, overallEntry } = await buildDashboardEntries(user);
 
       return {
         data: {
@@ -260,7 +219,7 @@ export const organizationWorkforceDashboardApi = {
           compareLabel: periodMeta.actual2025.label,
           currentLabel: periodMeta.current202604.label,
           targetLabel: periodMeta.target2026.label,
-          lastUpdated: overallEntry.lastUpdated,
+          lastUpdated: overallEntry?.lastUpdated ?? sections[0]?.lastUpdated ?? '',
           availableSnapshotMonths: ['2026.04'],
           organizationOptions: sections.map((section) => ({
             orgCode: section.orgCode,

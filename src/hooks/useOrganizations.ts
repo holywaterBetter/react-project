@@ -1,5 +1,9 @@
+import { useDevUserMode } from '@features/auth/context/DevUserModeContext';
+import { canSeeAllDivisions } from '@features/auth/types/devUserMode';
+import { approvalService } from '@services/approvalService';
 import { excelService } from '@services/excelService';
-import { organizationService, sortOrganizations } from '@services/organizationService';
+import { organizationService } from '@services/organizationService';
+import { useWorkforceRepositoryVersion } from '@services/workforceRepository';
 import type {
   OrganizationCategorySummary,
   OrganizationDivisionSummary,
@@ -14,77 +18,12 @@ import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent } f
 const DEFAULT_PAGE_SIZE = 10;
 const SEARCH_DEBOUNCE_MS = 400;
 
-const FULL_DATA_QUERY: OrganizationQueryState = {
-  filters: {
-    search: '',
-    divisionCode: '',
-    categoryCode: ''
-  },
-  pagination: {
-    page: 0,
-    pageSize: 5000
-  },
-  sort: {
-    field: 'updated_date',
-    direction: 'desc'
-  }
-};
-
-const filterUploadedRows = (rows: OrganizationRecord[], query: OrganizationQueryState) =>
-  rows.filter((row) => {
-    if (query.filters.divisionCode && row.org_division_name !== query.filters.divisionCode) {
-      return false;
-    }
-
-    if (query.filters.categoryCode && row.org_category_code !== query.filters.categoryCode) {
-      return false;
-    }
-
-    if (!query.filters.search) {
-      return true;
-    }
-
-    const keyword = query.filters.search.toLowerCase();
-
-    return [row.org_name, row.org_code, row.org_division_name, row.org_category_name].some((value) =>
-      value.toLowerCase().includes(keyword)
-    );
-  });
-
-const buildHierarchyByCode = (rows: OrganizationRecord[]) => {
-  const organizationByCode = new Map(rows.map((row) => [row.org_code, row]));
-
-  return rows.reduce<Record<string, string>>((accumulator, row) => {
-    const lineageNames: string[] = [];
-    const visitedCodes = new Set<string>();
-    let currentCode = row.org_code;
-
-    while (currentCode && !visitedCodes.has(currentCode)) {
-      visitedCodes.add(currentCode);
-
-      const currentOrganization = organizationByCode.get(currentCode);
-
-      if (!currentOrganization) {
-        break;
-      }
-
-      if (currentOrganization.org_code === row.org_division_code) {
-        break;
-      }
-
-      lineageNames.push(currentOrganization.org_name);
-      currentCode = currentOrganization.upper_org_code;
-    }
-
-    accumulator[row.org_code] = lineageNames.reverse().join(' > ');
-    return accumulator;
-  }, {});
-};
-
 export const useOrganizations = () => {
+  const { activeUser } = useDevUserMode();
+  const repositoryVersion = useWorkforceRepositoryVersion();
   const [searchInput, setSearchInput] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState('');
-  const [divisionCode, setDivisionCode] = useState('');
+  const [divisionCode, setDivisionCode] = useState(activeUser.divisionName ?? '');
   const [categoryCode, setCategoryCode] = useState('');
   const [page, setPage] = useState(0);
   const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
@@ -93,7 +32,6 @@ export const useOrganizations = () => {
   const [rows, setRows] = useState<OrganizationRecord[]>([]);
   const [total, setTotal] = useState(0);
   const [selectedRowIds, setSelectedRowIds] = useState<string[]>([]);
-  const [uploadedRows, setUploadedRows] = useState<OrganizationRecord[] | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isUploading, setIsUploading] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
@@ -117,14 +55,42 @@ export const useOrganizations = () => {
   }, [searchInput]);
 
   useEffect(() => {
+    setPage(0);
+    setSelectedRowIds([]);
+    setUploadSummary(null);
+    setUploadErrors([]);
+    setError(null);
+
+    if (canSeeAllDivisions(activeUser)) {
+      return;
+    }
+
+    setDivisionCode(activeUser.divisionName ?? '');
+  }, [activeUser]);
+
+  useEffect(() => {
     let isMounted = true;
 
     const loadOptions = async () => {
       try {
         const [categoryOptions, divisionOptions, organizations] = await Promise.all([
-          organizationService.getOrganizationCategories(),
-          organizationService.getOrganizationDivisions(),
-          organizationService.getOrganizationsForExport(FULL_DATA_QUERY)
+          organizationService.getOrganizationCategories(activeUser),
+          organizationService.getOrganizationDivisions(activeUser),
+          organizationService.getOrganizationsForExport(activeUser, {
+            filters: {
+              search: '',
+              divisionCode: '',
+              categoryCode: ''
+            },
+            pagination: {
+              page: 0,
+              pageSize: 5000
+            },
+            sort: {
+              field: 'updated_date',
+              direction: 'desc'
+            }
+          })
         ]);
 
         if (!isMounted) {
@@ -139,7 +105,7 @@ export const useOrganizations = () => {
           return;
         }
 
-        setError(loadError instanceof Error ? loadError.message : '필터 옵션을 불러오지 못했습니다.');
+        setError(loadError instanceof Error ? loadError.message : 'Failed to load organization options.');
       }
     };
 
@@ -148,13 +114,13 @@ export const useOrganizations = () => {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [activeUser, repositoryVersion]);
 
   const queryState = useMemo<OrganizationQueryState>(
     () => ({
       filters: {
         search: debouncedSearch,
-        divisionCode,
+        divisionCode: canSeeAllDivisions(activeUser) ? divisionCode : activeUser.divisionName ?? '',
         categoryCode
       },
       pagination: {
@@ -166,37 +132,39 @@ export const useOrganizations = () => {
         direction: sortDirection
       }
     }),
-    [categoryCode, debouncedSearch, divisionCode, page, pageSize, sortDirection, sortField]
+    [activeUser, categoryCode, debouncedSearch, divisionCode, page, pageSize, sortDirection, sortField]
   );
 
-  const uploadedResult = useMemo(() => {
-    if (!uploadedRows) {
-      return null;
-    }
+  const departmentHierarchyByCode = useMemo(() => {
+    const organizationByCode = new Map(allOrganizations.map((row) => [row.org_code, row]));
 
-    const filteredRows = filterUploadedRows(uploadedRows, queryState);
-    const sortedRows = sortOrganizations(filteredRows, queryState.sort);
-    const offset = page * pageSize;
+    return allOrganizations.reduce<Record<string, string>>((accumulator, row) => {
+      const lineageNames: string[] = [];
+      const visitedCodes = new Set<string>();
+      let currentCode = row.org_code;
 
-    return {
-      items: sortedRows.slice(offset, offset + pageSize),
-      total: sortedRows.length
-    };
-  }, [page, pageSize, queryState, uploadedRows]);
+      while (currentCode && !visitedCodes.has(currentCode)) {
+        visitedCodes.add(currentCode);
+        const currentOrganization = organizationByCode.get(currentCode);
 
-  const departmentHierarchyByCode = useMemo(
-    () => buildHierarchyByCode(uploadedRows ?? allOrganizations),
-    [allOrganizations, uploadedRows]
-  );
+        if (!currentOrganization) {
+          break;
+        }
+
+        if (currentOrganization.org_code === row.org_division_code) {
+          break;
+        }
+
+        lineageNames.push(currentOrganization.org_name);
+        currentCode = currentOrganization.upper_org_code;
+      }
+
+      accumulator[row.org_code] = lineageNames.reverse().join(' > ');
+      return accumulator;
+    }, {});
+  }, [allOrganizations]);
 
   useEffect(() => {
-    if (uploadedResult) {
-      setRows(uploadedResult.items);
-      setTotal(uploadedResult.total);
-      setIsLoading(false);
-      return;
-    }
-
     const requestId = requestIdRef.current + 1;
     requestIdRef.current = requestId;
     setIsLoading(true);
@@ -204,7 +172,7 @@ export const useOrganizations = () => {
 
     const loadOrganizations = async () => {
       try {
-        const response = await organizationService.getOrganizations(queryState);
+        const response = await organizationService.getOrganizations(activeUser, queryState);
 
         if (requestIdRef.current !== requestId) {
           return;
@@ -219,7 +187,7 @@ export const useOrganizations = () => {
 
         setRows([]);
         setTotal(0);
-        setError(loadError instanceof Error ? loadError.message : '조직 목록을 불러오지 못했습니다.');
+        setError(loadError instanceof Error ? loadError.message : 'Failed to load organizations.');
       } finally {
         if (requestIdRef.current === requestId) {
           setIsLoading(false);
@@ -228,7 +196,7 @@ export const useOrganizations = () => {
     };
 
     void loadOrganizations();
-  }, [queryState, uploadedResult]);
+  }, [activeUser, queryState, repositoryVersion]);
 
   const resetPagination = useCallback(() => {
     setPage(0);
@@ -244,10 +212,14 @@ export const useOrganizations = () => {
 
   const handleDivisionChange = useCallback(
     (nextValue: string) => {
+      if (!canSeeAllDivisions(activeUser)) {
+        return;
+      }
+
       setDivisionCode(nextValue);
       resetPagination();
     },
-    [resetPagination]
+    [activeUser, resetPagination]
   );
 
   const handleCategoryChange = useCallback(
@@ -274,70 +246,80 @@ export const useOrganizations = () => {
   }, []);
 
   const clearUploadPreview = useCallback(() => {
-    setUploadedRows(null);
     setUploadSummary(null);
     setUploadErrors([]);
     setSelectedRowIds([]);
   }, []);
 
-  const handleUpload = useCallback(async (file: File) => {
-    setIsUploading(true);
-    setUploadErrors([]);
-    setError(null);
+  const handleUpload = useCallback(
+    async (file: File) => {
+      setIsUploading(true);
+      setUploadErrors([]);
+      setError(null);
+      setUploadSummary(null);
 
-    try {
-      const result = await excelService.validateUpload(file);
+      try {
+        const result = await excelService.validateUpload(file, activeUser);
 
-      setUploadErrors(result.errors);
-      setIsUploadDialogOpen(result.errors.length > 0);
+        setUploadErrors(result.errors);
+        setIsUploadDialogOpen(result.errors.length > 0);
 
-      if (result.errors.length > 0) {
-        setUploadSummary(`업로드에 실패했습니다. 총 ${result.errors.length}건의 오류를 확인해 주세요.`);
-        return;
+        if (result.errors.length > 0) {
+          setUploadSummary(`Upload failed. Review ${result.errors.length} validation issue(s).`);
+          return;
+        }
+
+        if (activeUser.role === 'DIVISION_HR') {
+          const changedRows = approvalService.buildChangeRows(activeUser, result.validRows);
+
+          if (changedRows.length === 0) {
+            setUploadSummary('No data changes were detected in this upload.');
+            return;
+          }
+
+          approvalService.submitRequest(activeUser, changedRows);
+          setUploadSummary(`Submitted ${changedRows.length} change(s) for approval.`);
+        } else {
+          const appliedCount = await organizationService.applyOrganizationUpdates(activeUser, result.validRows);
+          setUploadSummary(`Applied ${appliedCount} row update(s) to the mock dataset.`);
+        }
+
+        setPage(0);
+      } catch (uploadError) {
+        setError(uploadError instanceof Error ? uploadError.message : 'Upload processing failed.');
+      } finally {
+        setIsUploading(false);
       }
-
-      const baseRows = uploadedRows ?? (await organizationService.getOrganizationsForExport(FULL_DATA_QUERY));
-      const updatesByCode = new Map(result.validRows.map((row) => [row.org_code, row]));
-      const mergedRows = baseRows.map((row) => updatesByCode.get(row.org_code) ?? row);
-
-      setUploadedRows(mergedRows);
-      setAllOrganizations(mergedRows);
-      setUploadSummary(`${baseRows.length.toLocaleString()}건 중 ${result.validRows.length}건이 업데이트되었습니다.`);
-      setPage(0);
-    } catch (uploadError) {
-      setError(uploadError instanceof Error ? uploadError.message : '엑셀 업로드 처리 중 오류가 발생했습니다.');
-    } finally {
-      setIsUploading(false);
-    }
-  }, [uploadedRows]);
+    },
+    [activeUser]
+  );
 
   const handleExport = useCallback(async () => {
     setIsExporting(true);
     setError(null);
 
     try {
-      const exportRows = uploadedRows
-        ? sortOrganizations(filterUploadedRows(uploadedRows, queryState), queryState.sort)
-        : await organizationService.getOrganizationsForExport(queryState);
-
+      const exportRows = await organizationService.getOrganizationsForExport(activeUser, queryState);
       excelService.exportOrganizations(exportRows);
     } catch (exportError) {
-      setError(exportError instanceof Error ? exportError.message : '엑셀 다운로드 중 오류가 발생했습니다.');
+      setError(exportError instanceof Error ? exportError.message : 'Excel export failed.');
     } finally {
       setIsExporting(false);
     }
-  }, [queryState, uploadedRows]);
+  }, [activeUser, queryState]);
 
   return {
+    activeUser,
     uiState: {
       searchInput,
-      divisionCode,
+      divisionCode: canSeeAllDivisions(activeUser) ? divisionCode : activeUser.divisionName ?? '',
       categoryCode,
       error,
       isUploadDialogOpen,
       uploadErrors,
       uploadSummary,
-      hasUploadedPreview: Boolean(uploadedRows)
+      hasUploadedPreview: false,
+      isDivisionLocked: !canSeeAllDivisions(activeUser)
     },
     apiState: {
       isLoading,

@@ -1,16 +1,16 @@
-import { orgMockApi } from '@api/orgMockApi';
+import { organizationCategoryCodes } from '@constants/organizationCategoryMap';
+import { canSeeAllDivisions, type DevUserMode } from '@features/auth/types/devUserMode';
+import { workforceRepository } from '@services/workforceRepository';
 import type {
   OrganizationCategorySummary,
   OrganizationDivisionSummary,
-  OrganizationListParams,
   OrganizationListResponse,
   OrganizationQueryState,
   OrganizationRecord,
   OrganizationSortModel
 } from '@shared-types/org';
 
-const ALLOWED_CATEGORY_NAMES = ['A (주력)', 'B (AX)', 'B (성장사업)', 'B (신사업)', 'C (주력_고강도)'] as const;
-const allowedCategoryNameSet = new Set<string>(ALLOWED_CATEGORY_NAMES);
+const allowedCategoryCodeSet = new Set<string>(organizationCategoryCodes);
 
 const compareText = (left: string, right: string) =>
   left.localeCompare(right, 'ko', {
@@ -46,91 +46,93 @@ export const sortOrganizations = (items: OrganizationRecord[], sort: Organizatio
   });
 };
 
-const filterByDivision = (items: OrganizationRecord[], divisionName?: string) => {
-  if (!divisionName) {
-    return items;
-  }
+const filterOrganizations = (items: OrganizationRecord[], query: OrganizationQueryState) => {
+  const keyword = query.filters.search.trim().toLowerCase();
 
-  return items.filter((organization) => organization.org_division_name === divisionName);
+  return items.filter((organization) => {
+    if (query.filters.divisionCode && organization.org_division_name !== query.filters.divisionCode) {
+      return false;
+    }
+
+    if (query.filters.categoryCode && organization.org_category_code !== query.filters.categoryCode) {
+      return false;
+    }
+
+    if (
+      keyword &&
+      ![organization.org_name, organization.org_code, organization.org_division_name, organization.org_category_name].some(
+        (value) => value.toLowerCase().includes(keyword)
+      )
+    ) {
+      return false;
+    }
+
+    return true;
+  });
 };
 
-const buildListParams = (query: OrganizationQueryState): OrganizationListParams => ({
-  search: query.filters.search || undefined,
-  categoryCode: query.filters.categoryCode || undefined,
-  offset: query.pagination.page * query.pagination.pageSize,
-  limit: query.pagination.pageSize
-});
-
-const listWithMockServerSorting = async (query: OrganizationQueryState): Promise<OrganizationListResponse> => {
-  const filterParams: OrganizationListParams = {
-    search: query.filters.search || undefined,
-    categoryCode: query.filters.categoryCode || undefined
-  };
-
-  const response = await orgMockApi.getOrganizations(filterParams);
-  const filteredItems = filterByDivision(response.data.items, query.filters.divisionCode);
-  const sortedItems = sortOrganizations(filteredItems, query.sort);
+const paginateOrganizations = (items: OrganizationRecord[], query: OrganizationQueryState): OrganizationListResponse => {
   const offset = query.pagination.page * query.pagination.pageSize;
   const limit = query.pagination.pageSize;
 
   return {
-    items: sortedItems.slice(offset, offset + limit),
-    total: sortedItems.length,
+    items: items.slice(offset, offset + limit),
+    total: items.length,
     offset,
     limit
   };
 };
 
 export const organizationService = {
-  allowedCategoryNames: [...ALLOWED_CATEGORY_NAMES],
+  allowedCategoryCodes: [...organizationCategoryCodes],
 
-  async getOrganizations(query: OrganizationQueryState): Promise<OrganizationListResponse> {
-    if (query.sort.field === 'updated_date' && query.sort.direction === 'desc' && !query.filters.divisionCode) {
-      const response = await orgMockApi.getOrganizations(buildListParams(query));
-      return response.data;
+  async getOrganizations(user: DevUserMode, query: OrganizationQueryState): Promise<OrganizationListResponse> {
+    const scopedItems = workforceRepository.getScopedOrganizations(user);
+    const filtered = filterOrganizations(scopedItems, query);
+    const sorted = sortOrganizations(filtered, query.sort);
+
+    return paginateOrganizations(sorted, query);
+  },
+
+  async getOrganizationsForExport(user: DevUserMode, query: OrganizationQueryState): Promise<OrganizationRecord[]> {
+    const scopedItems = workforceRepository.getScopedOrganizations(user);
+    return sortOrganizations(filterOrganizations(scopedItems, query), query.sort);
+  },
+
+  async getEffectiveOrganizations() {
+    return workforceRepository.getEffectiveOrganizations();
+  },
+
+  async getOrganizationByCode(user: DevUserMode, orgCode: string) {
+    return workforceRepository.getOrganizationByCode(user, orgCode);
+  },
+
+  async getOrganizationTree(user: DevUserMode, rootOrgCode?: string) {
+    return workforceRepository.getOrganizationTree(user, rootOrgCode);
+  },
+
+  async getOrganizationCategories(user: DevUserMode): Promise<OrganizationCategorySummary[]> {
+    return workforceRepository
+      .getOrganizationCategories(user)
+      .filter((category) => allowedCategoryCodeSet.has(category.categoryCode));
+  },
+
+  async getOrganizationDivisions(user: DevUserMode): Promise<OrganizationDivisionSummary[]> {
+    const divisions = workforceRepository.getOrganizationDivisions(user);
+
+    if (canSeeAllDivisions(user)) {
+      return divisions;
     }
 
-    return listWithMockServerSorting(query);
+    return divisions.filter((division) => division.divisionName === user.divisionName);
   },
 
-  async getOrganizationsForExport(query: OrganizationQueryState): Promise<OrganizationRecord[]> {
-    const response = await orgMockApi.getOrganizations({
-      search: query.filters.search || undefined,
-      categoryCode: query.filters.categoryCode || undefined
-    });
+  async applyOrganizationUpdates(user: DevUserMode, rows: OrganizationRecord[]) {
+    if (!canSeeAllDivisions(user)) {
+      throw new Error('Division HR uploads must be approved before they are applied.');
+    }
 
-    return sortOrganizations(filterByDivision(response.data.items, query.filters.divisionCode), query.sort);
-  },
-
-  async getOrganizationByCode(orgCode: string) {
-    const response = await orgMockApi.getOrganizationByCode(orgCode);
-    return response.data;
-  },
-
-  async getOrganizationChildren(upperOrgCode: string) {
-    const response = await orgMockApi.getOrganizationChildren(upperOrgCode);
-    return response.data;
-  },
-
-  async getOrganizationTree(rootOrgCode?: string) {
-    const response = await orgMockApi.getOrganizationTree(rootOrgCode);
-    return response.data;
-  },
-
-  async getOrganizationCategories(): Promise<OrganizationCategorySummary[]> {
-    const response = await orgMockApi.getOrganizationCategories();
-
-    return response.data.filter((category) => allowedCategoryNameSet.has(category.categoryName));
-  },
-
-  async getOrganizationDivisions(): Promise<OrganizationDivisionSummary[]> {
-    const response = await orgMockApi.getOrganizationTree();
-    const divisions = response.data.map((organization) => ({
-      divisionCode: organization.org_division_name,
-      divisionName: organization.org_division_name,
-      count: 1
-    }));
-
-    return divisions.sort((left, right) => compareText(left.divisionName, right.divisionName));
+    workforceRepository.applyOrganizationRows(rows);
+    return rows.length;
   }
 };
