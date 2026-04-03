@@ -117,7 +117,11 @@ export const excelService = {
     ];
 
     if (missingHeaders.length > 0) {
-      throw new Error(`필수 컬럼이 누락되었습니다: ${missingHeaders.join(', ')}`);
+      throw new Error(`잘못된 엑셀 양식입니다. 필수 컬럼이 누락되었습니다: ${missingHeaders.join(', ')}`);
+    }
+
+    if (rows.length === 0) {
+      throw new Error('잘못된 엑셀 양식입니다. 헤더 아래에 데이터 행이 없습니다.');
     }
 
     const categories = await organizationService.getOrganizationCategories();

@@ -11,5 +11,48 @@
   "about": {
     "title": "스타터 소개",
     "description": "이 프로젝트는 현대적인 프런트엔드 도구와 보수적인 엔터프라이즈 UI 테마 구조를 함께 보여줍니다."
+  },
+  "organization": {
+    "summary": {
+      "currentCount": "현재 조회 건수",
+      "selectedCount": "선택된 조직",
+      "dataSource": "데이터 소스",
+      "uploadPreview": "업로드 미리보기",
+      "organizationApi": "조직 API"
+    },
+    "search": {
+      "title": "조직 선택",
+      "description": "조직명 검색, 사업부/조직분류 필터, 엑셀 업로드 및 다운로드를 한 화면에서 처리합니다.",
+      "searchLabel": "조직명 검색",
+      "searchPlaceholder": "조직명, 조직코드, 사업부를 검색하세요",
+      "divisionLabel": "사업부",
+      "categoryLabel": "조직분류",
+      "allOption": "전체"
+    },
+    "actions": {
+      "download": "엑셀 다운로드",
+      "upload": "엑셀 업로드",
+      "clearUpload": "업로드 해제"
+    },
+    "table": {
+      "title": "조직 목록",
+      "total": "총 {{count}}건",
+      "emptyTitle": "조회된 조직이 없습니다.",
+      "emptyDescription": "검색어 또는 필터 조건을 조정하거나 엑셀 파일을 업로드해 조직 선택 목록을 구성해 보세요.",
+      "headers": {
+        "updatedDate": "기준년월",
+        "division": "사업부",
+        "department": "현부서",
+        "category": "조직분류"
+      }
+    },
+    "upload": {
+      "dialogTitle": "엑셀 검증 오류",
+      "dialogMessage": "업로드에 실패했습니다. 총 {{count}}건의 오류를 확인했습니다.",
+      "errorRow": "행",
+      "errorColumn": "컬럼",
+      "errorMessage": "오류 내용",
+      "errorValue": "입력 값"
+    }
   }
 }

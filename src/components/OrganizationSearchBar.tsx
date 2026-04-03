@@ -1,5 +1,6 @@
 import { ExcelDownloadButton } from '@components/ExcelDownloadButton';
 import { ExcelUpload } from '@components/ExcelUpload';
+import { useAppTranslation } from '@hooks/useAppTranslation';
 import { ClearOutlined, SearchOutlined } from '@mui/icons-material';
 import {
   Alert,
@@ -61,21 +62,24 @@ export const OrganizationSearchBar = ({
   onUpload,
   onDownload,
   onClearUploadPreview
-}: OrganizationSearchBarProps) => (
-  <div className="rounded-[var(--radius-xl)] border border-line bg-surface p-5 shadow-sm">
-    <Stack spacing={3}>
-      <div className="flex flex-col gap-1">
-        <Typography variant="h5">조직 선택</Typography>
-        <Typography variant="body2" className="text-ink-muted">
-          조직명 검색, 사업부/조직분류 필터, 엑셀 업로드 및 다운로드를 한 화면에서 처리합니다.
-        </Typography>
-      </div>
+}: OrganizationSearchBarProps) => {
+  const { t } = useAppTranslation();
+
+  return (
+    <div className="rounded-[var(--radius-xl)] border border-line bg-surface p-5 shadow-sm">
+      <Stack spacing={3}>
+        <div className="flex flex-col gap-1">
+          <Typography variant="h5">{t('organization.search.title')}</Typography>
+          <Typography variant="body2" className="text-ink-muted">
+            {t('organization.search.description')}
+          </Typography>
+        </div>
 
       <div className="grid gap-3 lg:grid-cols-[minmax(0,2fr)_minmax(180px,1fr)_minmax(180px,1fr)_auto_auto]">
         <TextField
           fullWidth
-          label="조직명 검색"
-          placeholder="조직명, 조직코드, 사업부를 검색하세요"
+          label={t('organization.search.searchLabel')}
+          placeholder={t('organization.search.searchPlaceholder')}
           value={searchValue}
           onChange={onSearchChange}
           sx={filterFieldSx}
@@ -89,14 +93,14 @@ export const OrganizationSearchBar = ({
         />
         <TextField
           select
-          label="사업부"
+          label={t('organization.search.divisionLabel')}
           value={divisionCode}
           sx={filterFieldSx}
           onChange={(event) => {
             onDivisionChange(event.target.value);
           }}
         >
-          <MenuItem value="">전체</MenuItem>
+          <MenuItem value="">{t('organization.search.allOption')}</MenuItem>
           {divisions.map((division) => (
             <MenuItem key={division.divisionCode} value={division.divisionCode}>
               {division.divisionName}
@@ -105,14 +109,14 @@ export const OrganizationSearchBar = ({
         </TextField>
         <TextField
           select
-          label="조직분류"
+          label={t('organization.search.categoryLabel')}
           value={categoryCode}
           sx={filterFieldSx}
           onChange={(event) => {
             onCategoryChange(event.target.value);
           }}
         >
-          <MenuItem value="">전체</MenuItem>
+          <MenuItem value="">{t('organization.search.allOption')}</MenuItem>
           {categories.map((category) => (
             <MenuItem key={category.categoryCode} value={category.categoryCode}>
               {category.categoryName}
@@ -134,7 +138,7 @@ export const OrganizationSearchBar = ({
                 startIcon={<ClearOutlined />}
                 onClick={onClearUploadPreview}
               >
-                업로드 해제
+                {t('organization.actions.clearUpload')}
               </Button>
             ) : undefined
           }
@@ -142,6 +146,7 @@ export const OrganizationSearchBar = ({
           {uploadSummary}
         </Alert>
       ) : null}
-    </Stack>
-  </div>
-);
+      </Stack>
+    </div>
+  );
+};
