@@ -4,14 +4,14 @@ import { useWorkforceInsightDashboard } from '@features/dashboard/hooks/useWorkf
 export const WorkforceInsightDashboardContainer = () => {
   const {
     error,
-    filteredTrend,
     insightData,
     isLoading,
     refresh,
     selectedMonth,
     selectedOrgCode,
     setSelectedMonth,
-    setSelectedOrgCode
+    setSelectedOrgCode,
+    trendData
   } = useWorkforceInsightDashboard();
 
   return (
@@ -21,7 +21,7 @@ export const WorkforceInsightDashboardContainer = () => {
       error={error}
       selectedOrgCode={selectedOrgCode}
       selectedMonth={selectedMonth}
-      trendData={filteredTrend}
+      trendData={trendData}
       onOrgChange={setSelectedOrgCode}
       onMonthChange={setSelectedMonth}
       onRefresh={refresh}
