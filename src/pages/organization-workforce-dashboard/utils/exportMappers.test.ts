@@ -38,6 +38,33 @@ const sections: DashboardTableSection[] = [
       }
     ],
     sourceRecordCount: 18
+  },
+  {
+    lastUpdated: '20260402',
+    orgCode: 'ORG002',
+    orgDisplayName: '디지털혁신실',
+    orgName: '디지털혁신실',
+    rows: [
+      {
+        actual2025: { delta: null, headcount: 80, ratio: 100, reallocated: 3 },
+        current202604: { delta: -2, headcount: 78, ratio: 100, reallocated: 4 },
+        id: 'ORG002-total',
+        label: '계',
+        level: 0,
+        target2026: { delta: -1, headcount: 79, ratio: 100, reallocated: 5 },
+        tone: 'total'
+      },
+      {
+        actual2025: { delta: null, headcount: 20, ratio: 25, reallocated: 1 },
+        current202604: { delta: 1, headcount: 21, ratio: 27, reallocated: 2 },
+        id: 'ORG002-b1',
+        label: 'DX플랫폼',
+        level: 1,
+        target2026: { delta: 2, headcount: 22, ratio: 28, reallocated: 2 },
+        tone: 'detail'
+      }
+    ],
+    sourceRecordCount: 9
   }
 ];
 
@@ -57,10 +84,13 @@ describe('buildOrganizationWorkforceDashboardExportModel', () => {
     expect(model.rows[8].values[2]).toBe('인력');
     expect(model.rows[9].values[0]).toContain('미래전략실');
     expect(model.rows[10].values[1]).toBe('        AX');
+    expect(model.rows[11].values[0]).toContain('디지털혁신실');
+    expect(model.rows[12].values[1]).toBe('    DX플랫폼');
     expect(model.merges).toEqual(
       expect.arrayContaining([
         { s: { c: 0, r: 0 }, e: { c: 12, r: 0 } },
-        { s: { c: 0, r: 9 }, e: { c: 0, r: 10 } }
+        { s: { c: 0, r: 9 }, e: { c: 0, r: 10 } },
+        { s: { c: 0, r: 11 }, e: { c: 0, r: 12 } }
       ])
     );
   });
