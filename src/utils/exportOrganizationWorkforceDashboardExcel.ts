@@ -130,20 +130,27 @@ export const exportOrganizationWorkforceDashboardExcel = ({
     const fillColor = getDataFillColor(row.tone);
 
     styleCell(worksheet, rowIndex, 0, {
-      alignment: { horizontal: 'left', vertical: 'top', wrapText: true },
+      alignment: { horizontal: 'left', vertical: 'center' },
       border: thinBorder,
       fill: { fgColor: { rgb: 'F8FAFC' }, patternType: 'solid' },
       font: { bold: true }
     });
 
     styleCell(worksheet, rowIndex, 1, {
+      alignment: { horizontal: 'center', vertical: 'center' },
+      border: thinBorder,
+      fill: { fgColor: { rgb: 'F8FAFC' }, patternType: 'solid' },
+      font: { bold: true }
+    });
+
+    styleCell(worksheet, rowIndex, 2, {
       alignment: { horizontal: 'left', indent: row.level ?? 0, vertical: 'center' },
       border: thinBorder,
       fill: { fgColor: { rgb: fillColor }, patternType: 'solid' },
       font: { bold: row.tone === 'detail' ? false : true }
     });
 
-    for (let columnIndex = 2; columnIndex < row.values.length; columnIndex += 1) {
+    for (let columnIndex = 3; columnIndex < row.values.length; columnIndex += 1) {
       const cellValue = String(row.values[columnIndex] ?? '');
 
       styleCell(worksheet, rowIndex, columnIndex, {
@@ -151,7 +158,7 @@ export const exportOrganizationWorkforceDashboardExcel = ({
         border: thinBorder,
         fill: { fgColor: { rgb: fillColor }, patternType: 'solid' },
         font:
-          columnIndex === 7 || columnIndex === 11
+          columnIndex === 8 || columnIndex === 12
             ? { bold: true, color: { rgb: getDeltaFontColor(cellValue) } }
             : { bold: row.tone === 'total' }
       });

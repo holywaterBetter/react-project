@@ -53,14 +53,16 @@ describe('buildOrganizationWorkforceDashboardExportModel', () => {
     expect(model.fileName).toBe('조직별_인력현황_및_재배치_실적_대시보드_미래전략실_20260403_0905.xlsx');
     expect(model.rows[0].values[0]).toBe('조직별 인력현황 및 재배치 실적 대시보드(안)');
     expect(model.rows[1].values[1]).toBe('2026.04.03 09:05');
-    expect(model.rows[7].values[2]).toBe("'25년말 실적");
-    expect(model.rows[8].values[2]).toBe('인력');
-    expect(model.rows[9].values[0]).toContain('미래전략실');
-    expect(model.rows[10].values[1]).toBe('        AX');
+    expect(model.rows[7].values[3]).toBe("'25년말 실적");
+    expect(model.rows[8].values[3]).toBe('인력');
+    expect(model.rows[9].values[0]).toBe('미래전략실');
+    expect(model.rows[9].values[1]).toBe('2026.04.01');
+    expect(model.rows[10].values[2]).toBe('        AX');
     expect(model.merges).toEqual(
       expect.arrayContaining([
-        { s: { c: 0, r: 0 }, e: { c: 12, r: 0 } },
-        { s: { c: 0, r: 9 }, e: { c: 0, r: 10 } }
+        { s: { c: 0, r: 0 }, e: { c: 13, r: 0 } },
+        { s: { c: 0, r: 9 }, e: { c: 0, r: 10 } },
+        { s: { c: 1, r: 9 }, e: { c: 1, r: 10 } }
       ])
     );
   });
