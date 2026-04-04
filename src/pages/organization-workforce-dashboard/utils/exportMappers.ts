@@ -13,7 +13,7 @@ import type { ColInfo, Range, RowInfo } from 'xlsx';
 const REPORT_TITLE = '조직별 인력현황 및 재배치 실적 대시보드(안)';
 const REPORT_FILE_PREFIX = '조직별_인력현황_및_재배치_실적_대시보드';
 const SHEET_NAME = '조직별 인력현황';
-const TOTAL_COLUMN_COUNT = 13;
+const TOTAL_COLUMN_COUNT = 14;
 
 type ExportCellValue = string | number;
 
@@ -87,7 +87,7 @@ const formatOrganizationFilter = (selectedOrgName?: string | null) => selectedOr
 const formatExportScope = (sections: DashboardTableSection[]) => `${sections.length.toLocaleString('ko-KR')}개 조직 섹션`;
 
 const formatOrganizationCell = (section: DashboardTableSection) =>
-  `${section.orgDisplayName} (${section.orgCode})\n기준조직 ${formatHeadcount(section.sourceRecordCount)}개\n갱신 ${formatDateLabel(section.lastUpdated)}`;
+  `${section.orgDisplayName} (${section.orgCode})\n기준조직 ${formatHeadcount(section.sourceRecordCount)}개`;
 
 const formatIndentedLabel = (label: string, level: number) => `${' '.repeat(level * 4)}${label}`;
 
@@ -161,6 +161,7 @@ export const buildOrganizationWorkforceDashboardExportModel = ({
     kind: 'headerGroup',
     values: [
       '조직',
+      '업데이트일',
       '구분',
       "'25년말 실적",
       '',
@@ -178,7 +179,7 @@ export const buildOrganizationWorkforceDashboardExportModel = ({
 
   rows.push({
     kind: 'headerSub',
-    values: ['', '', '인력', '비중', '재배치', '인력', '비중', '인력증감', '재배치', '인력', '비중', '인력증감', '재배치']
+    values: ['', '', '', '인력', '비중', '재배치', '인력', '비중', '인력증감', '재배치', '인력', '비중', '인력증감', '재배치']
   });
 
   merges.push(
@@ -192,15 +193,19 @@ export const buildOrganizationWorkforceDashboardExportModel = ({
     },
     {
       s: { r: headerGroupRowIndex, c: 2 },
-      e: { r: headerGroupRowIndex, c: 4 }
+      e: { r: headerGroupRowIndex + 1, c: 2 }
     },
     {
-      s: { r: headerGroupRowIndex, c: 5 },
-      e: { r: headerGroupRowIndex, c: 8 }
+      s: { r: headerGroupRowIndex, c: 3 },
+      e: { r: headerGroupRowIndex, c: 5 }
     },
     {
-      s: { r: headerGroupRowIndex, c: 9 },
-      e: { r: headerGroupRowIndex, c: 12 }
+      s: { r: headerGroupRowIndex, c: 6 },
+      e: { r: headerGroupRowIndex, c: 9 }
+    },
+    {
+      s: { r: headerGroupRowIndex, c: 10 },
+      e: { r: headerGroupRowIndex, c: 13 }
     }
   );
 
@@ -214,6 +219,7 @@ export const buildOrganizationWorkforceDashboardExportModel = ({
         tone: row.tone,
         values: [
           rowIndex === 0 ? formatOrganizationCell(section) : '',
+          rowIndex === 0 ? formatDateLabel(section.lastUpdated) : '',
           formatIndentedLabel(row.label, row.level),
           ...formatMetricCells(row)
         ]
@@ -221,10 +227,16 @@ export const buildOrganizationWorkforceDashboardExportModel = ({
     });
 
     if (section.rows.length > 1) {
-      merges.push({
-        s: { r: sectionStartRowIndex, c: 0 },
-        e: { r: rows.length - 1, c: 0 }
-      });
+      merges.push(
+        {
+          s: { r: sectionStartRowIndex, c: 0 },
+          e: { r: rows.length - 1, c: 0 }
+        },
+        {
+          s: { r: sectionStartRowIndex, c: 1 },
+          e: { r: rows.length - 1, c: 1 }
+        }
+      );
     }
 
     if (sectionIndex < sections.length - 1) {
@@ -258,6 +270,7 @@ export const buildOrganizationWorkforceDashboardExportModel = ({
   return {
     columns: [
       { wch: 26 },
+      { wch: 12 },
       { wch: 24 },
       { wch: 10 },
       { wch: 10 },
