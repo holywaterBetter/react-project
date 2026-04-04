@@ -19,9 +19,13 @@ const aeroUser: DevUserMode = {
 
 describe('organizationWorkforceDashboardApi', () => {
   it('returns division-only options for global users and groups small divisions into 기타 사업부', async () => {
-    const metaResponse = await organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardMeta(globalUser);
+    const [metaResponse, listResponse] = await Promise.all([
+      organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardMeta(globalUser),
+      organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardList(globalUser)
+    ]);
 
     expect(metaResponse.success).toBe(true);
+    expect(listResponse.success).toBe(true);
     expect(metaResponse.data.organizationOptions).toContainEqual(
       expect.objectContaining({
         orgCode: SMALL_DIVISION_GROUP.code,
@@ -30,6 +34,18 @@ describe('organizationWorkforceDashboardApi', () => {
     );
     expect(metaResponse.data.organizationOptions.some((option) => option.orgName.includes('Energy 조직'))).toBe(false);
     expect(metaResponse.data.organizationOptions.some((option) => option.orgName.includes('Aero 조직'))).toBe(false);
+    expect(metaResponse.data.organizationOptions.at(-1)).toEqual(
+      expect.objectContaining({
+        orgCode: SMALL_DIVISION_GROUP.code,
+        orgDisplayName: SMALL_DIVISION_GROUP.name
+      })
+    );
+    expect(listResponse.data.at(-1)).toEqual(
+      expect.objectContaining({
+        orgCode: SMALL_DIVISION_GROUP.code,
+        orgDisplayName: SMALL_DIVISION_GROUP.name
+      })
+    );
   });
 
   it('returns only the aero division option for aero division hr users', async () => {
