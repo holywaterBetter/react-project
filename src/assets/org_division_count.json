@@ -11,27 +11,37 @@
     "headcount_20251231_total": 48000,
     "headcount_20251231_by_category": {
       "A1": 33767,
-      "B1": 4773,
+      "B1": 2864,
+      "B2": 1193,
+      "B3": 716,
       "C1": 9460
     },
     "headcount_20261231_target_total": 47000,
     "headcount_20261231_target_by_category": {
       "A1": 29357,
-      "B1": 7109,
+      "B1": 4265,
+      "B2": 1777,
+      "B3": 1067,
       "C1": 10534
     },
     "headcount_current_total": 47600,
     "headcount_current_by_category": {
       "A1": 32873,
-      "B1": 5296,
+      "B1": 3178,
+      "B2": 1324,
+      "B3": 794,
       "C1": 9431
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 1813,
-      "C1": 1103
+      "B1": 1088,
+      "C1": 1103,
+      "B2": 453,
+      "B3": 272
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 816,
+      "B1": 490,
+      "B2": 204,
+      "B3": 122,
       "C1": 496
     },
     "org_division_name_en": "",
@@ -49,27 +59,37 @@
     "headcount_20251231_total": 10397,
     "headcount_20251231_by_category": {
       "A1": 7486,
-      "B1": 936,
+      "B1": 562,
+      "B2": 234,
+      "B3": 140,
       "C1": 1975
     },
     "headcount_20261231_target_total": 9946,
     "headcount_20261231_target_by_category": {
       "A1": 6365,
-      "B1": 1492,
+      "B1": 895,
+      "B2": 373,
+      "B3": 224,
       "C1": 2089
     },
     "headcount_current_total": 10212,
     "headcount_current_by_category": {
       "A1": 7148,
-      "B1": 1123,
+      "B1": 674,
+      "B2": 281,
+      "B3": 168,
       "C1": 1941
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 369,
-      "C1": 148
+      "B1": 222,
+      "C1": 148,
+      "B2": 92,
+      "B3": 55
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 166,
+      "B1": 100,
+      "B2": 42,
+      "B3": 24,
       "C1": 67
     },
     "org_division_name_en": "MX 사업부",
@@ -87,27 +107,37 @@
     "headcount_20251231_total": 13918,
     "headcount_20251231_by_category": {
       "A1": 9603,
-      "B1": 1392,
+      "B1": 835,
+      "B2": 348,
+      "B3": 209,
       "C1": 2923
     },
     "headcount_20261231_target_total": 13457,
     "headcount_20261231_target_by_category": {
       "A1": 8343,
-      "B1": 2153,
+      "B1": 1292,
+      "B2": 538,
+      "B3": 323,
       "C1": 2961
     },
     "headcount_current_total": 13751,
     "headcount_current_by_category": {
       "A1": 9351,
-      "B1": 1650,
+      "B1": 990,
+      "B2": 412,
+      "B3": 248,
       "C1": 2750
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 503,
-      "C1": 211
+      "B1": 302,
+      "C1": 211,
+      "B2": 126,
+      "B3": 75
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 226,
+      "B1": 136,
+      "B2": 56,
+      "B3": 34,
       "C1": 95
     },
     "org_division_name_en": "DS 사업부",
@@ -125,27 +155,37 @@
     "headcount_20251231_total": 8971,
     "headcount_20251231_by_category": {
       "A1": 6280,
-      "B1": 987,
+      "B1": 592,
+      "B2": 247,
+      "B3": 148,
       "C1": 1704
     },
     "headcount_20261231_target_total": 8815,
     "headcount_20261231_target_by_category": {
       "A1": 5553,
-      "B1": 1234,
+      "B1": 740,
+      "B2": 308,
+      "B3": 186,
       "C1": 2028
     },
     "headcount_current_total": 8910,
     "headcount_current_by_category": {
       "A1": 6148,
-      "B1": 891,
+      "B1": 535,
+      "B2": 223,
+      "B3": 133,
       "C1": 1871
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 343,
-      "C1": 157
+      "B1": 206,
+      "C1": 157,
+      "B2": 86,
+      "B3": 51
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 154,
+      "B1": 92,
+      "B2": 38,
+      "B3": 24,
       "C1": 71
     },
     "org_division_name_en": "DX 사업부",
@@ -163,27 +203,37 @@
     "headcount_20251231_total": 5282,
     "headcount_20251231_by_category": {
       "A1": 3750,
-      "B1": 528,
+      "B1": 317,
+      "B2": 132,
+      "B3": 79,
       "C1": 1004
     },
     "headcount_20261231_target_total": 5227,
     "headcount_20261231_target_by_category": {
       "A1": 3188,
-      "B1": 784,
+      "B1": 470,
+      "B2": 196,
+      "B3": 118,
       "C1": 1255
     },
     "headcount_current_total": 5248,
     "headcount_current_by_category": {
       "A1": 3726,
-      "B1": 577,
+      "B1": 346,
+      "B2": 144,
+      "B3": 87,
       "C1": 945
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 207,
-      "C1": 310
+      "B1": 124,
+      "C1": 310,
+      "B2": 52,
+      "B3": 31
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 93,
+      "B1": 56,
+      "B2": 23,
+      "B3": 14,
       "C1": 140
     },
     "org_division_name_en": "S/W 플랫폼 사업부",
@@ -201,27 +251,37 @@
     "headcount_20251231_total": 3354,
     "headcount_20251231_by_category": {
       "A1": 2281,
-      "B1": 302,
+      "B1": 181,
+      "B2": 76,
+      "B3": 45,
       "C1": 771
     },
     "headcount_20261231_target_total": 3315,
     "headcount_20261231_target_by_category": {
       "A1": 1989,
-      "B1": 530,
+      "B1": 318,
+      "B2": 132,
+      "B3": 80,
       "C1": 796
     },
     "headcount_current_total": 3336,
     "headcount_current_by_category": {
       "A1": 2235,
-      "B1": 400,
+      "B1": 240,
+      "B2": 100,
+      "B3": 60,
       "C1": 701
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 130,
-      "C1": 95
+      "B1": 78,
+      "C1": 95,
+      "B2": 32,
+      "B3": 20
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 58,
+      "B1": 35,
+      "B2": 14,
+      "B3": 9,
       "C1": 43
     },
     "org_division_name_en": "Global 운영 사업부",
@@ -241,27 +301,37 @@
     "headcount_20251231_total": 922,
     "headcount_20251231_by_category": {
       "A1": 691,
-      "B1": 111,
+      "B1": 67,
+      "B2": 28,
+      "B3": 16,
       "C1": 120
     },
     "headcount_20261231_target_total": 975,
     "headcount_20261231_target_by_category": {
       "A1": 633,
-      "B1": 127,
+      "B1": 76,
+      "B2": 32,
+      "B3": 19,
       "C1": 215
     },
     "headcount_current_total": 944,
     "headcount_current_by_category": {
       "A1": 680,
-      "B1": 85,
+      "B1": 51,
+      "B2": 21,
+      "B3": 13,
       "C1": 179
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 42,
-      "C1": 36
+      "B1": 26,
+      "C1": 36,
+      "B2": 10,
+      "B3": 6
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 19,
+      "B1": 11,
+      "B2": 5,
+      "B3": 3,
       "C1": 16
     }
   },
@@ -279,27 +349,37 @@
     "headcount_20251231_total": 1090,
     "headcount_20251231_by_category": {
       "A1": 807,
-      "B1": 109,
+      "B1": 65,
+      "B2": 27,
+      "B3": 17,
       "C1": 174
     },
     "headcount_20261231_target_total": 1131,
     "headcount_20261231_target_by_category": {
       "A1": 724,
-      "B1": 170,
+      "B1": 102,
+      "B2": 42,
+      "B3": 26,
       "C1": 237
     },
     "headcount_current_total": 1106,
     "headcount_current_by_category": {
       "A1": 774,
-      "B1": 122,
+      "B1": 73,
+      "B2": 30,
+      "B3": 19,
       "C1": 210
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 48,
-      "C1": 27
+      "B1": 29,
+      "C1": 27,
+      "B2": 12,
+      "B3": 7
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 22,
+      "B1": 13,
+      "B2": 6,
+      "B3": 3,
       "C1": 12
     }
   },
@@ -317,27 +397,37 @@
     "headcount_20251231_total": 1216,
     "headcount_20251231_by_category": {
       "A1": 888,
-      "B1": 109,
+      "B1": 65,
+      "B2": 27,
+      "B3": 17,
       "C1": 219
     },
     "headcount_20261231_target_total": 1248,
     "headcount_20261231_target_by_category": {
       "A1": 786,
-      "B1": 200,
+      "B1": 120,
+      "B2": 50,
+      "B3": 30,
       "C1": 262
     },
     "headcount_current_total": 1229,
     "headcount_current_by_category": {
       "A1": 848,
-      "B1": 147,
+      "B1": 88,
+      "B2": 37,
+      "B3": 22,
       "C1": 234
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 53,
-      "C1": 28
+      "B1": 32,
+      "C1": 28,
+      "B2": 13,
+      "B3": 8
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 24,
+      "B1": 14,
+      "B2": 6,
+      "B3": 4,
       "C1": 13
     }
   },
@@ -355,27 +445,37 @@
     "headcount_20251231_total": 1341,
     "headcount_20251231_by_category": {
       "A1": 925,
-      "B1": 148,
+      "B1": 89,
+      "B2": 37,
+      "B3": 22,
       "C1": 268
     },
     "headcount_20261231_target_total": 1365,
     "headcount_20261231_target_by_category": {
       "A1": 833,
-      "B1": 191,
+      "B1": 115,
+      "B2": 48,
+      "B3": 28,
       "C1": 341
     },
     "headcount_current_total": 1351,
     "headcount_current_by_category": {
       "A1": 919,
-      "B1": 135,
+      "B1": 81,
+      "B2": 34,
+      "B3": 20,
       "C1": 297
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 56,
-      "C1": 44
+      "B1": 34,
+      "C1": 44,
+      "B2": 14,
+      "B3": 8
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 25,
+      "B1": 15,
+      "B2": 6,
+      "B3": 4,
       "C1": 20
     }
   },
@@ -393,27 +493,37 @@
     "headcount_20251231_total": 1509,
     "headcount_20251231_by_category": {
       "A1": 1056,
-      "B1": 151,
+      "B1": 91,
+      "B2": 38,
+      "B3": 22,
       "C1": 302
     },
     "headcount_20261231_target_total": 1521,
     "headcount_20261231_target_by_category": {
       "A1": 943,
-      "B1": 228,
+      "B1": 137,
+      "B2": 57,
+      "B3": 34,
       "C1": 350
     },
     "headcount_current_total": 1513,
     "headcount_current_by_category": {
       "A1": 1044,
-      "B1": 166,
+      "B1": 100,
+      "B2": 42,
+      "B3": 24,
       "C1": 303
     },
     "reallocation_target_20261231_by_category": {
-      "B1": 62,
-      "C1": 47
+      "B1": 37,
+      "C1": 47,
+      "B2": 16,
+      "B3": 9
     },
     "reallocation_current_cumulative_by_category": {
-      "B1": 28,
+      "B1": 17,
+      "B2": 7,
+      "B3": 4,
       "C1": 21
     }
   }
