@@ -21,6 +21,9 @@ import { useWorkforceRepositoryVersion } from '@services/workforceRepository';
 import { useMemo, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
+const getRequestTypeLabel = (type: 'organization' | 'workforce-target') =>
+  type === 'workforce-target' ? 'Workforce Target' : 'Organization';
+
 export const OrganizationApprovalListPage = () => {
   const { activeUser } = useDevUserMode();
   const { t } = useAppTranslation();
@@ -39,7 +42,7 @@ export const OrganizationApprovalListPage = () => {
           return true;
         }
 
-        return [request.divisionName, request.submittedByLabel, request.id].some((value) =>
+        return [request.divisionName, request.submittedByLabel, request.id, getRequestTypeLabel(request.type)].some((value) =>
           value.toLowerCase().includes(loweredKeyword)
         );
       })
@@ -70,9 +73,7 @@ export const OrganizationApprovalListPage = () => {
           <Typography variant="h4" fontWeight={800}>
             {t('approval.list.title')}
           </Typography>
-          <Typography color="text.secondary">
-            {t('approval.list.description')}
-          </Typography>
+          <Typography color="text.secondary">{t('approval.list.description')}</Typography>
           <Stack direction="row" spacing={1} flexWrap="wrap">
             <Chip size="small" label={t('approval.list.activeUser', { name: activeUser.name, role: activeUser.role })} />
             <Chip
@@ -120,6 +121,7 @@ export const OrganizationApprovalListPage = () => {
             <TableHead>
               <TableRow>
                 <TableCell>{t('approval.list.table.status')}</TableCell>
+                <TableCell>요청 타입</TableCell>
                 <TableCell>{t('approval.list.table.division')}</TableCell>
                 <TableCell>{t('approval.list.table.requester')}</TableCell>
                 <TableCell>{t('approval.list.table.changedRows')}</TableCell>
@@ -133,14 +135,16 @@ export const OrganizationApprovalListPage = () => {
                   <TableCell>
                     <Chip
                       size="small"
-                      color={
-                        request.status === 'approved'
-                          ? 'success'
-                          : request.status === 'rejected'
-                            ? 'error'
-                            : 'warning'
-                      }
+                      color={request.status === 'approved' ? 'success' : request.status === 'rejected' ? 'error' : 'warning'}
                       label={t(`common.status.${request.status}`)}
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <Chip
+                      size="small"
+                      variant="outlined"
+                      label={getRequestTypeLabel(request.type)}
+                      color={request.type === 'workforce-target' ? 'info' : 'default'}
                     />
                   </TableCell>
                   <TableCell>{request.divisionName}</TableCell>

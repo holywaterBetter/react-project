@@ -17,18 +17,13 @@ import type {
   OrganizationWorkforceDashboardMeta,
   OrganizationWorkforceDashboardQuery
 } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
-import {
-  organizationWorkforceDataService,
-  type OrganizationDivisionCountRecord
-} from '@services/organizationWorkforceDataService';
+import { organizationWorkforceDataService, type OrganizationDivisionCountRecord } from '@services/organizationWorkforceDataService';
+import { workforceRepository } from '@services/workforceRepository';
 
 const ROOT_ORG_CODE = 'C10';
 const DEFAULT_BASE_MONTH = '2026.04';
 
-const createEmptyCategoryMetrics = (): Record<
-  OrganizationCategoryCode,
-  DashboardCategoryPeriodMap
-> =>
+const createEmptyCategoryMetrics = (): Record<OrganizationCategoryCode, DashboardCategoryPeriodMap> =>
   organizationCategoryCodes.reduce(
     (accumulator, categoryCode) => ({
       ...accumulator,
@@ -55,9 +50,7 @@ const formatBaseMonth = (updatedDate: string) => {
 };
 
 const sortEntries = (entries: OrganizationWorkforceDashboardEntry[]) =>
-  [...entries].sort((left, right) =>
-    left.orgDisplayName.localeCompare(right.orgDisplayName, 'ko')
-  );
+  [...entries].sort((left, right) => left.orgDisplayName.localeCompare(right.orgDisplayName, 'ko'));
 
 const mergeCategoryMetrics = (
   accumulator: Record<OrganizationCategoryCode, DashboardCategoryPeriodMap>,
@@ -65,15 +58,11 @@ const mergeCategoryMetrics = (
 ) => {
   organizationCategoryCodes.forEach((categoryCode) => {
     accumulator[categoryCode].actual2025.headcount += source[categoryCode].actual2025.headcount;
-    accumulator[categoryCode].actual2025.reallocated +=
-      source[categoryCode].actual2025.reallocated;
+    accumulator[categoryCode].actual2025.reallocated += source[categoryCode].actual2025.reallocated;
     accumulator[categoryCode].target2026.headcount += source[categoryCode].target2026.headcount;
-    accumulator[categoryCode].target2026.reallocated +=
-      source[categoryCode].target2026.reallocated;
-    accumulator[categoryCode].current202604.headcount +=
-      source[categoryCode].current202604.headcount;
-    accumulator[categoryCode].current202604.reallocated +=
-      source[categoryCode].current202604.reallocated;
+    accumulator[categoryCode].target2026.reallocated += source[categoryCode].target2026.reallocated;
+    accumulator[categoryCode].current202604.headcount += source[categoryCode].current202604.headcount;
+    accumulator[categoryCode].current202604.reallocated += source[categoryCode].current202604.reallocated;
   });
 };
 
@@ -96,8 +85,7 @@ const aggregateEntries = (
 
   entries.forEach((entry) => {
     aggregatedEntry.sourceRecordCount += entry.sourceRecordCount;
-    aggregatedEntry.lastUpdated =
-      entry.lastUpdated > aggregatedEntry.lastUpdated ? entry.lastUpdated : aggregatedEntry.lastUpdated;
+    aggregatedEntry.lastUpdated = entry.lastUpdated > aggregatedEntry.lastUpdated ? entry.lastUpdated : aggregatedEntry.lastUpdated;
     mergeCategoryMetrics(aggregatedEntry.categoryMetrics, entry.categoryMetrics);
   });
 
@@ -124,9 +112,7 @@ const aggregateSmallDivisionSections = (sections: OrganizationWorkforceDashboard
 
 const toDashboardEntry = (
   record: OrganizationDivisionCountRecord,
-  overrides?: Partial<
-    Pick<OrganizationWorkforceDashboardEntry, 'orgCode' | 'orgName' | 'orgDisplayName'>
-  >
+  overrides?: Partial<Pick<OrganizationWorkforceDashboardEntry, 'orgCode' | 'orgName' | 'orgDisplayName'>>
 ): OrganizationWorkforceDashboardEntry => ({
   orgCode: overrides?.orgCode ?? record.org_code,
   orgName: overrides?.orgName ?? record.org_name,
@@ -143,17 +129,11 @@ const toDashboardEntry = (
         },
         target2026: {
           headcount: sumCategoryValue(record.headcount_20261231_target_by_category, categoryCode),
-          reallocated: sumCategoryValue(
-            record.reallocation_target_20261231_by_category,
-            categoryCode
-          )
+          reallocated: sumCategoryValue(record.reallocation_target_20261231_by_category, categoryCode)
         },
         current202604: {
           headcount: sumCategoryValue(record.headcount_current_by_category, categoryCode),
-          reallocated: sumCategoryValue(
-            record.reallocation_current_cumulative_by_category,
-            categoryCode
-          )
+          reallocated: sumCategoryValue(record.reallocation_current_cumulative_by_category, categoryCode)
         }
       }
     }),
@@ -163,13 +143,8 @@ const toDashboardEntry = (
 
 const buildPeriodMeta = (
   records: OrganizationDivisionCountRecord[]
-): Pick<
-  OrganizationWorkforceDashboardMeta,
-  'baseMonth' | 'compareLabel' | 'targetLabel' | 'currentLabel'
-> => {
-  const latestRecord = [...records].sort((left, right) =>
-    right.updated_date.localeCompare(left.updated_date)
-  )[0];
+): Pick<OrganizationWorkforceDashboardMeta, 'baseMonth' | 'compareLabel' | 'targetLabel' | 'currentLabel'> => {
+  const latestRecord = [...records].sort((left, right) => right.updated_date.localeCompare(left.updated_date))[0];
   const baseMonth = formatBaseMonth(latestRecord?.updated_date ?? '');
 
   return {
@@ -180,25 +155,45 @@ const buildPeriodMeta = (
   };
 };
 
+const applyTargetOverrides = (records: OrganizationDivisionCountRecord[], user: DevUserMode) => {
+  const targetByOrgCode = new Map(
+    workforceRepository.getScopedWorkforceTargets(user).map((target) => [target.org_code, target])
+  );
+
+  return records.map((record) => {
+    const target = targetByOrgCode.get(record.org_code);
+
+    if (!target) {
+      return record;
+    }
+
+    return {
+      ...record,
+      updated_date: target.updated_date || record.updated_date,
+      headcount_20261231_target_by_category: { ...target.headcount_target_by_category },
+      reallocation_target_20261231_by_category: { ...target.reallocation_target_by_category }
+    };
+  });
+};
+
 const buildScopedEntries = async (
   user: DevUserMode,
   query?: Pick<OrganizationWorkforceDashboardQuery, 'snapshotMonth'>
 ) => {
-  const records = await organizationWorkforceDataService.getDivisionCountRecords({
-    snapshotMonth: query?.snapshotMonth
-  });
+  const records = applyTargetOverrides(
+    await organizationWorkforceDataService.getDivisionCountRecords({
+      snapshotMonth: query?.snapshotMonth
+    }),
+    user
+  );
   const periodMeta = buildPeriodMeta(records);
   const overallRecord = records.find((record) => record.org_code === ROOT_ORG_CODE) ?? null;
-  const divisionRecords = records.filter(
-    (record) => record.org_code !== ROOT_ORG_CODE && Boolean(record.org_division_code)
-  );
+  const divisionRecords = records.filter((record) => record.org_code !== ROOT_ORG_CODE && Boolean(record.org_division_code));
   const scopedDivisionRecords = canSeeAllDivisions(user)
     ? divisionRecords
     : divisionRecords.filter((record) => record.org_code === user.divisionCode);
   const rawSections = sortEntries(scopedDivisionRecords.map((record) => toDashboardEntry(record)));
-  const sections = canSeeAllDivisions(user)
-    ? aggregateSmallDivisionSections(rawSections)
-    : rawSections;
+  const sections = canSeeAllDivisions(user) ? aggregateSmallDivisionSections(rawSections) : rawSections;
   const overallEntry = canSeeAllDivisions(user)
     ? overallRecord
       ? toDashboardEntry(overallRecord, {
@@ -234,9 +229,7 @@ export const organizationWorkforceDashboardApi = {
 
     const { sections, overallEntry } = await buildScopedEntries(user, query);
     const baseItems = overallEntry ? [overallEntry, ...sections] : sections;
-    const items = query?.orgCode
-      ? baseItems.filter((section) => section.orgCode === query.orgCode)
-      : baseItems;
+    const items = query?.orgCode ? baseItems.filter((section) => section.orgCode === query.orgCode) : baseItems;
 
     return {
       success: true,
@@ -252,9 +245,7 @@ export const organizationWorkforceDashboardApi = {
     user: DevUserMode,
     orgCode: string,
     query?: OrganizationWorkforceDashboardQuery
-  ): Promise<
-    DashboardApiResponse<OrganizationWorkforceDashboardEntry | null, { requestedOrgCode: string }>
-  > {
+  ): Promise<DashboardApiResponse<OrganizationWorkforceDashboardEntry | null, { requestedOrgCode: string }>> {
     if (query?.simulateError) {
       return buildFailureResponse('Mock API error has been simulated.');
     }
@@ -278,9 +269,7 @@ export const organizationWorkforceDashboardApi = {
   async getOrganizationWorkforceDashboardMeta(
     user: DevUserMode,
     query?: OrganizationWorkforceDashboardQuery
-  ): Promise<
-    DashboardApiResponse<OrganizationWorkforceDashboardMeta, { totalOrganizations: number }>
-  > {
+  ): Promise<DashboardApiResponse<OrganizationWorkforceDashboardMeta, { totalOrganizations: number }>> {
     if (query?.simulateError) {
       return buildFailureResponse('Mock API error has been simulated.');
     }
