@@ -12,6 +12,8 @@ type OrganizationWorkforceDashboardSectionProps = {
   section: DashboardTableSection;
 };
 
+const GROUP_DIVIDER = '3px solid var(--color-border-strong)';
+
 const getRowBackground = (tone: DashboardTableSection['rows'][number]['tone']) => {
   if (tone === 'total') {
     return 'color-mix(in srgb, var(--color-brand-50) 72%, var(--color-bg-surface) 28%)';
@@ -93,23 +95,23 @@ export const OrganizationWorkforceDashboardSection = ({ section }: OrganizationW
           {row.label}
         </TableCell>
 
-        <TableCell align="right">{formatHeadcount(row.actual2025.headcount)}</TableCell>
+        <TableCell align="right" sx={{ borderLeft: GROUP_DIVIDER }}>{formatHeadcount(row.actual2025.headcount)}</TableCell>
         <TableCell align="right">{formatPercent(row.actual2025.ratio)}</TableCell>
         <TableCell align="right">{formatHeadcount(row.actual2025.reallocated)}</TableCell>
 
-        <TableCell align="right">{formatHeadcount(row.target2026.headcount)}</TableCell>
+        <TableCell align="right" sx={{ borderLeft: GROUP_DIVIDER }}>{formatHeadcount(row.target2026.headcount)}</TableCell>
         <TableCell align="right">{formatPercent(row.target2026.ratio)}</TableCell>
         <TableCell align="right" sx={{ color: getDeltaColor(row.target2026.delta), fontWeight: 600 }}>
           {formatSignedHeadcount(row.target2026.delta)}
         </TableCell>
         <TableCell align="right">{formatHeadcount(row.target2026.reallocated)}</TableCell>
 
-        <TableCell align="right">{formatHeadcount(row.current202604.headcount)}</TableCell>
+        <TableCell align="right" sx={{ borderLeft: GROUP_DIVIDER }}>{formatHeadcount(row.current202604.headcount)}</TableCell>
         <TableCell align="right">{formatPercent(row.current202604.ratio)}</TableCell>
         <TableCell align="right" sx={{ color: getDeltaColor(row.current202604.delta), fontWeight: 600 }}>
           {formatSignedHeadcount(row.current202604.delta)}
         </TableCell>
-        <TableCell align="right">{formatHeadcount(row.current202604.reallocated)}</TableCell>
+        <TableCell align="right" sx={{ borderRight: GROUP_DIVIDER }}>{formatHeadcount(row.current202604.reallocated)}</TableCell>
         </TableRow>
       ))}
     </>
