@@ -56,6 +56,8 @@ describe('buildOrganizationWorkforceDashboardExportModel', () => {
     expect(model.rows[7].values[1]).toBe('업데이트일');
     expect(model.rows[7].values[3]).toBe("'25년말 실적");
     expect(model.rows[8].values[3]).toBe('인력');
+    expect(model.rows[7].values).toHaveLength(14);
+    expect(model.rows[8].values).toHaveLength(14);
     expect(model.rows[9].values[0]).toContain('미래전략실');
     expect(model.rows[9].values[1]).toBe('2026.04.01');
     expect(model.rows[10].values[2]).toBe('        AX');

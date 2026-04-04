@@ -11,6 +11,12 @@ type ExportOrganizationWorkforceDashboardExcelParams = {
   sections: DashboardTableSection[];
 };
 
+const ORGANIZATION_COLUMN_INDEX = 0;
+const UPDATED_AT_COLUMN_INDEX = 1;
+const CATEGORY_COLUMN_INDEX = 2;
+const METRIC_COLUMN_START_INDEX = 3;
+const DELTA_COLUMN_INDEXES = [8, 12];
+
 const thinBorder = {
   bottom: { color: { rgb: 'D1D5DB' }, style: 'thin' },
   left: { color: { rgb: 'D1D5DB' }, style: 'thin' },
@@ -129,28 +135,28 @@ export const exportOrganizationWorkforceDashboardExcel = ({
 
     const fillColor = getDataFillColor(row.tone);
 
-    styleCell(worksheet, rowIndex, 0, {
+    styleCell(worksheet, rowIndex, ORGANIZATION_COLUMN_INDEX, {
       alignment: { horizontal: 'left', vertical: 'top', wrapText: true },
       border: thinBorder,
       fill: { fgColor: { rgb: 'F8FAFC' }, patternType: 'solid' },
       font: { bold: true }
     });
 
-    styleCell(worksheet, rowIndex, 1, {
+    styleCell(worksheet, rowIndex, UPDATED_AT_COLUMN_INDEX, {
       alignment: { horizontal: 'center', vertical: 'center' },
       border: thinBorder,
       fill: { fgColor: { rgb: 'F8FAFC' }, patternType: 'solid' },
       font: { bold: true }
     });
 
-    styleCell(worksheet, rowIndex, 2, {
+    styleCell(worksheet, rowIndex, CATEGORY_COLUMN_INDEX, {
       alignment: { horizontal: 'left', indent: row.level ?? 0, vertical: 'center' },
       border: thinBorder,
       fill: { fgColor: { rgb: fillColor }, patternType: 'solid' },
       font: { bold: row.tone === 'detail' ? false : true }
     });
 
-    for (let columnIndex = 3; columnIndex < row.values.length; columnIndex += 1) {
+    for (let columnIndex = METRIC_COLUMN_START_INDEX; columnIndex < row.values.length; columnIndex += 1) {
       const cellValue = String(row.values[columnIndex] ?? '');
 
       styleCell(worksheet, rowIndex, columnIndex, {
@@ -158,7 +164,7 @@ export const exportOrganizationWorkforceDashboardExcel = ({
         border: thinBorder,
         fill: { fgColor: { rgb: fillColor }, patternType: 'solid' },
         font:
-          columnIndex === 8 || columnIndex === 12
+          DELTA_COLUMN_INDEXES.includes(columnIndex)
             ? { bold: true, color: { rgb: getDeltaFontColor(cellValue) } }
             : { bold: row.tone === 'total' }
       });
