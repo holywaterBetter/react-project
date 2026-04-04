@@ -61,7 +61,7 @@ export const OrganizationWorkforceDashboardSection = ({ section }: OrganizationW
             <TableCell
               rowSpan={section.rows.length}
               sx={{
-                minWidth: 140,
+                minWidth: 132,
                 verticalAlign: 'top',
                 backgroundColor: 'var(--color-bg-raised)',
                 borderRight: '1px solid var(--color-border-default)'
@@ -70,15 +70,12 @@ export const OrganizationWorkforceDashboardSection = ({ section }: OrganizationW
               <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
                 {section.orgDisplayName}
               </Typography>
-              <Typography variant="caption" color="text.secondary" display="block">
-                {section.orgCode}
-              </Typography>
-              <Typography variant="caption" color="text.secondary" display="block" sx={{ mt: 1 }}>
+              <Typography variant="caption" color="text.secondary" display="block" sx={{ mt: 0.75 }}>
                 {t('workforceDashboard.section.baseOrgCount', {
                   count: section.sourceRecordCount.toLocaleString()
                 })}
               </Typography>
-              <Typography variant="caption" color="text.secondary" display="block">
+              <Typography variant="caption" color="text.secondary" display="block" sx={{ mt: 0.25 }}>
                 {t('workforceDashboard.section.updated', { value: formatDateLabel(section.lastUpdated) })}
               </Typography>
             </TableCell>
