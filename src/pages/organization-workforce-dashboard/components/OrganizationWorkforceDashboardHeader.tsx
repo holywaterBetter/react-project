@@ -1,4 +1,5 @@
 import { ExcelDownloadButton } from '@components/ExcelDownloadButton';
+import { ExcelUpload } from '@components/ExcelUpload';
 import { useAppTranslation } from '@hooks/useAppTranslation';
 import { Button, Chip, Stack, Typography } from '@mui/material';
 import { formatDateLabel } from '@pages/organization-workforce-dashboard/utils/dashboardFormatters';
@@ -7,8 +8,12 @@ type OrganizationWorkforceDashboardHeaderProps = {
   baseMonth?: string;
   isExportDisabled: boolean;
   isExporting: boolean;
+  isUploading: boolean;
+  uploadSummary: string | null;
+  hasUploadError: boolean;
   lastUpdated?: string;
   onExport: () => void | Promise<void>;
+  onUpload: (file: File) => Promise<void>;
   onRefresh: () => void;
 };
 
@@ -16,8 +21,12 @@ export const OrganizationWorkforceDashboardHeader = ({
   baseMonth,
   isExportDisabled,
   isExporting,
+  isUploading,
+  uploadSummary,
+  hasUploadError,
   lastUpdated,
   onExport,
+  onUpload,
   onRefresh
 }: OrganizationWorkforceDashboardHeaderProps) => {
   const { t } = useAppTranslation();
@@ -44,6 +53,12 @@ export const OrganizationWorkforceDashboardHeader = ({
           <Button variant="outlined" onClick={onRefresh}>
             {t('workforceDashboard.header.refresh')}
           </Button>
+          <ExcelUpload
+            disabled={isExportDisabled}
+            isLoading={isUploading}
+            label={t('workforceDashboard.header.actions.upload')}
+            onUpload={onUpload}
+          />
           <ExcelDownloadButton
             disabled={isExportDisabled}
             isLoading={isExporting}
@@ -52,6 +67,11 @@ export const OrganizationWorkforceDashboardHeader = ({
           />
         </div>
       </div>
+      {uploadSummary ? (
+        <Typography variant="caption" className={hasUploadError ? 'mt-2 text-danger' : 'mt-2 text-ink-muted'}>
+          {uploadSummary}
+        </Typography>
+      ) : null}
     </div>
   );
 };
