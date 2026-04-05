@@ -1,31 +1,37 @@
 import { ExcelDownloadButton } from '@components/ExcelDownloadButton';
 import { ExcelUpload } from '@components/ExcelUpload';
 import { useAppTranslation } from '@hooks/useAppTranslation';
-import { Button, Chip, Stack, Typography } from '@mui/material';
+import { Button, Chip, Divider, Stack, Typography } from '@mui/material';
 import { formatDateLabel } from '@pages/organization-workforce-dashboard/utils/dashboardFormatters';
 
 type OrganizationWorkforceDashboardHeaderProps = {
   baseMonth?: string;
+  isUpdateDisabled: boolean;
   isExportDisabled: boolean;
   isExporting: boolean;
+  isTemplateDownloading: boolean;
   isUploading: boolean;
   uploadSummary: string | null;
   hasUploadError: boolean;
   lastUpdated?: string;
   onExport: () => void | Promise<void>;
+  onTemplateDownload: () => void | Promise<void>;
   onUpload: (file: File) => Promise<void>;
   onRefresh: () => void;
 };
 
 export const OrganizationWorkforceDashboardHeader = ({
   baseMonth,
+  isUpdateDisabled,
   isExportDisabled,
   isExporting,
+  isTemplateDownloading,
   isUploading,
   uploadSummary,
   hasUploadError,
   lastUpdated,
   onExport,
+  onTemplateDownload,
   onUpload,
   onRefresh
 }: OrganizationWorkforceDashboardHeaderProps) => {
@@ -49,22 +55,54 @@ export const OrganizationWorkforceDashboardHeader = ({
           </div>
         </Stack>
 
-        <div className="flex flex-wrap gap-2">
-          <Button variant="outlined" onClick={onRefresh}>
-            {t('workforceDashboard.header.refresh')}
-          </Button>
-          <ExcelUpload
-            disabled={isExportDisabled}
-            isLoading={isUploading}
-            label={t('workforceDashboard.header.actions.upload')}
-            onUpload={onUpload}
-          />
-          <ExcelDownloadButton
-            disabled={isExportDisabled}
-            isLoading={isExporting}
-            label={t('workforceDashboard.header.download')}
-            onDownload={onExport}
-          />
+        <div className="min-w-[340px] space-y-3">
+          <div className="flex justify-end">
+            <Button variant="outlined" onClick={onRefresh}>
+              {t('workforceDashboard.header.refresh')}
+            </Button>
+          </div>
+
+          <div className="rounded-lg border border-line px-4 py-3">
+            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+              {t('workforceDashboard.header.actions.targetUpdateTitle')}
+            </Typography>
+            <Typography variant="caption" className="text-ink-muted">
+              {t('workforceDashboard.header.actions.targetUpdateDescription')}
+            </Typography>
+            <Stack direction="row" spacing={1.25} sx={{ mt: 1.5, flexWrap: 'wrap' }}>
+              <ExcelUpload
+                disabled={isUpdateDisabled}
+                isLoading={isUploading}
+                label={t('workforceDashboard.header.actions.upload')}
+                onUpload={onUpload}
+              />
+              <ExcelDownloadButton
+                disabled={isUpdateDisabled}
+                isLoading={isTemplateDownloading}
+                label={t('workforceDashboard.header.actions.downloadTemplate')}
+                onDownload={onTemplateDownload}
+              />
+            </Stack>
+          </div>
+
+          <Divider />
+
+          <div className="rounded-lg border border-line px-4 py-3">
+            <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
+              {t('workforceDashboard.header.actions.exportTitle')}
+            </Typography>
+            <Typography variant="caption" className="text-ink-muted">
+              {t('workforceDashboard.header.actions.exportDescription')}
+            </Typography>
+            <Stack direction="row" spacing={1.25} sx={{ mt: 1.5 }}>
+              <ExcelDownloadButton
+                disabled={isExportDisabled}
+                isLoading={isExporting}
+                label={t('workforceDashboard.header.download')}
+                onDownload={onExport}
+              />
+            </Stack>
+          </div>
         </div>
       </div>
       {uploadSummary ? (
