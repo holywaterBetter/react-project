@@ -13,7 +13,7 @@ export type ApprovalFieldChange<TField extends string = string> = {
 };
 
 export type ApprovalChangeRowBase<TBefore, TAfter, TField extends string = string> = {
-  key: string;
+  key?: string;
   orgCode: string;
   orgName: string;
   divisionName: string;
@@ -67,7 +67,7 @@ export type ApprovalDecision = {
 
 export type ApprovalChangeRequest = {
   id: string;
-  type: ApprovalRequestType;
+  type?: ApprovalRequestType;
   status: ApprovalStatus;
   submittedAt: string;
   submittedByUserId: string;
@@ -80,6 +80,6 @@ export type ApprovalChangeRequest = {
 
 export type CreateApprovalRequestPayload = {
   submittedBy: DevUserMode;
-  type: ApprovalRequestType;
+  type?: ApprovalRequestType;
   rows: ApprovalChangeRow[];
 };

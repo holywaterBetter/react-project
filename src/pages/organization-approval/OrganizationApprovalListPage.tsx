@@ -21,7 +21,7 @@ import { useWorkforceRepositoryVersion } from '@services/workforceRepository';
 import { useMemo, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
-const getRequestTypeLabel = (type: 'organization' | 'workforce-target') =>
+const getRequestTypeLabel = (type: 'organization' | 'workforce-target' | undefined) =>
   type === 'workforce-target' ? 'Workforce Target' : 'Organization';
 
 export const OrganizationApprovalListPage = () => {

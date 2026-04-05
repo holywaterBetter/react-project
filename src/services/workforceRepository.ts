@@ -86,11 +86,21 @@ const cloneTargetChangeRow = (row: WorkforceTargetApprovalChangeRow): WorkforceT
 });
 
 
+const normalizeRowKey = <TRow extends ApprovalChangeRow>(row: TRow): TRow => ({
+  ...row,
+  key: row.key ?? row.orgCode
+});
+
 const isTargetChangeRow = (row: ApprovalChangeRow): row is WorkforceTargetApprovalChangeRow =>
   'headcount_target_by_category' in row.before;
 
-const cloneChangeRow = (row: ApprovalChangeRow): ApprovalChangeRow =>
-  isTargetChangeRow(row) ? cloneTargetChangeRow(row) : cloneOrganizationChangeRow(row);
+const cloneChangeRow = (row: ApprovalChangeRow): ApprovalChangeRow => {
+  const normalizedRow = normalizeRowKey(row);
+
+  return isTargetChangeRow(normalizedRow)
+    ? cloneTargetChangeRow(normalizedRow)
+    : cloneOrganizationChangeRow(normalizedRow);
+};
 
 const cloneApprovalRequest = (request: ApprovalChangeRequest): ApprovalChangeRequest => ({
   ...request,
@@ -421,7 +431,7 @@ export const workforceRepository = {
     });
   },
 
-  createPendingChangeRequest({ submittedBy, type, rows }: CreateApprovalRequestPayload) {
+  createPendingChangeRequest({ submittedBy, type = 'organization', rows }: CreateApprovalRequestPayload) {
     if (rows.length === 0) {
       return null;
     }
