@@ -225,6 +225,24 @@
       "compositionDescription": "Compare A/B/C composition ratio and headcount by organization.",
       "scope": "Scope",
       "total": "Total"
+    },
+    "alerts": {
+      "totalReductionAchieved": "Total headcount reduction goal is achieved.",
+      "totalReductionGap": "Total headcount is {{value}} above the reduction goal.",
+      "aReductionAchieved": "A-organization reduction goal is achieved.",
+      "aReductionGap": "A-organization headcount is {{value}} above the reduction goal.",
+      "reallocationAchieved": "Reallocation goal is achieved.",
+      "reallocationGap": "{{value}} more reallocation moves are required."
+    },
+    "mission": {
+      "totalReductionTitle": "Total Reduction Progress",
+      "totalReductionDescription": "Progress from 2025 actual to 2026 target reduction",
+      "aReductionTitle": "A-Organization Reduction Progress",
+      "aReductionDescription": "Progress against A-category (A1) reduction target",
+      "reallocationTitle": "Reallocation Goal Progress",
+      "reallocationDescription": "Enterprise cumulative reallocation vs target",
+      "fromActualToCurrent": "2025 actual {{actual}} → current {{current}} (target {{target}})",
+      "reallocationSummary": "Achieved {{achieved}} / Target {{target}}"
     }
   }
 }
