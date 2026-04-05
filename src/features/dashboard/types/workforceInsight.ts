@@ -50,6 +50,36 @@ export type InsightTargetProgress = {
   isAhead: boolean;
 };
 
+export type InsightScopeMetrics = {
+  orgCode: string;
+  orgName: string;
+  targetHeadcount: number;
+  achievedHeadcount: number;
+  headcountAchievementRate: number;
+  targetReallocated: number;
+  achievedReallocated: number;
+  reallocatedAchievementRate: number;
+};
+
+export type InsightCompositionCategory = {
+  code: OrganizationCategoryCode;
+  label: string;
+  headcount: number;
+  ratio: number;
+};
+
+export type InsightCompositionByScope = {
+  orgCode: string;
+  orgName: string;
+  totalHeadcount: number;
+  categories: InsightCompositionCategory[];
+};
+
+export type InsightMovementInfographic = {
+  scopeMetrics: InsightScopeMetrics[];
+  compositionByScope: InsightCompositionByScope[];
+};
+
 export type WorkforceInsightData = {
   availableMonths: string[];
   organizationOptions: Array<{
@@ -64,4 +94,5 @@ export type WorkforceInsightData = {
   categoryDistribution: InsightCategoryDistribution[];
   stackedSeries: InsightStackedBarItem[];
   targetProgress: InsightTargetProgress;
+  movementInfographic: InsightMovementInfographic;
 };

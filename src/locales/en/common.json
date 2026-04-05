@@ -208,6 +208,18 @@
       "stackedTitle": "Period Stacked Comparison",
       "stackedDescription": "Actual, current, and target composition by stream.",
       "currentSuffix": "{{value}} current"
+    },
+    "infographic": {
+      "title": "Enterprise / Division Workforce Movement Infographic",
+      "description": "Compare reduction/redeployment target attainment and composition split in one view.",
+      "reductionTitle": "Reduction Target vs Achievement by Scope",
+      "reallocationTitle": "Redeployment Target vs Achievement by Scope",
+      "target": "Target {{value}}",
+      "achieved": "Achieved {{value}}",
+      "compositionTitle": "Composition Infographic (Period Comparison Style)",
+      "compositionDescription": "Shows ratio (%) and count for A/B/C categories out of 100% by enterprise/division scope.",
+      "scope": "Scope",
+      "total": "Total"
     }
   }
 }
