@@ -1,7 +1,7 @@
 import { WorkforceMovementInfographicSection } from '@features/dashboard/components/WorkforceMovementInfographicSection';
 import type { WorkforceInsightData } from '@features/dashboard/types/workforceInsight';
 import { useAppTranslation } from '@hooks/useAppTranslation';
-import { RefreshRounded } from '@mui/icons-material';
+import { CheckCircleRounded, RefreshRounded, WarningAmberRounded } from '@mui/icons-material';
 import {
   Alert,
   Box,
@@ -53,6 +53,19 @@ const palette = ['#6366F1', '#0EA5E9', '#10B981', '#F59E0B', '#EF4444'];
 const formatSigned = (value: number) => `${value >= 0 ? '+' : ''}${value.toLocaleString()}`;
 const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max);
 
+const getGoalTone = (isAchieved: boolean) =>
+  isAchieved
+    ? {
+        icon: <CheckCircleRounded fontSize="small" />,
+        color: '#0F766E',
+        background: alpha('#14B8A6', 0.16)
+      }
+    : {
+        icon: <WarningAmberRounded fontSize="small" />,
+        color: '#B45309',
+        background: alpha('#F59E0B', 0.18)
+      };
+
 export const WorkforceInsightDashboard = ({
   data,
   isLoading,
@@ -87,6 +100,58 @@ export const WorkforceInsightDashboard = ({
     : t('insight.progress.remaining', {
         value: Math.max(data?.targetProgress.gapHeadcount ?? 0, 0).toLocaleString()
       });
+
+  const totalActual = data?.kpis.find((kpi) => kpi.id === 'hc-current')
+    ? (data?.targetProgress.currentHeadcount ?? 0) - (data?.kpis.find((kpi) => kpi.id === 'hc-current')?.delta ?? 0)
+    : 0;
+  const totalCurrent = data?.targetProgress.currentHeadcount ?? 0;
+  const totalTarget = data?.targetProgress.targetHeadcount ?? 0;
+  const totalReductionGoal = Math.max(totalActual - totalTarget, 0);
+  const totalReductionDone = Math.max(totalActual - totalCurrent, 0);
+  const totalReductionRate =
+    totalReductionGoal > 0 ? clamp((totalReductionDone / totalReductionGoal) * 100, 0, 999) : 100;
+  const totalReductionAchieved = totalCurrent <= totalTarget;
+
+  const aCategoryRow = data?.stackedSeries.find((row) => row.code === 'A1');
+  const aReductionGoal = Math.max((aCategoryRow?.actual ?? 0) - (aCategoryRow?.target ?? 0), 0);
+  const aReductionDone = Math.max((aCategoryRow?.actual ?? 0) - (aCategoryRow?.current ?? 0), 0);
+  const aReductionRate =
+    aReductionGoal > 0 ? clamp((aReductionDone / aReductionGoal) * 100, 0, 999) : 100;
+  const aReductionAchieved = (aCategoryRow?.current ?? 0) <= (aCategoryRow?.target ?? 0);
+
+  const enterpriseScope = data?.movementInfographic.scopeMetrics.find((row) => row.orgCode === 'ALL');
+  const reallocationRate = enterpriseScope?.reallocatedAchievementRate ?? 0;
+  const reallocationAchieved = reallocationRate >= 100;
+  const reallocationGap = Math.max(
+    (enterpriseScope?.targetReallocated ?? 0) - (enterpriseScope?.achievedReallocated ?? 0),
+    0
+  );
+
+  const alertItems = [
+    {
+      id: 'total-reduction',
+      isAchieved: totalReductionAchieved,
+      label: totalReductionAchieved
+        ? t('insight.alerts.totalReductionAchieved')
+        : t('insight.alerts.totalReductionGap', { value: (totalCurrent - totalTarget).toLocaleString() })
+    },
+    {
+      id: 'a-reduction',
+      isAchieved: aReductionAchieved,
+      label: aReductionAchieved
+        ? t('insight.alerts.aReductionAchieved')
+        : t('insight.alerts.aReductionGap', {
+            value: Math.max((aCategoryRow?.current ?? 0) - (aCategoryRow?.target ?? 0), 0).toLocaleString()
+          })
+    },
+    {
+      id: 'reallocation',
+      isAchieved: reallocationAchieved,
+      label: reallocationAchieved
+        ? t('insight.alerts.reallocationAchieved')
+        : t('insight.alerts.reallocationGap', { value: reallocationGap.toLocaleString() })
+    }
+  ];
 
   return (
     <Stack spacing={3}>
@@ -174,6 +239,39 @@ export const WorkforceInsightDashboard = ({
 
       {isLoading ? <LinearProgress /> : null}
       {error ? <Alert severity="error">{error}</Alert> : null}
+
+      {data ? (
+        <Card
+          variant="outlined"
+          sx={{
+            borderRadius: 3,
+            borderColor: alpha('#6366F1', 0.28),
+            background: (theme) =>
+              `linear-gradient(128deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(theme.palette.background.paper, 1)} 68%)`
+          }}
+        >
+          <CardContent sx={{ py: 1.6 }}>
+            <Stack direction={{ xs: 'column', md: 'row' }} spacing={1}>
+              {alertItems.map((item) => {
+                const tone = getGoalTone(item.isAchieved);
+                return (
+                  <Chip
+                    key={item.id}
+                    icon={tone.icon}
+                    label={item.label}
+                    sx={{
+                      justifyContent: 'flex-start',
+                      color: tone.color,
+                      bgcolor: tone.background,
+                      fontWeight: 700
+                    }}
+                  />
+                );
+              })}
+            </Stack>
+          </CardContent>
+        </Card>
+      ) : null}
 
       <Box
         display="grid"
@@ -435,6 +533,115 @@ export const WorkforceInsightDashboard = ({
       {data ? (
         <WorkforceMovementInfographicSection movementInfographic={data.movementInfographic} />
       ) : null}
+
+      <Box display="grid" gridTemplateColumns={{ xs: '1fr', lg: '1fr 1fr 1fr' }} gap={2}>
+        <Card variant="outlined" sx={{ borderRadius: 3, ...easeCard }}>
+          <CardContent>
+            <Typography variant="subtitle1" fontWeight={800}>
+              {t('insight.mission.totalReductionTitle')}
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 0.4, mb: 1.6 }}>
+              {t('insight.mission.totalReductionDescription')}
+            </Typography>
+            <Stack spacing={1}>
+              <Typography variant="h4" fontWeight={800}>
+                {totalReductionRate.toFixed(1)}%
+              </Typography>
+              <LinearProgress
+                variant="determinate"
+                value={clamp(totalReductionRate, 0, 100)}
+                sx={{
+                  height: 10,
+                  borderRadius: 99,
+                  bgcolor: alpha('#6366F1', 0.16),
+                  '& .MuiLinearProgress-bar': {
+                    borderRadius: 99,
+                    bgcolor: totalReductionAchieved ? '#0F766E' : '#F59E0B'
+                  }
+                }}
+              />
+              <Typography variant="caption" color="text.secondary">
+                {t('insight.mission.fromActualToCurrent', {
+                  actual: totalActual.toLocaleString(),
+                  current: totalCurrent.toLocaleString(),
+                  target: totalTarget.toLocaleString()
+                })}
+              </Typography>
+            </Stack>
+          </CardContent>
+        </Card>
+
+        <Card variant="outlined" sx={{ borderRadius: 3, ...easeCard }}>
+          <CardContent>
+            <Typography variant="subtitle1" fontWeight={800}>
+              {t('insight.mission.aReductionTitle')}
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 0.4, mb: 1.6 }}>
+              {t('insight.mission.aReductionDescription')}
+            </Typography>
+            <Stack spacing={1}>
+              <Typography variant="h4" fontWeight={800}>
+                {aReductionRate.toFixed(1)}%
+              </Typography>
+              <LinearProgress
+                variant="determinate"
+                value={clamp(aReductionRate, 0, 100)}
+                sx={{
+                  height: 10,
+                  borderRadius: 99,
+                  bgcolor: alpha('#6366F1', 0.16),
+                  '& .MuiLinearProgress-bar': {
+                    borderRadius: 99,
+                    bgcolor: aReductionAchieved ? '#0F766E' : '#F59E0B'
+                  }
+                }}
+              />
+              <Typography variant="caption" color="text.secondary">
+                {t('insight.mission.fromActualToCurrent', {
+                  actual: (aCategoryRow?.actual ?? 0).toLocaleString(),
+                  current: (aCategoryRow?.current ?? 0).toLocaleString(),
+                  target: (aCategoryRow?.target ?? 0).toLocaleString()
+                })}
+              </Typography>
+            </Stack>
+          </CardContent>
+        </Card>
+
+        <Card variant="outlined" sx={{ borderRadius: 3, ...easeCard }}>
+          <CardContent>
+            <Typography variant="subtitle1" fontWeight={800}>
+              {t('insight.mission.reallocationTitle')}
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 0.4, mb: 1.6 }}>
+              {t('insight.mission.reallocationDescription')}
+            </Typography>
+            <Stack spacing={1}>
+              <Typography variant="h4" fontWeight={800}>
+                {reallocationRate.toFixed(1)}%
+              </Typography>
+              <LinearProgress
+                variant="determinate"
+                value={clamp(reallocationRate, 0, 100)}
+                sx={{
+                  height: 10,
+                  borderRadius: 99,
+                  bgcolor: alpha('#0EA5E9', 0.16),
+                  '& .MuiLinearProgress-bar': {
+                    borderRadius: 99,
+                    bgcolor: reallocationAchieved ? '#0F766E' : '#F59E0B'
+                  }
+                }}
+              />
+              <Typography variant="caption" color="text.secondary">
+                {t('insight.mission.reallocationSummary', {
+                  achieved: (enterpriseScope?.achievedReallocated ?? 0).toLocaleString(),
+                  target: (enterpriseScope?.targetReallocated ?? 0).toLocaleString()
+                })}
+              </Typography>
+            </Stack>
+          </CardContent>
+        </Card>
+      </Box>
 
       <Box display="grid" gridTemplateColumns={{ xs: '1fr', lg: '1fr 1fr' }} gap={2}>
         <Card variant="outlined" sx={{ borderRadius: 3, ...easeCard }}>

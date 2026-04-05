@@ -168,6 +168,7 @@ const buildStackedSeries = (
   language: string
 ): InsightStackedBarItem[] =>
   organizationCategoryCodes.map((code) => ({
+    code,
     label: isKoreanLanguage(language)
       ? organizationCategoryMap[code].dashboardLabel
       : organizationCategoryMap[code].displayLabel,

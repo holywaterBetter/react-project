@@ -36,6 +36,7 @@ export type InsightCategoryDistribution = {
 };
 
 export type InsightStackedBarItem = {
+  code: OrganizationCategoryCode;
   label: string;
   actual: number;
   current: number;
