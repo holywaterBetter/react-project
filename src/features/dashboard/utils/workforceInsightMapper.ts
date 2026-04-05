@@ -3,11 +3,18 @@ import {
   organizationCategoryMap,
   organizationCategoryCodes
 } from '@constants/organizationCategoryMap';
-import { DIVISION_NAME_EN_BY_CODE, SMALL_DIVISION_GROUP } from '@features/auth/types/devUserMode';
+import {
+  DIVISION_NAME_EN_BY_CODE,
+  SMALL_DIVISION_CODES,
+  SMALL_DIVISION_GROUP
+} from '@features/auth/types/devUserMode';
 import type {
   InsightCategoryDistribution,
+  InsightCompositionByScope,
+  InsightScopeMetrics,
   InsightDivisionComposition,
   InsightKpi,
+  InsightMovementInfographic,
   InsightTargetProgress,
   InsightStackedBarItem,
   InsightTrendPoint,
@@ -184,6 +191,169 @@ const buildTargetProgress = (entry: OrganizationWorkforceDashboardEntry): Insigh
   };
 };
 
+const calculateAchievementRate = (target: number, achieved: number) =>
+  target > 0 ? (achieved / target) * 100 : 0;
+
+const aggregateEntries = (
+  entries: OrganizationWorkforceDashboardEntry[],
+  orgCode: string,
+  orgName: string
+): OrganizationWorkforceDashboardEntry => ({
+  orgCode,
+  orgName,
+  orgDisplayName: orgName,
+  sourceRecordCount: entries.reduce((sum, entry) => sum + entry.sourceRecordCount, 0),
+  lastUpdated: entries[0]?.lastUpdated ?? '',
+  categoryMetrics: organizationCategoryCodes.reduce(
+    (accumulator, categoryCode) => {
+      accumulator[categoryCode] = {
+        actual2025: {
+          headcount: entries.reduce(
+            (sum, entry) => sum + entry.categoryMetrics[categoryCode].actual2025.headcount,
+            0
+          ),
+          reallocated: entries.reduce(
+            (sum, entry) => sum + entry.categoryMetrics[categoryCode].actual2025.reallocated,
+            0
+          )
+        },
+        current202604: {
+          headcount: entries.reduce(
+            (sum, entry) => sum + entry.categoryMetrics[categoryCode].current202604.headcount,
+            0
+          ),
+          reallocated: entries.reduce(
+            (sum, entry) => sum + entry.categoryMetrics[categoryCode].current202604.reallocated,
+            0
+          )
+        },
+        target2026: {
+          headcount: entries.reduce(
+            (sum, entry) => sum + entry.categoryMetrics[categoryCode].target2026.headcount,
+            0
+          ),
+          reallocated: entries.reduce(
+            (sum, entry) => sum + entry.categoryMetrics[categoryCode].target2026.reallocated,
+            0
+          )
+        }
+      };
+      return accumulator;
+    },
+    {} as OrganizationWorkforceDashboardEntry['categoryMetrics']
+  )
+});
+
+const buildNormalizedScopeEntries = (
+  entries: OrganizationWorkforceDashboardEntry[],
+  language: string
+): OrganizationWorkforceDashboardEntry[] => {
+  const baseEntries = entries.filter((entry) => entry.orgCode !== 'ALL');
+  const smallEntries = baseEntries.filter((entry) =>
+    SMALL_DIVISION_CODES.includes(entry.orgCode as (typeof SMALL_DIVISION_CODES)[number])
+  );
+  const largeEntries = baseEntries.filter(
+    (entry) =>
+      !SMALL_DIVISION_CODES.includes(entry.orgCode as (typeof SMALL_DIVISION_CODES)[number])
+  );
+  const localizedLargeEntries = largeEntries.map((entry) => ({
+    ...entry,
+    orgDisplayName: localizeOrgDisplayName(entry.orgCode, entry.orgDisplayName, language)
+  }));
+
+  if (!smallEntries.length) {
+    return localizedLargeEntries;
+  }
+
+  const aggregatedSmallEntry = aggregateEntries(
+    smallEntries,
+    SMALL_DIVISION_GROUP.code,
+    localizeOrgDisplayName(SMALL_DIVISION_GROUP.code, SMALL_DIVISION_GROUP.name, language)
+  );
+
+  return [...localizedLargeEntries, aggregatedSmallEntry];
+};
+
+const buildScopeMetrics = (
+  allEntry: OrganizationWorkforceDashboardEntry,
+  scopedEntries: OrganizationWorkforceDashboardEntry[]
+): InsightScopeMetrics[] =>
+  [allEntry, ...scopedEntries]
+    .map((entry) => {
+      const target = sumForPeriod(entry, 'target2026');
+      const current = sumForPeriod(entry, 'current202604');
+
+      return {
+        orgCode: entry.orgCode,
+        orgName: entry.orgDisplayName,
+        targetHeadcount: target.headcount,
+        achievedHeadcount: current.headcount,
+        headcountAchievementRate: calculateAchievementRate(target.headcount, current.headcount),
+        targetReallocated: target.reallocated,
+        achievedReallocated: current.reallocated,
+        reallocatedAchievementRate: calculateAchievementRate(
+          target.reallocated,
+          current.reallocated
+        )
+      };
+    })
+    .sort((left, right) => {
+      if (left.orgCode === 'ALL') return -1;
+      if (right.orgCode === 'ALL') return 1;
+      return right.targetHeadcount - left.targetHeadcount;
+    });
+
+const buildCompositionByScope = (
+  allEntry: OrganizationWorkforceDashboardEntry,
+  scopedEntries: OrganizationWorkforceDashboardEntry[]
+): InsightCompositionByScope[] =>
+  [allEntry, ...scopedEntries]
+    .map((entry) => {
+      const categories = organizationCategoryCodes.map((code) => ({
+        code,
+        label: organizationCategoryMap[code].dashboardLabel,
+        headcount: entry.categoryMetrics[code].current202604.headcount,
+        ratio: 0
+      }));
+      const totalHeadcount = categories.reduce((sum, item) => sum + item.headcount, 0);
+
+      return {
+        orgCode: entry.orgCode,
+        orgName: entry.orgDisplayName,
+        totalHeadcount,
+        categories: categories.map((item) => ({
+          ...item,
+          ratio: totalHeadcount > 0 ? (item.headcount / totalHeadcount) * 100 : 0
+        }))
+      };
+    })
+    .sort((left, right) => {
+      if (left.orgCode === 'ALL') return -1;
+      if (right.orgCode === 'ALL') return 1;
+      return right.totalHeadcount - left.totalHeadcount;
+    });
+
+const buildMovementInfographic = (
+  entries: OrganizationWorkforceDashboardEntry[],
+  language: string
+): InsightMovementInfographic => {
+  const overallEntry = entries.find((entry) => entry.orgCode === 'ALL') ?? entries[0];
+  const localizedOverallEntry = {
+    ...overallEntry,
+    orgDisplayName: localizeOrgDisplayName(
+      overallEntry.orgCode,
+      overallEntry.orgDisplayName,
+      language
+    )
+  };
+  const normalizedEntries = buildNormalizedScopeEntries(entries, language);
+
+  return {
+    scopeMetrics: buildScopeMetrics(localizedOverallEntry, normalizedEntries),
+    compositionByScope: buildCompositionByScope(localizedOverallEntry, normalizedEntries)
+  };
+};
+
 export const mapToWorkforceInsightData = (
   entries: OrganizationWorkforceDashboardEntry[],
   meta: OrganizationWorkforceDashboardMeta,
@@ -222,6 +392,7 @@ export const mapToWorkforceInsightData = (
     divisionComposition: buildDivisionComposition(entries, language),
     categoryDistribution: buildCategoryDistribution(selectedEntry, language),
     stackedSeries: buildStackedSeries(selectedEntry, language),
-    targetProgress: buildTargetProgress(selectedEntry)
+    targetProgress: buildTargetProgress(selectedEntry),
+    movementInfographic: buildMovementInfographic(entries, language)
   };
 };

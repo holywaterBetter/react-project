@@ -213,6 +213,18 @@
       "stackedTitle": "기간별 누적 비교",
       "stackedDescription": "스트림별 실적/현재/목표 구성을 비교합니다.",
       "currentSuffix": "현재 {{value}}"
+    },
+    "infographic": {
+      "title": "전사/사업부 인력 이동 인포그래픽",
+      "description": "감축 및 재배치 목표의 달성 수준과 카테고리 구성 비중을 한 화면에서 비교합니다.",
+      "reductionTitle": "전사/사업부 별 감축인력 목표 및 달성도",
+      "reallocationTitle": "전사/사업부 별 재배치 목표 및 달성도",
+      "target": "목표 {{value}}명",
+      "achieved": "달성 {{value}}명",
+      "compositionTitle": "[기간별 누적 비교] 기반 구성 인포그래픽",
+      "compositionDescription": "100% 기준으로 전출부서(A), 신사업(B), 성장사업(B), AX(B), 업무로드高(C)의 비율(%)과 인원을 함께 제공합니다.",
+      "scope": "구분",
+      "total": "총원"
     }
   }
 }

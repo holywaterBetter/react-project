@@ -1,3 +1,4 @@
+import { WorkforceMovementInfographicSection } from '@features/dashboard/components/WorkforceMovementInfographicSection';
 import type { WorkforceInsightData } from '@features/dashboard/types/workforceInsight';
 import { useAppTranslation } from '@hooks/useAppTranslation';
 import { RefreshRounded } from '@mui/icons-material';
@@ -65,18 +66,27 @@ export const WorkforceInsightDashboard = ({
 }: WorkforceInsightDashboardProps) => {
   const { t } = useAppTranslation();
   const maxTrend = Math.max(...trendData.map((item) => Math.max(item.headcount, item.target)), 1);
-  const maxDivisionHeadcount = Math.max(...(data?.divisionComposition.map((division) => division.totalHeadcount) ?? [1]), 1);
+  const maxDivisionHeadcount = Math.max(
+    ...(data?.divisionComposition.map((division) => division.totalHeadcount) ?? [1]),
+    1
+  );
   const kpiItems = data?.kpis ?? [];
   const achievementRate = data?.targetProgress.achievementRate ?? 0;
   const gaugeRate = clamp(achievementRate, 0, 100);
   const progressStatusColor = data?.targetProgress.isAhead ? '#0F766E' : '#B45309';
-  const progressStatusBg = data?.targetProgress.isAhead ? alpha('#14B8A6', 0.15) : alpha('#F59E0B', 0.16);
+  const progressStatusBg = data?.targetProgress.isAhead
+    ? alpha('#14B8A6', 0.15)
+    : alpha('#F59E0B', 0.16);
   const progressStatusText = data?.targetProgress.isAhead
     ? t('insight.progress.statusAhead')
     : t('insight.progress.statusInProgress');
   const progressGapLabel = data?.targetProgress.isAhead
-    ? t('insight.progress.overTarget', { value: Math.abs(data.targetProgress.gapHeadcount).toLocaleString() })
-    : t('insight.progress.remaining', { value: Math.max(data?.targetProgress.gapHeadcount ?? 0, 0).toLocaleString() });
+    ? t('insight.progress.overTarget', {
+        value: Math.abs(data.targetProgress.gapHeadcount).toLocaleString()
+      })
+    : t('insight.progress.remaining', {
+        value: Math.max(data?.targetProgress.gapHeadcount ?? 0, 0).toLocaleString()
+      });
 
   return (
     <Stack spacing={3}>
@@ -90,9 +100,17 @@ export const WorkforceInsightDashboard = ({
         }}
       >
         <CardContent sx={{ p: { xs: 2.5, md: 4 } }}>
-          <Stack direction={{ xs: 'column', md: 'row' }} alignItems={{ xs: 'stretch', md: 'center' }} justifyContent="space-between" gap={2}>
+          <Stack
+            direction={{ xs: 'column', md: 'row' }}
+            alignItems={{ xs: 'stretch', md: 'center' }}
+            justifyContent="space-between"
+            gap={2}
+          >
             <Box>
-              <Typography variant="overline" sx={{ letterSpacing: '0.16em', color: 'text.secondary', fontWeight: 700 }}>
+              <Typography
+                variant="overline"
+                sx={{ letterSpacing: '0.16em', color: 'text.secondary', fontWeight: 700 }}
+              >
                 {t('insight.hero.overline')}
               </Typography>
               <Typography variant="h4" fontWeight={800} sx={{ mt: 0.5 }}>
@@ -105,7 +123,12 @@ export const WorkforceInsightDashboard = ({
                 <Chip
                   size="small"
                   label={t('insight.hero.lastUpdated', { value: data.lastUpdated })}
-                  sx={{ mt: 1.5, fontWeight: 600, bgcolor: alpha('#3B82F6', 0.12), color: '#1D4ED8' }}
+                  sx={{
+                    mt: 1.5,
+                    fontWeight: 600,
+                    bgcolor: alpha('#3B82F6', 0.12),
+                    color: '#1D4ED8'
+                  }}
                 />
               ) : null}
             </Box>
@@ -152,13 +175,27 @@ export const WorkforceInsightDashboard = ({
       {isLoading ? <LinearProgress /> : null}
       {error ? <Alert severity="error">{error}</Alert> : null}
 
-      <Box display="grid" gridTemplateColumns={{ xs: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }} gap={2}>
+      <Box
+        display="grid"
+        gridTemplateColumns={{ xs: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }}
+        gap={2}
+      >
         {isLoading
-          ? Array.from({ length: 4 }).map((_, index) => <Skeleton key={`kpi-${index}`} variant="rounded" height={132} />)
+          ? Array.from({ length: 4 }).map((_, index) => (
+              <Skeleton key={`kpi-${index}`} variant="rounded" height={132} />
+            ))
           : kpiItems.map((kpi) => (
-              <Card key={kpi.id} variant="outlined" sx={{ borderRadius: 3, animation: `${rise} 340ms ease`, ...easeCard }}>
+              <Card
+                key={kpi.id}
+                variant="outlined"
+                sx={{ borderRadius: 3, animation: `${rise} 340ms ease`, ...easeCard }}
+              >
                 <CardContent>
-                  <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 700, letterSpacing: '0.08em' }}>
+                  <Typography
+                    variant="caption"
+                    color="text.secondary"
+                    sx={{ fontWeight: 700, letterSpacing: '0.08em' }}
+                  >
                     {kpi.label.toUpperCase()}
                   </Typography>
                   <Typography variant="h4" sx={{ mt: 1.5, fontWeight: 800 }}>
@@ -167,10 +204,16 @@ export const WorkforceInsightDashboard = ({
                   </Typography>
                   <Typography
                     variant="body2"
-                    sx={{ mt: 1, color: kpi.delta && kpi.delta < 0 ? 'error.main' : 'success.main', fontWeight: 700 }}
+                    sx={{
+                      mt: 1,
+                      color: kpi.delta && kpi.delta < 0 ? 'error.main' : 'success.main',
+                      fontWeight: 700
+                    }}
                   >
                     {kpi.delta
-                      ? t('insight.kpi.vsBaseline', { value: formatSigned(Number(kpi.delta.toFixed(1))) })
+                      ? t('insight.kpi.vsBaseline', {
+                          value: formatSigned(Number(kpi.delta.toFixed(1)))
+                        })
                       : t('insight.kpi.noDelta')}
                   </Typography>
                 </CardContent>
@@ -187,13 +230,36 @@ export const WorkforceInsightDashboard = ({
             <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
               {t('insight.sections.trendDescription')}
             </Typography>
-            <Box sx={{ display: 'grid', gridTemplateColumns: `repeat(${trendData.length}, minmax(0, 1fr))`, gap: 1.2, alignItems: 'end', minHeight: 210 }}>
+            <Box
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: `repeat(${trendData.length}, minmax(0, 1fr))`,
+                gap: 1.2,
+                alignItems: 'end',
+                minHeight: 210
+              }}
+            >
               {trendData.map((point, index) => (
-                <Stack key={point.month} alignItems="center" spacing={0.8} sx={{ animation: `${rise} ${180 + index * 70}ms ease both` }}>
+                <Stack
+                  key={point.month}
+                  alignItems="center"
+                  spacing={0.8}
+                  sx={{ animation: `${rise} ${180 + index * 70}ms ease both` }}
+                >
                   <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.secondary' }}>
                     {point.headcount.toLocaleString()}
                   </Typography>
-                  <Box sx={{ width: '100%', position: 'relative', height: 136, display: 'flex', alignItems: 'end', justifyContent: 'center', gap: 0.8 }}>
+                  <Box
+                    sx={{
+                      width: '100%',
+                      position: 'relative',
+                      height: 136,
+                      display: 'flex',
+                      alignItems: 'end',
+                      justifyContent: 'center',
+                      gap: 0.8
+                    }}
+                  >
                     <Box
                       sx={{
                         width: '36%',
@@ -269,7 +335,12 @@ export const WorkforceInsightDashboard = ({
                   <Chip
                     size="small"
                     label={progressStatusText}
-                    sx={{ mt: 1, fontWeight: 700, color: progressStatusColor, bgcolor: progressStatusBg }}
+                    sx={{
+                      mt: 1,
+                      fontWeight: 700,
+                      color: progressStatusColor,
+                      bgcolor: progressStatusBg
+                    }}
                   />
                 </Box>
               </Box>
@@ -292,7 +363,11 @@ export const WorkforceInsightDashboard = ({
                   </Typography>
                 </Box>
                 <Box sx={{ pt: 0.25 }}>
-                  <Typography variant="body2" fontWeight={700} color={data?.targetProgress.isAhead ? 'success.main' : 'warning.dark'}>
+                  <Typography
+                    variant="body2"
+                    fontWeight={700}
+                    color={data?.targetProgress.isAhead ? 'success.main' : 'warning.dark'}
+                  >
                     {progressGapLabel}
                   </Typography>
                 </Box>
@@ -332,7 +407,14 @@ export const WorkforceInsightDashboard = ({
                       {item.headcount.toLocaleString()} ({item.ratio.toFixed(1)}%)
                     </Typography>
                   </Stack>
-                  <Box sx={{ height: 8, borderRadius: 99, bgcolor: alpha(palette[index % palette.length], 0.2), overflow: 'hidden' }}>
+                  <Box
+                    sx={{
+                      height: 8,
+                      borderRadius: 99,
+                      bgcolor: alpha(palette[index % palette.length], 0.2),
+                      overflow: 'hidden'
+                    }}
+                  >
                     <Box
                       sx={{
                         height: '100%',
@@ -350,6 +432,10 @@ export const WorkforceInsightDashboard = ({
         </Card>
       </Box>
 
+      {data ? (
+        <WorkforceMovementInfographicSection movementInfographic={data.movementInfographic} />
+      ) : null}
+
       <Box display="grid" gridTemplateColumns={{ xs: '1fr', lg: '1fr 1fr' }} gap={2}>
         <Card variant="outlined" sx={{ borderRadius: 3, ...easeCard }}>
           <CardContent>
@@ -358,7 +444,10 @@ export const WorkforceInsightDashboard = ({
             </Typography>
             <Stack spacing={1.3} sx={{ mt: 2 }}>
               {data?.divisionComposition.map((division, index) => (
-                <Box key={division.orgCode} sx={{ animation: `${rise} ${130 + index * 45}ms ease both` }}>
+                <Box
+                  key={division.orgCode}
+                  sx={{ animation: `${rise} ${130 + index * 45}ms ease both` }}
+                >
                   <Stack direction="row" justifyContent="space-between" sx={{ mb: 0.4 }}>
                     <Typography variant="body2" fontWeight={600}>
                       {division.orgName}
@@ -367,7 +456,14 @@ export const WorkforceInsightDashboard = ({
                       {division.totalHeadcount.toLocaleString()}
                     </Typography>
                   </Stack>
-                  <Box sx={{ height: 9, borderRadius: 99, bgcolor: 'action.hover', overflow: 'hidden' }}>
+                  <Box
+                    sx={{
+                      height: 9,
+                      borderRadius: 99,
+                      bgcolor: 'action.hover',
+                      overflow: 'hidden'
+                    }}
+                  >
                     <Box
                       sx={{
                         height: '100%',
@@ -399,19 +495,50 @@ export const WorkforceInsightDashboard = ({
                 const currentWidth = (row.current / total) * 100;
 
                 return (
-                  <Box key={row.label} sx={{ animation: `${rise} ${160 + rowIndex * 50}ms ease both` }}>
+                  <Box
+                    key={row.label}
+                    sx={{ animation: `${rise} ${160 + rowIndex * 50}ms ease both` }}
+                  >
                     <Stack direction="row" justifyContent="space-between" sx={{ mb: 0.5 }}>
                       <Typography variant="body2" fontWeight={600}>
                         {row.label}
                       </Typography>
                       <Typography variant="caption" color="text.secondary">
-                        {t('insight.sections.currentSuffix', { value: row.current.toLocaleString() })}
+                        {t('insight.sections.currentSuffix', {
+                          value: row.current.toLocaleString()
+                        })}
                       </Typography>
                     </Stack>
-                    <Box sx={{ display: 'flex', height: 12, borderRadius: 99, overflow: 'hidden', bgcolor: 'action.hover' }}>
-                      <Box sx={{ width: `${actualWidth}%`, bgcolor: '#6366F1', transition: 'width 500ms ease' }} />
-                      <Box sx={{ width: `${currentWidth}%`, bgcolor: '#0EA5E9', transition: 'width 500ms ease' }} />
-                      <Box sx={{ width: `${Math.max(100 - actualWidth - currentWidth, 0)}%`, bgcolor: '#10B981', transition: 'width 500ms ease' }} />
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        height: 12,
+                        borderRadius: 99,
+                        overflow: 'hidden',
+                        bgcolor: 'action.hover'
+                      }}
+                    >
+                      <Box
+                        sx={{
+                          width: `${actualWidth}%`,
+                          bgcolor: '#6366F1',
+                          transition: 'width 500ms ease'
+                        }}
+                      />
+                      <Box
+                        sx={{
+                          width: `${currentWidth}%`,
+                          bgcolor: '#0EA5E9',
+                          transition: 'width 500ms ease'
+                        }}
+                      />
+                      <Box
+                        sx={{
+                          width: `${Math.max(100 - actualWidth - currentWidth, 0)}%`,
+                          bgcolor: '#10B981',
+                          transition: 'width 500ms ease'
+                        }}
+                      />
                     </Box>
                   </Box>
                 );
