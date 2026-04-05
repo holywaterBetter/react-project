@@ -66,8 +66,10 @@ describe('workforceRepository', () => {
 
     const request = workforceRepository.createPendingChangeRequest({
       submittedBy: divisionUser,
+      type: 'organization',
       rows: [
         {
+          key: targetRecord.org_code,
           orgCode: targetRecord.org_code,
           orgName: `${targetRecord.org_department_name} Updated`,
           divisionName: targetRecord.org_division_name,
