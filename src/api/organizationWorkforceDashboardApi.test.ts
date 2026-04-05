@@ -1,5 +1,7 @@
 import { organizationWorkforceDashboardApi } from '@api/organizationWorkforceDashboardApi';
 import { getDivisionNameByCode, SMALL_DIVISION_GROUP, type DevUserMode } from '@features/auth/types/devUserMode';
+import { approvalService } from '@services/approvalService';
+import { workforceRepository } from '@services/workforceRepository';
 
 const globalUser: DevUserMode = {
   empNo: 17100208,
@@ -18,6 +20,10 @@ const aeroUser: DevUserMode = {
 };
 
 describe('organizationWorkforceDashboardApi', () => {
+  beforeEach(() => {
+    workforceRepository.resetForTests();
+  });
+
   it('returns division-only options for global users and groups small divisions into 기타 사업부', async () => {
     const [metaResponse, listResponse] = await Promise.all([
       organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardMeta(globalUser),
@@ -69,5 +75,31 @@ describe('organizationWorkforceDashboardApi', () => {
         orgName: getDivisionNameByCode(aeroUser.divisionCode)
       })
     ]);
+  });
+
+  it('reflects approved workforce-target changes immediately in dashboard target metrics', async () => {
+    const targetRow = workforceRepository.getScopedWorkforceTargets(aeroUser)[0];
+    const changedRows = approvalService.buildWorkforceTargetChangeRows(aeroUser, [
+      {
+        ...targetRow,
+        headcount_target_by_category: {
+          ...targetRow.headcount_target_by_category,
+          A1: Number(targetRow.headcount_target_by_category.A1 ?? 0) + 12
+        }
+      }
+    ]);
+
+    const request = approvalService.submitWorkforceTargetRequest(aeroUser, changedRows);
+
+    expect(request?.type).toBe('workforce-target');
+
+    approvalService.approveRequest(globalUser, request!.id, 'Approved target adjustment');
+
+    const listResponse = await organizationWorkforceDashboardApi.getOrganizationWorkforceDashboardList(aeroUser);
+    const updatedSection = listResponse.data.find((entry) => entry.orgCode === aeroUser.divisionCode);
+
+    expect(updatedSection?.categoryMetrics.A1.target2026.headcount).toBe(
+      Number(targetRow.headcount_target_by_category.A1 ?? 0) + 12
+    );
   });
 });
