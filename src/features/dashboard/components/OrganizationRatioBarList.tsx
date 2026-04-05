@@ -1,23 +1,32 @@
 import type { OrgRatioRow, RatioSegment } from '@features/dashboard/utils/organizationRatioBarMapper';
-import { Box, Chip, Stack, Tooltip, Typography, alpha } from '@mui/material';
+import { Box, Chip, Stack, Tooltip, Typography, alpha, useMediaQuery, useTheme } from '@mui/material';
 
 type OrganizationRatioBarListProps = {
   rows: OrgRatioRow[];
 };
 
 const SEGMENT_COLOR: Record<RatioSegment['key'], string> = {
-  A: '#C2415A',
-  B: '#C58A12',
-  C: '#2B6CB0'
+  A: '#6366F1',
+  B: '#0EA5E9',
+  C: '#10B981'
 };
 
 const MIN_INSIDE_LABEL_PERCENT = 16;
+const MIN_INSIDE_LABEL_PERCENT_MOBILE = 20;
 
 const segmentLabel = (segment: RatioSegment) => `${segment.label} ${segment.percentage}%`;
 
-const RatioBar = ({ row }: { row: OrgRatioRow }) => {
+const RatioBar = ({
+  row,
+  insideLabelThreshold,
+  renderOutsideSegments
+}: {
+  row: OrgRatioRow;
+  insideLabelThreshold: number;
+  renderOutsideSegments: boolean;
+}) => {
   const outsideSegments = row.segments.filter(
-    (segment) => segment.percentage > 0 && segment.percentage < MIN_INSIDE_LABEL_PERCENT
+    (segment) => segment.percentage > 0 && segment.percentage < insideLabelThreshold
   );
 
   return (
@@ -35,7 +44,7 @@ const RatioBar = ({ row }: { row: OrgRatioRow }) => {
         }}
       >
         {row.segments.map((segment) => {
-          const showInsideLabel = segment.percentage >= MIN_INSIDE_LABEL_PERCENT;
+          const showInsideLabel = segment.percentage >= insideLabelThreshold;
 
           return (
             <Tooltip
@@ -67,7 +76,7 @@ const RatioBar = ({ row }: { row: OrgRatioRow }) => {
         })}
       </Box>
 
-      {outsideSegments.length ? (
+      {renderOutsideSegments && outsideSegments.length ? (
         <Stack direction="row" gap={0.8} flexWrap="wrap">
           {outsideSegments.map((segment) => (
             <Chip
@@ -88,6 +97,10 @@ const RatioBar = ({ row }: { row: OrgRatioRow }) => {
 };
 
 export const OrganizationRatioBarList = ({ rows }: OrganizationRatioBarListProps) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const insideLabelThreshold = isMobile ? MIN_INSIDE_LABEL_PERCENT_MOBILE : MIN_INSIDE_LABEL_PERCENT;
+
   if (!rows.length) {
     return (
       <Typography variant="body2" color="text.secondary">
@@ -108,9 +121,9 @@ export const OrganizationRatioBarList = ({ rows }: OrganizationRatioBarListProps
             alignItems: { xs: 'flex-start', md: 'center' },
             p: 1.25,
             border: '1px solid',
-            borderColor: alpha('#64748B', 0.18),
+            borderColor: alpha('#64748B', 0.28),
             borderRadius: 2,
-            backgroundColor: alpha('#F8FAFC', 0.4)
+            backgroundColor: alpha(theme.palette.background.paper, isMobile ? 0.5 : 0.42)
           }}
         >
           <Box>
@@ -121,7 +134,11 @@ export const OrganizationRatioBarList = ({ rows }: OrganizationRatioBarListProps
               총 {row.total.toLocaleString()}명
             </Typography>
           </Box>
-          <RatioBar row={row} />
+          <RatioBar
+            row={row}
+            insideLabelThreshold={insideLabelThreshold}
+            renderOutsideSegments={!isMobile}
+          />
         </Box>
       ))}
 

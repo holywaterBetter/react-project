@@ -221,8 +221,8 @@
       "reallocationTitle": "Redeployment Target vs Achievement by Scope",
       "target": "Target {{value}}",
       "achieved": "Achieved {{value}}",
-      "compositionTitle": "Composition Infographic (Period Comparison Style)",
-      "compositionDescription": "Shows ratio (%) and count for A/B/C categories out of 100% by enterprise/division scope.",
+      "compositionTitle": "Organization Composition Comparison",
+      "compositionDescription": "Compare A/B/C composition ratio and headcount by organization.",
       "scope": "Scope",
       "total": "Total"
     }
