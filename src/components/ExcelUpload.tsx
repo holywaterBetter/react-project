@@ -6,10 +6,11 @@ import { useRef, type ChangeEvent } from 'react';
 type ExcelUploadProps = {
   disabled?: boolean;
   isLoading?: boolean;
+  label?: string;
   onUpload: (file: File) => Promise<void>;
 };
 
-export const ExcelUpload = ({ disabled = false, isLoading = false, onUpload }: ExcelUploadProps) => {
+export const ExcelUpload = ({ disabled = false, isLoading = false, label, onUpload }: ExcelUploadProps) => {
   const { t } = useAppTranslation();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -50,7 +51,7 @@ export const ExcelUpload = ({ disabled = false, isLoading = false, onUpload }: E
           }
         }}
       >
-        {t('organization.actions.upload')}
+        {label ?? t('organization.actions.upload')}
       </Button>
     </>
   );

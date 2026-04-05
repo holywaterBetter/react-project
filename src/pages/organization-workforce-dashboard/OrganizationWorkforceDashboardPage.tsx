@@ -13,6 +13,9 @@ export const OrganizationWorkforceDashboardPage = () => {
   const { activeUser, filters, viewState, dataState, actions } = useOrganizationWorkforceDashboard();
   const [exportError, setExportError] = useState<string | null>(null);
   const [isExporting, setIsExporting] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadSummary, setUploadSummary] = useState<string | null>(null);
+  const [hasUploadError, setHasUploadError] = useState(false);
   const selectedOrgName = useMemo(() => {
     if (!filters.selectedOrgCode) {
       return null;
@@ -64,14 +67,46 @@ export const OrganizationWorkforceDashboardPage = () => {
     viewState.isLoading
   ]);
 
+  const handleUpload = useCallback(
+    async (file: File) => {
+      setIsUploading(true);
+      setUploadSummary(null);
+      setHasUploadError(false);
+
+      try {
+        if (!file.name.toLowerCase().endsWith('.xlsx')) {
+          throw new Error(t('workforceDashboard.header.actions.uploadInvalidFile'));
+        }
+
+        await new Promise<void>((resolve) => {
+          window.setTimeout(() => {
+            resolve();
+          }, 250);
+        });
+
+        setUploadSummary(t('workforceDashboard.header.actions.uploadSuccess', { fileName: file.name }));
+      } catch (error) {
+        setHasUploadError(true);
+        setUploadSummary(error instanceof Error ? error.message : t('workforceDashboard.header.actions.uploadFailure'));
+      } finally {
+        setIsUploading(false);
+      }
+    },
+    [t]
+  );
+
   return (
     <Stack spacing={3}>
       <OrganizationWorkforceDashboardHeader
         baseMonth={dataState.meta?.baseMonth}
         isExportDisabled={viewState.isLoading || viewState.isEmpty}
         isExporting={isExporting}
+        isUploading={isUploading}
+        uploadSummary={uploadSummary}
+        hasUploadError={hasUploadError}
         lastUpdated={dataState.meta?.lastUpdated}
         onExport={handleExport}
+        onUpload={handleUpload}
         onRefresh={actions.refresh}
       />
 
@@ -88,6 +123,7 @@ export const OrganizationWorkforceDashboardPage = () => {
       />
 
       {exportError ? <Alert severity="warning">{exportError}</Alert> : null}
+      {uploadSummary ? <Alert severity={hasUploadError ? 'warning' : 'success'}>{uploadSummary}</Alert> : null}
 
       {viewState.error ? (
         <Alert

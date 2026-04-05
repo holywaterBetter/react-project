@@ -128,7 +128,13 @@
       "baseMonth": "기준월 {{value}}",
       "lastUpdated": "최종 갱신 {{value}}",
       "refresh": "새로고침",
-      "download": "엑셀 다운로드"
+      "download": "엑셀 다운로드",
+      "actions": {
+        "upload": "엑셀 업로드",
+        "uploadSuccess": "{{fileName}} 업로드를 완료했습니다.",
+        "uploadInvalidFile": ".xlsx 파일만 업로드할 수 있습니다.",
+        "uploadFailure": "엑셀 파일 업로드에 실패했습니다."
+      }
     },
     "filters": {
       "division": "사업부",

@@ -49,7 +49,6 @@ const formatBaseMonth = (updatedDate: string) => {
   return `${updatedDate.slice(0, 4)}.${updatedDate.slice(4, 6)}`;
 };
 
-
 const isSmallDivisionGroupEntry = (entry: OrganizationWorkforceDashboardEntry) =>
   entry.orgCode === SMALL_DIVISION_GROUP.code || entry.orgDisplayName === SMALL_DIVISION_GROUP.name;
 

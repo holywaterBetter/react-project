@@ -204,7 +204,7 @@ export const buildOrganizationWorkforceDashboardExportModel = ({
     }
   );
 
-  sections.forEach((section, sectionIndex) => {
+  sections.forEach((section) => {
     const sectionStartRowIndex = rows.length;
 
     section.rows.forEach((row, rowIndex) => {
@@ -224,13 +224,6 @@ export const buildOrganizationWorkforceDashboardExportModel = ({
       merges.push({
         s: { r: sectionStartRowIndex, c: 0 },
         e: { r: rows.length - 1, c: 0 }
-      });
-    }
-
-    if (sectionIndex < sections.length - 1) {
-      rows.push({
-        kind: 'spacer',
-        values: buildBlankRow()
       });
     }
   });
