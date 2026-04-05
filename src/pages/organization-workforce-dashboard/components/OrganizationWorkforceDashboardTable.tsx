@@ -29,7 +29,21 @@ type OrganizationWorkforceDashboardTableProps = {
 
 const GROUP_DIVIDER = '3px solid var(--color-border-strong)';
 const STICKY_HEADER_TOP = 0;
-const STICKY_SUBHEADER_TOP = 56;
+const GROUP_HEADER_HEIGHT = 44;
+const STICKY_SUBHEADER_TOP = GROUP_HEADER_HEIGHT;
+
+const GROUP_HEADER_CELL_SX = {
+  backgroundColor: 'var(--color-bg-raised)',
+  py: 1,
+  lineHeight: 1.2,
+  verticalAlign: 'bottom'
+};
+
+const GROUP_SUBHEADER_CELL_SX = {
+  backgroundColor: 'var(--color-bg-raised)',
+  py: 1,
+  lineHeight: 1.2
+};
 
 const PERIOD_GROUPS: Array<{
   key: keyof PeriodLabels;
@@ -101,6 +115,9 @@ export const OrganizationWorkforceDashboardTable = ({
               '& .MuiTableCell-stickyHeader': {
                 backgroundColor: 'var(--color-bg-raised)'
               },
+              '& tr:first-of-type': {
+                height: GROUP_HEADER_HEIGHT
+              },
               '& tr:first-of-type .MuiTableCell-stickyHeader': {
                 top: STICKY_HEADER_TOP,
                 zIndex: 6
@@ -112,10 +129,16 @@ export const OrganizationWorkforceDashboardTable = ({
             }}
           >
             <TableRow>
-              <TableCell rowSpan={2} sx={{ minWidth: 140, backgroundColor: 'var(--color-bg-raised)', zIndex: 5 }}>
+              <TableCell
+                rowSpan={2}
+                sx={{ minWidth: 140, backgroundColor: 'var(--color-bg-raised)', zIndex: 5, py: 1.5 }}
+              >
                 {t('workforceDashboard.table.headers.organization')}
               </TableCell>
-              <TableCell rowSpan={2} sx={{ minWidth: 200, backgroundColor: 'var(--color-bg-raised)', zIndex: 5 }}>
+              <TableCell
+                rowSpan={2}
+                sx={{ minWidth: 200, backgroundColor: 'var(--color-bg-raised)', zIndex: 5, py: 1.5 }}
+              >
                 {t('workforceDashboard.table.headers.classification')}
               </TableCell>
 
@@ -125,7 +148,7 @@ export const OrganizationWorkforceDashboardTable = ({
                   colSpan={group.colSpan}
                   align="center"
                   sx={{
-                    backgroundColor: 'var(--color-bg-raised)',
+                    ...GROUP_HEADER_CELL_SX,
                     borderLeft: GROUP_DIVIDER,
                     borderRight: index === PERIOD_GROUPS.length - 1 ? GROUP_DIVIDER : undefined,
                     zIndex: 5
@@ -145,7 +168,7 @@ export const OrganizationWorkforceDashboardTable = ({
                     key={`${group.key}-${subHeader}`}
                     align="right"
                     sx={{
-                      backgroundColor: 'var(--color-bg-raised)',
+                      ...GROUP_SUBHEADER_CELL_SX,
                       fontWeight: subIndex === 0 ? 700 : 600,
                       borderLeft: subIndex === 0 ? GROUP_DIVIDER : undefined,
                       borderRight:
