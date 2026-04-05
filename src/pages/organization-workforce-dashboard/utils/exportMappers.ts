@@ -86,8 +86,7 @@ const formatOrganizationFilter = (selectedOrgName?: string | null) => selectedOr
 
 const formatExportScope = (sections: DashboardTableSection[]) => `${sections.length.toLocaleString('ko-KR')}개 조직 섹션`;
 
-const formatOrganizationCell = (section: DashboardTableSection) =>
-  `${section.orgDisplayName} (${section.orgCode})\n기준조직 ${formatHeadcount(section.sourceRecordCount)}개`;
+const formatOrganizationCell = (section: DashboardTableSection) => section.orgDisplayName;
 
 const formatIndentedLabel = (label: string, level: number) => `${' '.repeat(level * 4)}${label}`;
 
@@ -159,7 +158,7 @@ export const buildOrganizationWorkforceDashboardExportModel = ({
 
   rows.push({
     kind: 'headerGroup',
-    values: [
+      values: [
       '조직',
       '업데이트일',
       '구분',
@@ -209,7 +208,7 @@ export const buildOrganizationWorkforceDashboardExportModel = ({
     }
   );
 
-  sections.forEach((section) => {
+  sections.forEach((section, sectionIndex) => {
     const sectionStartRowIndex = rows.length;
 
     section.rows.forEach((row, rowIndex) => {
@@ -227,16 +226,21 @@ export const buildOrganizationWorkforceDashboardExportModel = ({
     });
 
     if (section.rows.length > 1) {
-      merges.push(
-        {
-          s: { r: sectionStartRowIndex, c: 0 },
-          e: { r: rows.length - 1, c: 0 }
-        },
-        {
-          s: { r: sectionStartRowIndex, c: 1 },
-          e: { r: rows.length - 1, c: 1 }
-        }
-      );
+      merges.push({
+        s: { r: sectionStartRowIndex, c: 0 },
+        e: { r: rows.length - 1, c: 0 }
+      });
+      merges.push({
+        s: { r: sectionStartRowIndex, c: 1 },
+        e: { r: rows.length - 1, c: 1 }
+      });
+    }
+
+    if (sectionIndex < sections.length - 1) {
+      rows.push({
+        kind: 'spacer',
+        values: buildBlankRow()
+      });
     }
   });
 
@@ -263,7 +267,8 @@ export const buildOrganizationWorkforceDashboardExportModel = ({
   return {
     columns: [
       { wch: 26 },
-      { wch: 12 },
+      { wch: 14 },
+      { wch: 14 },
       { wch: 24 },
       { wch: 10 },
       { wch: 10 },

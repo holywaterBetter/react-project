@@ -130,7 +130,7 @@ export const exportOrganizationWorkforceDashboardExcel = ({
     const fillColor = getDataFillColor(row.tone);
 
     styleCell(worksheet, rowIndex, 0, {
-      alignment: { horizontal: 'left', vertical: 'top', wrapText: true },
+      alignment: { horizontal: 'left', vertical: 'center' },
       border: thinBorder,
       fill: { fgColor: { rgb: 'F8FAFC' }, patternType: 'solid' },
       font: { bold: true }

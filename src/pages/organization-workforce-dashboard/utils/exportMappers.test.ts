@@ -94,6 +94,8 @@ describe('buildOrganizationWorkforceDashboardExportModel', () => {
     expect(firstSectionDetailRowIndex).toBeGreaterThan(-1);
     expect(secondSectionFirstRowIndex).toBeGreaterThan(-1);
     expect(secondSectionDetailRowIndex).toBeGreaterThan(-1);
+    expect(model.rows[firstSectionFirstRowIndex].values[0]).toBe('미래전략실');
+    expect(model.rows[secondSectionFirstRowIndex].values[0]).toBe('디지털혁신실');
     expect(model.rows[firstSectionFirstRowIndex].values[1]).toBe('2026.04.01');
     expect(model.rows[secondSectionFirstRowIndex].values[1]).toBe('2026.04.02');
     expect(model.merges).toEqual(
