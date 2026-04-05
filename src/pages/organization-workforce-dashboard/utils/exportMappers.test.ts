@@ -40,7 +40,7 @@ const sections: DashboardTableSection[] = [
     sourceRecordCount: 18
   },
   {
-    lastUpdated: '20260403',
+    lastUpdated: '20260402',
     orgCode: 'ORG002',
     orgDisplayName: '디지털혁신실',
     orgName: '디지털혁신실',
@@ -95,7 +95,7 @@ describe('buildOrganizationWorkforceDashboardExportModel', () => {
     expect(secondSectionFirstRowIndex).toBeGreaterThan(-1);
     expect(secondSectionDetailRowIndex).toBeGreaterThan(-1);
     expect(model.rows[firstSectionFirstRowIndex].values[1]).toBe('2026.04.01');
-    expect(model.rows[secondSectionFirstRowIndex].values[1]).toBe('2026.04.03');
+    expect(model.rows[secondSectionFirstRowIndex].values[1]).toBe('2026.04.02');
     expect(model.merges).toEqual(
       expect.arrayContaining([
         { s: { c: 0, r: 0 }, e: { c: 13, r: 0 } },
