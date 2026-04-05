@@ -38,6 +38,33 @@ const sections: DashboardTableSection[] = [
       }
     ],
     sourceRecordCount: 18
+  },
+  {
+    lastUpdated: '20260403',
+    orgCode: 'ORG002',
+    orgDisplayName: '디지털혁신실',
+    orgName: '디지털혁신실',
+    rows: [
+      {
+        actual2025: { delta: null, headcount: 80, ratio: 100, reallocated: 4 },
+        current202604: { delta: -2, headcount: 78, ratio: 100, reallocated: 5 },
+        id: 'ORG002-total',
+        label: '계',
+        level: 0,
+        target2026: { delta: -1, headcount: 79, ratio: 100, reallocated: 6 },
+        tone: 'total'
+      },
+      {
+        actual2025: { delta: null, headcount: 20, ratio: 25, reallocated: 1 },
+        current202604: { delta: 1, headcount: 21, ratio: 27, reallocated: 2 },
+        id: 'ORG002-b1',
+        label: 'DX플랫폼',
+        level: 1,
+        target2026: { delta: 2, headcount: 22, ratio: 28, reallocated: 2 },
+        tone: 'detail'
+      }
+    ],
+    sourceRecordCount: 9
   }
 ];
 
@@ -58,14 +85,24 @@ describe('buildOrganizationWorkforceDashboardExportModel', () => {
     expect(model.rows[8].values[3]).toBe('인력');
     expect(model.rows[7].values).toHaveLength(14);
     expect(model.rows[8].values).toHaveLength(14);
-    expect(model.rows[9].values[0]).toContain('미래전략실');
-    expect(model.rows[9].values[1]).toBe('2026.04.01');
-    expect(model.rows[10].values[2]).toBe('        AX');
+    const firstSectionFirstRowIndex = model.rows.findIndex((row) => String(row.values[0]).includes('미래전략실'));
+    const firstSectionDetailRowIndex = model.rows.findIndex((row) => row.values[2] === '        AX');
+    const secondSectionFirstRowIndex = model.rows.findIndex((row) => String(row.values[0]).includes('디지털혁신실'));
+    const secondSectionDetailRowIndex = model.rows.findIndex((row) => row.values[2] === '    DX플랫폼');
+
+    expect(firstSectionFirstRowIndex).toBeGreaterThan(-1);
+    expect(firstSectionDetailRowIndex).toBeGreaterThan(-1);
+    expect(secondSectionFirstRowIndex).toBeGreaterThan(-1);
+    expect(secondSectionDetailRowIndex).toBeGreaterThan(-1);
+    expect(model.rows[firstSectionFirstRowIndex].values[1]).toBe('2026.04.01');
+    expect(model.rows[secondSectionFirstRowIndex].values[1]).toBe('2026.04.03');
     expect(model.merges).toEqual(
       expect.arrayContaining([
         { s: { c: 0, r: 0 }, e: { c: 13, r: 0 } },
-        { s: { c: 0, r: 9 }, e: { c: 0, r: 10 } },
-        { s: { c: 1, r: 9 }, e: { c: 1, r: 10 } }
+        { s: { c: 0, r: firstSectionFirstRowIndex }, e: { c: 0, r: firstSectionDetailRowIndex } },
+        { s: { c: 1, r: firstSectionFirstRowIndex }, e: { c: 1, r: firstSectionDetailRowIndex } },
+        { s: { c: 0, r: secondSectionFirstRowIndex }, e: { c: 0, r: secondSectionDetailRowIndex } },
+        { s: { c: 1, r: secondSectionFirstRowIndex }, e: { c: 1, r: secondSectionDetailRowIndex } }
       ])
     );
   });
