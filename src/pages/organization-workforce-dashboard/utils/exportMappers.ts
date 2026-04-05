@@ -268,6 +268,7 @@ export const buildOrganizationWorkforceDashboardExportModel = ({
     columns: [
       { wch: 26 },
       { wch: 14 },
+      { wch: 14 },
       { wch: 24 },
       { wch: 10 },
       { wch: 10 },

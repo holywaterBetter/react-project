@@ -91,3 +91,26 @@ export type OrganizationUploadResult = {
   errors: OrganizationUploadValidationError[];
   totalRows: number;
 };
+
+
+export type WorkforceTargetUploadRow = {
+  baseMonth: string;
+  divisionName: string;
+  divisionCode: string;
+  organizationCode: string;
+  targetByCategory: Record<'A1' | 'B1' | 'B2' | 'B3' | 'C1', string>;
+  reallocationByCategory: Record<'A1' | 'B1' | 'B2' | 'B3' | 'C1', string>;
+};
+
+export type WorkforceTargetUploadDto = {
+  org_code: string;
+  updated_date: string;
+  headcount_20261231_target_by_category: Partial<Record<'A1' | 'B1' | 'B2' | 'B3' | 'C1', number>>;
+  reallocation_target_20261231_by_category: Partial<Record<'A1' | 'B1' | 'B2' | 'B3' | 'C1', number>>;
+};
+
+export type WorkforceTargetUploadResult = {
+  validRows: WorkforceTargetUploadDto[];
+  errors: OrganizationUploadValidationError[];
+  totalRows: number;
+};

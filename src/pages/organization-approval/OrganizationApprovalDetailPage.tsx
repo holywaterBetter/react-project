@@ -1,3 +1,5 @@
+import { organizationCategoryCodes, organizationCategoryMap } from '@constants/organizationCategoryMap';
+import type { OrganizationApprovalChangeRow, WorkforceTargetApprovalChangeRow } from '@features/approval/types/approval';
 import { useDevUserMode } from '@features/auth/context/DevUserModeContext';
 import { canApproveChanges } from '@features/auth/types/devUserMode';
 import { useAppTranslation } from '@hooks/useAppTranslation';
@@ -57,6 +59,8 @@ const rowChanged = (before: OrganizationRecord, after: OrganizationRecord) =>
   before.org_department_name !== after.org_department_name ||
   before.org_category_name !== after.org_category_name;
 
+const targetRowChanged = (row: WorkforceTargetApprovalChangeRow) => row.changedFields.length > 0;
+
 export const OrganizationApprovalDetailPage = () => {
   const { t } = useAppTranslation();
   const { activeUser } = useDevUserMode();
@@ -73,7 +77,15 @@ export const OrganizationApprovalDetailPage = () => {
       return [];
     }
 
-    return request.changedRows.filter((row) => (hideUnchanged ? rowChanged(row.before, row.after) : true));
+    if (request.type === 'workforce-target') {
+      return (request.changedRows as WorkforceTargetApprovalChangeRow[]).filter((row) =>
+        hideUnchanged ? targetRowChanged(row) : true
+      );
+    }
+
+    return (request.changedRows as OrganizationApprovalChangeRow[]).filter((row) =>
+      hideUnchanged ? rowChanged(row.before, row.after) : true
+    );
   }, [hideUnchanged, request]);
 
   if (!request) {
@@ -92,9 +104,7 @@ export const OrganizationApprovalDetailPage = () => {
 
       navigate('/organization/approval');
     } catch (decisionError) {
-      setError(
-        decisionError instanceof Error ? decisionError.message : t('approval.detail.decisionErrorFallback')
-      );
+      setError(decisionError instanceof Error ? decisionError.message : t('approval.detail.decisionErrorFallback'));
     }
   };
 
@@ -117,18 +127,20 @@ export const OrganizationApprovalDetailPage = () => {
               label={t(`common.status.${request.status}`)}
               color={request.status === 'approved' ? 'success' : request.status === 'rejected' ? 'error' : 'warning'}
             />
+            <Chip
+              size="small"
+              variant="outlined"
+              label={request.type === 'workforce-target' ? 'Workforce Target' : 'Organization'}
+              color={request.type === 'workforce-target' ? 'info' : 'default'}
+            />
             <Chip variant="outlined" label={`${t('approval.requester')}: ${request.submittedByLabel}`} />
             <Chip variant="outlined" label={t('approval.detail.rowsChip', { count: request.totalChangedRows })} />
           </Stack>
           <Typography color="text.secondary">
             {t('common.labels.submitted', { value: new Date(request.submittedAt).toLocaleString() })}
-            {request.decision
-              ? ` · ${t('common.labels.decided', { value: new Date(request.decision.decidedAt).toLocaleString() })}`
-              : ''}
+            {request.decision ? ` · ${t('common.labels.decided', { value: new Date(request.decision.decidedAt).toLocaleString() })}` : ''}
           </Typography>
-          {request.decision?.note ? (
-            <Alert severity="info">{t('approval.detail.decisionNotePrefix', { note: request.decision.note })}</Alert>
-          ) : null}
+          {request.decision?.note ? <Alert severity="info">{t('approval.detail.decisionNotePrefix', { note: request.decision.note })}</Alert> : null}
         </Stack>
       </Paper>
 
@@ -160,50 +172,105 @@ export const OrganizationApprovalDetailPage = () => {
         ) : null}
       </Stack>
 
-      <TableContainer component={Paper} variant="outlined">
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>{t('organization.table.headers.updatedDate')}</TableCell>
-              <TableCell>{t('organization.table.headers.division')}</TableCell>
-              <TableCell>{t('organization.table.headers.department')}</TableCell>
-              <TableCell>{t('organization.table.headers.category')}</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {visibleRows.length === 0 ? (
+      {request.type === 'workforce-target' ? (
+        <TableContainer component={Paper} variant="outlined">
+          <Table>
+            <TableHead>
               <TableRow>
-                <TableCell colSpan={4}>{t('approval.noChangedRows')}</TableCell>
+                <TableCell>{t('organization.table.headers.division')}</TableCell>
+                <TableCell>{t('organization.table.headers.updatedDate')}</TableCell>
+                {organizationCategoryCodes.map((categoryCode) => (
+                  <TableCell key={`h-${categoryCode}`} align="right">
+                    Target HC ({organizationCategoryMap[categoryCode].dashboardLabel})
+                  </TableCell>
+                ))}
+                {organizationCategoryCodes.map((categoryCode) => (
+                  <TableCell key={`r-${categoryCode}`} align="right">
+                    Target RA ({organizationCategoryMap[categoryCode].dashboardLabel})
+                  </TableCell>
+                ))}
               </TableRow>
-            ) : (
-              visibleRows.map((row) => {
-                const changed = rowChanged(row.before, row.after);
-
-                return (
-                  <TableRow key={row.orgCode} sx={changed ? { backgroundColor: 'rgba(59, 130, 246, 0.08)' } : undefined}>
+            </TableHead>
+            <TableBody>
+              {visibleRows.length === 0 ? (
+                <TableRow>
+                  <TableCell colSpan={2 + organizationCategoryCodes.length * 2}>{t('approval.noChangedRows')}</TableCell>
+                </TableRow>
+              ) : (
+                (visibleRows as WorkforceTargetApprovalChangeRow[]).map((row) => (
+                  <TableRow key={row.key} sx={targetRowChanged(row) ? { backgroundColor: 'rgba(59, 130, 246, 0.08)' } : undefined}>
+                    <TableCell>{row.divisionName}</TableCell>
                     <TableCell>
                       <DiffCell before={formatYearMonth(row.before.updated_date)} after={formatYearMonth(row.after.updated_date)} />
                     </TableCell>
-                    <TableCell>
-                      <DiffCell before={row.before.org_division_name} after={row.after.org_division_name} />
-                    </TableCell>
-                    <TableCell>
-                      <DiffCell before={row.before.org_department_name} after={row.after.org_department_name} />
-                    </TableCell>
-                    <TableCell>
-                      <DiffCell
-                        before={row.before.org_category_name}
-                        after={row.after.org_category_name}
-                        renderValue={(value) => <Chip size="small" variant="outlined" label={value || '-'} />}
-                      />
-                    </TableCell>
+                    {organizationCategoryCodes.map((categoryCode) => (
+                      <TableCell key={`bh-${row.key}-${categoryCode}`} align="right">
+                        <DiffCell
+                          before={String(row.before.headcount_target_by_category[categoryCode] ?? 0)}
+                          after={String(row.after.headcount_target_by_category[categoryCode] ?? 0)}
+                        />
+                      </TableCell>
+                    ))}
+                    {organizationCategoryCodes.map((categoryCode) => (
+                      <TableCell key={`br-${row.key}-${categoryCode}`} align="right">
+                        <DiffCell
+                          before={String(row.before.reallocation_target_by_category[categoryCode] ?? 0)}
+                          after={String(row.after.reallocation_target_by_category[categoryCode] ?? 0)}
+                        />
+                      </TableCell>
+                    ))}
                   </TableRow>
-                );
-              })
-            )}
-          </TableBody>
-        </Table>
-      </TableContainer>
+                ))
+              )}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <TableContainer component={Paper} variant="outlined">
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>{t('organization.table.headers.updatedDate')}</TableCell>
+                <TableCell>{t('organization.table.headers.division')}</TableCell>
+                <TableCell>{t('organization.table.headers.department')}</TableCell>
+                <TableCell>{t('organization.table.headers.category')}</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {visibleRows.length === 0 ? (
+                <TableRow>
+                  <TableCell colSpan={4}>{t('approval.noChangedRows')}</TableCell>
+                </TableRow>
+              ) : (
+                (visibleRows as OrganizationApprovalChangeRow[]).map((row) => {
+                  const changed = rowChanged(row.before, row.after);
+
+                  return (
+                    <TableRow key={row.key} sx={changed ? { backgroundColor: 'rgba(59, 130, 246, 0.08)' } : undefined}>
+                      <TableCell>
+                        <DiffCell before={formatYearMonth(row.before.updated_date)} after={formatYearMonth(row.after.updated_date)} />
+                      </TableCell>
+                      <TableCell>
+                        <DiffCell before={row.before.org_division_name} after={row.after.org_division_name} />
+                      </TableCell>
+                      <TableCell>
+                        <DiffCell before={row.before.org_department_name} after={row.after.org_department_name} />
+                      </TableCell>
+                      <TableCell>
+                        <DiffCell
+                          before={row.before.org_category_name}
+                          after={row.after.org_category_name}
+                          renderValue={(value) => <Chip size="small" variant="outlined" label={value || '-'} />}
+                        />
+                      </TableCell>
+                    </TableRow>
+                  );
+                })
+              )}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      )}
     </Stack>
   );
 };

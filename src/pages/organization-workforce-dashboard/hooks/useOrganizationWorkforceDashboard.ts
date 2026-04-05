@@ -102,7 +102,7 @@ export const useOrganizationWorkforceDashboard = () => {
     }
 
     return sections.filter((section) => {
-      const keywords = [section.orgDisplayName, section.orgName, section.orgCode].join(' ').toLowerCase();
+      const keywords = [section.orgDisplayName, section.orgName].join(' ').toLowerCase();
       return keywords.includes(deferredKeyword);
     });
   }, [deferredKeyword, sections]);

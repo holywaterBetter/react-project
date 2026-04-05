@@ -128,7 +128,13 @@
       "baseMonth": "Base month {{value}}",
       "lastUpdated": "Last updated {{value}}",
       "refresh": "Refresh",
-      "download": "Download Excel"
+      "download": "Download Excel",
+      "actions": {
+        "upload": "Upload Excel",
+        "uploadSuccess": "Uploaded {{fileName}} successfully.",
+        "uploadInvalidFile": "Please upload a .xlsx file.",
+        "uploadFailure": "Failed to upload the Excel file."
+      }
     },
     "filters": {
       "division": "Division",
