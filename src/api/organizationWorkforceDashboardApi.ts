@@ -50,8 +50,8 @@ const formatBaseMonth = (updatedDate: string) => {
 };
 
 
-const isSmallDivisionGroupEntry = (entry: Pick<OrganizationWorkforceDashboardEntry, 'orgCode'>) =>
-  entry.orgCode === SMALL_DIVISION_GROUP.code;
+const isSmallDivisionGroupEntry = (entry: OrganizationWorkforceDashboardEntry) =>
+  entry.orgCode === SMALL_DIVISION_GROUP.code || entry.orgDisplayName === SMALL_DIVISION_GROUP.name;
 
 const sortEntries = (entries: OrganizationWorkforceDashboardEntry[]) =>
   [...entries].sort((left, right) => {
