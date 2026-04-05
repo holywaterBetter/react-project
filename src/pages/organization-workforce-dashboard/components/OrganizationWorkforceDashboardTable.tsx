@@ -28,6 +28,8 @@ type OrganizationWorkforceDashboardTableProps = {
 };
 
 const GROUP_DIVIDER = '3px solid var(--color-border-strong)';
+const STICKY_HEADER_TOP = 0;
+const STICKY_SUBHEADER_TOP = 56;
 
 const PERIOD_GROUPS: Array<{
   key: keyof PeriodLabels;
@@ -96,11 +98,16 @@ export const OrganizationWorkforceDashboardTable = ({
         <Table size="small" stickyHeader sx={{ minWidth: 1500 }}>
           <TableHead
             sx={{
+              '& .MuiTableCell-stickyHeader': {
+                backgroundColor: 'var(--color-bg-raised)'
+              },
               '& tr:first-of-type .MuiTableCell-stickyHeader': {
-                top: 0
+                top: STICKY_HEADER_TOP,
+                zIndex: 6
               },
               '& tr:nth-of-type(2) .MuiTableCell-stickyHeader': {
-                top: 44
+                top: STICKY_SUBHEADER_TOP,
+                zIndex: 5
               }
             }}
           >
