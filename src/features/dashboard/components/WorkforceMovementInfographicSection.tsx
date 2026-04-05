@@ -1,4 +1,6 @@
+import { OrganizationRatioBarList } from '@features/dashboard/components/OrganizationRatioBarList';
 import type { WorkforceInsightData } from '@features/dashboard/types/workforceInsight';
+import { mapCompositionToOrgRatioRows } from '@features/dashboard/utils/organizationRatioBarMapper';
 import { useAppTranslation } from '@hooks/useAppTranslation';
 import {
   Box,
@@ -7,12 +9,6 @@ import {
   Chip,
   LinearProgress,
   Stack,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
   Typography,
   alpha
 } from '@mui/material';
@@ -44,18 +40,11 @@ const achievementTone = (rate: number) => {
   };
 };
 
-const CATEGORY_BACKGROUND = {
-  A1: 'color-mix(in srgb, var(--color-brand-50) 24%, var(--color-bg-raised) 76%)',
-  B3: 'color-mix(in srgb, var(--color-success-100) 28%, var(--color-bg-raised) 72%)',
-  B2: 'color-mix(in srgb, var(--color-success-100) 24%, var(--color-bg-raised) 76%)',
-  B1: 'color-mix(in srgb, var(--color-brand-50) 14%, var(--color-bg-raised) 86%)',
-  C1: 'color-mix(in srgb, var(--color-warning-100) 38%, var(--color-bg-raised) 62%)'
-} as const;
-
 export const WorkforceMovementInfographicSection = ({
   movementInfographic
 }: WorkforceMovementInfographicSectionProps) => {
   const { t } = useAppTranslation();
+  const organizationRatioRows = mapCompositionToOrgRatioRows(movementInfographic.compositionByScope);
 
   return (
     <Card variant="outlined" sx={{ borderRadius: 3 }}>
@@ -221,58 +210,7 @@ export const WorkforceMovementInfographicSection = ({
                 {t('insight.infographic.compositionDescription')}
               </Typography>
 
-              <TableContainer>
-                <Table size="small" sx={{ minWidth: 940 }}>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell sx={{ minWidth: 170, backgroundColor: 'var(--color-bg-raised)' }}>
-                        {t('insight.infographic.scope')}
-                      </TableCell>
-                      <TableCell
-                        align="right"
-                        sx={{ minWidth: 100, backgroundColor: 'var(--color-bg-raised)' }}
-                      >
-                        {t('insight.infographic.total')}
-                      </TableCell>
-                      {movementInfographic.compositionByScope[0]?.categories.map((category) => (
-                        <TableCell
-                          key={category.code}
-                          align="center"
-                          sx={{
-                            minWidth: 120,
-                            fontWeight: 700,
-                            backgroundColor: CATEGORY_BACKGROUND[category.code]
-                          }}
-                        >
-                          {category.label}
-                        </TableCell>
-                      ))}
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {movementInfographic.compositionByScope.map((row) => (
-                      <TableRow key={`${row.orgCode}-composition`}>
-                        <TableCell sx={{ fontWeight: 700 }}>{row.orgName}</TableCell>
-                        <TableCell align="right" sx={{ fontWeight: 700 }}>
-                          {row.totalHeadcount.toLocaleString()}
-                        </TableCell>
-                        {row.categories.map((category) => (
-                          <TableCell key={`${row.orgCode}-${category.code}`} align="right">
-                            <Stack direction="row" justifyContent="flex-end" spacing={0.9}>
-                              <Typography variant="body2" fontWeight={700}>
-                                {category.ratio.toFixed(1)}%
-                              </Typography>
-                              <Typography variant="caption" color="text.secondary">
-                                ({category.headcount.toLocaleString()})
-                              </Typography>
-                            </Stack>
-                          </TableCell>
-                        ))}
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
+              <OrganizationRatioBarList rows={organizationRatioRows} />
             </CardContent>
           </Card>
         </Stack>
