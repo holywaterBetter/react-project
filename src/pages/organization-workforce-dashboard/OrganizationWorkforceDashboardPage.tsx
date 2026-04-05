@@ -6,6 +6,7 @@ import { OrganizationWorkforceDashboardHeader } from '@pages/organization-workfo
 import { OrganizationWorkforceDashboardTable } from '@pages/organization-workforce-dashboard/components/OrganizationWorkforceDashboardTable';
 import { useOrganizationWorkforceDashboard } from '@pages/organization-workforce-dashboard/hooks/useOrganizationWorkforceDashboard';
 import { exportOrganizationWorkforceDashboardExcel } from '@utils/exportOrganizationWorkforceDashboardExcel';
+import { exportWorkforceTargetUpdateTemplateExcel } from '@utils/exportWorkforceTargetUpdateTemplateExcel';
 import { useCallback, useMemo, useState } from 'react';
 
 export const OrganizationWorkforceDashboardPage = () => {
@@ -13,6 +14,7 @@ export const OrganizationWorkforceDashboardPage = () => {
   const { activeUser, filters, viewState, dataState, actions } = useOrganizationWorkforceDashboard();
   const [exportError, setExportError] = useState<string | null>(null);
   const [isExporting, setIsExporting] = useState(false);
+  const [isTemplateDownloading, setIsTemplateDownloading] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadSummary, setUploadSummary] = useState<string | null>(null);
   const [hasUploadError, setHasUploadError] = useState(false);
@@ -95,17 +97,40 @@ export const OrganizationWorkforceDashboardPage = () => {
     [t]
   );
 
+  const handleTemplateDownload = useCallback(async () => {
+    setExportError(null);
+    setIsTemplateDownloading(true);
+
+    try {
+      await new Promise<void>((resolve) => {
+        window.requestAnimationFrame(() => {
+          resolve();
+        });
+      });
+
+      exportWorkforceTargetUpdateTemplateExcel();
+    } catch (error) {
+      console.error(error);
+      setExportError(error instanceof Error ? error.message : t('workforceDashboard.errors.exportFallback'));
+    } finally {
+      setIsTemplateDownloading(false);
+    }
+  }, [t]);
+
   return (
     <Stack spacing={3}>
       <OrganizationWorkforceDashboardHeader
         baseMonth={dataState.meta?.baseMonth}
+        isUpdateDisabled={viewState.isLoading}
         isExportDisabled={viewState.isLoading || viewState.isEmpty}
         isExporting={isExporting}
+        isTemplateDownloading={isTemplateDownloading}
         isUploading={isUploading}
         uploadSummary={uploadSummary}
         hasUploadError={hasUploadError}
         lastUpdated={dataState.meta?.lastUpdated}
         onExport={handleExport}
+        onTemplateDownload={handleTemplateDownload}
         onUpload={handleUpload}
         onRefresh={actions.refresh}
       />

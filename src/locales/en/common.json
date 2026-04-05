@@ -131,6 +131,11 @@
       "download": "Download Excel",
       "actions": {
         "upload": "Upload Excel",
+        "downloadTemplate": "Download '26 Target update template",
+        "targetUpdateTitle": "'26 Target update",
+        "targetUpdateDescription": "Upload a completed template to update only '26 Target values.",
+        "exportTitle": "Dashboard export",
+        "exportDescription": "Download the full dashboard dataset for reporting.",
         "uploadSuccess": "Uploaded {{fileName}} successfully.",
         "uploadInvalidFile": "Please upload a .xlsx file.",
         "uploadFailure": "Failed to upload the Excel file."
