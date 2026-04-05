@@ -49,8 +49,21 @@ const formatBaseMonth = (updatedDate: string) => {
   return `${updatedDate.slice(0, 4)}.${updatedDate.slice(4, 6)}`;
 };
 
+
+const isSmallDivisionGroupEntry = (entry: Pick<OrganizationWorkforceDashboardEntry, 'orgCode'>) =>
+  entry.orgCode === SMALL_DIVISION_GROUP.code;
+
 const sortEntries = (entries: OrganizationWorkforceDashboardEntry[]) =>
-  [...entries].sort((left, right) => left.orgDisplayName.localeCompare(right.orgDisplayName, 'ko'));
+  [...entries].sort((left, right) => {
+    const leftIsSmallDivisionGroup = isSmallDivisionGroupEntry(left);
+    const rightIsSmallDivisionGroup = isSmallDivisionGroupEntry(right);
+
+    if (leftIsSmallDivisionGroup !== rightIsSmallDivisionGroup) {
+      return leftIsSmallDivisionGroup ? 1 : -1;
+    }
+
+    return left.orgDisplayName.localeCompare(right.orgDisplayName, 'ko');
+  });
 
 const mergeCategoryMetrics = (
   accumulator: Record<OrganizationCategoryCode, DashboardCategoryPeriodMap>,
