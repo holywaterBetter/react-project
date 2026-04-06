@@ -168,6 +168,13 @@
       "baseOrgCount": "기준조직 {{count}}개",
       "updated": "갱신 {{value}}"
     },
+    "rows": {
+      "total": "계",
+      "a": "전출부서(A)",
+      "bc": "전입부서(B+C)",
+      "b": "B",
+      "c": "C"
+    },
     "errors": {
       "exportFallback": "엑셀 파일을 생성하지 못했습니다."
     }

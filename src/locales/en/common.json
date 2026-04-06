@@ -168,6 +168,13 @@
       "baseOrgCount": "Base organizations: {{count}}",
       "updated": "Updated {{value}}"
     },
+    "rows": {
+      "total": "Total",
+      "a": "Outgoing Divisions (A)",
+      "bc": "Incoming Divisions (B+C)",
+      "b": "B",
+      "c": "C"
+    },
     "errors": {
       "exportFallback": "Failed to generate the Excel file."
     }

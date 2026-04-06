@@ -1,8 +1,9 @@
 import { organizationWorkforceDashboardApi } from '@api/organizationWorkforceDashboardApi';
 import { useDevUserMode } from '@features/auth/context/DevUserModeContext';
 import { canSeeAllDivisions } from '@features/auth/types/devUserMode';
+import { useAppTranslation } from '@hooks/useAppTranslation';
 import {
-  type DashboardTableSection,
+  type OrganizationWorkforceDashboardEntry,
   type OrganizationCategoryMappingResponse,
   type OrganizationWorkforceDashboardMeta
 } from '@pages/organization-workforce-dashboard/types/organizationWorkforceDashboard';
@@ -10,11 +11,12 @@ import { buildOrganizationSections } from '@pages/organization-workforce-dashboa
 import { startTransition, useCallback, useDeferredValue, useEffect, useMemo, useState } from 'react';
 
 export const useOrganizationWorkforceDashboard = () => {
+  const { i18n } = useAppTranslation();
   const { activeUser } = useDevUserMode();
   const [selectedOrgCode, setSelectedOrgCode] = useState('');
   const [snapshotMonth, setSnapshotMonth] = useState('2026.04');
   const [keyword, setKeyword] = useState('');
-  const [sections, setSections] = useState<DashboardTableSection[]>([]);
+  const [entries, setEntries] = useState<OrganizationWorkforceDashboardEntry[]>([]);
   const [meta, setMeta] = useState<OrganizationWorkforceDashboardMeta | null>(null);
   const [categoryMappings, setCategoryMappings] = useState<OrganizationCategoryMappingResponse>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -78,14 +80,14 @@ export const useOrganizationWorkforceDashboard = () => {
 
       setMeta(metaResponse.data);
       setCategoryMappings(mappingResponse.data);
-      setSections(buildOrganizationSections(entries));
+      setEntries(entries);
       setSnapshotMonth(metaResponse.data.baseMonth);
 
       if (!canSeeAllDivisions(activeUser) && nextSelectedOrgCode && selectedOrgCode !== nextSelectedOrgCode) {
         setSelectedOrgCode(nextSelectedOrgCode);
       }
     } catch (loadError) {
-      setSections([]);
+      setEntries([]);
       setError(loadError instanceof Error ? loadError.message : 'Failed to load workforce dashboard data.');
     } finally {
       setIsLoading(false);
@@ -97,15 +99,17 @@ export const useOrganizationWorkforceDashboard = () => {
   }, [loadDashboard, refreshToken]);
 
   const filteredSections = useMemo(() => {
+    const localizedSections = buildOrganizationSections(entries, i18n.language);
+
     if (!deferredKeyword) {
-      return sections;
+      return localizedSections;
     }
 
-    return sections.filter((section) => {
+    return localizedSections.filter((section) => {
       const keywords = [section.orgDisplayName, section.orgName].join(' ').toLowerCase();
       return keywords.includes(deferredKeyword);
     });
-  }, [deferredKeyword, sections]);
+  }, [deferredKeyword, entries, i18n.language]);
 
   const handleOrganizationChange = useCallback((nextOrgCode: string) => {
     startTransition(() => {
